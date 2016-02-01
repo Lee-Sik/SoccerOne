@@ -36,6 +36,7 @@
       <ul>
          <li><a href='#'>클럽검색</a></li>
          <li><a href='#'>내 정보</a></li>
+         <li><a href='team_create.do'>팀 생성</a></li>
          <li><a href='#'>클럽설정</a></li>
          <li><a href='#'>클럽게시판</a></li>
       </ul>

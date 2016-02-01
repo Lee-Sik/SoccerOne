@@ -17,6 +17,11 @@
 <definition name="exit.tiles" template="/WEB-INF/views/join/exit.jsp">
 </definition>
 
+<definition name="team_create.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/createTeam.jsp" />
+</definition>
+
+
 <definition name="login.tiles" template="/WEB-INF/views/layouts-tiles.jsp">
 	<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
 	<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
