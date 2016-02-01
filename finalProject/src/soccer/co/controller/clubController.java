@@ -25,10 +25,16 @@ public class clubController {
 	private static final Logger logger = LoggerFactory.getLogger(clubController.class);
 	
 	@RequestMapping(value = "team_create.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String join(foot_team_DTO team, HttpServletRequest request, Model model) throws Exception {	
+	public String join(Model model) throws Exception {	
 		logger.info("clubController join!");
-		//clubservice.join(team);
 		return "team_create.tiles";
+	}
+	
+	@RequestMapping(value = "createTeamAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String joinAf(foot_team_DTO team, Model model) throws Exception {	
+		logger.info("clubController join!");
+		clubservice.join(team);//팀생성 실패시 어떻게 할까?
+		return "team_createAf.tiles";
 	}
 	
 }

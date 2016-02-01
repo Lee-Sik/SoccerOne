@@ -20,6 +20,9 @@
 <definition name="team_create.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/createTeam.jsp" />
 </definition>
+<definition name="team_createAf.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/createTeamAf.jsp" />
+</definition>
 
 
 <definition name="login.tiles" template="/WEB-INF/views/layouts-tiles.jsp">
