@@ -7,6 +7,6 @@
 	<title>header</title>
 </head>
 <body>
-<img src="image/soccer.jpeg" width="10%" >soccer
+<img src="image/title.png" style="size: 100%">
 </body>
 </html>
