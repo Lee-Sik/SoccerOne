@@ -7,10 +7,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
    <insert id="join"
    parameterType="soccer.co.DTO.foot_team_DTO">
-   INSERT INTO foot_team VALUES(#{team_managerid},#{team_name},#{team_intro},#{team_menbernum},#{team_location1},
-   							#{team_location2},#{team_location3},#{team_message},#{team_join},
+   INSERT INTO foot_team VALUES(#{team_managerid},#{team_name},#{team_intro},1,#{team_location1},
+   							#{team_location2},#{team_location3},1,#{team_join},
    							#{team_open},#{team_home},#{team_logo})
    </insert>
+   
+   <select id="getGu" resultType="java.lang.String">
+  	 SELECT GUGUN FROM FOOT_POST GROUP BY GUGUN
+   </select>
    
    
 </mapper>

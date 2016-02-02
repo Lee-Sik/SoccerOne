@@ -31,20 +31,21 @@ body, table{
 }
 #main{
 	width:70%;
-	height:500px;
+	
+    background-color: red;
 	float: left;
 	
 }
 #content{
 	width:30%;
 	height:150px;
-	float: left;
+	/* float: left; */
 	background-color: lightgray;
 }
 #advertise{
 	width:30%;
 	height:350px;
-	float: left;
+	/* float: left; */
 	background-color: white;
 }
 #footer{
@@ -74,4 +75,22 @@ body, table{
 	font-family: -윤고딕310;
 	border-collapse: collapse;
 	
+}
+
+#box .title {
+	width: 80%;
+	margin-left: 20px;
+	margin-top: 20px;
+	border-width: 1px;
+}
+
+#box {
+	width: 80%;
+	min-height: 500px;
+/* 	position: relative; */
+}
+
+.content {
+	display: inline;
+	background-color: lightblue;
 }

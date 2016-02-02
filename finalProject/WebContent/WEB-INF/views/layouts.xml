@@ -15,6 +15,10 @@
 	<put-attribute name="first" value="/WEB-INF/views/bbslist/refirst.jsp" />
 </definition>
 
+<definition name="team_club.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/clubView.jsp" />
+</definition>
+
 <definition name="join.tiles" template="/WEB-INF/views/join/join.jsp">
 </definition>
 

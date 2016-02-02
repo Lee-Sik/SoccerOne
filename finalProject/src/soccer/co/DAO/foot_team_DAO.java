@@ -1,5 +1,8 @@
 package soccer.co.DAO;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -18,6 +21,11 @@ public class foot_team_DAO {
 			int a = sql.insert(ns+"join", fudto);
 		
 		return a==1? true:false;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<String> getGu() {
+		return sql.selectList(ns+"getGu");
 	}
 	
 }

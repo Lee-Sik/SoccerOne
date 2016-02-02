@@ -8,7 +8,7 @@
 <body>
 
 <%
-response.sendRedirect("first.do");
+	response.sendRedirect("first.do");
 %>
 
 <!-- <a href='./login.do'>로그인</a> -->

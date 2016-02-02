@@ -1,7 +1,5 @@
 package soccer.co.controller;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -27,7 +25,14 @@ public class clubController {
 	@RequestMapping(value = "team_create.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String join(Model model) throws Exception {	
 		logger.info("clubController join!");
+		model.addAttribute("list",clubservice.getGu());
 		return "team_create.tiles";
+	}
+	
+	@RequestMapping(value = "club.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String club(Model model) throws Exception {	
+		logger.info("clubController join!");
+		return "team_club.tiles";
 	}
 	
 	@RequestMapping(value = "createTeamAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
