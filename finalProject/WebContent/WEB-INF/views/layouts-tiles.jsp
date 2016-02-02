@@ -7,11 +7,13 @@
 <html>
 <body>
 <!-- #004 view -->
+<div id="top">
 <div id="header"><tiles:insertAttribute name="header"/></div>
 <div id="menu"><tiles:insertAttribute name="menu"/></div>
 <div id="main"><tiles:insertAttribute name="main"/></div>
 <div id="content"><tiles:insertAttribute name="content"/></div>
 <div id="advertise"><tiles:insertAttribute name="advertise"/></div>
+</div>
 <div id="footer"><tiles:insertAttribute name="footer"/></div>
 
     

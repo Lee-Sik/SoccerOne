@@ -1,14 +1,25 @@
 @CHARSET "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
+
+body, table{
+	font-size:12px;
+	font-family: Montserrat, sans-serif;
+}
+#top{
+
+	min-height: 100%; position: relative; width:100%;}
+
 #header{
 	text-align: center;
 	width:100%;
-	font-size: 100;
 	vertical-align: center;
 	background-color: white;
 	font-family: Montserrat, sans-serif;
-	
+}
+#header img{
+	width:100%;
+	max-width:522px;
 }
 #menu{
 	text-align: center;
@@ -20,7 +31,7 @@
 	width:70%;
 	height:500px;
 	float: left;
-	background-color: green;
+	
 }
 #content{
 	width:30%;
@@ -35,9 +46,19 @@
 	background-color: white;
 }
 #footer{
-	width:100%;
-	background-color: black;
+	font-size:13px;
+	color:white;
+	text-align:center;
+	margin-top:-20px; 
+	clear: both; 
+	position: relative; 
+	height: 20px;
+	background-color: #333333;
+	font-family: Montserrat, sans-serif;
+	
 }
+
+
 #first{
 	width:100%;
 	height:600px;

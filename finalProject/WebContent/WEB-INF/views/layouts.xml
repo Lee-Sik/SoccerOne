@@ -33,4 +33,29 @@
  	<put-attribute name="advertise" value="/WEB-INF/views/advertise.jsp"/>
 	<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
 </definition>
+
+<definition name="kickoff.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/kickoff.jsp" />
+
+</definition>
+
+<definition name="matching.tiles" extends="kickoff.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/matching.jsp" />
+
+</definition>
+
+<definition name="publicgame.tiles" extends="kickoff.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/publicgame.jsp" />
+
+</definition>
+
+<definition name="freegame.tiles" extends="kickoff.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/freegame.jsp" />
+
+</definition>
+
 </tiles-definitions>

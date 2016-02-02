@@ -14,13 +14,13 @@
 <div id='cssmenu'>
 
 <ul>
-   <li><a href='./index.html'>홈으로</a></li>
+   <li><a href='./first.do'>홈으로</a></li>
    
-   <li class='active'><a href='http://www.naver.com'>게임</a>
+   <li class='active'><a href='./kickoff.do'>킥오프</a>
       <ul>
-         <li><a href='http://www.daum.net'>킥오프</a></li>
-         <li><a href='#'>매칭</a></li>
-         <li><a href='#'>랭킹</a></li>
+         <li><a href='./matching.do'>매칭등록</a></li>
+         <li><a href='./matching.do'>매칭검색</a></li>
+         <li><a href='./lanking.do'>랭킹</a></li>
       </ul>
    </li>
    
