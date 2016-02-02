@@ -62,4 +62,15 @@
 
 </definition>
 
+
+<definition name="stadium_write.tiles" extends="login.tiles">
+<put-attribute name="main" value="/WEB-INF/views/stadium/stadium_write.jsp" />
+</definition>
+
+<definition name="zipsearch.tiles" template="/WEB-INF/views/stadium/zipsearch.jsp">
+</definition>
+
+<definition name="zipsearch_result.tiles" template="/WEB-INF/views/stadium/zipsearch_result.jsp">
+</definition>
+
 </tiles-definitions>
