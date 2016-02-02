@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_stadium_DTO;
 
 @Repository
 public class foot_stadium_DAO {
@@ -16,8 +17,14 @@ public class foot_stadium_DAO {
 	
 	public List<ZipcodeDTO> zipcode(String dong)throws Exception{
 		
-		List<ZipcodeDTO> zipcode = (List<ZipcodeDTO>)sqlsession.selectList("booking.zipcode", dong);
+		List<ZipcodeDTO> zipcode = (List<ZipcodeDTO>)sqlsession.selectList("stadium.zipcode", dong);
 		
 		return zipcode;
+	}
+	public boolean stadiumWrite(foot_stadium_DTO dto)throws Exception{
+		
+		sqlsession.insert("stadium.stadiumWrite", dto);
+		return true;
+		
 	}
 }

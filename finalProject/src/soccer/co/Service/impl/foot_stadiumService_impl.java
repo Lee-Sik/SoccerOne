@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import soccer.co.DAO.foot_stadium_DAO;
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.Service.foot_stadiumService;
 
 @Service
@@ -18,6 +19,13 @@ public class foot_stadiumService_impl implements foot_stadiumService{
 	@Override
 	public List<ZipcodeDTO> zipcode(String dong) throws Exception {
 		return dao.zipcode(dong);
+	}
+
+	@Override
+	public boolean stadiumWrite(foot_stadium_DTO dto) throws Exception {
+		
+		return dao.stadiumWrite(dto);
+		
 	}
 	
 }

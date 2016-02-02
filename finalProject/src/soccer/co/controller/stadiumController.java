@@ -1,6 +1,11 @@
 package soccer.co.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -15,10 +20,17 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.Service.foot_stadiumService;
 
 
@@ -93,4 +105,139 @@ public class stadiumController {
 		model.addAttribute("val", val);
 		
 	}
+	
+	/*@RequestMapping(value = "stadium_write_ok.do", method = {RequestMethod.GET, RequestMethod.POST})
+    public String uploadFile(foot_stadium_DTO dto,HttpServletRequest request,
+                     Model model) throws Exception {
+		
+		Multipart filename = request.getParameter("stadium_img1");
+		
+		 String savePath = request.getSession().getServletContext().getRealPath("/upload");
+         String originalFilename1 = stadium_img1.getOriginalFilename(); // fileName.jpg
+         String originalFilename2 = stadium_img2.getOriginalFilename(); // fileName.jpg
+         String originalFilename3 = stadium_img3.getOriginalFilename(); // fileName.jpg
+         String originalFilename4 = stadium_img4.getOriginalFilename(); // fileName.jpg
+         
+         
+         String onlyFileName = originalFilename1.substring(0, originalFilename1.indexOf(".")); // fileName
+     
+         String extension = originalFilename1.substring(originalFilename1.indexOf(".")); // .jpg
+     
+//        String rename = onlyFileName + "_" + getCurrentDayTime() + extension; // fileName_20150721-14-07-50.jpg
+     
+         String fullPath = savePath + "\\" + originalFilename1;
+     
+         if (!stadium_img1.isEmpty()) {
+             try {
+                 byte[] bytes = stadium_img1.getBytes();
+                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(fullPath)));
+                 stream.write(bytes);
+                 stream.close();
+                 model.addAttribute("resultMsg", "파일을 업로드 성공!");
+             } catch (Exception e) {
+                 model.addAttribute("resultMsg", "파일을 업로드하는 데에 실패했습니다.");
+             }
+         } else {
+             model.addAttribute("resultMsg", "업로드할 파일을 선택해주시기 바랍니다.");
+         }
+  
+         model.addAttribute("doc_title", "PDS 자료실");
+
+      dto.setStadium_img1(originalFilename1);
+		
+		
+		String addr = request.getParameter("addr1") + request.getParameter("addr2");
+	       dto.setAddr(addr);
+		
+	       service.stadiumWrite(dto);
+		
+	       return "redirect:/kickoff.do";
+    }*/
+	
+	@RequestMapping(value = "stadium_write_ok.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String stadium_write_ok(Model model,HttpServletRequest request) throws Exception {
+		
+		foot_stadium_DTO dto = new foot_stadium_DTO();
+		
+		String uri = request.getRequestURI();
+		
+		String url;
+		
+		String root = request.getServletContext().getRealPath("/");
+		
+		String path = root + File.separator + "pds" + File.separator + "imageFile";
+		
+		File dir = new File(path);
+		if(!dir.exists()){
+			dir.mkdirs();
+		}
+		
+		String encType = "UTF-8";
+		int maxSize = 5*512*512;
+
+		MultipartRequest mr = 
+				new MultipartRequest(request, path, maxSize, encType, new DefaultFileRenamePolicy());
+		
+		System.out.println("useremail12313:" + mr.getParameter("user_email"));
+		
+		
+		if(mr.getFile("stadium_img1")!=null){
+			
+			dto.setStadium_img1(mr.getFilesystemName("stadium_img1"));
+		}
+		
+		
+		
+		
+		
+		
+		/*MultipartRequest mr = new MultipartReques(request, path, maxSize, encType,
+				new DefaultFileRenamePolicy());*/
+		
+		
+		
+		
+		
+	       String addr = request.getParameter("addr1") + request.getParameter("addr2");
+	       dto.setAddr(addr);
+	       
+	       System.out.println("1 : " + dto.getUser_email());
+	       System.out.println("2 : " + dto.getAddr());
+	       System.out.println("3 : " + dto.getFindway());
+	       System.out.println("4 : " + dto.getS_content());
+	       System.out.println("5 : " + dto.getUser_email());
+	       System.out.println("6 : " + dto.getStadium_phone());
+	       
+	       System.out.println("img1 : " + dto.getStadium_img1());
+	       
+	       service.stadiumWrite(dto);
+		
+	       return "redirect:/kickoff.do";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
