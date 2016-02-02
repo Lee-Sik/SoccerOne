@@ -18,6 +18,9 @@
 <definition name="join.tiles" template="/WEB-INF/views/join/join.jsp">
 </definition>
 
+<definition name="myinform.tiles" template="/WEB-INF/views/login/myinform.jsp">
+</definition>
+
 <definition name="exit.tiles" template="/WEB-INF/views/join/exit.jsp">
 </definition>
 
@@ -37,6 +40,13 @@
  	<put-attribute name="advertise" value="/WEB-INF/views/advertise.jsp"/>
 	<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
 </definition>
+
+<definition name="logout.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/login/logout.jsp" />
+
+</definition>
+
 
 <definition name="kickoff.tiles" extends="login.tiles">
 

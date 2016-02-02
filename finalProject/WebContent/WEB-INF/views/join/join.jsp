@@ -28,8 +28,6 @@ body{
 table{
 font-size: 15pt;
 	font-family: -윤고딕310;
-
-
 }
 
 .center{
@@ -41,11 +39,26 @@ font-size: 15pt;
 <div>
 <div>
 <table width="100%">
-<br><br><br>
 </table>
 <script type="text/javascript">
 function selectval1(val){
 	var objid = document.getElementById('text3');
+	objid.value = val;
+}
+function footchange(val){
+	var objid = document.getElementByname('user_foot');
+	objid.value = val;
+}
+function user_position1(val){
+	var objid = document.getElementByname('user_position1');
+	objid.value = val;
+}
+function user_position2(val){
+	var objid = document.getElementByname('user_position2');
+	objid.value = val;
+}
+function user_position3(val){
+	var objid = document.getElementByname('user_position3');
 	objid.value = val;
 }
 
@@ -72,6 +85,12 @@ function function1(val){
 	var phone2 = document.getElementsByName('user_phone2');
 	var phone3 = document.getElementsByName('user_phone3');
 	document.getElementsByName('user_phone').value = phone3[0].value+"-"+phone1[0].value+"-"+phone2[0].value;
+	
+	
+	var user_birth1 = document.getElementsByName('user_birth1');
+	var user_birth2 = document.getElementsByName('user_birth2');
+	var user_birth3 = document.getElementsByName('user_birth3');
+	document.getElementsByName('user_birth').value = user_birth1[0].value+"-"+user_birth2[0].value+"-"+user_birth3[0].value;
 	
 	document.f.submit(); 
 }
@@ -113,29 +132,19 @@ function function1(val){
 </tr>
 <tr>
 <td>Birth</td>
+<td>
+<input type="text" name="userbirth1"  size="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">년
 
-<script>
-$(function() {
-  $( "#datepicker1" ).datepicker({
-    dateFormat: 'yy-mm-dd',
-    prevText: '이전 달',
-    nextText: '다음 달',
-    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-    dayNames: ['일','월','화','수','목','금','토'],
-    dayNamesShort: ['일','월','화','수','목','금','토'],
-    dayNamesMin: ['일','월','화','수','목','금','토'],
-    showMonthAfterYear: true,
-    yearSuffix: '년'
-  });
-});
-</script>
-<td><input type="text" name="user_birth" id="datepicker1">
+<input type="text" name="userbirth2"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">월
+
+<input type="text" name="userbirth3" size="2"onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">일
+<input type="hidden" name="userbirth">
 </td>
+
 </tr>
 <tr>
 <td>AGE</td>
-<td><input type="text" name="user_age" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
+<td><input type="text" name="user_age"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
 </tr>
 <tr>
 <td>phone</td>
@@ -155,31 +164,90 @@ $(function() {
 </tr>
 <tr>
 <td>user_high</td>
-<td><input type="text" name="user_high" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
+<td><input type="text" name="user_high" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">cm</td>
 </tr>
 <tr>
 <td>user_weight</td>
-<td><input type="text" name="user_weight" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
+<td><input type="text" name="user_weight" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">kg</td>
 </tr>
 <tr>
 <td>user_foot</td>
-<td><input type="text" name="user_foot"></td>
+<td>
+<select onchange="footchange(this.value)">
+<option value="">선택하세요</option>
+<option value="left foot">왼발</option>
+<option value="right foot">오른발</option>
+<option value="both feet">양발</option>
+</select>
+<input type="hidden" name="user_foot">
+</td>
 </tr>
 <tr>
 <td>주포지션</td>
-<td><input type="text" name="user_position1"></td>
+<td>
+<select onchange="user_position1(this.value)">
+<option value=""></option>
+<option value="">GK(골키퍼)</option>
+<option value="">RB(오른쪽 수비수)</option>
+<option value="">LB(왼쪽 수비수)</option>
+<option value="">CB(중앙 수비수)</option>
+<option value="">CM(중앙 미드필더)</option>
+<option value="">CAM(공격형 미드필더)</option>
+<option value="">CDM(수비형 미드필더)</option>
+<option value="">LM(왼쪽 윙어)</option>
+<option value="">RM(오른쪽 윙어)</option>
+<option value="">ST(스트라이커)</option>
+<option value="">LWF(왼쪽 공격수)</option>
+<option value="">RWF(오른쪽 공격수)</option>
+</select>
+<input type="hidden" name="user_position1">
+</td>
 </tr>
 <tr>
 <td>활동포지션1</td>
-<td><input type="text" name="user_position2"></td>
+<td>
+<select onchange="user_position2(this.value)">
+<option value=""></option>
+<option value="">GK(골키퍼)</option>
+<option value="">RB(오른쪽 수비수)</option>
+<option value="">LB(왼쪽 수비수)</option>
+<option value="">CB(중앙 수비수)</option>
+<option value="">CM(중앙 미드필더)</option>
+<option value="">CAM(공격형 미드필더)</option>
+<option value="">CDM(수비형 미드필더)</option>
+<option value="">LM(왼쪽 윙어)</option>
+<option value="">RM(오른쪽 윙어)</option>
+<option value="">ST(스트라이커)</option>
+<option value="">LWF(왼쪽 공격수)</option>
+<option value="">RWF(오른쪽 공격수)</option>
+</select>
+<input type="hidden" name="user_position2">
+</td>
 </tr>
 <tr>
 <td>활동포지션2</td>
-<td><input type="text" name="user_position3"></td>
+<td>
+<select onchange="user_position3(this.value)">
+<option value=""></option>
+<option value="">GK(골키퍼)</option>
+<option value="">RB(오른쪽 수비수)</option>
+<option value="">LB(왼쪽 수비수)</option>
+<option value="">CB(중앙 수비수)</option>
+<option value="">CM(중앙 미드필더)</option>
+<option value="">CAM(공격형 미드필더)</option>
+<option value="">CDM(수비형 미드필더)</option>
+<option value="">LM(왼쪽 윙어)</option>
+<option value="">RM(오른쪽 윙어)</option>
+<option value="">ST(스트라이커)</option>
+<option value="">LWF(왼쪽 공격수)</option>
+<option value="">RWF(오른쪽 공격수)</option>
+</select>
+<input type="hidden" name="user_position3">
+</td>
 </tr>
 <tr>
 <td>user_address</td>
-<td><input type="text" name="user_address"></td>
+<td><input type="text" name="user_address" size="60"></td>
 </tr>
 <tr>
 <td>user_profile</td>

@@ -42,6 +42,13 @@ function popupOpen(){
 alert("아이디나 비밀번호가 틀렸습니다. 다시 로그인하세요.");
 </script>
 </c:if>
+
+<c:if test="${not empty login }">
+<script type="text/javascript">
+location.href="login1.do";
+</script>
+</c:if>
+
 <div class="first">
 <div class="first1">
 
@@ -53,7 +60,7 @@ alert("아이디나 비밀번호가 틀렸습니다. 다시 로그인하세요."
 
 <table >
 <tr>
-<td style="color: gray">
+<td style="color: white">
 아이디
 </td>
 <td >
@@ -61,7 +68,7 @@ alert("아이디나 비밀번호가 틀렸습니다. 다시 로그인하세요."
 </td>
 </tr>
 <tr>
-<td style="color: gray">
+<td style="color: white">
 비밀번호
 </td>
 <td>
