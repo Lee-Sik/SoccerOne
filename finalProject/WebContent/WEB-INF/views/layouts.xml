@@ -11,6 +11,10 @@
 	<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
 </definition>
 
+<definition name="refirst.tiles" extends="login.tiles">
+	<put-attribute name="first" value="/WEB-INF/views/bbslist/refirst.jsp" />
+</definition>
+
 <definition name="join.tiles" template="/WEB-INF/views/join/join.jsp">
 </definition>
 

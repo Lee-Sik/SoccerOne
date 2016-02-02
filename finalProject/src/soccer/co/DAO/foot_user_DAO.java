@@ -14,9 +14,11 @@ public class foot_user_DAO{
 	
 	private String ns = "foot_user.";
 
-	public foot_user_DTO login(foot_user_DTO fudto) throws Exception {
+	public foot_user_DTO login(foot_user_DTO fudto) {
 		// TODO Auto-generated method stub
 		foot_user_DTO fudto1 = (foot_user_DTO) sqlse.selectOne(ns+"login", fudto);
+			
+		
 		return fudto1;
 	}
 

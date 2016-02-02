@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,10 +9,13 @@
 <title>Insert title here</title>
 <style type="text/css">
 div.first{
-background-image: url("image/back1.jpg");
+background-image: url("image/back3.jpg");
+background-size: contain;
 width: 100%;
 height: 600px;
+
 }
+
 div.first1{
 float:left;
 width: 28%;
@@ -32,17 +37,23 @@ function popupOpen(){
 </script>
 </head>
 <body>
+<c:if test="${loginfalse eq 1 }">
+<script type="text/javascript">
+alert("아이디나 비밀번호가 틀렸습니다. 다시 로그인하세요.");
+</script>
+</c:if>
 <div class="first">
 <div class="first1">
 
 </div>
 <div class="first2">
-<form action="login.do" >
+<form action="login.do" method="post">
+<input type="hidden" name="loginok" value="0">
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <table >
 <tr>
-<td style="color: white">
+<td style="color: gray">
 아이디
 </td>
 <td >
@@ -50,7 +61,7 @@ function popupOpen(){
 </td>
 </tr>
 <tr>
-<td style="color: white">
+<td style="color: gray">
 비밀번호
 </td>
 <td>
@@ -66,6 +77,8 @@ function popupOpen(){
 </table>
 </form>
 </div>
+
+
 </div>
 </body>
 </html>

@@ -29,11 +29,22 @@ private static final Logger logger = LoggerFactory.getLogger(userController.clas
 		return "first.tiles";
 	}
 	@RequestMapping(value = "login.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String login(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
+	public String login(foot_user_DTO fudto,int loginok, HttpServletRequest request, Model model) {	
+		String login1="login.tiles";
 		logger.info("Welcome HelloMemberController login! "+ new Date());
-		foot_user_DTO login = fuservice.login(fudto);
+		foot_user_DTO login=null;
+		try {
+			login = fuservice.login(fudto);
+			login.toString();
+		} catch (Exception e) {
+			e.printStackTrace();
+			int loginfalse=1;
+			request.getSession().setAttribute("loginfalse", loginfalse);
+			login1="first.tiles";	
+		}
+		
 		request.getSession().setAttribute("login", login);
-		return "login.tiles";
+		return login1;
 	}
 	@RequestMapping(value = "join.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String join(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
@@ -42,8 +53,10 @@ private static final Logger logger = LoggerFactory.getLogger(userController.clas
 		return "join.tiles";
 	}
 	@RequestMapping(value = "join1.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String join1(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
+	public String join1(foot_user_DTO fudto,String user_email1,String user_email2, HttpServletRequest request, Model model) throws Exception {	
 		logger.info("Welcome HelloMemberController join1! "+ new Date());
+		String user_email = user_email1+"@"+user_email2;
+		fudto.setUser_email(user_email);
 		boolean join=fuservice.join(fudto);
 		return "exit.tiles";
 	}
