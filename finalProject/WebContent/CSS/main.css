@@ -3,6 +3,8 @@
 
 
 body, table{
+	
+	text-align:center;
 	font-size:12px;
 	font-family: Montserrat, sans-serif;
 }

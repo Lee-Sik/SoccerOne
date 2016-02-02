@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <fmt:requestEncoding value="UTF-8"/>
 
-<link rel="stylesheet" type="text/css"	href="<c:url value="css/tables.css"/>" />
+<%-- <link rel="stylesheet" type="text/css"	href="<c:url value="css/tables.css"/>" /> --%>
 
 <html>
 <head>
@@ -236,5 +236,9 @@ function slideShow() {
   
 } // slideShow
 </script>
+
+<center>
+<br><br>
+<div style="height:0px;width:100%;overflow:visible;z-index:2000;font-size:0px;line-height: 0px;"><div style="position:relative;margin:0px;padding:0px;display:inline-block;height:0px;overflow:visible;z-index:2000;width:250px;"><a href="//info.widerplanet.com/ad_page.php?lid=18511&campaignid=78090&zoneid=18504&c_type=201" target="_blank" style="position:absolute;top:0px;right:0px;display:inline-block;z-index:3000;overflow:hidden;border:0px; width:49px;height:14px;"> <img src="//cdn-aitg.widerplanet.com/images/tgad_globe.png" onmouseover="this.style.marginLeft='-14px';" onmouseout="this.style.marginLeft='35px';" style="margin-left:35px;" border="0"></a></div></div><a href='//altg.widerplanet.com/delivery/ck.php?oaparams=2__cb=7e0e291f9c__lid=18511__bannerid=603657__cid=454431__campaignid=78090__campaigngroupid=0__zoneid=18504__dlid=a6cb8857acb383c3444ed6c54a00971914543901406717350703__rv=46__rvt=2__zc=9n80__zct=5__ctype=201__ft=0__arehn=057__host=www__domain=soccerline.co.kr__category=1005260%5E%5E__OXLCA=1__oadest=http%3A%2F%2Fwww.abcmart.co.kr%2Fabc%2FplanDisp%2Fdetail%3FplndpId%3D001804&qsc=1039ze4' title='advertise' target='_blank' ><span style='display:none;'></span><img src='//cdn-aitg.widerplanet.com/images/wp/aa/4e/aa96a03e4baf5d9947e1e83e2d1f164e.jpg' width='250' height='250' alt='' title='' border='0'  /></a><div id='beacon_8e8ba97226' style='position: absolute; left: 0px; top: 0px; visibility: hidden;'><img src='//altg.widerplanet.com/delivery/lg.php?cb=b8bd3c7d3e&amp;lid=18511&amp;bannerid=603657&amp;cid=454431&amp;campaignid=78090&amp;campaigngroupid=0&amp;zoneid=18504&amp;dlid=a6cb8857acb383c3444ed6c54a00971914543901406717350703&amp;rv=46&amp;rvt=2&amp;zc=9n80&amp;zct=5&amp;ctype=201&amp;ft=0&amp;arehn=057&amp;host=www&amp;domain=soccerline.co.kr&amp;category=1005260%5E%5E&amp;ii=1&amp;OABLOCK=1200&amp;OACAP=15&amp;OXLIA=1&amp;qsc=gn1hex' width='0' height='0' alt='ad' style='width: 0px; height: 0px;' /></div></center>
 </body>
 </html>

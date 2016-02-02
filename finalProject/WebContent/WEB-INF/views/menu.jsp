@@ -5,6 +5,8 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="CSS/styles.css">
+   <link rel="stylesheet" href="CSS/table.css">
+   <link rel="stylesheet" href="CSS/tables.css">
    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    <script src="CSS/script.js"></script>
    <title>Main Menu</title>
@@ -42,9 +44,9 @@
       </ul>
    </li>
    
-    <li class='active'><a href='#'>커뮤니티</a>
+    <li class='active'><a href='./comunity.do'>커뮤니티</a>
       <ul>
-         <li><a href='#'>축덕포럼</a></li>
+         <li><a href='./bbslist.do'>축덕포럼</a></li>
          <li><a href='#'>짤방게시판</a></li>
          <li><a href='#'>중고장터</a></li>
       </ul>

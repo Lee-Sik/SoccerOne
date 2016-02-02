@@ -3,7 +3,7 @@
 "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
 "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
-<!-- #003 view -->
+
 <definition name="first.tiles" template="/WEB-INF/views/layouts-tiles-first.jsp">
 	<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
 	<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
@@ -30,7 +30,6 @@
 <definition name="team_createAf.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/createTeamAf.jsp" />
 </definition>
-
 
 <definition name="login.tiles" template="/WEB-INF/views/layouts-tiles.jsp">
 	<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
@@ -74,7 +73,7 @@
 
 
 <definition name="stadium_write.tiles" extends="login.tiles">
-<put-attribute name="main" value="/WEB-INF/views/stadium/stadium_write.jsp" />
+	<put-attribute name="main" value="/WEB-INF/views/stadium/stadium_write.jsp" />
 </definition>
 
 <definition name="zipsearch.tiles" template="/WEB-INF/views/stadium/zipsearch.jsp">
@@ -82,5 +81,24 @@
 
 <definition name="zipsearch_result.tiles" template="/WEB-INF/views/stadium/zipsearch_result.jsp">
 </definition>
+
+<definition name="bbswrite.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/bbs/bbswrite.jsp" />
+
+</definition>
+
+<definition name="bbslist.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/bbs/bbslist.jsp" />
+
+</definition>
+
+<definition name="comunity.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/bbs/comunity.jsp" />
+
+</definition>
+
 
 </tiles-definitions>

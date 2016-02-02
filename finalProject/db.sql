@@ -1,3 +1,44 @@
+SELECT NVL(count(*),0) AS cnt
+			  FROM  FOOT_BBS  WHERE 1 = 1
+
+SELECT * FROM FOOT_BBS
+ 			ORDER BY BBS_NO DESC
+
+
+select * from FOOT_USER
+
+select * from foot_bbs
+
+create table foot_bbs(                    --친선경기 게시판 
+   bbs_no number primary key, --게시글 시퀀스
+   topic varchar2(50) not null,         --글유형
+   user_email varchar2(50) not null,    --작성자
+   title varchar2(200) not null,		--굴제목
+   content varchar2(4000) not null,		--글내용
+   wdate date not null,					--작성일
+   good number(8) not null,						--좋아요
+   readcount number(8) not null,					--조회수
+   imageurl varchar2(50) not null,
+   del number(8) not null,--그림주소
+   
+   CONSTRAINT FK_bbs FOREIGN KEY(user_email) REFERENCES foot_user(user_email)      
+);
+
+create sequence foot_bbs_seq
+start with 1 increment by 1;
+
+
+DROP TABLE foot_bbs CASCADE CONSTRAINT;
+
+DROP SEQUENCE foot_bbs_seq;
+
+
+
+
+
+
+
+
 
 
 update FOOT_PUBLICGAME set game_state = 1 where game_no = 2;
