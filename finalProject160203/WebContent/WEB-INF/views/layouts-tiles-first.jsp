@@ -22,6 +22,6 @@
 <div id="header"><tiles:insertAttribute name="header"/></div>
 <div id="menu"><tiles:insertAttribute name="menu"/></div>
 <div id="first"><tiles:insertAttribute name="first"/></div>
-<div id="footer"><tiles:insertAttribute name="footer"/></div>
+<%-- <div id="footer"><tiles:insertAttribute name="footer"/></div> --%>
 </body>
 </html>
