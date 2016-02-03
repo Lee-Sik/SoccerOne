@@ -57,6 +57,11 @@ public class stadiumController {
 		
 		return "stadium_write.tiles";
 	}
+	@RequestMapping(value = "bookingList.do", method = RequestMethod.GET)	
+	public String bookingList(Model model) {		
+		
+		return "bookingList.tiles";
+	}
 	@RequestMapping(value = "zipsearch.do", method = RequestMethod.GET)	
 	public String zipsearch(Model model) {		
 		
@@ -221,7 +226,11 @@ public class stadiumController {
 	}
 	
 	
-	
+	@RequestMapping(value = "post.do", method = RequestMethod.GET)	
+	public String post(Model model) {		
+		
+		return "post.tiles";
+	}
 	
 	
 	

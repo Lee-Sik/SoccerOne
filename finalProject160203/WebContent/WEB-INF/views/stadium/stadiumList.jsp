@@ -9,21 +9,12 @@
 </head>
 <body>
 
-<div id="Container" >
-		<div class="wrap">
+
 			<!-- 콘텐츠 -->
-			<div class="contents">
+
 				<div class="hb_wrap booking_wrap">
-							<div class="book_top">
-								<h3>야구장 정보 및 부킹관리</h3>
-								<ul class="navi">
-									<li>HOME</li>
-									<li>야구부킹</li>
-									<li>야구장부킹</li>
-									<li><strong>야구장 정보 및 부킹관리</strong></li>
-								</ul>
-							</div>
-							<div class="book_list_top">
+							
+							<div class="book_list_top" style="width: 90%; margin-left: 30px;">
 								<div class="manage_list">
 									<ul>
                                                                                                                                 
@@ -32,21 +23,19 @@
                                                 <span class="name">신촌야구장</span>
                                                 <span class="btn"><a href="/booking/stadium/write?ground_seq=5739" class="sbbtn">야구장정보</a></span>
                                                 <span class="btn"><a href="/booking/stadium/writeb?ground_seq=5739" class="sbbtn">부킹등록</a></span>
-                                                <span class="btn"><a href="/booking/stadium/write?mode=delete&ground_seq=5739" class="del">삭제</a></span>
+                                                <span class="btn"><a href="/booking/stadium/write?mode=delete&ground_seq=5739"> <img src="image/btn_del.png"> </a></span>
                                             </li>
                                                                                                                                 										<!---->
 									</ul>
 								</div>
 								<div class="btn_group">
 									<div class="right">
-										<a href="/booking/stadium/write" class="bbtn">구장등록</a>
+										<a href="./stadium_write.do" class="bbtn">구장등록</a>
 									</div>
 								</div>
 							</div>
 </div>
-</div>
-</div>
-</div>
+
 
 </body>
 </html>

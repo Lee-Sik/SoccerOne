@@ -17,7 +17,7 @@
 				<div class="hb_wrap booking_wrap">
 
 
-<div class="book_list_top">
+<div class="book_list_top" style="width: 90%; margin-left: 30px;">
 	<div class="tab_area">
 		<ul class="tab">
 					<li class="on"><a href="/booking/stadium/main?area=00&date=&selectGround=&kword=">전체</a></li>

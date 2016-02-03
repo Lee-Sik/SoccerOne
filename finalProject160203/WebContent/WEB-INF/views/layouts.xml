@@ -78,6 +78,10 @@
 <!-- booking -->
 
 <definition name="stadium_write.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/stadium/stadium_write.jsp" />
+</definition>
+
+<definition name="bookingList.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/bookingList.jsp" />
 </definition>
 
@@ -85,6 +89,9 @@
 </definition>
 
 <definition name="zipsearch_result.tiles" template="/WEB-INF/views/stadium/zipsearch_result.jsp">
+</definition>
+
+<definition name="post.tiles" template="/WEB-INF/views/stadium/post.jsp">
 </definition>
 
 <definition name="stadiumList.tiles" extends="login.tiles">

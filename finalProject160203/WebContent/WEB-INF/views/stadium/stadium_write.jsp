@@ -107,7 +107,10 @@ td.td2 {
 >>>>>>> .r33
 	
 	<a href="#" onclick="javascript:window.open('./zipsearch.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
-	<img src="image/wofun.png"></a> <br>
+	<img src="image/wofun.png"></a> 
+	<a href="#" onclick="javascript:window.open('./post.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
+	<img src="image/wofun.png"></a>
+	<br>
 	<input type="text" name="addr1" id="addr1" size="70"> <br> 
 	<input type="text" name="addr2" value="">
 	</td>
