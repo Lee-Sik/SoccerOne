@@ -45,22 +45,7 @@ function selectval1(val){
 	var objid = document.getElementById('text3');
 	objid.value = val;
 }
-function footchange(val){
-	var objid = document.getElementByname('user_foot');
-	objid.value = val;
-}
-function user_position1(val){
-	var objid = document.getElementByname('user_position1');
-	objid.value = val;
-}
-function user_position2(val){
-	var objid = document.getElementByname('user_position2');
-	objid.value = val;
-}
-function user_position3(val){
-	var objid = document.getElementByname('user_position3');
-	objid.value = val;
-}
+
 
 function function1(val){
 	var pw = document.getElementsByName('user_pw');
@@ -79,20 +64,49 @@ function function1(val){
 	else if(name[0].value.length<=1||name[0].value.length>=6){
 		alert("이름은 2자리부터 5자리까지 입력하셔야합니다.");
 		name[0].focus();
-	} 
-	
-	var phone1 = document.getElementsByName('user_phone1');
-	var phone2 = document.getElementsByName('user_phone2');
-	var phone3 = document.getElementsByName('user_phone3');
-	document.getElementsByName('user_phone').value = phone3[0].value+"-"+phone1[0].value+"-"+phone2[0].value;
-	
-	
-	var user_birth1 = document.getElementsByName('user_birth1');
-	var user_birth2 = document.getElementsByName('user_birth2');
-	var user_birth3 = document.getElementsByName('user_birth3');
-	document.getElementsByName('user_birth').value = user_birth1[0].value+"-"+user_birth2[0].value+"-"+user_birth3[0].value;
-	
-	document.f.submit(); 
+	} else{
+		
+		
+		var foot1 = document.f.user_foot1.value;
+		var foot = document.f.user_foot;
+		foot.value = foot1;
+		var position11 = document.f.user_position11.value;
+		var position12 = document.f.user_position12.value;
+		var position13 = document.f.user_position13.value;
+		var position1 = document.f.user_position1;
+		var position2 = document.f.user_position2;
+		var position3 = document.f.user_position3;
+		position1.value = position11;
+		position2.value = position12;
+		position3.value = position13;
+
+		var phone1 = document.f.user_phone1.value;
+		var phone1 = document.f.user_phone1.value;
+
+		var phone1 = document.f.user_phone1.value;
+		var phone2 = document.f.user_phone2.value;
+		var phone3 = document.f.user_phone3.value;
+		var phone = document.f.user_phone;
+		var a = phone3 + "-" + phone1 + "-" + phone2;
+		phone.value = a;
+
+		var birth1 = document.f.user_birth1.value;
+		var birth2 = document.f.user_birth2.value;
+		var birth3 = document.f.user_birth3.value;
+		var birth = document.f.user_birth;
+		var b = birth1 + "-" + birth2 + "-" + birth3;
+		birth.value = b;
+
+		
+		var address1 = document.f.user_address1.value;
+		var address2 = document.f.user_address2.value;
+		var address3 = document.f.user_address3.value;
+		var address = document.f.user_address;
+		var c = address1 + "-" + address2 + "-" + address3;
+		address.value = c;
+		
+		document.f.submit(); 
+	}
 }
 </script>
 </div>
@@ -105,7 +119,7 @@ function function1(val){
 <table>
 <tr>
 <td>e-mail</td>
-<td><input type="text" name="user_email1" maxlength= "30">@
+<td colspan="5"><input type="text" name="user_email1" maxlength= "30">@
 <select onchange="selectval1(this.value)">
 <option value="">선택하세요</option>
 <option value="naver.com">naver.com</option>
@@ -119,36 +133,36 @@ function function1(val){
 </tr>
 <tr>
 <td>PASSWORD</td>
-<td><input type="password" name="user_pw" maxlength="8"></td>
+<td colspan="5"><input type="password" name="user_pw" maxlength="8"></td>
 </tr>
 <tr>
 <td>PASSWORD 확인</td>
-<td><input type="password" name="user_pw1" maxlength="8"></td>
+<td colspan="5"><input type="password" name="user_pw1" maxlength="8"></td>
 
 </tr>
 <tr>
 <td>NAME</td>
-<td><input type="text" name="user_name"></td>
+<td colspan="5"><input type="text" name="user_name"></td>
 </tr>
 <tr>
 <td>Birth</td>
-<td>
-<input type="text" name="userbirth1"  size="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">년
+<td colspan="5">
+<input type="text" name="user_birth1" maxlength="4" size="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">년
 
-<input type="text" name="userbirth2"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">월
+<input type="text" name="user_birth2"maxlength="2"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">월
 
-<input type="text" name="userbirth3" size="2"onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">일
-<input type="hidden" name="userbirth">
+<input type="text" name="user_birth3" maxlength="2"size="2"onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">일
+<input type="hidden" name="user_birth">
 </td>
 
 </tr>
 <tr>
 <td>AGE</td>
-<td><input type="text" name="user_age"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
+<td colspan="5"><input type="text" name="user_age"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
 </tr>
 <tr>
 <td>phone</td>
-<td>
+<td colspan="5">
 <select name="user_phone3">
 <option></option>
 <option value="010">010</option>
@@ -164,98 +178,181 @@ function function1(val){
 </tr>
 <tr>
 <td>user_high</td>
-<td><input type="text" name="user_high" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">cm</td>
+<td colspan="5"><input type="text" name="user_high" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">cm</td>
 </tr>
 <tr>
 <td>user_weight</td>
-<td><input type="text" name="user_weight" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">kg</td>
+<td colspan="5"><input type="text" name="user_weight" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">kg</td>
 </tr>
 <tr>
 <td>user_foot</td>
-<td>
-<select onchange="footchange(this.value)">
+<td colspan="5">
+<select name="user_foot1">
 <option value="">선택하세요</option>
-<option value="left foot">왼발</option>
-<option value="right foot">오른발</option>
-<option value="both feet">양발</option>
+<option value="0">왼발</option>
+<option value="1">오른발</option>
+<option value="2">양발</option>
 </select>
 <input type="hidden" name="user_foot">
 </td>
 </tr>
+
 <tr>
-<td>주포지션</td>
-<td>
-<select onchange="user_position1(this.value)">
+<td colspan="6">
+<img alt="" src="image/join1.png" width="5%">주포지션
+<select name="user_position11">
 <option value=""></option>
-<option value="">GK(골키퍼)</option>
-<option value="">RB(오른쪽 수비수)</option>
-<option value="">LB(왼쪽 수비수)</option>
-<option value="">CB(중앙 수비수)</option>
-<option value="">CM(중앙 미드필더)</option>
-<option value="">CAM(공격형 미드필더)</option>
-<option value="">CDM(수비형 미드필더)</option>
-<option value="">LM(왼쪽 윙어)</option>
-<option value="">RM(오른쪽 윙어)</option>
-<option value="">ST(스트라이커)</option>
-<option value="">LWF(왼쪽 공격수)</option>
-<option value="">RWF(오른쪽 공격수)</option>
+								<option value="GK(골키퍼)">GK(골키퍼)</option>
+								<option value="RB(오른쪽 수비수)">RB(오른쪽 수비수)</option>
+								<option value="LB(왼쪽 수비수)">LB(왼쪽 수비수)</option>
+								<option value="CB(중앙 수비수)">CB(중앙 수비수)</option>
+								<option value="CM(중앙 미드필더)">CM(중앙 미드필더)</option>
+								<option value="CAM(공격형 미드필더)">CAM(공격형 미드필더)</option>
+								<option value="CDM(수비형 미드필더)">CDM(수비형 미드필더)</option>
+								<option value="LM(왼쪽 윙어)">LM(왼쪽 윙어)</option>
+								<option value="RM(오른쪽 윙어)">RM(오른쪽 윙어)</option>
+								<option value="ST(스트라이커)">ST(스트라이커)</option>
+								<option value="LWF(왼쪽 공격수)">LWF(왼쪽 공격수)</option>
+								<option value="RWF(오른쪽 공격수)">RWF(오른쪽 공격수)</option>
 </select>
 <input type="hidden" name="user_position1">
-</td>
-</tr>
-<tr>
-<td>활동포지션1</td>
-<td>
-<select onchange="user_position2(this.value)">
+<img alt="" src="image/join1.png" width="5%">서브포지션1
+<select name="user_position12">
 <option value=""></option>
-<option value="">GK(골키퍼)</option>
-<option value="">RB(오른쪽 수비수)</option>
-<option value="">LB(왼쪽 수비수)</option>
-<option value="">CB(중앙 수비수)</option>
-<option value="">CM(중앙 미드필더)</option>
-<option value="">CAM(공격형 미드필더)</option>
-<option value="">CDM(수비형 미드필더)</option>
-<option value="">LM(왼쪽 윙어)</option>
-<option value="">RM(오른쪽 윙어)</option>
-<option value="">ST(스트라이커)</option>
-<option value="">LWF(왼쪽 공격수)</option>
-<option value="">RWF(오른쪽 공격수)</option>
+								<option value="GK(골키퍼)">GK(골키퍼)</option>
+								<option value="RB(오른쪽 수비수)">RB(오른쪽 수비수)</option>
+								<option value="LB(왼쪽 수비수)">LB(왼쪽 수비수)</option>
+								<option value="CB(중앙 수비수)">CB(중앙 수비수)</option>
+								<option value="CM(중앙 미드필더)">CM(중앙 미드필더)</option>
+								<option value="CAM(공격형 미드필더)">CAM(공격형 미드필더)</option>
+								<option value="CDM(수비형 미드필더)">CDM(수비형 미드필더)</option>
+								<option value="LM(왼쪽 윙어)">LM(왼쪽 윙어)</option>
+								<option value="RM(오른쪽 윙어)">RM(오른쪽 윙어)</option>
+								<option value="ST(스트라이커)">ST(스트라이커)</option>
+								<option value="LWF(왼쪽 공격수)">LWF(왼쪽 공격수)</option>
+								<option value="RWF(오른쪽 공격수)">RWF(오른쪽 공격수)</option>
 </select>
 <input type="hidden" name="user_position2">
-</td>
-</tr>
-<tr>
-<td>활동포지션2</td>
-<td>
-<select onchange="user_position3(this.value)">
+
+
+<img alt="" src="image/join1.png" width="5%">서브포지션2
+<select name="user_position13">
 <option value=""></option>
-<option value="">GK(골키퍼)</option>
-<option value="">RB(오른쪽 수비수)</option>
-<option value="">LB(왼쪽 수비수)</option>
-<option value="">CB(중앙 수비수)</option>
-<option value="">CM(중앙 미드필더)</option>
-<option value="">CAM(공격형 미드필더)</option>
-<option value="">CDM(수비형 미드필더)</option>
-<option value="">LM(왼쪽 윙어)</option>
-<option value="">RM(오른쪽 윙어)</option>
-<option value="">ST(스트라이커)</option>
-<option value="">LWF(왼쪽 공격수)</option>
-<option value="">RWF(오른쪽 공격수)</option>
+								<option value="GK(골키퍼)">GK(골키퍼)</option>
+								<option value="RB(오른쪽 수비수)">RB(오른쪽 수비수)</option>
+								<option value="LB(왼쪽 수비수)">LB(왼쪽 수비수)</option>
+								<option value="CB(중앙 수비수)">CB(중앙 수비수)</option>
+								<option value="CM(중앙 미드필더)">CM(중앙 미드필더)</option>
+								<option value="CAM(공격형 미드필더)">CAM(공격형 미드필더)</option>
+								<option value="CDM(수비형 미드필더)">CDM(수비형 미드필더)</option>
+								<option value="LM(왼쪽 윙어)">LM(왼쪽 윙어)</option>
+								<option value="RM(오른쪽 윙어)">RM(오른쪽 윙어)</option>
+								<option value="ST(스트라이커)">ST(스트라이커)</option>
+								<option value="LWF(왼쪽 공격수)">LWF(왼쪽 공격수)</option>
+								<option value="RWF(오른쪽 공격수)">RWF(오른쪽 공격수)</option>
 </select>
 <input type="hidden" name="user_position3">
 </td>
 </tr>
 <tr>
-<td>user_address</td>
-<td><input type="text" name="user_address" size="60"></td>
+<td ><img alt="" src="image/join2.png" width="15%">활동지역</td>
+<td colspan="5">
+<select name="user_address1">
+<option></option>
+<option value="강남구">강남구</option>
+<option value="강동구">강동구</option>
+<option value="강북구">강북구</option>
+<option value="강서구">강서구</option>
+<option value="관악구">관악구</option>
+<option value="광진구">광진구</option>
+<option value="구로구">구로구</option>
+<option value="금천구">금천구</option>
+<option value="노원구">노원구</option>
+<option value="도봉구">도봉구</option>
+<option value="동대문구">동대문구</option>
+<option value="동작구">동작구</option>
+<option value="마포구">마포구</option>
+<option value="서대문구">서대문구</option>
+<option value="서초구">서초구</option>
+<option value="성동구">성동구</option>
+<option value="성북구">성북구</option>
+<option value="송파구">송파구</option>
+<option value="양천구">양천구</option>
+<option value="영등포구">영등포구</option>
+<option value="용산구">용산구</option>
+<option value="은평구">은평구</option>
+<option value="종로구">종로구</option>
+<option value="중구">중구</option>
+<option value="중랑구">중랑구</option>
+</select>
+
+<select name="user_address2">
+<option></option>
+<option value="강남구">강남구</option>
+<option value="강동구">강동구</option>
+<option value="강북구">강북구</option>
+<option value="강서구">강서구</option>
+<option value="관악구">관악구</option>
+<option value="광진구">광진구</option>
+<option value="구로구">구로구</option>
+<option value="금천구">금천구</option>
+<option value="노원구">노원구</option>
+<option value="도봉구">도봉구</option>
+<option value="동대문구">동대문구</option>
+<option value="동작구">동작구</option>
+<option value="마포구">마포구</option>
+<option value="서대문구">서대문구</option>
+<option value="서초구">서초구</option>
+<option value="성동구">성동구</option>
+<option value="성북구">성북구</option>
+<option value="송파구">송파구</option>
+<option value="양천구">양천구</option>
+<option value="영등포구">영등포구</option>
+<option value="용산구">용산구</option>
+<option value="은평구">은평구</option>
+<option value="종로구">종로구</option>
+<option value="중구">중구</option>
+<option value="중랑구">중랑구</option>
+</select>
+
+<select name="user_address3">
+<option></option>
+<option value="강남구">강남구</option>
+<option value="강동구">강동구</option>
+<option value="강북구">강북구</option>
+<option value="강서구">강서구</option>
+<option value="관악구">관악구</option>
+<option value="광진구">광진구</option>
+<option value="구로구">구로구</option>
+<option value="금천구">금천구</option>
+<option value="노원구">노원구</option>
+<option value="도봉구">도봉구</option>
+<option value="동대문구">동대문구</option>
+<option value="동작구">동작구</option>
+<option value="마포구">마포구</option>
+<option value="서대문구">서대문구</option>
+<option value="서초구">서초구</option>
+<option value="성동구">성동구</option>
+<option value="성북구">성북구</option>
+<option value="송파구">송파구</option>
+<option value="양천구">양천구</option>
+<option value="영등포구">영등포구</option>
+<option value="용산구">용산구</option>
+<option value="은평구">은평구</option>
+<option value="종로구">종로구</option>
+<option value="중구">중구</option>
+<option value="중랑구">중랑구</option>
+</select>
+<input type="hidden" name="user_address">
+</td>
 </tr>
 <tr>
 <td>user_profile</td>
-<td><input type="text" name="user_profile"></td>
+<td colspan="5"><input type="text" name="user_profile"></td>
 </tr>
 <tr>
-<td align="center"><input type="button" value="회원가입" onclick="function1(this)"></td>
-<td align="center"><input type="button" value="취소" onclick="self.close()"></td>
+<td align="center" colspan="6"><input type="button" value="회원가입" onclick="function1(this)">
+<input type="button" value="취소" onclick="self.close()"></td>
 </tr>
 </table>
 
