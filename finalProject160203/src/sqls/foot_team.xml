@@ -17,4 +17,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </select>
    
    
+   <select id="notteamGu" parameterType="java.lang.String" resultType="soccer.co.DTO.foot_team_DTO">
+  	 SELECT * FROM foot_team where team_location1=#{add1} or team_location2=#{add1} or team_location3=#{add1} and team_join=1
+   </select>
+   
+   
 </mapper>

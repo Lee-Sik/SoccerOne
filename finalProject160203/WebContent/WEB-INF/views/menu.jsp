@@ -22,7 +22,7 @@
       </ul>
    </li>
    
-   <li class='active'><a href='club.do'>클럽</a>
+   <li class='active'><a href='club.do?user_address=${login.user_address}&user_team=${login.user_team}'>클럽</a>
       <ul>
          <li><a href='#'>클럽검색</a></li>
          <li><a href='#'>내 정보</a></li>

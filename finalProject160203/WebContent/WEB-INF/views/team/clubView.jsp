@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,6 +24,24 @@
 </head>
 <body>
 
+	
+	
+	<c:if test="${empty login.user_team }">
+	
+	<div class="club_notteam">
+		모집중인팀 뿌리기!
+		<table>
+			<tr>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	
+	</c:if>
+	
+	
+	
+	<c:if test="${not empty login.user_team }">
 	<div id="box">
 		<div id="intro" class="title">
 			<div class="content">
@@ -44,6 +65,7 @@
 			<div id="map" style="width: 500px; height: 450px"></div>
 		</div>
 	</div>
+	</c:if>
 	
 
 </body>

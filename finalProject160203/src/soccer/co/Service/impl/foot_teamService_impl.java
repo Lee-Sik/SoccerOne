@@ -26,4 +26,11 @@ public class foot_teamService_impl implements foot_clubService{
 		return teamdao.getGu();
 	}
 
+	@Override
+	public List<foot_team_DTO> notteamGu(String user_address) throws Exception {
+		// TODO Auto-generated method stub
+		
+		return teamdao.teamGu(user_address);
+	}
+
 }

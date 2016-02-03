@@ -1,5 +1,7 @@
 package soccer.co.controller;
 
+import java.util.List;
+
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import soccer.co.DTO.foot_team_DTO;
+import soccer.co.DTO.foot_user_DTO;
 import soccer.co.Service.foot_clubService;
 
 
@@ -39,8 +42,14 @@ public class clubController {
 	}
 	
 	@RequestMapping(value = "club.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String club(Model model) throws Exception {	
-		logger.info("clubController join!");
+	public String club(foot_user_DTO fudto,Model model) throws Exception {	
+		logger.info("clubController club!");
+		System.out.println(fudto.getUser_team());
+		if(fudto.getUser_team().equals("") || fudto.getUser_team()==null){
+			List<foot_team_DTO> notteamlist = clubservice.notteamGu(fudto.getUser_address());
+			model.addAttribute("notteamlist", notteamlist);
+		}
+		
 		
 		model.addAttribute("title", "마이 클럽");
 		return "team_club.tiles";
@@ -54,12 +63,12 @@ public class clubController {
 		
 		if (!file.isEmpty()) {
 			try {
-				System.out.println(file.getName());
-				System.out.println(file.getOriginalFilename());
 				
 				fileName = file.getOriginalFilename();
-				
+
+				//upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
 				upload = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160203/WebContent/image/" + fileName);
+
 				byte[] bytes = file.getBytes();
 				
 				BufferedOutputStream buffStream = new BufferedOutputStream(

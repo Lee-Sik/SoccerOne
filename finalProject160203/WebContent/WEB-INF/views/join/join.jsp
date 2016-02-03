@@ -115,7 +115,7 @@ function function1(val){
 <p class="wow2">저희 홈페이지에 와주셔서 감사합니다. 반갑습니다</p>
 
 
-<form action="join1.do" name="f" method="post">
+<form action="join1.do" name="f" method="post" enctype="multipart/form-data">
 <table>
 <tr>
 <td>e-mail</td>
@@ -347,9 +347,10 @@ function function1(val){
 </td>
 </tr>
 <tr>
-<td>user_profile</td>
-<td colspan="5"><input type="text" name="user_profile"></td>
-</tr>
+            <td>팀로고</td>
+            <td colspan="5"><input type="file" name="file"></td>
+         
+         </tr>
 <tr>
 <td align="center" colspan="6"><input type="button" value="회원가입" onclick="function1(this)">
 <input type="button" value="취소" onclick="self.close()"></td>
