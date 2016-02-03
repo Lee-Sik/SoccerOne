@@ -12,18 +12,9 @@
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="Container" >
-		<div class="wrap">
-			<!-- 콘텐츠 -->
-			<div class="contents">
-				<div class="hb_wrap booking_wrap"><div class="book_top" style="margin: 45px auto 30px;">
-<h3>야구장부킹dasd</h3>
-	<ul class="navi">
-		<li>HOME</li>
-		<li>야구부킹</li>
-		<li><strong>야구장부킹</strong></li>
-	</ul>
-</div>
+
+			<!-- 콘텐츠 -->			
+				<div class="hb_wrap booking_wrap">
 
 
 <div class="book_list_top">
@@ -118,9 +109,8 @@
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+
+
 
 
 </body>

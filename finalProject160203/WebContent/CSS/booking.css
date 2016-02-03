@@ -24,8 +24,9 @@ body, div, p, a, ul, ol, li, dl, dt, h1, h2, h3, h4, h5, h6, table, td,
 
 body {
 	font-size: 12px;
-	color: #666;
+	color: #fff;
 	font-family: '굴림', 'gulim';
+	
 	
 }
 
@@ -59,11 +60,11 @@ input {
 }
 
 body {
-	background-color: #efefef;
+	background-color: #fff;
 } /*모바일버전 관련css*/
 .mobile #Header {
 	position: absolute;
-	min-width: 100%;
+	min-width: 80%;
 }
 
 #Navigation {
@@ -75,7 +76,7 @@ body {
 
 div.wrap {
 	margin: 0 auto;
-	width: 100%;
+	width: 50%;
 	position: relative;
 	zoom: 1;
 }
@@ -1810,7 +1811,7 @@ div.theme_ptl #Navigation div.nav_depth_sub ul.nav_depth_sub_r a .sub_r_icon02
 #Container div.contents_area {
 	display: table-cell;
 	vertical-align: top;
-	width: 838px;
+	width: 600px;
 	overflow: hidden;
 	height: 700px;
 	background-color: #fff;
