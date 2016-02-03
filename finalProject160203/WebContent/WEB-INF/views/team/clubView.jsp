@@ -28,13 +28,21 @@
 	
 	<c:if test="${empty login.user_team }">
 	
-	<div class="club_notteam">
-		모집중인팀 뿌리기!
-		<table>
-			<tr>
-				<td></td>
-			</tr>
+	<div class="club_notteam" align="center">
+		<table border="1" style="border-collapse: 1">
+		<tr>
+		<td colspan="2">현재 소속한 팀이 없습니다.<br></td>
+		</tr>
 		</table>
+		<table>
+		<c:forEach var ="a" items="${notteamlist}">
+			<tr>
+				<td>a</td>
+				<td><a href="#">${a.team_name} 팀이 팀을 구하고 있습니다.</a></td>
+			</tr>
+		</c:forEach>
+		</table>
+		
 	</div>
 	
 	</c:if>
@@ -45,9 +53,14 @@
 	<div id="box">
 		<div id="intro" class="title">
 			<div class="content">
-				<img alt="팀로고" src="image/${team.team_logo} ">
+			
+			팀로고 	<img alt="팀로고" src="image/${team.team_logo} ">
 			</div>
-			<div class="content">팀 소개 내용</div>
+			<br>
+			<div class="content">
+			
+			팀 소개 내용	${team.team_intro}
+			</div>
 		</div>
 		<div id="calendar" class="title">
 			<div class="content">캘린더</div>

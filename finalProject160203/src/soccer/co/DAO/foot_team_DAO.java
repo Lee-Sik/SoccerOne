@@ -42,28 +42,22 @@ public class foot_team_DAO {
             user_add.add(temp);
         }
         String add1= user_add.get(0);
-        System.out.println(add1);
 		List<foot_team_DTO> notteamGu1 = sql.selectList(ns+"notteamGu", add1);
 		 add1= user_add.get(1);
-		 System.out.println(add1);
 		List<foot_team_DTO> notteamGu2 = sql.selectList(ns+"notteamGu", add1);
 		 add1= user_add.get(2);
-		 System.out.println(add1);
 		List<foot_team_DTO> notteamGu3 = sql.selectList(ns+"notteamGu", add1);
 		List<foot_team_DTO> notteamGu = new ArrayList<foot_team_DTO>();
 		for(int i=0;i<notteamGu1.size();i++){
 			notteamGu.add(notteamGu1.get(i));
-			System.out.println(notteamGu1.get(i).getTeam_name());
 		}
 		for(int i=0;i<notteamGu2.size();i++){
 			notteamGu.add(notteamGu2.get(i));
 
-			System.out.println(notteamGu2.get(i).getTeam_name());
 		}
 		for(int i=0;i<notteamGu3.size();i++){
 			notteamGu.add(notteamGu3.get(i));
 
-			System.out.println(notteamGu3.get(i).getTeam_name());
 		}
 		
 		return notteamGu;
