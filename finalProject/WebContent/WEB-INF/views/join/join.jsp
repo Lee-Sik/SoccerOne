@@ -45,22 +45,7 @@ function selectval1(val){
 	var objid = document.getElementById('text3');
 	objid.value = val;
 }
-function footchange(val){
-	var objid = document.getElementByname('user_foot');
-	objid.value = val;
-}
-function user_position1(val){
-	var objid = document.getElementByname('user_position1');
-	objid.value = val;
-}
-function user_position2(val){
-	var objid = document.getElementByname('user_position2');
-	objid.value = val;
-}
-function user_position3(val){
-	var objid = document.getElementByname('user_position3');
-	objid.value = val;
-}
+
 
 function function1(val){
 	var pw = document.getElementsByName('user_pw');
@@ -79,7 +64,57 @@ function function1(val){
 	else if(name[0].value.length<=1||name[0].value.length>=6){
 		alert("이름은 2자리부터 5자리까지 입력하셔야합니다.");
 		name[0].focus();
-	} 
+	} else{
+		
+		alert("2");
+		var foot1 = document.f.user_foot1.value;
+		var foot = document.f.user_foot;
+		foot.value = foot1;
+		alert("3");
+		var position11 = document.f.user_position11.value;
+		var position12 = document.f.user_position12.value;
+		var position13 = document.f.user_position13.value;
+		var position1 = document.f.user_position1;
+		var position2 = document.f.user_position2;
+		var position3 = document.f.user_position3;
+		position1.value = position11;
+		position2.value = position12;
+		position3.value = position13;
+		alert("4"); 
+
+		var phone1 = document.f.user_phone1.value;
+		var phone1 = document.f.user_phone1.value;
+
+		var phone1 = document.f.user_phone1.value;
+		var phone2 = document.f.user_phone2.value;
+		var phone3 = document.f.user_phone3.value;
+		var phone = document.f.user_phone;
+		var a = phone3 + "-" + phone1 + "-" + phone2;
+		phone.value = a;
+		alert("5");
+
+		var birth1 = document.f.user_birth1.value;
+		var birth2 = document.f.user_birth2.value;
+		var birth3 = document.f.user_birth3.value;
+		var birth = document.f.user_birth;
+		var b = birth1 + "-" + birth2 + "-" + birth3;
+		birth.value = b;
+		alert("6");
+
+		alert(document.f.user_pw.value);
+		alert(document.f.user_name.value);
+		alert(document.f.user_birth.value);
+		alert(document.f.user_age.value);
+		alert(document.f.user_phone.value);
+		alert(document.f.user_high.value);
+		alert(document.f.user_weight.value);
+		alert(document.f.user_foot.value);
+		alert(document.f.user_position1.value);
+		alert(document.f.user_position2.value);
+		alert(document.f.user_position3.value);
+		alert(document.f.user_address.value);
+		alert(document.f.user_profile.value);
+		
 	
 	var phone1 = document.getElementsByName('user_phone1');
 	var phone2 = document.getElementsByName('user_phone2');
@@ -93,6 +128,7 @@ function function1(val){
 	document.getElementsByName('user_birth').value = user_birth1[0].value+"-"+user_birth2[0].value+"-"+user_birth3[0].value;
 	
 	document.f.submit(); 
+	}
 }
 </script>
 </div>
@@ -133,12 +169,12 @@ function function1(val){
 <tr>
 <td>Birth</td>
 <td>
-<input type="text" name="userbirth1"  size="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">년
+<input type="text" name="user_birth1" maxlength="4" size="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">년
 
-<input type="text" name="userbirth2"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">월
+<input type="text" name="user_birth2"maxlength="2"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">월
 
-<input type="text" name="userbirth3" size="2"onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">일
-<input type="hidden" name="userbirth">
+<input type="text" name="user_birth3" maxlength="2"size="2"onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">일
+<input type="hidden" name="user_birth">
 </td>
 
 </tr>
@@ -173,11 +209,11 @@ function function1(val){
 <tr>
 <td>user_foot</td>
 <td>
-<select onchange="footchange(this.value)">
+<select name="user_foot1">
 <option value="">선택하세요</option>
-<option value="left foot">왼발</option>
-<option value="right foot">오른발</option>
-<option value="both feet">양발</option>
+<option value="0">왼발</option>
+<option value="1">오른발</option>
+<option value="2">양발</option>
 </select>
 <input type="hidden" name="user_foot">
 </td>
@@ -185,20 +221,20 @@ function function1(val){
 <tr>
 <td>주포지션</td>
 <td>
-<select onchange="user_position1(this.value)">
+<select name="user_position11">
 <option value=""></option>
-<option value="">GK(골키퍼)</option>
-<option value="">RB(오른쪽 수비수)</option>
-<option value="">LB(왼쪽 수비수)</option>
-<option value="">CB(중앙 수비수)</option>
-<option value="">CM(중앙 미드필더)</option>
-<option value="">CAM(공격형 미드필더)</option>
-<option value="">CDM(수비형 미드필더)</option>
-<option value="">LM(왼쪽 윙어)</option>
-<option value="">RM(오른쪽 윙어)</option>
-<option value="">ST(스트라이커)</option>
-<option value="">LWF(왼쪽 공격수)</option>
-<option value="">RWF(오른쪽 공격수)</option>
+								<option value="GK(골키퍼)">GK(골키퍼)</option>
+								<option value="RB(오른쪽 수비수)">RB(오른쪽 수비수)</option>
+								<option value="LB(왼쪽 수비수)">LB(왼쪽 수비수)</option>
+								<option value="CB(중앙 수비수)">CB(중앙 수비수)</option>
+								<option value="CM(중앙 미드필더)">CM(중앙 미드필더)</option>
+								<option value="CAM(공격형 미드필더)">CAM(공격형 미드필더)</option>
+								<option value="CDM(수비형 미드필더)">CDM(수비형 미드필더)</option>
+								<option value="LM(왼쪽 윙어)">LM(왼쪽 윙어)</option>
+								<option value="RM(오른쪽 윙어)">RM(오른쪽 윙어)</option>
+								<option value="ST(스트라이커)">ST(스트라이커)</option>
+								<option value="LWF(왼쪽 공격수)">LWF(왼쪽 공격수)</option>
+								<option value="RWF(오른쪽 공격수)">RWF(오른쪽 공격수)</option>
 </select>
 <input type="hidden" name="user_position1">
 </td>
@@ -206,20 +242,20 @@ function function1(val){
 <tr>
 <td>활동포지션1</td>
 <td>
-<select onchange="user_position2(this.value)">
+<select name="user_position12">
 <option value=""></option>
-<option value="">GK(골키퍼)</option>
-<option value="">RB(오른쪽 수비수)</option>
-<option value="">LB(왼쪽 수비수)</option>
-<option value="">CB(중앙 수비수)</option>
-<option value="">CM(중앙 미드필더)</option>
-<option value="">CAM(공격형 미드필더)</option>
-<option value="">CDM(수비형 미드필더)</option>
-<option value="">LM(왼쪽 윙어)</option>
-<option value="">RM(오른쪽 윙어)</option>
-<option value="">ST(스트라이커)</option>
-<option value="">LWF(왼쪽 공격수)</option>
-<option value="">RWF(오른쪽 공격수)</option>
+								<option value="GK(골키퍼)">GK(골키퍼)</option>
+								<option value="RB(오른쪽 수비수)">RB(오른쪽 수비수)</option>
+								<option value="LB(왼쪽 수비수)">LB(왼쪽 수비수)</option>
+								<option value="CB(중앙 수비수)">CB(중앙 수비수)</option>
+								<option value="CM(중앙 미드필더)">CM(중앙 미드필더)</option>
+								<option value="CAM(공격형 미드필더)">CAM(공격형 미드필더)</option>
+								<option value="CDM(수비형 미드필더)">CDM(수비형 미드필더)</option>
+								<option value="LM(왼쪽 윙어)">LM(왼쪽 윙어)</option>
+								<option value="RM(오른쪽 윙어)">RM(오른쪽 윙어)</option>
+								<option value="ST(스트라이커)">ST(스트라이커)</option>
+								<option value="LWF(왼쪽 공격수)">LWF(왼쪽 공격수)</option>
+								<option value="RWF(오른쪽 공격수)">RWF(오른쪽 공격수)</option>
 </select>
 <input type="hidden" name="user_position2">
 </td>
@@ -227,20 +263,20 @@ function function1(val){
 <tr>
 <td>활동포지션2</td>
 <td>
-<select onchange="user_position3(this.value)">
+<select name="user_position13">
 <option value=""></option>
-<option value="">GK(골키퍼)</option>
-<option value="">RB(오른쪽 수비수)</option>
-<option value="">LB(왼쪽 수비수)</option>
-<option value="">CB(중앙 수비수)</option>
-<option value="">CM(중앙 미드필더)</option>
-<option value="">CAM(공격형 미드필더)</option>
-<option value="">CDM(수비형 미드필더)</option>
-<option value="">LM(왼쪽 윙어)</option>
-<option value="">RM(오른쪽 윙어)</option>
-<option value="">ST(스트라이커)</option>
-<option value="">LWF(왼쪽 공격수)</option>
-<option value="">RWF(오른쪽 공격수)</option>
+								<option value="GK(골키퍼)">GK(골키퍼)</option>
+								<option value="RB(오른쪽 수비수)">RB(오른쪽 수비수)</option>
+								<option value="LB(왼쪽 수비수)">LB(왼쪽 수비수)</option>
+								<option value="CB(중앙 수비수)">CB(중앙 수비수)</option>
+								<option value="CM(중앙 미드필더)">CM(중앙 미드필더)</option>
+								<option value="CAM(공격형 미드필더)">CAM(공격형 미드필더)</option>
+								<option value="CDM(수비형 미드필더)">CDM(수비형 미드필더)</option>
+								<option value="LM(왼쪽 윙어)">LM(왼쪽 윙어)</option>
+								<option value="RM(오른쪽 윙어)">RM(오른쪽 윙어)</option>
+								<option value="ST(스트라이커)">ST(스트라이커)</option>
+								<option value="LWF(왼쪽 공격수)">LWF(왼쪽 공격수)</option>
+								<option value="RWF(오른쪽 공격수)">RWF(오른쪽 공격수)</option>
 </select>
 <input type="hidden" name="user_position3">
 </td>

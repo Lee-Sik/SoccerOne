@@ -65,6 +65,7 @@ private static final Logger logger = LoggerFactory.getLogger(userController.clas
 		logger.info("Welcome HelloMemberController join1! "+ new Date());
 		String user_email = user_email1+"@"+user_email2;
 		fudto.setUser_email(user_email);
+		System.out.println(fudto.toString());
 		boolean join=fuservice.join(fudto);
 		return "exit.tiles";
 	}
