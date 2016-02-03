@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="foot_game">
+
+   <insert id="freegame"
+   parameterType="soccer.co.DTO.foot_game_DTO">
+   INSERT INTO foot_freegame VALUES(foot_freegame_seq.nextval,#{team_name},#{game_content},#{game_date}
+   									,#{ground},#{pay})
+   </insert>
+   
+   <insert id="publicgame"
+   parameterType="soccer.co.DTO.foot_game_DTO">
+   INSERT INTO foot_publicgame VALUES(foot_publicgame_seq.nextval,#{team_name},#{game_location},#{game_date}
+   									,#{ground},#{pay},0)
+   </insert>
+   
+   <select id="getfreegameList" resultType="soccer.co.DTO.foot_game_DTO">
+	<![CDATA[
+			SELECT * from foot_freegame order by game_no desc
+		]]>
+	</select>
+	
+	 <select id="getpublicgameList" resultType="soccer.co.DTO.foot_game_DTO">
+	<![CDATA[
+			SELECT * from foot_publicgame  order by game_no desc
+		]]>
+	</select>
+   
+</mapper>
