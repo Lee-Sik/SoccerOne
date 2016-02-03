@@ -35,7 +35,7 @@
 <col style="width:200px;" />
 <col style="width:50px;" />
 <col style="width:100px;" />
-<col style="width:15px;" />
+<col style="width:35px;" />
 </colgroup>
 
 <thead>

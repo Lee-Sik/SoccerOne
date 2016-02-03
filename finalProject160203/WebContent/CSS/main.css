@@ -7,6 +7,13 @@ body, table{
 	font-size:12px;
 	font-family: Montserrat, sans-serif;
 }
+.main_title{
+	font-family: Montserrat, sans-serif;
+	text-align: center;
+	font-size:35px;
+	font-weight: bold;
+}
+
 #top{
 
 	min-height: 100%; position: relative; width:100%;}

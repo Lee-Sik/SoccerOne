@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import soccer.co.DTO.BBSParam;
 import soccer.co.DTO.foot_comunity_DTO;
-import soccer.co.DTO.foot_game_DTO;
 import soccer.co.Service.foot_comunityService;
 
 @Controller
@@ -31,6 +30,8 @@ public class comunityController {
 		
 		List<foot_comunity_DTO> bbslist=BBSService.getBBSList();
 		model.addAttribute("bbslist", bbslist);
+		
+		model.addAttribute("title", "커뮤니티");
 		return "comunity.tiles";
 	}
 	
@@ -40,7 +41,7 @@ public class comunityController {
 			RequestMethod.POST})
 	public String bbswrite(Model model) {
 		logger.info("Welcome MemberController bbswrite! "+ new Date());
-		model.addAttribute("doc_title", "BBS 글쓰기");
+		model.addAttribute("title", "게시판 글쓰기");
 		return "bbswrite.tiles";
 	}
 	
@@ -155,6 +156,8 @@ public class comunityController {
 		model.addAttribute("s_category", param.getS_category());
 		model.addAttribute("s_keyword", param.getS_keyword());
 		
+		
+		model.addAttribute("title", "축덕포럼");
 		return "bbslist.tiles";
 	}
 	

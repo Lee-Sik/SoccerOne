@@ -1,8 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <% request.setCharacterEncoding("utf-8"); %>
 
-
-<h1>친선경기 등록</h1>
 <form action="freegameAf.do" method="post">
 <table>
 

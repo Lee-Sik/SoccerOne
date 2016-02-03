@@ -20,7 +20,7 @@
 
 </head>
 <body>
-	<h1>club view</h1>
+
 	<div id="box">
 		<div id="intro" class="title">
 			<div class="content">

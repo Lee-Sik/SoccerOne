@@ -24,7 +24,11 @@
 <div id="header"><tiles:insertAttribute name="header"/></div>
 <div id="menu"><tiles:insertAttribute name="menu"/></div>
 	<div>
-		<div id="main"><tiles:insertAttribute name="main"/></div>
+		<div id="main">
+			<div class="main_title" style="background-image: url('./image/main_title_bg.png'); size: 100%;
+			background-repeat: no-repeat; background-position: center;"><br>${title}<br><br></div>
+			<tiles:insertAttribute name="main"/>
+		</div>
 		<div id="right">
 			<div id="content"><tiles:insertAttribute name="content"/></div>
 			<div id="advertise"><tiles:insertAttribute name="advertise"/></div>

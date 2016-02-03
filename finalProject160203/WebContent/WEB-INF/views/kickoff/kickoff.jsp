@@ -4,6 +4,7 @@
 <fmt:requestEncoding value="utf-8"/>
 
 <body>
+
 <table>
 <tr>
 	<td colspan="6" style="text-align: center; font-weight: bold">최근 공식경기 등록 현황</td>

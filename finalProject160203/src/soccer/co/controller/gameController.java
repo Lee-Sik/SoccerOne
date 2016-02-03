@@ -30,6 +30,8 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 		
 		List<foot_game_DTO> publicgamelist=fgameservice.getpublicgameList();
 		model.addAttribute("publicgamelist", publicgamelist);
+		
+		model.addAttribute("title", "KickOff");
 
 		return "kickoff.tiles";
 	}
@@ -37,6 +39,7 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	public String matching(Model model) throws Exception {	
 		logger.info("Welcome gameController login! "+ new Date());
 		
+		model.addAttribute("title", "매칭등록");
 		return "matching.tiles";
 	}
 	
@@ -44,6 +47,7 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	public String publicgame(Model model) throws Exception {	
 		logger.info("Welcome gameController login! "+ new Date());
 		
+		model.addAttribute("title", "랭킹전 등록");
 		return "publicgame.tiles";
 	}
 	
@@ -60,6 +64,7 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	public String freegame(Model model) throws Exception {	
 		logger.info("Welcome gameController login! "+ new Date());
 		
+		model.addAttribute("title", "친선경기 등록");
 		return "freegame.tiles";
 	}
 	

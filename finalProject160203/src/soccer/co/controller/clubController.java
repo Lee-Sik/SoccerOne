@@ -26,12 +26,16 @@ public class clubController {
 	public String join(Model model) throws Exception {	
 		logger.info("clubController join!");
 		model.addAttribute("list",clubservice.getGu());
+
+		model.addAttribute("title", "클럽 생성");
 		return "team_create.tiles";
 	}
 	
 	@RequestMapping(value = "club.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String club(Model model) throws Exception {	
 		logger.info("clubController join!");
+		
+		model.addAttribute("title", "마이 클럽");
 		return "team_club.tiles";
 	}
 	
