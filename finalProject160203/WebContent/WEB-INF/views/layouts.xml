@@ -94,6 +94,9 @@
 <definition name="post.tiles" template="/WEB-INF/views/stadium/post.jsp">
 </definition>
 
+<definition name="post_result.tiles" template="/WEB-INF/views/stadium/post_result.jsp">
+</definition>
+
 <definition name="stadiumList.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/stadiumList.jsp"/>
 </definition>

@@ -7,6 +7,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="zipcode" parameterType="String" resultType="soccer.co.DTO.ZipcodeDTO">
 	select zipcode,sido,gugun,dong,ri,bldg,bunji,seq from zipcode where dong like '%' || #{dong} || '%'
 </select>
+<select id="post_gugun" resultType="soccer.co.DTO.postDTO">
+	select distinct gugun from foot_post where sido = '서울'
+</select>
+<select id="post_result" parameterType="hashmap" resultType="soccer.co.DTO.postDTO">
+	select addrname from foot_post where gugun=#{gugun} and addrtype=#{addrtype} 
+</select>
 <insert id="stadiumWrite" parameterType="soccer.co.DTO.foot_stadium_DTO">
 insert into foot_stadium 
 (stadium_seq,stadium_name,user_email,addr,stadium_phone,s_content,findway,stadium_img1,stadium_img2,stadium_img3,stadium_img4)

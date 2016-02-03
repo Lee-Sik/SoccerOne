@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -12,8 +13,23 @@
 				</script>
 		<title>게임원</title>
 		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+		
+		<script type="text/javascript">
+				
+			var f = document.f1;	
+		
+		      function result1() {
+				
+		    	  var gugun = f1.gugun.value;
+		    	  var addrtype = f1.addrtype.value;
+		    	  location.href="./post_result.do?gugun=" + gugun + "&addrtype=" + addrtype;
+		    	  
+			}
+		
+		</script>
+		
 	</head>
-	<body ><form action="zipsearch_result.do" method="post">
+	<body ><form name="f1" method="post">
 	<table width="500" border="0" cellpadding="0" cellspacing="0">
 		<tbody>
 		<tr>
@@ -32,7 +48,7 @@
 		</tr>
 		<tr>
 			<td height="100" colspan="2" align="center" bgcolor="#FFFFFF">
-				<table width="380" border="0" cellpadding="0" cellspacing="0">
+				<table width="520" border="0" cellpadding="0" cellspacing="0">
 					<tbody>
 						<tr>
 							<td height="1" colspan="4" bgcolor="dfdfdf"></td>
@@ -40,13 +56,34 @@
 						</tr>
 						<tr>
 							<td width="1" height="28" bgcolor="dfdfdf"></td>
-							<td width="68" align="right" bgcolor="f4f4f4" class="lp_5 t_6">지역</td>
-							<td width="145" align="center" bgcolor="f4f4f4" class="t_6"><span class="lp_10">
-								<input name="dong" id="dong" class="textType" type="text" style="width:100px;">
-							</span></td>
-							<td width="96" align="left" bgcolor="f4f4f4" class="lp_5 t_6">동(읍/면)</td>
-							<td width="100" height="70" align="center" bgcolor="f4f4f4">
-							<input type="submit" value="" style="background-image: url(//img.gameone.kr/admin/league/btn_search.gif); border: solid 0px #000000; width: 63px; height: 26px; cursor:pointer" />
+							<td width="30" align="left" bgcolor="f4f4f4" class="lp_5 t_6" style="padding-left: 50px;">
+							<select name="sido">
+								<option value="서울">서울</option>
+							</select>
+							</td>
+							
+							<td width="68" align="left" bgcolor="f4f4f4" class="lp_5 t_6" style="padding-left: -20px; margin-left: -50px;">
+							<select name="gugun">
+								<option value="">지역구 선택</option>
+							<c:forEach var="dto" items="${post1}">
+								<option value="${dto.gugun}">${dto.gugun}</option>
+						    </c:forEach>
+							</select>
+							</td>
+							
+							<td width="68" align="left" bgcolor="f4f4f4" class="lp_5 t_6">
+							<select name="addrtype">
+							    <option value="">학교 선택</option>
+								<option value="초등학교">초등학교</option>
+								<option value="중학교">중학교</option>
+								<option value="고등학교">고등학교</option>
+								<option value="대학교">대학교</option>
+								<option value="기타">기타</option>
+							</select>
+							</td>
+							
+							<td width="100" height="70" align="left" bgcolor="f4f4f4">
+							<input type="button" value="" style="background-image: url(//img.gameone.kr/admin/league/btn_search.gif); border: solid 0px #000000; width: 63px; height: 26px; cursor:pointer" onclick="result1();" />
 							<!-- <input type="image" src="//img.gameone.kr/admin/league/btn_search.gif" width="63" height="26"> -->
 							</td>
 						</tr>

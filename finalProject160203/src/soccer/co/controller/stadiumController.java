@@ -31,6 +31,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import soccer.co.DTO.ZipcodeDTO;
 import soccer.co.DTO.foot_stadium_DTO;
+import soccer.co.DTO.postDTO;
 import soccer.co.Service.foot_stadiumService;
 
 @Controller
@@ -227,12 +228,31 @@ public class stadiumController {
 	
 	
 	@RequestMapping(value = "post.do", method = RequestMethod.GET)	
-	public String post(Model model) {		
+	public String post(Model model) throws Exception {		
+		
+		List<postDTO> post1 = service.post_gugun();
+		
+		model.addAttribute("post1", post1);
 		
 		return "post.tiles";
 	}
 	
-	
+	@RequestMapping(value = "post_result.do", method = RequestMethod.GET)	
+	public String post_result(Model model,HttpServletRequest request) throws Exception {		
+		
+		String gugun = request.getParameter("gugun");
+		String addrtype = request.getParameter("addrtype");
+		
+		
+		List<postDTO> post2 = service.post_result(gugun, addrtype);
+		
+		model.addAttribute("seoul", "서울");
+		model.addAttribute("gugun", gugun);
+		model.addAttribute("addrtype", addrtype);
+		model.addAttribute("post2", post2);
+		
+		return "post_result.tiles";
+	}
 	
 	
 	
