@@ -14,8 +14,8 @@
 <tbody>	
 
 <tr class="id">
-	<th>아이디</th><td style="text-align: left"><input type="text" name="id" readonly="readonly" 
-	value='${login.id}' size="60"/></td>
+	<th>아이디</th><td style="text-align: left"><input type="text" name="user_email" readonly="readonly" 
+	value='${login.user_email}' size="60"/></td>
 </tr>
 
 <tr>
@@ -29,7 +29,7 @@
 
 <tr>
 	<td colspan="2" style="height:50px; text-align:center;">
-		<input type="hidden" name="seq"   value="${bbs.seq}" />
+		<input type="hidden" name="seq"   value="${bbs.bbs_no}" />
 		<span><a href="#none" id="_btnupdate" title="수정하기">수정하기</a>
 		</span>
 	</td>

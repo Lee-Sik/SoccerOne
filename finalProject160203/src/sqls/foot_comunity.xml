@@ -46,57 +46,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 
-
-
-
-
-
-
-
-
-
-<!-- 	<select id="getBBS" parameterType="soccer.co.DTO.foot_comunity_DTO" resultType="soccer.co.DTO.foot_comunity_DTO"> -->
-<!-- 			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL -->
-<!-- 			FROM FOOT_BBS -->
-<!-- 			WHERE bbs_no=${bbs_no} -->
-<!-- 	</select> -->
+	<select id="getBBS" parameterType="soccer.co.DTO.foot_comunity_DTO" resultType="soccer.co.DTO.foot_comunity_DTO">
+			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL
+			FROM FOOT_BBS
+			WHERE bbs_no=#{bbs_no}
+	</select>
 	
-<!-- 	<update id="incrementReadCount" parameterType="soccer.co.DTO.foot_comunity_DTO"> -->
-<!-- 		UPDATE FOOT_BBS SET -->
-<!-- 		READCOUNT =READCOUNT+1 -->
-<!-- 		WHERE bbs_no=#{bbs_no} -->
-<!-- 	</update> -->
+	<update id="incrementReadCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		UPDATE FOOT_BBS SET
+		READCOUNT =READCOUNT+1
+		WHERE bbs_no=#{bbs_no}
+	</update>
 	
-<!-- 	<update id="replyBBSUpdate" parameterType="soccer.co.DTO.foot_comunity_DTO"> -->
-<!-- 		UPDATE FOOT_BBS SET -->
-<!-- 		STEP=STEP+1 -->
-<!-- 		WHERE REF=(SELECT REF FROM BBS WHERE bbs_no=#{bbs_no}) -->
-<!-- 		AND STEP>(SELECT STEP FROM BBS WHERE bbs_no=#{bbs_no}) -->
-<!-- 	</update> -->
+	<update id="replyBBSUpdate" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		UPDATE FOOT_BBS SET
+		STEP=STEP+1
+		WHERE REF=(SELECT REF FROM BBS WHERE bbs_no=#{bbs_no})
+		AND STEP>(SELECT STEP FROM BBS WHERE bbs_no=#{bbs_no})
+	</update>
 			
-<!-- 	<insert id="replyBBSInsert" parameterType="soccer.co.DTO.foot_comunity_DTO"> -->
-<!-- 		INSERT INTO BBS -->
-<!-- 		(bbs_no,ID,TITLE,CONTENT,REF,STEP, -->
-<!-- 		DEPTH, PARENT, DEL, WDATE, READCOUNT) -->
-<!-- 		VALUES( -->
-<!-- 		bbs_no_BBS.NEXTVAL, -->
-<!-- 		#{id},#{title},#{content}, -->
-<!-- 		(SELECT REF FROM BBS WHERE bbs_no=#{bbs_no}), -->
-<!-- 		(SELECT STEP FROM BBS WHERE bbs_no=#{bbs_no})+1, -->
-<!-- 		(SELECT DEPTH FROM BBS WHERE bbs_no=#{bbs_no})+1, -->
-<!-- 		#{bbs_no},0,SYSDATE,0)  -->
-<!-- 	</insert> -->
+	<insert id="replyBBSInsert" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		INSERT INTO BBS
+		(bbs_no,ID,TITLE,CONTENT,REF,STEP,
+		DEPTH, PARENT, DEL, WDATE, READCOUNT)
+		VALUES(
+		bbs_no_BBS.NEXTVAL,
+		#{id},#{title},#{content},
+		(SELECT REF FROM BBS WHERE bbs_no=#{bbs_no}),
+		(SELECT STEP FROM BBS WHERE bbs_no=#{bbs_no})+1,
+		(SELECT DEPTH FROM BBS WHERE bbs_no=#{bbs_no})+1,
+		#{bbs_no},0,SYSDATE,0) 
+	</insert>
 	
-<!-- 	<update id="updateBBS" parameterType="soccer.co.DTO.foot_comunity_DTO"> -->
-<!-- 		UPDATE FOOT_BBS SET  -->
-<!-- 		TITLE=#{title}, CONTENT=#{content}, WDATE=SYSDATE  -->
-<!-- 		WHERE bbs_no=#{bbs_no} -->
-<!-- 	</update> -->
+	<update id="updateBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		UPDATE FOOT_BBS SET 
+		TITLE=#{title}, CONTENT=#{content}, WDATE=SYSDATE 
+		WHERE bbs_no=#{bbs_no}
+	</update>
 	
-<!-- 	<update id="delBBS" parameterType="soccer.co.DTO.foot_comunity_DTO"> -->
-<!-- 		UPDATE FOOT_BBS SET  -->
-<!-- 		DEL=#{del}  -->
-<!-- 		WHERE bbs_no=#{bbs_no} -->
-<!-- 	</update> -->
+	<update id="delBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		UPDATE FOOT_BBS SET 
+		DEL=#{del} 
+		WHERE bbs_no=#{bbs_no}
+	</update>
 
  </mapper>

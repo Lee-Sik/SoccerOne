@@ -7,7 +7,7 @@
 
 <form name="frmForm" id="_frmForm" method="post" action="bbsupdate.do">
 <table class="list_table" style="width:85%;">
-<input type="hidden" name="seq" value="${bbs.seq}"/>
+<input type="hidden" name="seq" value="${bbs.bbs_no}"/>
 
 <colgroup>
 <col style="width:200px;" />
@@ -18,11 +18,11 @@
 
 <tr class="id">
 	<th>아이디</th>
-	<td style="text-align: left">${bbs.id}</td>
+	<td style="text-align: left">${bbs.user_email}</td>
 </tr>
 
 <tr>
-	<th>제목</th><td style="text-align: left">${bbs.title}</td>
+	<th>제 목</th><td style="text-align: left">${bbs.title}</td>
 </tr>
 
 <tr>
@@ -34,11 +34,7 @@
 </tr>
 
 <tr>
-	<th>글정보</th><td style="text-align: left">${bbs.ref} - ${bbs.parent} - ${bbs.depth}</td>
-</tr>
-
-<tr>
-	<th>내용</th>
+	<th>내 용</th>
 	<td style="text-align: left"><textarea rows="10" cols="50" 
 	name='content' id="_content">${bbs.content}</textarea></td>
 </tr>
@@ -68,24 +64,23 @@
 --%>
 </form>
 
+<%-- <c:if test="${login.user_email ne bbs.user_email}"> --%>
+<!-- <form action="bbsreply.do" method="post"> -->
+<%-- <input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" /> --%>
+<!-- <input type="submit"  value="답글달기" /> -->
+<!-- </form> -->
+<%-- </c:if> --%>
 
-<c:if test="${login.id ne bbs.id}">
-<form action="bbsreply.do" method="post">
-<input type="hidden" name="seq"   value="${bbs.seq}" />
-<input type="submit"  value="답글달기" />
-</form>
-</c:if>
-
-<c:if test="${login.id eq bbs.id}">
+<c:if test="${login.user_email eq bbs.user_email}">
 <form action="bbsupdate.do" method="post">
-<input type="hidden" name="seq"   value="${bbs.seq}" />
+<input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" />
 <input type="submit"  value="수정하기" />
 </form>
 </c:if>
 
-<c:if test="${login.id eq bbs.id}">
+<c:if test="${login.user_email eq bbs.user_email}">
 <form action="bbsdel.do" method="post">
-<input type="hidden" name="seq"   value="${bbs.seq}" />
+<input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" />
 <input type="submit"  value="삭제하기" />
 </form>
 </c:if>

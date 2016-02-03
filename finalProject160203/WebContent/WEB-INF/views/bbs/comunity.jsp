@@ -3,9 +3,17 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
 
+<link href="CSS/COMUNITYtable.css" rel="stylesheet" >
 
 <body>
-<table>
+<table class="list_table_5">
+<colgroup>
+<col style="width:30px;" />
+<col style="width:200px;" />
+<col style="width:50px;" />
+<col style="width:150px;" />
+</colgroup>
+
 <tr>
 	<td colspan="4" style="text-align: center; font-weight: bold">최근 국내축구 게시글</td>
 </tr>
@@ -20,7 +28,7 @@
 		<tr>		
 			<c:if test="${bbslist.topic == 'korea'}">
 				<td>${vs.count}</td> 
-				<td>${bbslist.title}</td>
+				<td><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
 				<td>${bbslist.user_email}</td> 
 				<td>${bbslist.wdate}</td> 
 			</c:if>
@@ -33,7 +41,13 @@
 
 <br><br><br><br>
 
-<table>
+<table class="list_table_5">
+<colgroup>
+<col style="width:30px;" />
+<col style="width:200px;" />
+<col style="width:50px;" />
+<col style="width:150px;" />
+</colgroup>
 <tr>
 	<td colspan="4" style="text-align: center; font-weight: bold">최근 해외축구 게시글</td>
 </tr>
@@ -48,7 +62,7 @@
 		<tr>		
 			<c:if test="${bbslist.topic == 'europe'}">
 				<td>${vs.count}</td> 
-				<td>${bbslist.title}</td>
+				<td><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
 				<td>${bbslist.user_email}</td> 
 				<td>${bbslist.wdate}</td> 
 			</c:if>

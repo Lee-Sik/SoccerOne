@@ -114,6 +114,18 @@
 
 </definition>
 
+<definition name="bbsdetail.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/bbs/bbsdetail.jsp" />
+
+</definition>
+
+<definition name="bbsupdate.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/bbs/bbsupdate.jsp" />
+
+</definition>
+
 <definition name="comunity.tiles" extends="login.tiles">
 
 	<put-attribute name="main" value="/WEB-INF/views/bbs/comunity.jsp" />

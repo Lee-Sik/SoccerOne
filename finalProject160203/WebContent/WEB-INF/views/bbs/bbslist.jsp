@@ -58,7 +58,7 @@
 	<tr class="_hover_tr">
 		<td>${vs.count}</td> 
 		<td>${bbs.topic}</td>
-		<td style="text-align: left">${bbs.title}</td>
+		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'>${bbs.title}</a></td>
 		<td>${bbs.user_email}</td> 
 		<td>${bbs.wdate}</td> 
 		<td>${bbs.readcount}</td> 
@@ -67,6 +67,7 @@
 <c:if test="${bbs.del == 1}">
 	<tr class="_hover_tr">
 		<td>${vs.count}</td> 
+		<td></td>
 		<td style="text-align: left">이 글은 삭제 되었습니다.</td>
 		<td>${bbs.user_email}</td> 
 		<td></td> 

@@ -161,17 +161,16 @@ public class comunityController {
 		return "bbslist.tiles";
 	}
 	
-	@RequestMapping(value = "bbsdetail.do", 
-			method = {RequestMethod.GET,
-			RequestMethod.POST})
+	@RequestMapping(value = "bbsdetail.do", method = {RequestMethod.GET,RequestMethod.POST})
 	public String bbsdetail(foot_comunity_DTO bbs,Model model) throws Exception {
 		logger.info("Welcome MemberController bbsdetail! "+ new Date());
-		logger.info("Welcome MemberController bbs.getSeq()! "+ bbs.getBbs_no());
+		logger.info("Welcome MemberController bbs.getBbs_no()! "+ bbs.getBbs_no());
 		foot_comunity_DTO dto=BBSService.getBBS(bbs);
 		
 		BBSService.incrementReadCount(bbs);
 		model.addAttribute("bbs",dto);
-		model.addAttribute("doc_title", "글 상세보기");
+		model.addAttribute("title", "글 상세보기");
+		
 		return "bbsdetail.tiles";
 	}
 }
