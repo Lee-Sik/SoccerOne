@@ -16,6 +16,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  position:relative;z-index:2;
 }
 #cssmenu:after,
 #cssmenu > ul:after {
@@ -297,10 +298,12 @@ input.cmn-toggle-round:checked + label:after {
  
   #cssmenu {
     width: 100%;
+    
   }
   #cssmenu ul {
     width: 100%;
     display: none;
+    
   }
   #cssmenu.align-center > ul {
     text-align: left;
@@ -308,6 +311,7 @@ input.cmn-toggle-round:checked + label:after {
   #cssmenu ul li {
     width: 100%;
     border-top: 1px solid rgba(120, 120, 120, 0.2);
+    
   }
   #cssmenu ul ul li,
   #cssmenu li:hover > ul > li {

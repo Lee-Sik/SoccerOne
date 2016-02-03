@@ -33,8 +33,6 @@ import soccer.co.DTO.ZipcodeDTO;
 import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.Service.foot_stadiumService;
 
-
-
 @Controller
 public class stadiumController {
 	
@@ -215,7 +213,11 @@ public class stadiumController {
 	       return "redirect:/kickoff.do";
 	}
 	
-	
+	@RequestMapping(value = "stadiumList.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String stadiumList(Model model) {		
+		System.out.println("dddd");
+		return "stadiumList.tiles";
+	}
 	
 	
 	
