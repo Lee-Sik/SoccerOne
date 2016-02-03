@@ -28,9 +28,7 @@ public class foot_user_DAO{
 	
 	public foot_user_DTO login1(foot_user_DTO fudto) {
 		// TODO Auto-generated method stub
-		foot_user_DTO fudto1 = (foot_user_DTO) sqlse.selectOne(ns+"login", fudto);
-			
-		
+		foot_user_DTO fudto1 = (foot_user_DTO) sqlse.selectOne(ns+"login1", fudto);
 		return fudto1;
 	}
 	
