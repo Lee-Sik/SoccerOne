@@ -88,10 +88,8 @@
 </definition>
 
 <definition name="stadiumList.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/stadium/stadiumList.jsp" />
+	<put-attribute name="main" value="/WEB-INF/views/stadium/stadiumList.jsp"/>
 </definition>
-
-
 
 
 <definition name="bbswrite.tiles" extends="login.tiles">
