@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="foot_user">
+	<select id="login"
+   parameterType="soccer.co.DTO.foot_user_DTO"
+   resultType="soccer.co.DTO.foot_user_DTO">
+   SELECT * FROM foot_user 
+   WHERE user_email=#{user_email} AND user_pw=#{user_pw}
+   </select>
+   
+   
+   <insert id="join"
+   parameterType="soccer.co.DTO.foot_user_DTO">
+   INSERT INTO foot_user VALUES(#{user_email},#{user_pw},#{user_name},#{user_birth},#{user_age},
+   							#{user_phone},#{user_high},#{user_weight},#{user_foot},
+   							#{user_position1},#{user_position2},#{user_position3},#{user_address},
+   							#{user_profile},null,0,0,null,null,null,null)
+   </insert>
+</mapper>
