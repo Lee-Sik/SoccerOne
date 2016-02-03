@@ -19,7 +19,10 @@
 <table class="myinform">
 <col width=100>
 <col width=100>
-
+<tr>
+<td>프로필사진</td>
+<td><img alt="" src="image/${login.user_profile }"> </td>
+</tr>
 <tr>
 <td>아이디</td>
 <td>${login.user_email }</td>
@@ -66,6 +69,7 @@
 <td>팀</td>
 <td>${login.user_team }</td>
 </tr>
+
 </c:if>
 
 </table>

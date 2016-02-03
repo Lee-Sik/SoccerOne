@@ -17,10 +17,13 @@ public class foot_team_DAO {
 	private SqlSession sql;
 	
 	private String ns = "foot_team.";
+	private String ns1 = "foot_user.";
 	
 	public boolean join(foot_team_DTO fudto) throws Exception {
 			//유저 업데이트 팀명 추가 기능
+			System.out.println(fudto.toString());
 			int a = sql.insert(ns+"join", fudto);
+			sql.update(ns1+"teamjoin_userupdate", fudto);
 		
 		return a==1? true:false;
 	}

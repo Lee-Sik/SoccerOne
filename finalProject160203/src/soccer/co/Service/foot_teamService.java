@@ -4,7 +4,7 @@ import java.util.List;
 
 import soccer.co.DTO.foot_team_DTO;
 
-public interface foot_clubService {
+public interface foot_teamService {
 
 	public boolean join(foot_team_DTO team) throws Exception;
 	

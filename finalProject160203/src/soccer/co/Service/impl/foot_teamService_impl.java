@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import soccer.co.DAO.foot_team_DAO;
 import soccer.co.DTO.foot_team_DTO;
-import soccer.co.Service.foot_clubService;
+import soccer.co.Service.foot_teamService;
 
 @Service
-public class foot_teamService_impl implements foot_clubService{
+public class foot_teamService_impl implements foot_teamService{
 
 	@Autowired
 	foot_team_DAO teamdao;

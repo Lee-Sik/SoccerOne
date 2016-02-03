@@ -21,5 +21,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	 SELECT * FROM foot_team where team_location1=#{add1} or team_location2=#{add1} or team_location3=#{add1} and team_join=1
    </select>
    
+   <select id="loginteam" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.foot_team_DTO">
+  	 SELECT * FROM foot_team where team_managerid = #{user_email}
+   </select>
+   
    
 </mapper>

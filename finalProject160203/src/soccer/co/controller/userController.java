@@ -41,8 +41,13 @@ public class userController {
 		int loginfalse = 0;
 		logger.info("Welcome HelloMemberController login! " + new Date());
 		foot_user_DTO login = null;
+		foot_team_DTO team = null;
 		try {
 			login = fuservice.login(fudto);
+			if(fudto.getUser_team()!=null && fudto.getUser_team().equals("")){
+				team = fuservice.loginteam(fudto);
+			}
+			
 			// login.toString();
 			request.getSession().setAttribute("loginfalse", loginfalse);
 		} catch (Exception e) {
@@ -51,7 +56,8 @@ public class userController {
 			request.getSession().setAttribute("loginfalse", loginfalse);
 			login1 = "first.tiles";
 		}
-
+		
+		request.getSession().setAttribute("team", team);
 		request.getSession().setAttribute("login", login);
 		return login1;
 	}

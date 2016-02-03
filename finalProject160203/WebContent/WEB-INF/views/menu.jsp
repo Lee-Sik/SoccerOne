@@ -1,4 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <% request.setCharacterEncoding("utf-8"); %>
 
 <div id='cssmenu'>
@@ -24,9 +27,18 @@
    
    <li class='active'><a href='club.do?user_address=${login.user_address}&user_team=${login.user_team}'>클럽</a>
       <ul>
-         <li><a href='#'>클럽검색</a></li>
+      	 <c:if test="${empty login.user_team }">
+         <li><a href='#'>클럽검색/입단</a></li>
+         </c:if>
+         <c:if test="${not empty login.user_team }">
+         <li><a href='#'>클럽검색/모집</a></li>
+         </c:if>
          <li><a href='#'>내 정보</a></li>
-         <li><a href='team_create.do'>팀 생성</a></li>
+         
+        	<c:if test="${empty login.user_team }">
+         	<li><a href='team_create.do?user_email=${login.user_email }'>팀 생성</a></li>
+        	</c:if>
+         
          <li><a href='#'>클럽설정</a></li>
          <li><a href='#'>클럽게시판</a></li>
       </ul>

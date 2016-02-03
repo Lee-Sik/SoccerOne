@@ -21,22 +21,30 @@ import org.springframework.web.multipart.MultipartFile;
 
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
-import soccer.co.Service.foot_clubService;
+import soccer.co.Service.foot_teamService;
+import soccer.co.Service.foot_userService;
 
 
 @Controller
 public class clubController {
 	
 	@Autowired
-    foot_clubService clubservice;
+    foot_teamService clubservice;
+	@Autowired
+    foot_userService userservice;
 	
 	private static final Logger logger = LoggerFactory.getLogger(clubController.class);
 	
 	@RequestMapping(value = "team_create.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String join(Model model) throws Exception {	
+	public String join(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
 		logger.info("clubController join!");
+		
+		
+		
 		model.addAttribute("list",clubservice.getGu());
-
+		
+		request.getSession().setAttribute("login",userservice.login1(fudto) );
+		
 		model.addAttribute("title", "클럽 생성");
 		return "team_create.tiles";
 	}

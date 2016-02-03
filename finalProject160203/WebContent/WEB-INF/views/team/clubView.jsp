@@ -41,7 +41,7 @@
 	
 	
 	
-	<c:if test="${not empty login.user_team }">
+	<c:if test="${not empty login.user_team  }">
 	<div id="box">
 		<div id="intro" class="title">
 			<div class="content">
