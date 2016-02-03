@@ -52,7 +52,6 @@ public class clubController {
 	@RequestMapping(value = "club.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String club(foot_user_DTO fudto,Model model) throws Exception {	
 		logger.info("clubController club!");
-		System.out.println(fudto.getUser_team());
 		if(fudto.getUser_team().equals("") || fudto.getUser_team()==null){
 			List<foot_team_DTO> notteamlist = clubservice.notteamGu(fudto.getUser_address());
 			model.addAttribute("notteamlist", notteamlist);

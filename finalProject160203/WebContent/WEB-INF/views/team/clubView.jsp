@@ -45,7 +45,7 @@
 	<div id="box">
 		<div id="intro" class="title">
 			<div class="content">
-				<img alt="팀로고" src="image/2.jpg">
+				<img alt="팀로고" src="image/${team.team_logo} ">
 			</div>
 			<div class="content">팀 소개 내용</div>
 		</div>

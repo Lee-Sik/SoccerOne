@@ -44,8 +44,10 @@ public class userController {
 		foot_team_DTO team = null;
 		try {
 			login = fuservice.login(fudto);
-			if(fudto.getUser_team()!=null && fudto.getUser_team().equals("")){
+			if(fudto.getUser_team()!=null){
+				
 				team = fuservice.loginteam(fudto);
+				System.out.println("이거는 내가 보려고하는것 " +team.toString());
 			}
 			
 			// login.toString();
