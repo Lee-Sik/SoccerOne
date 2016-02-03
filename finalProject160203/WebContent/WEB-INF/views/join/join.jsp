@@ -8,31 +8,91 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="CSS/JOINtable.css" rel="stylesheet" >
 <title>Insert title here</title>
 <style>
+
+.Join_Btn,.Cancel_Btn {
+	text-decoration:none;
+	box-shadow:inset #787878 0px -5px 8px -1px,#333333 0px 3px 0px;
+	o-box-shadow:inset #787878 0px -5px 8px -1px,#333333 0px 3px 0px;
+	-moz-box-shadow:inset #787878 0px -5px 8px -1px,#333333 0px 3px 0px;
+	-webkit-box-shadow:inset #787878 0px -5px 8px -1px,#333333 0px 3px 0px;
+	background:#4f4f4f;
+	background:-o-linear-gradient(90deg, #4f4f4f, #5e5e5e);
+	background:-moz-linear-gradient( center top, #4f4f4f 5%, #5e5e5e 100% );
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4f4f4f), color-stop(1, #5e5e5e) );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f4f4f', endColorstr='#5e5e5e');
+	background:-webkit-linear-gradient(#4f4f4f, #5e5e5e);
+	background:-ms-linear-gradient(#4f4f4f, #5e5e5e);
+	background:linear-gradient(#4f4f4f, #5e5e5e);
+	text-indent:0px;
+	line-height:21px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	text-align:center;
+	vertical-align:middle;
+	display:inline-block;
+	font-size:13px;
+	vertical-align:middle;
+	font-family: Montserrat, sans-serif;
+	color:#ffffff;
+	width:68px;
+	height:25px;
+	padding:2px;
+	text-shadow:#7d7d7d 0px 0px 0px;
+	border-color:#ffffff;
+	border-width:0px;
+	border-style:solid;
+}
+
+.Join_Btn:active, .Cancel_Btn:active{
+	box-shadow:inset #787878 0px -5px 8px -1px,#333333 0px 0 0px;
+	o-box-shadow:inset #787878 0px -5px 8px -1px,#333333 0px 0 0px;
+	-moz-box-shadow:inset #787878 0px -5px 8px -1px,#333333 0px 0 0px;
+	-webkit-box-shadow:inset #787878 0px -5px 8px -1px,#333333 0px 0 0px;
+	position:relative;
+	top:3px
+}
+
+.Join_Btn:hover, .Cancel_Btn:hover {
+	background:#5e5e5e;
+	background:-o-linear-gradient(90deg, #5e5e5e, #4f4f4f);
+	background:-moz-linear-gradient( center top, #5e5e5e 5%, #4f4f4f 100% );
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5e5e5e), color-stop(1, #4f4f4f) );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5e5e5e', endColorstr='#4f4f4f');
+	background:-webkit-linear-gradient(#5e5e5e, #4f4f4f);
+	background:-ms-linear-gradient(#5e5e5e, #4f4f4f);
+	background:linear-gradient(#5e5e5e, #4f4f4f);
+}
+
+
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 body{
 	background-color: white;
 }
 .wow1{
 	text-align: center;
 	color:black;
-	font-size: 30pt;
-	font-family: -윤고딕310;
+	font-size: 25pt;
+	font-family: Montserrat, sans-serif;
 }
 .wow2{
 	text-align: center;
 	color:black;
-	font-size: 15pt;
-	font-family: -윤고딕310;
+	font-size: 13pt;
+	font-family: Montserrat, sans-serif;
 }
 table{
-font-size: 15pt;
-	font-family: -윤고딕310;
+font-size: 10pt;
+	font-family: Montserrat, sans-serif;
 }
 
 .center{
 
 }
+
 </style>
 </head>
 <body>
@@ -116,14 +176,15 @@ function function1(val){
 
 
 <form action="join1.do" name="f" method="post" enctype="multipart/form-data">
-<table>
+<table class="list_table">
 <tr>
-<td>e-mail</td>
+<th>아이디 (E-Mail)</th>
 <td colspan="5"><input type="text" name="user_email1" maxlength= "30">@
 <select onchange="selectval1(this.value)">
 <option value="">선택하세요</option>
 <option value="naver.com">naver.com</option>
-<option value="hanmail.com">hanmail.com</option>
+<option value="nate.com">nate.com</option>
+<option value="hanmail.com">hanmail.net</option>
 <option value="hotmail.com">hotmail.com</option>
 <option value="gmail.com">gmail.com</option>
 <option value="">직접입력</option>
@@ -132,20 +193,20 @@ function function1(val){
 </td>
 </tr>
 <tr>
-<td>PASSWORD</td>
+<th>비밀번호</th>
 <td colspan="5"><input type="password" name="user_pw" maxlength="8"></td>
 </tr>
 <tr>
-<td>PASSWORD 확인</td>
+<th>비밀번호 확인</th>
 <td colspan="5"><input type="password" name="user_pw1" maxlength="8"></td>
 
 </tr>
 <tr>
-<td>NAME</td>
+<th>이 름</th>
 <td colspan="5"><input type="text" name="user_name"></td>
 </tr>
 <tr>
-<td>Birth</td>
+<th>생년월일</th>
 <td colspan="5">
 <input type="text" name="user_birth1" maxlength="4" size="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">년
 
@@ -157,11 +218,11 @@ function function1(val){
 
 </tr>
 <tr>
-<td>AGE</td>
+<th>나 이</th>
 <td colspan="5"><input type="text" name="user_age"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
 </tr>
 <tr>
-<td>phone</td>
+<th>휴대폰</th>
 <td colspan="5">
 <select name="user_phone3">
 <option></option>
@@ -177,15 +238,15 @@ function function1(val){
 </td>
 </tr>
 <tr>
-<td>user_high</td>
-<td colspan="5"><input type="text" name="user_high" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">cm</td>
+<th>신 장</th>
+<td colspan="5"><input type="text" name="user_high" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" size="8px;">cm</td>
 </tr>
 <tr>
-<td>user_weight</td>
-<td colspan="5"><input type="text" name="user_weight" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">kg</td>
+<th>체 중</th>
+<td colspan="5"><input type="text" name="user_weight" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" size="8px;">kg</td>
 </tr>
 <tr>
-<td>user_foot</td>
+<th>주 발</th>
 <td colspan="5">
 <select name="user_foot1">
 <option value="">선택하세요</option>
@@ -255,7 +316,7 @@ function function1(val){
 </td>
 </tr>
 <tr>
-<td ><img alt="" src="image/join2.png" width="15%">활동지역</td>
+<th><img alt="" src="image/join2.png" width="15%">활동지역</th>
 <td colspan="5">
 <select name="user_address1">
 <option></option>
@@ -347,13 +408,15 @@ function function1(val){
 </td>
 </tr>
 <tr>
-            <td>팀로고</td>
+            <th>프로필사진</th>
             <td colspan="5"><input type="file" name="file"></td>
          
          </tr>
 <tr>
-<td align="center" colspan="6"><input type="button" value="회원가입" onclick="function1(this)">
-<input type="button" value="취소" onclick="self.close()"></td>
+	<td class="btn" colspan="6">
+		<button class="Join_Btn" value="회원가입" onclick="function1(this)">회원가입</button>&nbsp;&nbsp;&nbsp;
+		<button class="Cancel_Btn" value="취소" onclick="self.close()">취소</button>
+	</td>
 </tr>
 </table>
 

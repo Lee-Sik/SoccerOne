@@ -33,13 +33,11 @@ body, table{
 	text-align: center;
 	width:100%;
 	background-color: gray;
-	
 }
 #main{
 	width:75%;
 	float: left;
-	min-height: 500px;
-	
+	min-height: 700px;
 }
 #content{
 	width:100%;

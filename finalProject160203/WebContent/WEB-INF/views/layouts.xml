@@ -57,19 +57,19 @@
 
 </definition>
 
-<definition name="matching.tiles" extends="kickoff.tiles">
+<definition name="matching.tiles" extends="login.tiles">
 
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/matching.jsp" />
 
 </definition>
 
-<definition name="publicgame.tiles" extends="kickoff.tiles">
+<definition name="publicgame.tiles" extends="login.tiles">
 
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/publicgame.jsp" />
 
 </definition>
 
-<definition name="freegame.tiles" extends="kickoff.tiles">
+<definition name="freegame.tiles" extends="login.tiles">
 
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/freegame.jsp" />
 
