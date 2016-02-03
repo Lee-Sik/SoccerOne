@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="CSS/styles.css">
-<SCRIPT LANGUAGE="JavaScript" SRC="https://www.ionnuri.org/ks20/js/jquery/jquery.js"></SCRIPT>
+<!-- <link rel="stylesheet" href="CSS/styles.css"> -->
+<!-- <SCRIPT LANGUAGE="JavaScript" SRC="https://www.ionnuri.org/ks20/js/jquery/jquery.js"></SCRIPT> -->
 <script type="text/javascript">
 	
 var num;
@@ -72,7 +72,7 @@ td.td2 {
 </style>
 
 </head>
-<body>
+
 
 
 <form action="stadium_write_ok.do" method="post" enctype="multipart/form-data">
@@ -95,6 +95,16 @@ td.td2 {
 </tr>
 <tr>
 	<td class="td1">구장주소</td><td class="td2"> 
+<<<<<<< .mine
+<!-- 	<div class="container"> -->
+<!--     <label class="switch"> -->
+<!--       <input type="checkbox" class="switch-input"> -->
+<!--       <span class="switch-label" data-on="On" data-off="Off"></span> -->
+<!--       <span class="switch-handle"></span> -->
+<!--     </label> -->
+<!--     </div> -->
+=======
+>>>>>>> .r33
 	
 	<a href="#" onclick="javascript:window.open('./zipsearch.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
 	<img src="image/wofun.png"></a> <br>
@@ -131,8 +141,7 @@ td.td2 {
 </table>
 <input type="submit" value="등록">
 </form>
-</body>
-</html>
+
 
 
 

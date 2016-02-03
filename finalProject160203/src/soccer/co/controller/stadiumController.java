@@ -53,6 +53,7 @@ public class stadiumController {
 	     + Integer.toString(e)+ Integer.toString(f);
 	     
 	     model.addAttribute("result", result);
+	     model.addAttribute("title", "공식대관");
 		
 		return "stadium_write.tiles";
 	}
