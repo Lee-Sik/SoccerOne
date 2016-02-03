@@ -51,6 +51,7 @@
 </definition>
 
 
+
 <definition name="kickoff.tiles" extends="login.tiles">
 
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/kickoff.jsp" />
@@ -77,7 +78,7 @@
 
 
 <definition name="stadium_write.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/stadium/stadium_write.jsp" />
+	<put-attribute name="main" value="/WEB-INF/views/stadium/bookingList.jsp" />
 </definition>
 
 <definition name="zipsearch.tiles" template="/WEB-INF/views/stadium/zipsearch.jsp">

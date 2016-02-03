@@ -185,30 +185,19 @@ public class stadiumController {
 			
 			dto.setStadium_img1(mr.getFilesystemName("stadium_img1"));
 		}
-		
-		
-		
-		
-		
-		
+
 		/*MultipartRequest mr = new MultipartReques(request, path, maxSize, encType,
 				new DefaultFileRenamePolicy());*/
 		
-		
-		
-		
-		
-	       String addr = request.getParameter("addr1") + request.getParameter("addr2");
+		  dto.setUser_email(mr.getParameter("user_email"));
+		  dto.setStadium_name(mr.getParameter("stadium_name"));
+		  dto.setS_content(mr.getParameter("s_content"));
+		  dto.setFindway(mr.getParameter("findway"));
+		  dto.setStadium_phone(mr.getParameter("stadium_phone"));
+
+	       String addr = mr.getParameter("addr1") + mr.getParameter("addr2");
 	       dto.setAddr(addr);
 	       
-	       System.out.println("1 : " + dto.getUser_email());
-	       System.out.println("2 : " + dto.getAddr());
-	       System.out.println("3 : " + dto.getFindway());
-	       System.out.println("4 : " + dto.getS_content());
-	       System.out.println("5 : " + dto.getUser_email());
-	       System.out.println("6 : " + dto.getStadium_phone());
-	       
-	       System.out.println("img1 : " + dto.getStadium_img1());
 	       
 	       service.stadiumWrite(dto);
 		

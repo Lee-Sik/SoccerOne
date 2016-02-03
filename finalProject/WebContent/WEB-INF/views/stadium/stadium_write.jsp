@@ -95,14 +95,7 @@ td.td2 {
 </tr>
 <tr>
 	<td class="td1">구장주소</td><td class="td2"> 
-	<div class="container">
-    <label class="switch">
-      <input type="checkbox" class="switch-input">
-      <span class="switch-label" data-on="On" data-off="Off"></span>
-      <span class="switch-handle"></span>
-    </label>
-    </div>
-	
+    	
 	<a href="#" onclick="javascript:window.open('./zipsearch.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
 	<img src="image/wofun.png"></a> <br>
 	<input type="text" name="addr1" id="addr1" size="70"> <br> 
