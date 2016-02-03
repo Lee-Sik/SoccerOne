@@ -47,6 +47,10 @@ xmlns:mvc="http://www.springframework.org/schema/mvc"
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
 	</bean>
 	
+	<bean id = "multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean><!-- multipart사용 -->
+	
+	
 <!-- <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" > -->
 <!-- <property name="maxUploadSize" value="104857600"/> -->
 <!-- <property name="maxInMemorySize" value="102400"/> -->

@@ -36,7 +36,7 @@ private static final Logger logger = LoggerFactory.getLogger(userController.clas
 		foot_user_DTO login=null;
 		try {
 			login = fuservice.login(fudto);
-			login.toString();
+			//login.toString();
 			request.getSession().setAttribute("loginfalse", loginfalse);
 		} catch (Exception e) {
 			e.printStackTrace();
