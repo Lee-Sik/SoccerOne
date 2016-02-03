@@ -18,6 +18,7 @@ public class foot_team_DAO {
 	private String ns = "foot_team.";
 	
 	public boolean join(foot_team_DTO fudto) throws Exception {
+			//유저 업데이트 팀명 추가 기능
 			int a = sql.insert(ns+"join", fudto);
 		
 		return a==1? true:false;

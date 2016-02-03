@@ -49,7 +49,6 @@ public class clubController {
 	@RequestMapping(value ="createTeamAf.do", method = RequestMethod.POST)	
 	public String joinAf(@RequestParam("file") MultipartFile file,foot_team_DTO team,String team_h,String team_o,String team_j, Model model) throws Exception {	
 		logger.info("clubController joinAf!");
-		System.out.println(team_h);
 		String fileName = null;
 		File upload = null;
 		
@@ -59,8 +58,10 @@ public class clubController {
 				System.out.println(file.getOriginalFilename());
 				
 				fileName = file.getOriginalFilename();
-				upload = new File("C:/temp/" + fileName);
+				
+				upload = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160203/WebContent/image/" + fileName);
 				byte[] bytes = file.getBytes();
+				
 				BufferedOutputStream buffStream = new BufferedOutputStream(
 						new FileOutputStream(upload));
 
@@ -81,8 +82,10 @@ public class clubController {
 		team.setTeam_join(team_j == null ? 0:1);
 		team.setTeam_open(team_o == null ? 0:1);
 		System.out.println(team.toString());
+		
 		try{
 			clubservice.join(team);//팀생성 실패시 어떻게 할까?
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
