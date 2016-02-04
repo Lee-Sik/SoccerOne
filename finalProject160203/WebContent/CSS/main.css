@@ -85,20 +85,5 @@ body, table{
 	
 }
 
-#box .title {
-	width: 80%;
-	margin-left: 20px;
-	margin-top: 20px;
-	border-width: 1px;
-}
 
-#box {
-	width: 80%;
-	min-height: 500px;
-/* 	position: relative; */
-}
 
-.content {
-	display: inline;
-	background-color: lightblue;
-}

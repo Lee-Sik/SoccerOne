@@ -23,10 +23,8 @@
 
 </head>
 <body>
-
 	
-	
-	<c:if test="${empty login.user_team }">
+	<c:if test="${empty login.user_team}">
 	
 	<div class="club_notteam" align="center">
 		<table border="1" style="border-collapse: 1">
@@ -47,39 +45,54 @@
 	
 	</c:if>
 	
-	
-	
-	<c:if test="${not empty login.user_team  }">
-	<div id="box">
-		<div id="intro" class="title">
-			<div class="content">
+	<c:if test="${not empty login.user_team}"> 
+	<table>
+
+		<tr>
+			<td>
+				<img alt="팀로고" src="image/${team.team_logo} " style="width: 300px; height: 200px;">
+			</td>
 			
-			팀로고 	<img alt="팀로고" src="image/${team.team_logo} ">
-			</div>
-			<br>
-			<div class="content">
+			<td>
 			
 			팀 소개 내용	${team.team_intro}
-			</div>
-		</div>
-		<div id="calendar" class="title">
-			<div class="content">캘린더</div>
-			<div class="content">일정 내용 5개</div>
-		</div>
-		<div id="board" class="title">
-			<div class="content">최근 경기</div>
-			<div class="content">팀 게시판</div>
-		</div>
-		<div id="position" class="title">
-			<div class="content">베스트 11 이미지</div>
-			<div class="content">팀원들 가져오기</div>
-		</div>
-		<div class="title">
-			<div id="map" style="width: 500px; height: 450px"></div>
-		</div>
-	</div>
+			</td>
+		</tr>
+		<tr >
+			<td>캘린더</td>
+			<td>일정 내용 5개</td>
+		</tr>
+		<tr>
+			<td>
+				<table>
+				<c:forEach items="${gameRecList}" var="gameRecVO">
+					<tr>
+						<td style="background-color: blue;"><img src="image/${gameRecVO.win_team_logo}" style="width: 200px; height: 100px;"></td><td>VS</td><td style="background-color: red;"><img src="image/${gameRecVO.lose_team_logo}" style="width: 200px; height: 100px;"></td>
+					</tr>
+					<tr>
+						<td>win</td>
+						<td>${gameRecVO.score}</td>
+						<td>lose</td>
+					</tr>
+				</c:forEach>
+				</table>
+			</td>
+			<td>팀 게시판</td>
+		</tr>
+		<tr>
+			<td>베스트 11 이미지</td>
+			<td>팀원들 가져오기</td>
+		</tr>
+		<tr >
+			<td colspan="2">구장 주소ㄴ리너림너라ㅣㅁ너ㅣ람너ㅣㅏㄹ</td>
+		</tr>
+		<tr >
+			<td colspan="2" id="map" style="width: 500px; height: 450px"></td>
+		</tr>
+	
+	
+	</table>
 	</c:if>
 	
-
 </body>
 </html>

@@ -60,10 +60,13 @@
             <label for="cmn-toggle-2"></label></td>
          </tr>
          <tr>
+
             <th>홈구장 </th>
-            <td style="text-align: left"><a href="#" onclick="javascript:window.open('./zipsearch.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
-   <img src="image/wofun.png"></a> <br>
+            <td style="text-align: left"><a href="#" onclick="javascript:window.open('./post.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
+   <img src="image/wofun.png"></a>
+   <br>
    <input type="text" name="team_h" id="addr1" size="70"> </td>
+
          </tr>
          <tr>
             <th>팀로고</th>

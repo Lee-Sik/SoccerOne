@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
 
 @Repository
@@ -33,8 +34,7 @@ public class foot_team_DAO {
 		return sql.selectList(ns+"getGu");
 	}
 
-	public List<foot_team_DTO> teamGu(String user_address) {
-		// TODO Auto-generated method stub
+	public List<foot_team_DTO> teamGu(String user_address) {//이게 뭡니까!!
 		ArrayList<String> user_add = new  ArrayList<String>();
 		StringTokenizer st = new StringTokenizer(user_address,"-");
         while(st.hasMoreTokens()){   //토근이 있는동안 while문이 실행됨
@@ -61,6 +61,10 @@ public class foot_team_DAO {
 		}
 		
 		return notteamGu;
+	}
+
+	public List<foot_game_record> getGameRecord(String team_name) {
+		return sql.selectList(ns+"getGameRecord",team_name);
 	}
 	
 }

@@ -25,5 +25,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	 SELECT * FROM foot_team where team_managerid = #{user_email}
    </select>
    
+    <select id="getGameRecord" parameterType="java.lang.String" resultType="soccer.co.DTO.foot_game_record">
+  	 <![CDATA[ 
+  	 SELECT * FROM foot_game_record where win_team = #{team_name} or lose_team = #{team_name} and ROWNUM < 6
+  	 ]]> 
+   </select>
+   
+   
    
 </mapper>
