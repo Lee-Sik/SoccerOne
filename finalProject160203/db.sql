@@ -1,16 +1,25 @@
 select * from FOOT_PUBLICGAME
 
+update 
 
 
 
 
+select game_no, team_name, game_location, game_date, ground, pay, game_state 
+from FOOT_PUBLICGAME 
+where game_date = '2016-02-25'
+and pay BETWEEN 10000 and 500000
+and game_state = '0'
+and NVL(ground, '없음');
 
-select * from FOOT_PUBLICGAME 
-where pay in (select pay)
 
 
-
-
+select * from foot_publicgame 
+where GAME_LOCATION ='강남구' 
+and GAME_DATE='2016-02-04' 
+and GROUND (is null/is not null)
+and game_state=1 
+and pay BETWEEN 10000 and 500000;
 
 
 

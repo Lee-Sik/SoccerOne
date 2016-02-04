@@ -56,7 +56,21 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	public String matchingsearchAf(foot_game_DTO fgdto,Model model) throws Exception {	
 		logger.info("Welcome gameController matchingsearch! "+ new Date());
 		
+		List<foot_game_DTO> matchingsearchlist=fgameservice.getmatchingsearchList(fgdto);
 		
+		String game_location = fgdto.getGame_location();
+		String game_date = fgdto.getGame_date();
+		String ground = fgdto.getGround();
+		String pay = fgdto.getPay();
+
+		System.out.println(game_location);
+		System.out.println(game_date);
+		System.out.println(ground);
+		System.out.println(pay);
+		
+		fgameservice.getmatchingsearchList(fgdto);
+		
+		model.addAttribute("matchingsearchlist", matchingsearchlist);
 		
 		model.addAttribute("title", "매칭 검색 결과");
 		return "matchingsearch.tiles";
