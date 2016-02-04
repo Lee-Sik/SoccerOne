@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <fmt:requestEncoding value="utf-8"/>
 
 <link href="CSS/COMUNITYtable.css" rel="stylesheet" >
@@ -8,18 +9,17 @@
 <body>
 <table class="list_table_5">
 <colgroup>
-<col style="width:30px;" />
-<col style="width:200px;" />
+<col style="width:280px;" />
 <col style="width:50px;" />
-<col style="width:150px;" />
+<col style="width:80px;" />
 </colgroup>
 
 <tr>
-	<td colspan="4" style="text-align: center; font-weight: bold">최근 국내축구 게시글</td>
+	<td colspan="3" style="text-align: center; font-weight: bold">최근 국내축구 게시글</td>
 </tr>
 
 <tr>
-		<th>번호</th> <th>제목</th> <th>작성자</th>  <th>작성일</th>
+		<th>제목</th> <th>작성자</th>  <th>작성일</th>
 </tr>
 
 <c:if test="${not empty bbslist}">
@@ -27,10 +27,12 @@
 	<c:forEach items="${bbslist}" var="bbslist" varStatus="vs">
 		<tr>		
 			<c:if test="${bbslist.topic == 'korea'}">
-				<td>${vs.count}</td> 
-				<td><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
+				<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
 				<td>${bbslist.user_email}</td> 
-				<td>${bbslist.wdate}</td> 
+				<c:set var="rdate" value="${bbslist.wdate}"/>
+				<c:set var="len" value="${fn:length(wdate)}"/>
+		
+				<td>${fn:substring(bbslist.wdate, 0, 10)}</td>   
 			</c:if>
 		</tr>
 	</c:forEach>
@@ -43,30 +45,33 @@
 
 <table class="list_table_5">
 <colgroup>
-<col style="width:30px;" />
-<col style="width:200px;" />
+<col style="width:280px;" />
 <col style="width:50px;" />
-<col style="width:150px;" />
+<col style="width:80px;" />
 </colgroup>
 <tr>
-	<td colspan="4" style="text-align: center; font-weight: bold">최근 해외축구 게시글</td>
+	<td colspan="3" style="text-align: center; font-weight: bold">최근 해외축구 게시글</td>
 </tr>
 
 <tr>
-		<th>번호</th> <th>제목</th> <th>작성자</th>  <th>작성일</th>
+		<th>제목</th> <th>작성자</th>  <th>작성일</th>
 </tr>
 
 <c:if test="${not empty bbslist}">
 
 	<c:forEach items="${bbslist}" var="bbslist" varStatus="vs">
+	<c:if test="${bbslist.topic == 'europe'}">
+	 
 		<tr>		
-			<c:if test="${bbslist.topic == 'europe'}">
-				<td>${vs.count}</td> 
-				<td><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
+				<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
 				<td>${bbslist.user_email}</td> 
-				<td>${bbslist.wdate}</td> 
-			</c:if>
+				<c:set var="rdate" value="${bbslist.wdate}"/>
+				<c:set var="len" value="${fn:length(wdate)}"/>
+		
+				<td>${fn:substring(bbslist.wdate, 0, 10)}</td>  
 		</tr>
+		
+		</c:if>
 	</c:forEach>
 
 </c:if>

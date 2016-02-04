@@ -1,18 +1,21 @@
 @CHARSET "UTF-8";
+	A:link {text-decoration:none; color:#333333}
+	A:visited {text-decoration:none; color:#333333}
+	A:active {text-decoration:none; color:#333333}
+	A:hover {text-decoration:underline; color:#333333}
 		
-	.list_table { width:98%; border-bottom:1px solid #EFEFEF; border-right:1px solid #EFEFEF; border-collapse:collapse; margin-left:auto; margin-right:auto; clear:both; }
-	.list_table td,.list_table th { text-align:center; border-top:1px solid #EFEFEF; border-left:1px solid #EFEFEF; padding:0.3em; }
-	.list_table th { background-color:#333333; color:#FFFFFF; line-height:1.7em; font-weight:normal; width: 100px;}
-	.list_table tr td { padding-top:0.5em; padding-bottom:0.5em;}	
-	.list_table td.title { padding-left:0.5em; text-align:left; }
-	.list_table td.title a:hover { text-decoration:underline; }
-	.list_table th, .list_table td { vertical-align:middle; }	
-	.list_table .btn{text-align:center;}
+	.list_table_5 { width:50%; border-bottom:1px solid #EFEFEF; border-right:1px solid #EFEFEF; border-collapse:collapse; margin-left:auto; margin-right:auto; clear:both; }
+	.list_table_5 td,.list_table_5 th { text-align:center; border-top:1px solid #EFEFEF; border-left:1px solid #EFEFEF; padding:0.3em; }
+	.list_table_5 th { background-color:#333333; color:#FFFFFF; line-height:1.7em; font-weight:normal;}
+	.list_table_5 tr td { padding-top:0.5em; padding-bottom:0.5em;}	
+	.list_table_5 td.title { padding-left:0.5em; text-align:left; }
+	.list_table_5 td.title a:hover { text-decoration:underline; }
+	.list_table_5 th, .list_table_5 td { vertical-align:middle; }	
 
-	.list_table select { height:19px; border:#CCCCCC solid 1px; vertical-align:middle; line-height: 1.8em; padding-left:0px; }
-	.list_table select option { margin-right:10px; }
-	.list_table .selected_row { border:solid 0px #EFEFEF; }
-	.list_table .sele { padding:0; margin:0; }
+	.list_table_5 select { height:19px; border:#CCCCCC solid 1px; vertical-align:middle; line-height: 1.8em; padding-left:0px; }
+	.list_table_5 select option { margin-right:10px; }
+	.list_table_5 .selected_row { border:solid 0px #EFEFEF; }
+	.list_table_5 .sele { padding:0; margin:0; }
 			
 	.content_table { width:98%; border-bottom:1px solid #EFEFEF; border-right:1px solid #EFEFEF; border-collapse:collapse; margin-left:auto; margin-right:auto;  clear:both; }
 	.content_table td, .content_table th { text-align:center; border-top:1px solid #EFEFEF; border-left:1px solid #EFEFEF; padding:0.3em; }

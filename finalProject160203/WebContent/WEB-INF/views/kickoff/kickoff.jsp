@@ -2,12 +2,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
+<link href="CSS/KICKOFFtable.css" rel="stylesheet" >
 
 <body>
 
-<table>
+<table class="list_table" style="width:85%;">
+<colgroup>
+<col style="width:40px;" />
+<col style="width:50px;" />
+<col style="width:30px;" />
+<col style="width:100px;" />
+<col style="width:100px;" />
+<col style="width:80px;" />
+<col style="width:30px;" />
+</colgroup>
 <tr>
-	<td colspan="6" style="text-align: center; font-weight: bold">최근 공식경기 등록 현황</td>
+	<td colspan="7" style="text-align: center; font-weight: bold">최근 공식경기 등록 현황</td>
 </tr>
 
 <tr>
@@ -40,7 +50,15 @@
 <br><br><br><br>
 
 
-<table>
+<table class="list_table" style="width:85%;">
+<colgroup>
+<col style="width:40px;" />
+<col style="width:50px;" />
+<col style="width:100px;" />
+<col style="width:100px;" />
+<col style="width:80px;" />
+<col style="width:50px;" />
+</colgroup>
 <tr>
 	<td colspan="6" style="text-align: center; font-weight: bold">최근 친선경기 등록 현황</td>
 </tr>

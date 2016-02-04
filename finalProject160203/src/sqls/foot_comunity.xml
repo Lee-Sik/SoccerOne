@@ -54,7 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="incrementReadCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
 		UPDATE FOOT_BBS SET
-		READCOUNT =READCOUNT+1
+		READCOUNT = READCOUNT+1
 		WHERE bbs_no=#{bbs_no}
 	</update>
 	

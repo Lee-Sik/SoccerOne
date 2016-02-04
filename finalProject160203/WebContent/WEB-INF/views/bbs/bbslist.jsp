@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <fmt:requestEncoding value="utf-8"/>
 
 <div class="box_border" style="margin-top:5px; margin-bottom: 10px;">
@@ -34,7 +35,7 @@
 <col style="width:30px;" />
 <col style="width:200px;" />
 <col style="width:50px;" />
-<col style="width:100px;" />
+<col style="width:80px;" />
 <col style="width:35px;" />
 </colgroup>
 
@@ -60,7 +61,11 @@
 		<td>${bbs.topic}</td>
 		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'>${bbs.title}</a></td>
 		<td>${bbs.user_email}</td> 
-		<td>${bbs.wdate}</td> 
+		
+		<c:set var="rdate" value="${bbs.wdate}"/>
+		<c:set var="len" value="${fn:length(wdate)}"/>
+		
+		<td>${fn:substring(bbs.wdate, 0, 10)}</td>  
 		<td>${bbs.readcount}</td> 
 	</tr>
 </c:if>

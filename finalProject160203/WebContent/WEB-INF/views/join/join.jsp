@@ -179,7 +179,7 @@ function function1(val){
 <table class="list_table">
 <tr>
 <th>아이디 (E-Mail)</th>
-<td colspan="5"><input type="text" name="user_email1" maxlength= "30">@
+<td colspan="5" style="text-align: left"><input type="text" name="user_email1" maxlength= "30">@
 <select onchange="selectval1(this.value)">
 <option value="">선택하세요</option>
 <option value="naver.com">naver.com</option>
@@ -194,20 +194,20 @@ function function1(val){
 </tr>
 <tr>
 <th>비밀번호</th>
-<td colspan="5"><input type="password" name="user_pw" maxlength="8"></td>
+<td colspan="5" style="text-align: left"><input type="password" name="user_pw" maxlength="8"></td>
 </tr>
 <tr>
 <th>비밀번호 확인</th>
-<td colspan="5"><input type="password" name="user_pw1" maxlength="8"></td>
+<td colspan="5" style="text-align: left"><input type="password" name="user_pw1" maxlength="8"></td>
 
 </tr>
 <tr>
 <th>이 름</th>
-<td colspan="5"><input type="text" name="user_name"></td>
+<td colspan="5" style="text-align: left"><input type="text" name="user_name"></td>
 </tr>
 <tr>
 <th>생년월일</th>
-<td colspan="5">
+<td colspan="5" style="text-align: left">
 <input type="text" name="user_birth1" maxlength="4" size="4" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">년
 
 <input type="text" name="user_birth2"maxlength="2"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">월
@@ -219,11 +219,11 @@ function function1(val){
 </tr>
 <tr>
 <th>나 이</th>
-<td colspan="5"><input type="text" name="user_age"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
+<td colspan="5" style="text-align: left"><input type="text" name="user_age"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
 </tr>
 <tr>
 <th>휴대폰</th>
-<td colspan="5">
+<td colspan="5" style="text-align: left">
 <select name="user_phone3">
 <option></option>
 <option value="010">010</option>
@@ -239,15 +239,15 @@ function function1(val){
 </tr>
 <tr>
 <th>신 장</th>
-<td colspan="5"><input type="text" name="user_high" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" size="8px;">cm</td>
+<td colspan="5" style="text-align: left"><input type="text" name="user_high" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" size="8px;">cm</td>
 </tr>
 <tr>
 <th>체 중</th>
-<td colspan="5"><input type="text" name="user_weight" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" size="8px;">kg</td>
+<td colspan="5" style="text-align: left"><input type="text" name="user_weight" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" size="8px;">kg</td>
 </tr>
 <tr>
 <th>주 발</th>
-<td colspan="5">
+<td colspan="5" style="text-align: left">
 <select name="user_foot1">
 <option value="">선택하세요</option>
 <option value="0">왼발</option>
@@ -259,7 +259,7 @@ function function1(val){
 </tr>
 
 <tr>
-<td colspan="6">
+<td colspan="6" style="text-align: left">
 <img alt="" src="image/join1.png" width="5%">주포지션
 <select name="user_position11">
 <option value=""></option>
@@ -317,7 +317,7 @@ function function1(val){
 </tr>
 <tr>
 <th><img alt="" src="image/join2.png" width="15%">활동지역</th>
-<td colspan="5">
+<td colspan="5" style="text-align: left">
 <select name="user_address1">
 <option></option>
 <option value="강남구">강남구</option>
