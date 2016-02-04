@@ -31,11 +31,6 @@ $(function() {
 </tr>
 
 <tr>
-	<th>게임요약</th>
-	<td style="text-align: left"><input type="text" name="game_content"></td>
-</tr>
-
-<tr>
 	<th>게임일자</th>
 	<td style="text-align: left"><input type="text" name="game_date" id="datepicker1"></td>
 </tr>
@@ -46,6 +41,11 @@ $(function() {
 	  <img src="image/wofun.png"></a>
 	  <br>
 	  <input type="text" name="ground" id="addr1" size="20"></td>
+</tr>
+
+<tr>
+	<th>경기요약</th>
+	<td style="text-align: left"><textarea rows="10" cols="50" name='game_content'></textarea></td>
 </tr>
 
 <tr>

@@ -78,6 +78,12 @@ $(function() {
 </tr>
 
 <tr>
+	<th>경기요약</th>
+	<td style="text-align: left"><textarea rows="10" cols="50" name='game_content'></textarea></td>
+</tr>
+
+
+<tr>
 	<th>대전료</th>
 	<td style="text-align: left"><input type="text" name="pay"></td>
 </tr>

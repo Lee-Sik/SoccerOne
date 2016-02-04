@@ -10,13 +10,13 @@ public class foot_game_DTO {
 	private String game_content;
 	private String game_date;
 	private String ground;
-	private String pay;
-	private String game_state;
+	private int pay;
+	private int game_state;
 	
 	public foot_game_DTO(){}
 
 	public foot_game_DTO(String game_no, String team_id, String game_location, String game_date, String ground,
-			String pay, String game_state) { //공식 경기
+			int pay, int game_state) { //공식 경기
 		super();
 		this.game_no = game_no;
 		this.team_name = team_id;
@@ -30,7 +30,7 @@ public class foot_game_DTO {
 
 
 	public foot_game_DTO(String game_no, String team_id, String game_content, String game_date, String ground,
-			String pay) {		// 친선 경기
+			int pay) {		// 친선 경기
 		super();
 		this.game_no = game_no;
 		this.team_name = team_id;
@@ -88,19 +88,19 @@ public class foot_game_DTO {
 		this.ground = ground;
 	}
 
-	public String getPay() {
+	public int getPay() {
 		return pay;
 	}
 
-	public void setPay(String pay) {
+	public void setPay(int pay) {
 		this.pay = pay;
 	}
 
-	public String getGame_state() {
+	public int getGame_state() {
 		return game_state;
 	}
 
-	public void setGame_state(String game_state) {
+	public void setGame_state(int game_state) {
 		this.game_state = game_state;
 	}
 

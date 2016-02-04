@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import soccer.co.DAO.foot_game_DAO;
+import soccer.co.DTO.MATCHINGParam;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.Service.foot_gameService;
 @Service
@@ -41,8 +42,8 @@ public class foot_gameService_impl implements foot_gameService{
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<foot_game_DTO> getmatchingsearchList(foot_game_DTO fgdto) throws Exception {
-		return fgdao.getmatchingsearchList(fgdto);
+	public List<foot_game_DTO> getmatchingsearchList(MATCHINGParam param) throws Exception {
+		return fgdao.getmatchingsearchList(param);
 	}
 	
 }

@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import soccer.co.DTO.MATCHINGParam;
 import soccer.co.DTO.foot_game_DTO;
 
 @Repository
@@ -32,10 +33,10 @@ public class foot_game_DAO{
 		return true;
 	}
 	
-	public List<foot_game_DTO> getmatchingsearchList(foot_game_DTO fgdto)throws Exception{
+	public List<foot_game_DTO> getmatchingsearchList(MATCHINGParam param)throws Exception{
 		List<foot_game_DTO> list=new ArrayList<foot_game_DTO>();
 		list=(List<foot_game_DTO>)
-				sqlse.selectList(ns+"getmatchingsearchList",fgdto);
+				sqlse.selectList(ns+"getmatchingsearchList",param);
 		return list;
 	}
 	

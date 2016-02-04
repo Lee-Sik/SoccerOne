@@ -2,7 +2,12 @@ select * from FOOT_PUBLICGAME
 
 update 
 
-
+select * from foot_publicgame 
+			where GAME_LOCATION = '마포구'
+			and GAME_DATE = '2016-02-02'  
+			and GROUND is not null
+			and game_state = 1
+			and pay BETWEEN 10000 and 50000;
 
 
 select game_no, team_name, game_location, game_date, ground, pay, game_state 

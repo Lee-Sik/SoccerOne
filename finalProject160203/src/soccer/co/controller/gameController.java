@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
+import soccer.co.DTO.MATCHINGParam;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.Service.foot_gameService;
 
@@ -53,23 +55,27 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	}
 	
 	@RequestMapping(value = "matchingsearchAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String matchingsearchAf(foot_game_DTO fgdto,Model model) throws Exception {	
+	public String matchingsearchAf(MATCHINGParam param,Model model) throws Exception {	
 		logger.info("Welcome gameController matchingsearch! "+ new Date());
 		
-		List<foot_game_DTO> matchingsearchlist=fgameservice.getmatchingsearchList(fgdto);
+		String getGame_location = param.getGame_location();
+		String getGame_date = param.getGame_date();
+		String getGround = param.getSuBground();
+		int pay1 = param.getPay1();
+		int pay2 = param.getPay2();
 		
-		String game_location = fgdto.getGame_location();
-		String game_date = fgdto.getGame_date();
-		String ground = fgdto.getGround();
-		String pay = fgdto.getPay();
-
-		System.out.println(game_location);
-		System.out.println(game_date);
-		System.out.println(ground);
-		System.out.println(pay);
+		System.out.println(getGame_location);
+		System.out.println(getGame_date);
+		System.out.println(getGround);
+		System.out.println(pay1);
+		System.out.println(pay2);
 		
-		fgameservice.getmatchingsearchList(fgdto);
 		
+		List<foot_game_DTO> matchingsearchlist = fgameservice.getmatchingsearchList(param);
+		for(foot_game_DTO dto: matchingsearchlist){
+			System.out.println(dto.toString());
+			
+		}
 		model.addAttribute("matchingsearchlist", matchingsearchlist);
 		
 		model.addAttribute("title", "매칭 검색 결과");
