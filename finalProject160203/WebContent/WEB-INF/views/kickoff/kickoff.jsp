@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
-<link href="CSS/KICKOFFtable.css" rel="stylesheet" >
+<link href="CSS/KICKOFF.css" rel="stylesheet" >
 
 <body>
 

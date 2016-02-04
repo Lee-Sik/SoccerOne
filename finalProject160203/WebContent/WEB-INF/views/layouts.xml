@@ -63,6 +63,12 @@
 
 </definition>
 
+<definition name="matchingsearch.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/matchingsearch.jsp" />
+
+</definition>
+
 <definition name="publicgame.tiles" extends="login.tiles">
 
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/publicgame.jsp" />

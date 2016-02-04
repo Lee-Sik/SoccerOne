@@ -7,7 +7,7 @@
 <link href="CSS/COMUNITYtable.css" rel="stylesheet" >
 
 <body>
-<table class="list_table_5">
+<table class="list_table">
 <colgroup>
 <col style="width:280px;" />
 <col style="width:50px;" />
@@ -43,7 +43,7 @@
 
 <br><br><br><br>
 
-<table class="list_table_5">
+<table class="list_table">
 <colgroup>
 <col style="width:280px;" />
 <col style="width:50px;" />

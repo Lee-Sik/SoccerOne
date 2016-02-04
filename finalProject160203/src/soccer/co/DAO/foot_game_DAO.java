@@ -32,6 +32,13 @@ public class foot_game_DAO{
 		return true;
 	}
 	
+	public List<foot_game_DTO> getmachingsearchList()throws Exception{
+		List<foot_game_DTO> list=new ArrayList<foot_game_DTO>();
+		list=(List<foot_game_DTO>)
+				sqlse.selectList(ns+"getmachingsearchList");
+		return list;
+	}
+	
 	public List<foot_game_DTO> getfreegameList()throws Exception{
 		List<foot_game_DTO> list=new ArrayList<foot_game_DTO>();
 		list=(List<foot_game_DTO>)

@@ -12,7 +12,7 @@
    <li class='active'><a href='./kickoff.do'>킥오프</a>
       <ul>
          <li><a href='./matching.do'>매칭등록</a></li>
-         <li><a href='./matching.do'>매칭검색</a></li>
+         <li><a href='./matchingsearch.do'>매칭검색</a></li>
          <li><a href='./lanking.do'>랭킹</a></li>
       </ul>
    </li>

@@ -39,4 +39,10 @@ public class foot_gameService_impl implements foot_gameService{
 		return fgdao.getpublicgameList();
 	}
 	
+	@Override
+	@Transactional(readOnly=true)
+	public List<foot_game_DTO> getmachingsearchList() throws Exception {
+		return fgdao.getmachingsearchList();
+	}
+	
 }

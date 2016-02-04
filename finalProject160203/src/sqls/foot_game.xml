@@ -19,13 +19,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
    <select id="getfreegameList" resultType="soccer.co.DTO.foot_game_DTO">
 	<![CDATA[
-			SELECT * from foot_freegame order by game_no desc
+			SELECT * from foot_freegame where ROWNUM < 6 order by game_no desc 
 		]]>
 	</select>
 	
 	 <select id="getpublicgameList" resultType="soccer.co.DTO.foot_game_DTO">
 	<![CDATA[
-			SELECT * from foot_publicgame  order by game_no desc
+			SELECT * from foot_publicgame where ROWNUM < 6 order by game_no desc
+		]]>
+	</select>
+   
+   <select id="getmachingsearchList" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">
+	<![CDATA[
+			SELECT * from foot_publicgame where ROWNUM < 6 order by game_no desc
 		]]>
 	</select>
    

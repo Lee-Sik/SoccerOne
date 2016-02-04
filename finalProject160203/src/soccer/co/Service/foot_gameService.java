@@ -11,4 +11,7 @@ public interface foot_gameService {
 	
 	List<foot_game_DTO> getfreegameList()throws Exception;
 	List<foot_game_DTO> getpublicgameList()throws Exception;
+	List<foot_game_DTO> getmachingsearchList()throws Exception;
+	
+	
 }

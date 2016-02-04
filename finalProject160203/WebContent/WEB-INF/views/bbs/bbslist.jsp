@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <fmt:requestEncoding value="utf-8"/>
+<link href="CSS/BBStable.css" rel="stylesheet" >
 
 <div class="box_border" style="margin-top:5px; margin-bottom: 10px;">
 <form name="frmForm1" id="_frmFormSearch" method="post" action="">

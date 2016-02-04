@@ -35,17 +35,36 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 
 		return "kickoff.tiles";
 	}
+	
 	@RequestMapping(value = "matching.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String matching(Model model) throws Exception {	
-		logger.info("Welcome gameController login! "+ new Date());
+		logger.info("Welcome gameController matching! "+ new Date());
 		
 		model.addAttribute("title", "매칭등록");
 		return "matching.tiles";
 	}
 	
+	@RequestMapping(value = "matchingsearch.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String matchingsearch(Model model) throws Exception {	
+		logger.info("Welcome gameController matchingsearch! "+ new Date());
+		
+		model.addAttribute("title", "매칭검색");
+		return "matchingsearch.tiles";
+	}
+	
+	@RequestMapping(value = "matchingsearchAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String matchingsearchAf(foot_game_DTO fgdto,Model model) throws Exception {	
+		logger.info("Welcome gameController matchingsearch! "+ new Date());
+		
+		
+		
+		model.addAttribute("title", "매칭 검색 결과");
+		return "matchingsearch.tiles";
+	}
+	
 	@RequestMapping(value = "publicgame.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String publicgame(Model model) throws Exception {	
-		logger.info("Welcome gameController login! "+ new Date());
+		logger.info("Welcome gameController publicgame! "+ new Date());
 		
 		model.addAttribute("title", "랭킹전 등록");
 		return "publicgame.tiles";
@@ -53,7 +72,7 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	
 	@RequestMapping(value = "publicgameAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String publicgameAf(foot_game_DTO fgdto,Model model) throws Exception {	
-		logger.info("Welcome gameController login! "+ new Date());
+		logger.info("Welcome gameController publicgameAf! "+ new Date());
 		
 		fgameservice.publicgame(fgdto);
 		
@@ -62,7 +81,7 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	
 	@RequestMapping(value = "freegame.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String freegame(Model model) throws Exception {	
-		logger.info("Welcome gameController login! "+ new Date());
+		logger.info("Welcome gameController freegame! "+ new Date());
 		
 		model.addAttribute("title", "친선경기 등록");
 		return "freegame.tiles";
@@ -70,7 +89,7 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	
 	@RequestMapping(value = "freegameAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String freegameAf(foot_game_DTO fgdto,Model model) throws Exception {	
-		logger.info("Welcome gameController login! "+ new Date());
+		logger.info("Welcome gameController freegameAf! "+ new Date());
 		
 		fgameservice.freegame(fgdto);
 		

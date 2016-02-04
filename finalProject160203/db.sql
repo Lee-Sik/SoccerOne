@@ -1,3 +1,22 @@
+select * from FOOT_PUBLICGAME
+
+
+
+
+
+
+select * from FOOT_PUBLICGAME 
+where pay in (select pay)
+
+
+
+
+
+
+
+
+SELECT * from foot_freegame where ROWNUM < 6 order by game_no desc 
+
 SELECT NVL(count(*),0) AS cnt
 			  FROM  FOOT_BBS  WHERE 1 = 1
 

@@ -2,6 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
+
+<link href="CSS/BBStable.css" rel="stylesheet" >
+
 <br><br><br><br><br>
 <form name="frmForm" id="_frmForm" method="post" action="bbswriteAf.do">
 <table class="list_table" style="width:85%;">
@@ -15,7 +18,7 @@
 
 <tr>
 	<th>말머리</th>
-	<td>
+	<td style="text-align: left">
 		<select id="topic" name="topic">
 			<option value="" selected="selected">선택</option>
 			<option value="korea">국내축구</option>

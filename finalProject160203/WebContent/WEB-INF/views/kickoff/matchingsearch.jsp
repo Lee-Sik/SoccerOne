@@ -1,11 +1,13 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<% request.setCharacterEncoding("utf-8"); %>
+<%@ page contentType="text/html; charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<fmt:requestEncoding value="utf-8"/>
+
+<link href="CSS/KICKOFFtable.css" rel="stylesheet" >
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-
-<link href="CSS/KICKOFF.css" rel="stylesheet" >
 
 <!DOCTYPE html>
 <script>
@@ -24,17 +26,13 @@ $(function() {
   });
 });
 </script>
-<form action="publicgameAf.do" method="post">
-<table class="list_table" style="width:60%;">
 
+<body>
+<form action="matchingsearchAf.do">
+<table class="list_table" style="width:85%;">
 <tr>
-	<th>클럽이름</th>
-	<td style="text-align: left"><input type="text" name="team_name" readonly="readonly" value="${team.team_name}"></td>
-</tr>
-
-<tr>
-	<th>소속지역</th>
-	<td style="text-align: left"><select name="game_location">
+	<td>
+		활동지역 : <select name="game_location">
 			<option value="강남구">강남구</option>
 			<option value="강동구">강동구</option>
 			<option value="강북구">강북구</option>
@@ -60,31 +58,37 @@ $(function() {
 			<option value="종로구">종로구</option>
 			<option value="중구">중구</option>
 			<option value="중랑구">중랑구</option>
-		</select></td>
+		</select>
+		
+		게임일시 : <input type="text" name="game_date" id="datepicker1" size="15">
+
+		구장유무 : <select name="ground">
+			<option></option>
+			<option value="have">유</option>
+			<option value="donthave">무</option>
+			<option value="nothing">상관없음</option>
+		</select>
+		
+		대전료 : <select name="pay">
+			<option></option>
+			<option value="1050">10,000 ~ 50,000</option>
+			<option value="5170">51,000 ~ 70,000</option>
+			<option value="71100">71,000 ~ 100,000</option>
+			<option value="110150">110,000 ~ 150,000</option>
+			<option value="all">모두</option>
+		</select>
+	</td>
 </tr>
 
 <tr>
-	<th>게임일자</th>
-	<td style="text-align: left"><input type="text" name="game_date" id="datepicker1"></td>
-</tr>
-
-<tr>
-	<th>경기장</th>
-<!-- 	<td style="text-align: left"><input type="text" name="ground"></td> -->
-	<td style="text-align: left"><a href="#" onclick="javascript:window.open('./post.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
-	  <img src="image/wofun.png"></a>
-	  <br>
-	  <input type="text" name="ground" id="addr1" size="20"></td>
-</tr>
-
-<tr>
-	<th>대전료</th>
-	<td style="text-align: left"><input type="text" name="pay"></td>
-</tr>
-
-<tr>
-	<td colspan="2" align="right"><input type="submit" value="경기등록"></td>
+	<td>
+	<input type="submit" value="검색">
+	</td>
 </tr>
 
 </table>
 </form>
+
+<br><br><br><br>
+
+</body>
