@@ -22,13 +22,13 @@ body, div, p, a, ul, ol, li, dl, dt, h1, h2, h3, h4, h5, h6, table, td,
 
 }
 
-body {
-	font-size: 12px;
-	color: #fff;
-	font-family: '굴림', 'gulim';
+/* body { */
+/* 	font-size: 12px; */
+/* 	color: #fff; */
+/* 	font-family: '굴림', 'gulim'; */
 	
 	
-}
+/* } */
 
 img {
 	border: 0;
