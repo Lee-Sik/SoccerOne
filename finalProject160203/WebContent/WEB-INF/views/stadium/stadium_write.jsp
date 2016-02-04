@@ -77,18 +77,14 @@ td.td2 {
 
 <form action="stadium_write_ok.do" method="post" enctype="multipart/form-data">
 <table class="list_table" style="width:70%;">
-<caption style="text-align: left;">축구장 등록</caption>
-<tr height="1;">
-<td colspan="2" bgcolor="black"></td>
-	
-</tr>
+
 <colgroup>
 	<col style="width:30%;" />
 	<col style="width:70%;" />
 </colgroup>
 <tbody>
 <tr>
-	<td class="td1">등록자</td><td class="td2"> <input type="text" name="user_email"/> </td>
+	<td class="td1">등록자</td><td class="td2"> <input type="text" name="user_email" value="${login.user_email}" readonly="readonly"/> </td>
 </tr>	
 <tr>
 	<td class="td1">구장명</td><td class="td2"> <input type="text" name="stadium_name"/> </td>
@@ -98,11 +94,11 @@ td.td2 {
 	
 	<a href="#" onclick="javascript:window.open('./zipsearch.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
 	<img src="image/wofun.png"></a> 
-	<a href="#" onclick="javascript:window.open('./post.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
-	<img src="image/wofun.png"></a>
 	<br>
-	<input type="text" name="addr1" id="addr1" size="70"> <br> 
-	<input type="text" name="addr2" value="">
+	<input type="text" name="addr1" id="addr1" size="50"> <br> 
+	<input type="text" name="addr2" value="상세주소">
+	
+  	
 	</td>
 </tr>
 <tr>
@@ -113,10 +109,10 @@ td.td2 {
 </tr>
 <tr>
 	<td class="td1">구장사진</td><td class="td2">
-	야구장 사진 1 <input type="file" name="stadium_img1"> <br>
-	야구장 사진 2 <input type="file" name="stadium_img2"> <br>
-	야구장 사진 3 <input type="file" name="stadium_img3"> <br>
-	야구장 사진 4 <input type="file" name="stadium_img4"> <br>
+	야구장 사진 1 <input type="file" name="stadium_img11"> <br>
+	야구장 사진 2 <input type="file" name="stadium_img22"> <br>
+	야구장 사진 3 <input type="file" name="stadium_img33"> <br>
+	야구장 사진 4 <input type="file" name="stadium_img44"> <br>
 	  
 	 </td>
 </tr>

@@ -21,43 +21,37 @@
 	<div class="tab_area">
 		<ul class="tab">
 					<li class="on"><a href="/booking/stadium/main?area=00&date=&selectGround=&kword=">전체</a></li>
-			<li class=""><a href="/booking/stadium/main?area=01&date=&selectGround=&kword=">서울</a></li>
-			<li class=""><a href="/booking/stadium/main?area=02&date=&selectGround=&kword=">인천</a></li>
-			<li class=""><a href="/booking/stadium/main?area=03&date=&selectGround=&kword=">대전</a></li>
-			<li class=""><a href="/booking/stadium/main?area=04&date=&selectGround=&kword=">광주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=05&date=&selectGround=&kword=">대구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=06&date=&selectGround=&kword=">부산</a></li>
-			<li class=""><a href="/booking/stadium/main?area=07&date=&selectGround=&kword=">울산</a></li>
-			<li class=""><a href="/booking/stadium/main?area=08&date=&selectGround=&kword=">경기</a></li>
-			<li class=""><a href="/booking/stadium/main?area=09&date=&selectGround=&kword=">강원</a></li>
-			<li class=""><a href="/booking/stadium/main?area=10&date=&selectGround=&kword=">충북</a></li>
-			<li class=""><a href="/booking/stadium/main?area=11&date=&selectGround=&kword=">충남</a></li>
-			<li class=""><a href="/booking/stadium/main?area=12&date=&selectGround=&kword=">전북</a></li>
-			<li class=""><a href="/booking/stadium/main?area=13&date=&selectGround=&kword=">전남</a></li>
-			<li class=""><a href="/booking/stadium/main?area=14&date=&selectGround=&kword=">경북</a></li>
-			<li class=""><a href="/booking/stadium/main?area=15&date=&selectGround=&kword=">경남</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li><br>
-			<li class="" style="padding-left: 10.9px;"></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
+			<li class=""><a href="/booking/stadium/main?area=01&date=&selectGround=&kword=">동대문구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=02&date=&selectGround=&kword=">도봉구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=03&date=&selectGround=&kword=">성북구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=04&date=&selectGround=&kword=">중랑구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=05&date=&selectGround=&kword=">서대문구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=06&date=&selectGround=&kword=">성동구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=07&date=&selectGround=&kword=">마포구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=08&date=&selectGround=&kword=">영등포구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=09&date=&selectGround=&kword=">강북구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=10&date=&selectGround=&kword=">중 구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=11&date=&selectGround=&kword=">구로구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=12&date=&selectGround=&kword=">강서구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=13&date=&selectGround=&kword=">동작구</a></li>
+			<li class="" style="padding-left: 10.5px;"></li>
+			<li class=""><a href="/booking/stadium/main?area=14&date=&selectGround=&kword=">관악구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=15&date=&selectGround=&kword=">노원구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">송파구</a></li>
 			
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">제주</a></li>
+			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">은평구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">양천구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">강남구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">금천구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">종로구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">용산구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">강동구</a></li>			
+			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">서초구</a></li>
+			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">광진구</a></li>
+			<li class=""></li><li class=""></li><li class=""></li><li class=""></li>
 			
 		</ul>
-		
+		<br><br>
 	</div>
 	<div class="schedule_info">
 		<div class="calendar">
@@ -103,7 +97,7 @@
 
 		<div class="btn_group w720">
 			<div class="right">
-				<a href="stadiumList.do" class="bbtn">그라운드 부킹등록</a>
+				<a href="stadiumList.do?user_email=${login.user_email}" class="bbtn">그라운드 부킹등록</a>
 			</div>
 		</div>
 </div>

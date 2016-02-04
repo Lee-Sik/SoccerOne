@@ -28,8 +28,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.sun.org.apache.regexp.internal.recompile;
 
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.DTO.postDTO;
 import soccer.co.Service.foot_stadiumService;
@@ -115,53 +117,7 @@ public class stadiumController {
     public String uploadFile(foot_stadium_DTO dto,HttpServletRequest request,
                      Model model) throws Exception {
 		
-		Multipart filename = request.getParameter("stadium_img1");
-		
-		 String savePath = request.getSession().getServletContext().getRealPath("/upload");
-         String originalFilename1 = stadium_img1.getOriginalFilename(); // fileName.jpg
-         String originalFilename2 = stadium_img2.getOriginalFilename(); // fileName.jpg
-         String originalFilename3 = stadium_img3.getOriginalFilename(); // fileName.jpg
-         String originalFilename4 = stadium_img4.getOriginalFilename(); // fileName.jpg
-         
-         
-         String onlyFileName = originalFilename1.substring(0, originalFilename1.indexOf(".")); // fileName
-     
-         String extension = originalFilename1.substring(originalFilename1.indexOf(".")); // .jpg
-     
-//        String rename = onlyFileName + "_" + getCurrentDayTime() + extension; // fileName_20150721-14-07-50.jpg
-     
-         String fullPath = savePath + "\\" + originalFilename1;
-     
-         if (!stadium_img1.isEmpty()) {
-             try {
-                 byte[] bytes = stadium_img1.getBytes();
-                 BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(fullPath)));
-                 stream.write(bytes);
-                 stream.close();
-                 model.addAttribute("resultMsg", "파일을 업로드 성공!");
-             } catch (Exception e) {
-                 model.addAttribute("resultMsg", "파일을 업로드하는 데에 실패했습니다.");
-             }
-         } else {
-             model.addAttribute("resultMsg", "업로드할 파일을 선택해주시기 바랍니다.");
-         }
-  
-         model.addAttribute("doc_title", "PDS 자료실");
-
-      dto.setStadium_img1(originalFilename1);
-		
-		
-		String addr = request.getParameter("addr1") + request.getParameter("addr2");
-	       dto.setAddr(addr);
-		
-	       service.stadiumWrite(dto);
-		
-	       return "redirect:/kickoff.do";
-    }*/
-	
-	@RequestMapping(value = "stadium_write_ok.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String stadium_write_ok(Model model,HttpServletRequest request) throws Exception {
-		
+			System.out.println("Dddadsasd");
 		foot_stadium_DTO dto = new foot_stadium_DTO();
 		
 		String uri = request.getRequestURI();
@@ -179,9 +135,13 @@ public class stadiumController {
 		
 		String encType = "UTF-8";
 		int maxSize = 5*512*512;
-
+		System.out.println("DSAdasdaddd12231s");
+		
+		
 		MultipartRequest mr = 
 				new MultipartRequest(request, path, maxSize, encType, new DefaultFileRenamePolicy());
+		
+		System.out.println("1234555");
 		
 		System.out.println("useremail12313:" + mr.getParameter("user_email"));
 		
@@ -190,17 +150,6 @@ public class stadiumController {
 			
 			dto.setStadium_img1(mr.getFilesystemName("stadium_img1"));
 		}
-		
-		
-		
-		
-		
-		
-		/*MultipartRequest mr = new MultipartReques(request, path, maxSize, encType,
-				new DefaultFileRenamePolicy());*/
-		
-		
-		
 		
 		
 	       String addr = request.getParameter("addr1") + request.getParameter("addr2");
@@ -218,11 +167,93 @@ public class stadiumController {
 	       service.stadiumWrite(dto);
 		
 	       return "redirect:/kickoff.do";
+    }*/
+	
+	@RequestMapping(value = "stadium_write_ok.do", method = RequestMethod.POST)	
+	public String stadium_write_ok(@RequestParam("stadium_img11") MultipartFile file,
+			@RequestParam("stadium_img22") MultipartFile file2,@RequestParam("stadium_img33") MultipartFile file3,
+			@RequestParam("stadium_img44") MultipartFile file4,
+			foot_stadium_DTO dto,Model model,HttpServletRequest request) throws Exception {
+
+		String fileName = null;
+		String fileName2 = null;
+		String fileName3 = null;
+		String fileName4 = null;
+		
+		File upload = null;
+		File upload2 = null;
+		File upload3 = null;
+		File upload4 = null;
+		
+		if (!file.isEmpty()) {
+			try {
+				
+				fileName = file.getOriginalFilename();
+				fileName2 =file2.getOriginalFilename();
+				fileName3 = file3.getOriginalFilename();
+				fileName4 = file4.getOriginalFilename();
+
+				//upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
+				upload = new File("C:/jsp/spring/finalProject160203/WebContent/image/" + fileName);
+				upload2 = new File("C:/jsp/spring/finalProject160203/WebContent/image/" + fileName2);
+				upload3 = new File("C:/jsp/spring/finalProject160203/WebContent/image/" + fileName3);
+				upload4 = new File("C:/jsp/spring/finalProject160203/WebContent/image/" + fileName4);
+				
+				byte[] bytes = file.getBytes();
+				byte[] bytes2 = file2.getBytes();
+				byte[] bytes3 = file3.getBytes();
+				byte[] bytes4 = file4.getBytes();
+				
+				BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(upload));
+				BufferedOutputStream buffStream2 = new BufferedOutputStream(new FileOutputStream(upload2));
+				BufferedOutputStream buffStream3 = new BufferedOutputStream(new FileOutputStream(upload3));
+				BufferedOutputStream buffStream4 = new BufferedOutputStream(new FileOutputStream(upload4));
+				
+				buffStream.write(bytes);
+				buffStream2.write(bytes2);
+				buffStream3.write(bytes3);
+				buffStream4.write(bytes4);
+				
+				buffStream.close();
+				buffStream2.close();
+				buffStream3.close();
+				buffStream4.close();
+				
+				dto.setStadium_img1(fileName);
+				dto.setStadium_img2(fileName2);
+				dto.setStadium_img3(fileName3);
+				dto.setStadium_img4(fileName4);
+				
+				String addr = request.getParameter("addr1") + request.getParameter("addr2");
+			    dto.setAddr(addr);
+				System.out.println("You have successfully uploaded " + fileName);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("empty!!!!!!!!");
+			dto.setStadium_img1("");
+		}
+			
+		try{
+			 service.stadiumWrite(dto);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+	       return "redirect:/bookingList.do";
 	}
 	
 	@RequestMapping(value = "stadiumList.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String stadiumList(Model model) {		
-		System.out.println("dddd");
+	public String stadiumList(Model model,HttpServletRequest request)throws Exception {		
+		
+		String user_email = request.getParameter("user_email");
+		
+		List<foot_stadium_DTO> slist = service.stadiumList(user_email);
+		
+		model.addAttribute("slist", slist);
+		
 		return "stadiumList.tiles";
 	}
 	
@@ -254,9 +285,35 @@ public class stadiumController {
 		return "post_result.tiles";
 	}
 	
+	@RequestMapping(value = "booking_write.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String booking_write(Model model,HttpServletRequest request) throws Exception {	
+		
+		String stadium_seq = request.getParameter("stadium_seq");
+		String stadium_name = request.getParameter("stadium_name");
+		
+		List<postDTO> post1 = service.post_gugun();
+		
+		model.addAttribute("stadium_seq", stadium_seq);
+		model.addAttribute("stadium_name", stadium_name);
+		model.addAttribute("post1", post1);
+		
+		return "booking_write.tiles";
+	}
 	
-	
-	
+	@RequestMapping(value = "booking_write_ok.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String booking_write_ok(Model model,HttpServletRequest request,foot_sbooking_DTO dto) throws Exception {
+		
+		String day = request.getParameter("day");
+		String rentalaccount = request.getParameter("bank") + " " + request.getParameter("banknum") 
+							+ " " + request.getParameter("bankuser");
+		dto.setRentalaccount(rentalaccount);
+		String booking_day = day.substring(0, 4) + day.substring(5, 7) + day.substring(8, 10);
+		dto.setBooking_day(booking_day);
+		
+		service.bookingWrtie(dto);
+		
+		return "redirect:/bookingList.do";
+	}
 	
 	
 	

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import soccer.co.DAO.foot_stadium_DAO;
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.DTO.postDTO;
 import soccer.co.Service.foot_stadiumService;
@@ -39,6 +40,18 @@ public class foot_stadiumService_impl implements foot_stadiumService{
 	public List<postDTO> post_result(String gugun, String addrtype) throws Exception {
 		
 		return dao.post_result(gugun, addrtype);
+	}
+
+	@Override
+	public List<foot_stadium_DTO> stadiumList(String user_email) throws Exception {
+		
+		return dao.stadiumList(user_email);
+	}
+
+	@Override
+	public boolean bookingWrtie(foot_sbooking_DTO dto) throws Exception {
+	
+		return dao.bookingWrite(dto);
 	}
 
 

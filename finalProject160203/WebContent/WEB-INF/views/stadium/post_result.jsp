@@ -54,9 +54,7 @@
 									
 							<c:forEach var="dto" items="${post2}">
 							<option value="${seoul} ${gugun} ${dto.addrname}">${dto.addrname}</option>
-							
-							
-							
+		
 							</c:forEach>		
 												
 							</select>

@@ -10351,10 +10351,10 @@ div.booking_wrap div.tab_area ul.tab:after {
 	display: block;
 	content: "";
 }
-
+/* 지역구 탭 */
 div.booking_wrap div.tab_area ul.tab li {
 	float: left;
-	width: 5.8%; !
+	width: 7.14%; !
 	width: 45px;
 	height: 35px;
 }
@@ -10391,6 +10391,8 @@ div.booking_wrap div.tab_area ul.tab li.on a, div.booking_wrap div.tab_area ul.t
 div.booking_wrap div.calendar {
 	width: 208px;
 	height: 191px;
+	margin-top: 10px;
+	margin-left: -235px;
 	padding-top: 8px;
 	border: 1px solid #d2d2d2;
 }
@@ -10604,6 +10606,8 @@ div.booking_wrap .simbtn {
 } /*부킹리스트 - 경기장*/
 div.booking_wrap div.game_booking {
 	position: relative;
+	margin-top: 10px;
+	margin-left: 50px;
 }
 
 div.booking_wrap div.game_booking h4 {
@@ -11576,7 +11580,7 @@ div.booking_wrap div.manage_list ul li span.btn a.del {
 	height: 35px;
 	width: 35px;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/booking/btn_del.gif') left top
+	background: url('http://img.gameone.kr/booking/btn_del.gif') left top
 		no-repeat;
 	margin: 0 auto;
 } /*입력폼*/

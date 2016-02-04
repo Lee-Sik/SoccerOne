@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.DTO.postDTO;
 
@@ -48,4 +49,26 @@ public class foot_stadium_DAO {
 		return post_result;
 		
 	}
+	
+	public List<foot_stadium_DTO> stadiumList(String user_email)throws Exception{
+		
+		List<foot_stadium_DTO> stadiumList = sqlsession.selectList("stadium.stadiumList", user_email);
+		
+		return stadiumList;
+		
+	}
+	
+	public boolean bookingWrite(foot_sbooking_DTO dto)throws Exception{
+		
+		sqlsession.insert("stadium.bookingWrtie", dto);
+		
+		return true;
+	}
+	
+	
+	
+	
+	
+	
+	
 }
