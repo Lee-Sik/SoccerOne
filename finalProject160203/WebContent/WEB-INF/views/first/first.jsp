@@ -115,7 +115,7 @@ location.href="login1.do";
 아이디
 </td>
 <td >
-<input type="text" name="user_email" size="20">
+<input type="text" name="user_email" placeholder="이메일" size="20">
 </td>
 </tr>
 <tr>

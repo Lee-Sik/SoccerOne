@@ -87,7 +87,8 @@ public class clubController {
 				
 				//upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
 				//upload = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160203/WebContent/image/" + fileName);
-				upload = new File("C:/springstudy/finalProject160203/WebContent/image/" + fileName);
+				//upload = new File("C:/springstudy/finalProject160203/WebContent/image/" + fileName);
+				upload = new File("D:/Spring/finalProject160203/WebContent/image/" + fileName);
 				// 
 				byte[] bytes = file.getBytes();
 				BufferedOutputStream buffStream = new BufferedOutputStream(
