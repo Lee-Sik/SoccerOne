@@ -175,6 +175,16 @@ public class stadiumController {
 			@RequestParam("stadium_img44") MultipartFile file4,
 			foot_stadium_DTO dto,Model model,HttpServletRequest request) throws Exception {
 
+		
+		String root = request.getServletContext().getRealPath("/"); //여기까지가 study/
+		//실제 주소
+		String path = root + File.separator + "stadiumImg";
+		
+		File dir = new File(path);
+		if(!dir.exists()){
+			dir.mkdirs();
+		}
+		
 		String fileName = null;
 		String fileName2 = null;
 		String fileName3 = null;
@@ -192,12 +202,14 @@ public class stadiumController {
 				fileName2 =file2.getOriginalFilename();
 				fileName3 = file3.getOriginalFilename();
 				fileName4 = file4.getOriginalFilename();
-
+				
+				
+				
 				//upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
-				upload = new File("C:/jsp/spring/finalProject160203/WebContent/image/" + fileName);
-				upload2 = new File("C:/jsp/spring/finalProject160203/WebContent/image/" + fileName2);
-				upload3 = new File("C:/jsp/spring/finalProject160203/WebContent/image/" + fileName3);
-				upload4 = new File("C:/jsp/spring/finalProject160203/WebContent/image/" + fileName4);
+				upload = new File(path + "/" + fileName);
+				upload2 = new File(path + "/" + fileName2);
+				upload3 = new File(path + "/" + fileName3);
+				upload4 = new File(path + "/" + fileName4);
 				
 				byte[] bytes = file.getBytes();
 				byte[] bytes2 = file2.getBytes();
