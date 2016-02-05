@@ -4,6 +4,7 @@ import java.util.List;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,16 +20,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import soccer.co.DTO.foot_cal_DTO;
+import soccer.co.DTO.foot_calteam_DTO;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
+import soccer.co.Service.foot_teamCalendarService;
 import soccer.co.Service.foot_teamService;
 import soccer.co.Service.foot_userService;
 
 
 @Controller
 public class clubController {
-	
+	@Autowired
+	foot_teamCalendarService cs; 
 	@Autowired
     foot_teamService clubservice;
 	@Autowired
@@ -49,7 +54,7 @@ public class clubController {
 	}
 	
 	@RequestMapping(value = "club.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String club(foot_user_DTO fudto,Model model, HttpServletRequest req) throws Exception {	
+	public String club(String cal,foot_cal_DTO cdto,foot_user_DTO fudto,Model model, HttpServletRequest req) throws Exception {	
 		logger.info("clubController club!");
 		if(fudto.getUser_team().equals("") || fudto.getUser_team()==null){
 			List<foot_team_DTO> notteamlist = clubservice.notteamGu(fudto.getUser_address());
@@ -65,9 +70,36 @@ public class clubController {
 		 * 
 		 * */
 		foot_team_DTO team=(foot_team_DTO)session.getAttribute("team");
-		System.out.println(team.toString());
 		List<foot_game_record> gameRecList = clubservice.getGameRecord(team.getTeam_name()); 
 		//3.최근경기-경기 기록 가져오기, 경기 기록에 있는 상대팀의  로고(.jpg)들 가져오기 
+		
+		
+		//////////////////////////////////달력/////////////////////////////////////////////////////////////
+		foot_cal_DTO cdto1=null;
+		if(cal==null){
+			cdto1 = cs.makecal1();
+		}else if(cal.equals("sleft")){
+			foot_cal_DTO cdto2 = cs.sleft(cdto);
+			cdto1 = cs.makecal(cdto2);
+		}else if(cal.equals("sright")){
+			foot_cal_DTO cdto2 = cs.sright(cdto);
+			cdto1 = cs.makecal(cdto2);
+		}
+		int month2 = cdto1.getMonth();
+		String month="";
+		if(month2<10){ month = "0"+month2;}
+		else{month = month2+"";}
+		String yyyydd = cdto1.getYear()+""+month+"";
+		model.addAttribute("cdto", cdto1);
+		foot_team_DTO ftdto = (foot_team_DTO) req.getSession().getAttribute("team");
+		foot_cal_DTO caldto = new foot_cal_DTO();
+		caldto.setId(ftdto.getTeam_name());
+		caldto.setYyyydd(yyyydd);
+		ArrayList<foot_calteam_DTO> getmycal = cs.getmycal(caldto);
+		model.addAttribute("getmycal", getmycal);
+		////////////////////////////////////////////////////////////////////////////////////////////////
+		
+		
 		
 		model.addAttribute("gameRecList", gameRecList);
 		model.addAttribute("title", "마이 클럽");
