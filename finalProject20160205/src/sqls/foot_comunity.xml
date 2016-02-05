@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BBS"> 
+
+	<insert id="writeBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		INSERT INTO FOOT_BBS
+		(BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL) 
+		VALUES(foot_bbs_seq.nextval,#{topic},#{user_email},#{title},#{content},SYSDATE,
+				0,0,#{imageurl},0)
+	</insert>
+ 
+	<select id="getBBSList" resultType="soccer.co.DTO.foot_comunity_DTO">
+	<![CDATA[
+  			SELECT * FROM FOOT_BBS
+ 			ORDER BY BBS_NO DESC
+  		]]>
+	</select>
+
+	<select id="getBBSPagingList" parameterType="soccer.co.DTO.BBSParam" resultType="soccer.co.DTO.foot_comunity_DTO">
+			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL
+			FROM 	
+		( SELECT ROW_NUMBER() OVER (ORDER BY BBS_NO DESC) as rnum,
+		BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL 
+		FROM FOOT_BBS
+	    WHERE 1 = 1 
+	    <if test="s_category != '' and s_category != null and s_keyword != '' and s_keyword != null">
+			<if test="s_category == 'title'"> AND TITLE like '%'||#{s_keyword}||'%'</if>	
+			<if test="s_category == 'contents'"> AND CONTENT like '%'||#{s_keyword}||'%'</if>	
+		</if>
+			 ) A
+			WHERE rnum between ${start} AND ${end}
+	</select>
+
+	<select id="getBBSCount" parameterType="soccer.co.DTO.BBSParam" resultType="java.lang.Integer">
+	 
+			SELECT NVL(count(*),0) AS cnt
+			  FROM  FOOT_BBS  WHERE 1 = 1
+		
+		<if test="s_category != '' and s_category != null and s_keyword != '' and s_keyword != null">
+			<if test="s_category == 'title'"> AND TITLE like '%'||#{s_keyword}||'%'</if>	
+			<if test="s_category == 'contents'"> AND CONTENT like '%'||#{s_keyword}||'%'</if>	
+		</if>
+	</select>
+
+
+	<select id="getBBS" parameterType="soccer.co.DTO.foot_comunity_DTO" resultType="soccer.co.DTO.foot_comunity_DTO">
+			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL
+			FROM FOOT_BBS
+			WHERE bbs_no=#{bbs_no}
+	</select>
+	
+	<update id="incrementReadCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		UPDATE FOOT_BBS SET
+		READCOUNT = READCOUNT+1
+		WHERE bbs_no=#{bbs_no}
+	</update>
+	
+	<update id="replyBBSUpdate" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		UPDATE FOOT_BBS SET
+		STEP=STEP+1
+		WHERE REF=(SELECT REF FROM BBS WHERE bbs_no=#{bbs_no})
+		AND STEP>(SELECT STEP FROM BBS WHERE bbs_no=#{bbs_no})
+	</update>
+			
+	<insert id="replyBBSInsert" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		INSERT INTO BBS
+		(bbs_no,ID,TITLE,CONTENT,REF,STEP,
+		DEPTH, PARENT, DEL, WDATE, READCOUNT)
+		VALUES(
+		bbs_no_BBS.NEXTVAL,
+		#{id},#{title},#{content},
+		(SELECT REF FROM BBS WHERE bbs_no=#{bbs_no}),
+		(SELECT STEP FROM BBS WHERE bbs_no=#{bbs_no})+1,
+		(SELECT DEPTH FROM BBS WHERE bbs_no=#{bbs_no})+1,
+		#{bbs_no},0,SYSDATE,0) 
+	</insert>
+	
+	<update id="updateBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		UPDATE FOOT_BBS SET 
+		TITLE=#{title}, CONTENT=#{content}, WDATE=SYSDATE 
+		WHERE bbs_no=#{bbs_no}
+	</update>
+	
+	<update id="delBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		UPDATE FOOT_BBS SET 
+		DEL=#{del} 
+		WHERE bbs_no=#{bbs_no}
+	</update>
+
+ </mapper>

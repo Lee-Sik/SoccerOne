@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+<definition name="first.tiles" template="/WEB-INF/views/layouts-tiles-first.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+	<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
+	<put-attribute name="first" value="/WEB-INF/views/first/first.jsp" />
+	<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+</definition>
+
+<definition name="refirst.tiles" extends="login.tiles">
+	<put-attribute name="first" value="/WEB-INF/views/bbslist/refirst.jsp" />
+</definition>
+
+<definition name="team_club.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/clubView.jsp" />
+</definition>
+
+<definition name="join.tiles" template="/WEB-INF/views/join/join.jsp">
+</definition>
+
+<definition name="myinform.tiles" template="/WEB-INF/views/login/myinform.jsp">
+</definition>
+
+<definition name="exit.tiles" template="/WEB-INF/views/join/exit.jsp">
+</definition>
+
+<definition name="team_create.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/createTeam.jsp" />
+</definition>
+<definition name="team_createAf.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/createTeamAf.jsp" />
+</definition>
+
+<definition name="login.tiles" template="/WEB-INF/views/layouts-tiles.jsp">
+	<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
+	<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
+	<put-attribute name="main" value="/WEB-INF/views/main.jsp" />
+	<put-attribute name="content" value="/WEB-INF/views/login/login.jsp" />
+ 	<put-attribute name="advertise" value="/WEB-INF/views/advertise.jsp"/>
+	<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+</definition>
+
+<definition name="logout.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/login/logout.jsp" />
+
+</definition>
+
+
+<definition name="kickoff.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/kickoff.jsp" />
+
+</definition>
+
+<definition name="matching.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/matching.jsp" />
+
+</definition>
+
+<definition name="matchingsearch.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/matchingsearch.jsp" />
+
+</definition>
+
+<definition name="publicgame.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/publicgame.jsp" />
+
+</definition>
+
+<definition name="freegame.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/freegame.jsp" />
+
+</definition>
+
+<!-- booking -->
+
+<definition name="stadium_write.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/stadium/stadium_write.jsp" />
+</definition>
+
+<definition name="bookingList.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/stadium/bookingList.jsp" />
+</definition>
+
+<definition name="zipsearch.tiles" template="/WEB-INF/views/stadium/zipsearch.jsp">
+</definition>
+
+<definition name="zipsearch_result.tiles" template="/WEB-INF/views/stadium/zipsearch_result.jsp">
+</definition>
+
+<definition name="post.tiles" template="/WEB-INF/views/stadium/post.jsp">
+</definition>
+
+<definition name="post_result.tiles" template="/WEB-INF/views/stadium/post_result.jsp">
+</definition>
+
+<definition name="stadiumList.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/stadium/stadiumList.jsp"/>
+</definition>
+
+<definition name="booking_write.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/stadium/booking_write.jsp"/>
+</definition>
+
+
+<definition name="bbswrite.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/bbs/bbswrite.jsp" />
+
+</definition>
+
+<definition name="bbslist.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/bbs/bbslist.jsp" />
+
+</definition>
+
+<definition name="bbsdetail.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/bbs/bbsdetail.jsp" />
+
+</definition>
+
+<definition name="bbsupdate.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/bbs/bbsupdate.jsp" />
+
+</definition>
+
+<definition name="comunity.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/bbs/comunity.jsp" />
+
+</definition>
+
+
+</tiles-definitions>
