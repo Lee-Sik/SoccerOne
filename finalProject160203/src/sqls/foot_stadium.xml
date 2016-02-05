@@ -35,7 +35,10 @@ values
 delete from foot_stadium where stadium_seq=#{stadium_seq}
 </delete>
 
-
+<select id="bookingList" resultType="soccer.co.DTO.foot_sbooking_DTO">
+select booking_seq,s.stadium_name,b.stadium_seq,booking_day,booking_area,rentalsum,rentalaccount,
+game1,game2,game3,game4,game5,game6,game7 from foot_booking b, foot_stadium s where b.stadium_seq = s.stadium_seq
+</select>
 
 
 

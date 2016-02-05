@@ -60,6 +60,12 @@ public class foot_stadiumService_impl implements foot_stadiumService{
 		return dao.stadiumDelete(stadium_seq);
 	}
 
+	@Override
+	public List<foot_sbooking_DTO> bookingList() throws Exception {
+		
+		return dao.bookingList();
+	}
+
 
 	
 }

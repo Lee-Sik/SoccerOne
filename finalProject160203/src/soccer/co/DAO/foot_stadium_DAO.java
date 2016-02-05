@@ -70,7 +70,13 @@ public class foot_stadium_DAO {
 		return true;
 	}
 	
-	
+	public List<foot_sbooking_DTO> bookingList()throws Exception{
+		
+		List<foot_sbooking_DTO> bookingList = sqlsession.selectList("stadium.bookingList");
+		
+		return bookingList;
+		
+	}
 	
 	
 	

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!-- <link rel="stylesheet" type="text/css" media="all" href="booking/ie11.css" />
 <script type="text/javascript" src="booking/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
@@ -132,7 +132,27 @@
 			none = 아무것도 없는상태
 			-->
 	<tbody>
+	<c:forEach var="dto" items="${blist}">
 	<tr>
+		<th>${dto.booking_day}</th>
+		<th><strong><a href="#" hidden_href="/booking/stadium/view?idx=5305&lig_idx=0" 
+		class="viewbt">${dto.stadium_name}</a></strong></th>
+		<td class="status"><span class="none"></span></td>
+		<c:if test="${dto.game2 == null}">
+		<td class="status"><span class="occupied">확정</span></td>
+		</c:if>
+		<!-- <td class="status"><span class="booking">부킹</span></td> -->
+		<td class="status"><span class="none"></span></td>
+		<td class="status"><span class="reserved">예약</span></td>
+		<td class="status"><span class="none"></span></td>
+		<td class="status"><span class="occupied">확정</span></td>
+		<td class="status"><span class="none"></span></td>
+	<td><a href="#" hidden_href="/booking/stadium/view?idx=5305&lig_idx=0" class="btn viewbt">보 기</a></td>
+	<td><strong>${dto.booking_area}</strong></td>
+	</tr>
+	</c:forEach>
+	
+<!-- 	<tr>
 		<th>2.5(금)</th>
 		<th><strong><a href="#" hidden_href="/booking/stadium/view?idx=5305&lig_idx=0" 
 		class="viewbt">소망인조잔디구장</a></strong></th>
@@ -145,10 +165,7 @@
 		<td class="status"><span class="none"></span></td>
 	<td><a href="#" hidden_href="/booking/stadium/view?idx=5305&lig_idx=0" class="btn viewbt">보 기</a></td>
 	<td><strong>경기</strong></td>
-	</tr>
-	
-	
-	
+	</tr> -->
 	
 	
 	

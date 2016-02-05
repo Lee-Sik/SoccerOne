@@ -4,6 +4,7 @@ public class foot_sbooking_DTO {
 		
 	private int booking_seq;
 	private int stadium_seq;
+	private String stadium_name;
 	private String booking_day;
 	private String booking_area;
 	private String rentalsum;
@@ -27,6 +28,12 @@ public class foot_sbooking_DTO {
 	}
 	public void setStadium_seq(int stadium_seq) {
 		this.stadium_seq = stadium_seq;
+	}
+	public String getStadium_name() {
+		return stadium_name;
+	}
+	public void setStadium_name(String stadium_name) {
+		this.stadium_name = stadium_name;
 	}
 	public String getBooking_day() {
 		return booking_day;

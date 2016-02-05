@@ -61,7 +61,11 @@ public class stadiumController {
 		return "stadium_write.tiles";
 	}
 	@RequestMapping(value = "bookingList.do", method = RequestMethod.GET)	
-	public String bookingList(Model model) {		
+	public String bookingList(Model model) throws Exception {		
+		
+		List<foot_sbooking_DTO> blist = service.bookingList();
+		
+		model.addAttribute("blist", blist);
 		
 		return "bookingList.tiles";
 	}
