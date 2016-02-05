@@ -17,4 +17,5 @@ public interface foot_stadiumService {
 	public List<postDTO> post_result(String gugun, String addrtype)throws Exception;
 	public List<foot_stadium_DTO> stadiumList(String user_email)throws Exception;
 	public boolean bookingWrtie(foot_sbooking_DTO dto)throws Exception;
+	public boolean stadiumDelete(int stadium_seq)throws Exception;
 }

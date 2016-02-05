@@ -264,6 +264,7 @@ public class stadiumController {
 		
 		List<foot_stadium_DTO> slist = service.stadiumList(user_email);
 		
+		model.addAttribute("user_email", user_email);
 		model.addAttribute("slist", slist);
 		
 		return "stadiumList.tiles";
@@ -327,7 +328,17 @@ public class stadiumController {
 		return "redirect:/bookingList.do";
 	}
 	
-	
+	@RequestMapping(value = "stadiumDelete.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String stadiumDelete(Model model,HttpServletRequest request) throws Exception {	
+		
+		String user_email = request.getParameter("user_email");
+		int stadium_seq = Integer.parseInt(request.getParameter("stadium_seq"));
+		System.out.println("dsadasdsa : " + stadium_seq);
+		service.stadiumDelete(stadium_seq);
+		
+		return "redirect:/stadiumList.do?user_email=" + user_email;
+		
+	}
 	
 	
 	

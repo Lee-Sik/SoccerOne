@@ -31,4 +31,12 @@ values
 (foot_booking_seq.nextval,#{stadium_seq},#{booking_day},#{booking_area},#{rentalsum},#{rentalaccount})		
 </insert>
 
+<delete id="stadiumDelete" parameterType="int">
+delete from foot_stadium where stadium_seq=#{stadium_seq}
+</delete>
+
+
+
+
+
 </mapper>

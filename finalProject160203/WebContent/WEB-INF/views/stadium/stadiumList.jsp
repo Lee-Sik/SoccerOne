@@ -6,10 +6,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<script type="text/javascript">
+	function delete1(del,id) {
+		alert(id);
+		if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+			location.href="./stadiumDelete.do?stadium_seq=" + del + "&user_email=" + id;
+		}else{   //취소
+		    return;
+		}
+	}
+</script>
+
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
 
 			<!-- 콘텐츠 -->
 
@@ -24,7 +35,7 @@
                                                 <span class="name">${dto.stadium_name}</span>
                                                 <span class="btn"><a href="/booking/stadium/write?ground_seq=5739" class="sbbtn">야구장정보</a></span>
                                                 <span class="btn"><a href="./booking_write.do?stadium_seq=${dto.stadium_seq}&stadium_name=${dto.stadium_name}" class="sbbtn">부킹등록</a></span>
-                                                <span class="btn"><a href="/booking/stadium/write?mode=delete&ground_seq=5739" class="del">삭제</a></span>
+                                                <span class="btn"><a href="#" class="del" onclick="delete1('${dto.stadium_seq}','${user_email}')">삭제</a></span>
                                             </li>
                                             </c:forEach>                                                                                       										<!---->
 									</ul>

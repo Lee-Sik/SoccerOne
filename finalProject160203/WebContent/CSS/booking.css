@@ -10248,6 +10248,7 @@ div.booking_wrap h4.booking {
 }
 
 div.booking_wrap div.book_list_body>h4 {
+	
 	margin-top: 30px;
 }
 
@@ -10354,7 +10355,7 @@ div.booking_wrap div.tab_area ul.tab:after {
 /* 지역구 탭 */
 div.booking_wrap div.tab_area ul.tab li {
 	float: left;
-	width: 7.14%; !
+	width: 7.675%; !
 	width: 45px;
 	height: 35px;
 }
@@ -10384,7 +10385,7 @@ div.booking_wrap div.tab_area ul.tab li:first-child a {
 div.booking_wrap div.tab_area ul.tab li.on a, div.booking_wrap div.tab_area ul.tab li a:hover
 	{
 	background: #fff;
-	border-bottom: 0;
+	border-bottom: 0; 
 	height: 35px;
 	background: #fff;
 } /*캘린더*/
@@ -11001,12 +11002,16 @@ div.booking_wrap ul.input_list div.combobox ul.combo {
 div.booking_wrap div.book_list {
 	width: 720px;
 	margin: 0 auto;
+	
+	
 }
 
+/* 부킹리스트 위치 조정 */
 div.booking_wrap table.list_table {
 	width: 100%;
 	border-collapse: collapse;
 	border-top: 2px solid #888;
+	margin-left: -70px;
 }
 
 div.booking_wrap table.list_table thead th {

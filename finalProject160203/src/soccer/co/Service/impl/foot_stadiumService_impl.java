@@ -54,6 +54,12 @@ public class foot_stadiumService_impl implements foot_stadiumService{
 		return dao.bookingWrite(dto);
 	}
 
+	@Override
+	public boolean stadiumDelete(int stadium_seq) throws Exception {
+
+		return dao.stadiumDelete(stadium_seq);
+	}
+
 
 	
 }

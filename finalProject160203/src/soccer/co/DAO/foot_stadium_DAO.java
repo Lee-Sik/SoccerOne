@@ -65,6 +65,11 @@ public class foot_stadium_DAO {
 		return true;
 	}
 	
+	public boolean stadiumDelete(int stadium_seq)throws Exception{
+		sqlsession.delete("stadium.stadiumDelete", stadium_seq);
+		return true;
+	}
+	
 	
 	
 	
