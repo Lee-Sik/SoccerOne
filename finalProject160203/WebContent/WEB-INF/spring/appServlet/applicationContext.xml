@@ -58,6 +58,7 @@
 	</bean>
 
 
+	<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
 	
 
 

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import soccer.co.DAO.foot_team_DAO;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
+import soccer.co.DTO.foot_user_DTO;
 import soccer.co.Service.foot_teamService;
 
 @Service
@@ -35,6 +36,11 @@ public class foot_teamService_impl implements foot_teamService{
 	@Override
 	public List<foot_game_record> getGameRecord(String team_name) {
 		return teamdao.getGameRecord(team_name);
+	}
+
+	@Override
+	public List<foot_user_DTO> getTeamMember(String team_name) {
+		return teamdao.getTeamMember(team_name);
 	}
 
 }

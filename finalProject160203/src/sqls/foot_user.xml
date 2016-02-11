@@ -11,6 +11,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    WHERE user_email=#{user_email} AND user_pw=#{user_pw}
    </select>
    
+     <select id="getTeamMember" parameterType="java.lang.String" resultType="soccer.co.DTO.foot_user_DTO">
+  	 
+  	 SELECT * FROM foot_user where user_team = #{team_name}
+  	 
+   </select>
+   
    <select id="login1"
    parameterType="soccer.co.DTO.foot_user_DTO"
    resultType="soccer.co.DTO.foot_user_DTO">

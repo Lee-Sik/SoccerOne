@@ -5,7 +5,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import soccer.co.DTO.foot_cal_DTO;
@@ -53,7 +53,21 @@ public class clubController {
 		return "team_create.tiles";
 	}
 	
+	
+	@RequestMapping(value = "getTeamMember.do", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public List<foot_user_DTO> getTeamMember(HttpServletRequest req){
+		logger.info("getTeamMember do!");
+		
+		HttpSession session=req.getSession();
+		foot_team_DTO team=(foot_team_DTO)session.getAttribute("team");
+		List<foot_user_DTO> teamMemberList = clubservice.getTeamMember(team.getTeam_name());
+		
+		return teamMemberList;
+	}
+	
 	@RequestMapping(value = "club.do", method = {RequestMethod.GET,RequestMethod.POST})	
+//	@ResponseBody
 	public String club(String cal,foot_cal_DTO cdto,foot_user_DTO fudto,Model model, HttpServletRequest req) throws Exception {	
 		logger.info("clubController club!");
 		if(fudto.getUser_team().equals("") || fudto.getUser_team()==null){
@@ -71,6 +85,7 @@ public class clubController {
 		 * */
 		foot_team_DTO team=(foot_team_DTO)session.getAttribute("team");
 		List<foot_game_record> gameRecList = clubservice.getGameRecord(team.getTeam_name()); 
+		List<foot_user_DTO> teamMemberList = clubservice.getTeamMember(team.getTeam_name());
 		//3.최근경기-경기 기록 가져오기, 경기 기록에 있는 상대팀의  로고(.jpg)들 가져오기 
 		
 		
@@ -100,7 +115,7 @@ public class clubController {
 		////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		
-		
+		model.addAttribute("teamMemberList",teamMemberList);
 		model.addAttribute("gameRecList", gameRecList);
 		model.addAttribute("title", "마이 클럽");
 		return "team_club.tiles";

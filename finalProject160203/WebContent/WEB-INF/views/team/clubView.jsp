@@ -1,3 +1,4 @@
+<%@page import="soccer.co.DTO.foot_user_DTO"%>
 <%@page import="soccer.co.DTO.foot_team_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
@@ -13,10 +14,11 @@
 <script src="http://maps.google.com/maps/api/js"></script>
 <%
    foot_team_DTO myteam = (foot_team_DTO)session.getAttribute("team");
+                 
 %>
 <script>
 var a,b;
-var url='https://maps.googleapis.com/maps/api/geocode/json?address=서울 양천구 강서초등학교<%-- <%=myteam.getTeam_home()%> --%>&key=AIzaSyDmrTAC2knfxkHTWStqoS59Pf7IquSj9QE';
+var url='https://maps.googleapis.com/maps/api/geocode/json?address=<%=myteam.getTeam_home()%>&key=AIzaSyDmrTAC2knfxkHTWStqoS59Pf7IquSj9QE';
 
 $.ajax({
     url: url,
@@ -24,23 +26,33 @@ $.ajax({
     jsonpCallback: 'callback',
     type: 'GET',
     success: function (data) {
-       alert(data.results[0].geometry.location.lat);
-       alert(data.results[0].geometry.location.lng);
         a=data.results[0].geometry.location.lat;
         b=data.results[0].geometry.location.lng;
         something(a,b);
     }
 });
 
-
+$.ajax({
+    url: "getTeamMember.do",
+    dataType: 'JSON',
+    jsonpCallback: 'callback',
+    type: 'get',
+    success: function (data) {
+    	kk=[];
+    	for(var i=0;i<data.length;i++){
+    		kk.push(data[i]);
+    		//alert(kk[i].user_address);
+    	}
+    }
+});
 
 function something(a,b){
               var m_title = "<%=myteam.getTeam_name()%> 홈 구장"; // 마커에 마우스 포인트를 갖다댔을 때 뜨는 타이틀
              var m_marker_title = "<%=myteam.getTeam_home()%>";// 말풍선 안에 들어갈 내용
              
              function initialize() {
-                var m_width = "99%";
-                var m_height = "350px";
+                var m_width = "400px";
+                var m_height = "300px";
                 
                 var m_tmpLat = a;
                 var m_tmpLng = b;   
@@ -114,8 +126,6 @@ function something(a,b){
 
 </head>
 <body>
-   
-   
 
    <c:if test="${empty login.user_team}">
 
@@ -144,10 +154,6 @@ function something(a,b){
          <tr>
             <td><img alt="팀로고" src="image/${team.team_logo} "
                style="width: 300px; height: 200px;"></td>
-
-            
-         
-         
             <td>
                <!---------------------------------- 달력 ------------------------------------------>
                <div align="center">
@@ -217,19 +223,29 @@ function something(a,b){
             <td>팀 게시판</td>
          </tr>
          <tr>
-            <td>베스트 11 이미지</td>
-            <td>팀원들 가져오기</td>
+            <td style="background-color: lightgreen"><img src="image/gujang.png" width="50%" height="30%"></td>
+            <td style="background-color: lightblue">
+            <div style="width:100%;height:70%; overflow:scroll;">
+            	<c:forEach items="${teamMemberList}" var="mem">
+            	<div id="member">
+            		<div><img src="image/${mem.user_profile}" style="width:50px; height:50px;"></div><div>${mem.user_name}</div><div>${mem.user_position1}</div><div>${mem.user_position2}</div><div>${mem.user_position3}</div>
+            	</div>
+            	</c:forEach>
+            </div>
+            </td>
+         </tr>
+         <tr style="width: 100px;">
+         	
+            <td colspan="2">주소 : ${team.team_home}</td>
+            
          </tr>
          <tr>
-            <td colspan="2">구장 주소ㄴ리너림너라ㅣㅁ너ㅣ람너ㅣㅏㄹ</td>
+            <td colspan="2" id="map" style="width:400px; height:300px"></td>
          </tr>
-         <tr>
-            <td colspan="2" id="map" style="width: 500px; height: 450px"></td>
-         </tr>
-
-
       </table>
    </c:if>
-
+<script>
+alert(kk[0].user_address);
+</script>
 </body>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
+import soccer.co.DTO.foot_user_DTO;
 
 @Repository
 public class foot_team_DAO {
@@ -65,6 +66,10 @@ public class foot_team_DAO {
 
 	public List<foot_game_record> getGameRecord(String team_name) {
 		return sql.selectList(ns+"getGameRecord",team_name);
+	}
+
+	public List<foot_user_DTO> getTeamMember(String team_name) {
+		return sql.selectList(ns1+"getTeamMember",team_name);
 	}
 	
 }

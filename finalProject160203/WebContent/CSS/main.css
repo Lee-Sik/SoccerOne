@@ -14,6 +14,13 @@ body, table{
 	font-weight: bold;
 }
 
+#member div{
+ float: left;
+}
+#member{
+	display: block;
+	clear: both;
+}
 #top{
 
 	min-height: 100%; position: relative; width:100%;}
