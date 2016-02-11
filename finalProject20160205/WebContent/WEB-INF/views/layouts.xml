@@ -28,6 +28,16 @@
 <definition name="exit.tiles" template="/WEB-INF/views/join/exit.jsp">
 </definition>
 
+<definition name="writecal.tiles" template="/WEB-INF/views/team/cal/writecal.jsp">
+</definition>
+
+<definition name="caldetail.tiles" template="/WEB-INF/views/team/cal/caldetail.jsp">
+</definition>
+
+<definition name="caldetail1.tiles" template="/WEB-INF/views/team/cal/caldetail1.jsp">
+</definition>
+
+
 <definition name="team_create.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/createTeam.jsp" />
 </definition>
@@ -141,6 +151,8 @@
 	<put-attribute name="main" value="/WEB-INF/views/bbs/comunity.jsp" />
 
 </definition>
+
+
 
 
 </tiles-definitions>

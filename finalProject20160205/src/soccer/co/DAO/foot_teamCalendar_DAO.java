@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import soccer.co.DTO.foot_cal_DTO;
-import soccer.co.DTO.foot_calteam_DTO;
+import soccer.co.DTO.foot_teamcal_DTO;
 
 @Repository
 public class foot_teamCalendar_DAO {
@@ -33,7 +33,6 @@ public class foot_teamCalendar_DAO {
 
 		
 		int year = cal.get(Calendar.YEAR);
-		
 		int month = cal.get(Calendar.MONTH)+1;
 		
 		if(month<1){
@@ -130,9 +129,8 @@ public class foot_teamCalendar_DAO {
 	
 		
 	
-	public ArrayList<foot_calteam_DTO> getmycal(foot_cal_DTO cdto) throws Exception{
-		System.out.println(cdto.toString());
-		ArrayList<foot_calteam_DTO> getmycal = (ArrayList<foot_calteam_DTO>) sqlse.selectList("getcal", cdto);
+	public ArrayList<foot_teamcal_DTO> getmycal(foot_cal_DTO cdto) throws Exception{
+		ArrayList<foot_teamcal_DTO> getmycal = (ArrayList<foot_teamcal_DTO>) sqlse.selectList("getcal", cdto);
 		return getmycal;
 		// TODO Auto-generated method stub
 		
@@ -164,18 +162,23 @@ public class foot_teamCalendar_DAO {
 		return cdto1;
 	}
 
-	public boolean writecal1(foot_calteam_DTO mcdto) {
+	public boolean writecal1(foot_teamcal_DTO mcdto) {
 		// TODO Auto-generated method stub
-		
 		sqlse.insert(ns+"writecal",mcdto);
 		
 		return true;
 	}
 	
-	public ArrayList<foot_calteam_DTO> caldetail(foot_calteam_DTO mcdto) {
+	public ArrayList<foot_teamcal_DTO> caldetail(foot_teamcal_DTO mcdto) {
 		// TODO Auto-generated method stub
-		ArrayList<foot_calteam_DTO> caldetaillst = (ArrayList<foot_calteam_DTO>)sqlse.selectList(ns+"caldetail",mcdto);
+		ArrayList<foot_teamcal_DTO> caldetaillst = (ArrayList<foot_teamcal_DTO>)sqlse.selectList(ns+"caldetail",mcdto);
 		
 		return caldetaillst;
+	}
+
+	public foot_teamcal_DTO caldetail1(foot_teamcal_DTO mcdto) {
+		// TODO Auto-generated method stub
+		
+		return (foot_teamcal_DTO) sqlse.selectOne(ns+"caldetail1", mcdto);
 	}
 }

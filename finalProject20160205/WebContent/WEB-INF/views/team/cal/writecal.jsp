@@ -19,11 +19,13 @@
 <tr>
 <th>지정날짜</th>
 
-<td><input type="text" name="year" value="${cdtoclick.year }" readonly="readonly" size="5">년 
+<td><input type="text" name="team_name" value="${team.team_name }">
+	<br>
+	<input type="text" name="year" value="${cdtoclick.year }" readonly="readonly" size="5">년 
 	<input type="text" name="month" value="${cdtoclick.month }" readonly="readonly" size="3">월 
 	<input type="text" name="day" value="${cdtoclick.day }" readonly="readonly" size="3">일 
 	
-	<input type="hidden" name="id" value="${loginpdto.people_id }">
+	
 </td>
 </tr>
 
@@ -49,7 +51,7 @@
 <input type="submit" value="확인">
 
 </form>
-<input type="button" value="취소"  name="fi" onclick="location.href='ski.do'">
+<input type="button" value="취소"  name="fi" onclick="self.close()">
 </div>
 </body>
 </html>

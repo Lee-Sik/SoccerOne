@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<fmt:requestEncoding value="utf-8"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
 <style>
 table.qwe{
 
@@ -24,35 +21,49 @@ table,tr,td{
 	border:1px solid lightgray;
 }
 </style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
 <body>
-	
+
 <div align="center">
 <table class="qwe">
-<col width="10">
-<col width="300">
-<col width="400">
 <col width="100">
+<col width="500">
 
-<c:forEach var="i" items="${ caldetail}">
+
+
 <tr>
 <td>날짜</td>
-<td>제목</td>
-<td>내용</td>
-<td>위치</td>
+<td>${caldetail1.rdate }</td>
 </tr>
+
 <tr>
-<td>${i.rdate }</td>
-<td>${i.textname }</td>
+<td>제목</td>
+<td>${caldetail1.textname }</td>
 
-<td><a href="caldetail1.do?no=${i.no }">${i.text }</a></td>
-
-<td>${i.location }</td>
 </tr>
 
-</c:forEach>
+<tr>
+<td>내용</td>
+<td>${caldetail1.text }</td>
+
+</tr>
+
+<tr>
+<td>위치</td>
+<td>${caldetail1.location }</td>
+
+</tr>
+
+<tr>
+<td colspan="2"><input type="button" value="목록" onclick="location.href='caldetail.do?rdate=${caldetail1.rdate }&team_name=${caldetail1.team_name }'">
+<input type="button" value="취소" onclick="self.close()"></td>
+</tr>
+
 </table>
 
-<input type="button" value="취소" onclick="self.close()">
+
 </div>
 
 </body>

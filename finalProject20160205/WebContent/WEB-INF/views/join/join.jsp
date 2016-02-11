@@ -263,35 +263,35 @@ function function1(val){
 <img alt="" src="image/join1.png" width="5%">주포지션
 <select name="user_position11">
 <option value=""></option>
-								<option value="GK(골키퍼)">GK(골키퍼)</option>
-								<option value="RB(오른쪽 수비수)">RB(오른쪽 수비수)</option>
-								<option value="LB(왼쪽 수비수)">LB(왼쪽 수비수)</option>
-								<option value="CB(중앙 수비수)">CB(중앙 수비수)</option>
-								<option value="CM(중앙 미드필더)">CM(중앙 미드필더)</option>
-								<option value="CAM(공격형 미드필더)">CAM(공격형 미드필더)</option>
-								<option value="CDM(수비형 미드필더)">CDM(수비형 미드필더)</option>
-								<option value="LM(왼쪽 윙어)">LM(왼쪽 윙어)</option>
-								<option value="RM(오른쪽 윙어)">RM(오른쪽 윙어)</option>
-								<option value="ST(스트라이커)">ST(스트라이커)</option>
-								<option value="LWF(왼쪽 공격수)">LWF(왼쪽 공격수)</option>
-								<option value="RWF(오른쪽 공격수)">RWF(오른쪽 공격수)</option>
+								<option value="GK">GK(골키퍼)</option>
+								<option value="RB">RB(오른쪽 수비수)</option>
+								<option value="LB">LB(왼쪽 수비수)</option>
+								<option value="CB">CB(중앙 수비수)</option>
+								<option value="CM">CM(중앙 미드필더)</option>
+								<option value="CAM">CAM(공격형 미드필더)</option>
+								<option value="CDM">CDM(수비형 미드필더)</option>
+								<option value="LM">LM(왼쪽 윙어)</option>
+								<option value="RM">RM(오른쪽 윙어)</option>
+								<option value="ST">ST(스트라이커)</option>
+								<option value="LWF">LWF(왼쪽 공격수)</option>
+								<option value="RWF">RWF(오른쪽 공격수)</option>
 </select>
 <input type="hidden" name="user_position1">
 <img alt="" src="image/join1.png" width="5%">서브포지션1
 <select name="user_position12">
 <option value=""></option>
-								<option value="GK(골키퍼)">GK(골키퍼)</option>
-								<option value="RB(오른쪽 수비수)">RB(오른쪽 수비수)</option>
-								<option value="LB(왼쪽 수비수)">LB(왼쪽 수비수)</option>
-								<option value="CB(중앙 수비수)">CB(중앙 수비수)</option>
-								<option value="CM(중앙 미드필더)">CM(중앙 미드필더)</option>
-								<option value="CAM(공격형 미드필더)">CAM(공격형 미드필더)</option>
-								<option value="CDM(수비형 미드필더)">CDM(수비형 미드필더)</option>
-								<option value="LM(왼쪽 윙어)">LM(왼쪽 윙어)</option>
-								<option value="RM(오른쪽 윙어)">RM(오른쪽 윙어)</option>
-								<option value="ST(스트라이커)">ST(스트라이커)</option>
-								<option value="LWF(왼쪽 공격수)">LWF(왼쪽 공격수)</option>
-								<option value="RWF(오른쪽 공격수)">RWF(오른쪽 공격수)</option>
+								<option value="GK">GK(골키퍼)</option>
+								<option value="RB">RB(오른쪽 수비수)</option>
+								<option value="LB">LB(왼쪽 수비수)</option>
+								<option value="CB">CB(중앙 수비수)</option>
+								<option value="CM">CM(중앙 미드필더)</option>
+								<option value="CAM">CAM(공격형 미드필더)</option>
+								<option value="CDM">CDM(수비형 미드필더)</option>
+								<option value="LM">LM(왼쪽 윙어)</option>
+								<option value="RM">RM(오른쪽 윙어)</option>
+								<option value="ST">ST(스트라이커)</option>
+								<option value="LWF">LWF(왼쪽 공격수)</option>
+								<option value="RWF">RWF(오른쪽 공격수)</option>
 </select>
 <input type="hidden" name="user_position2">
 
@@ -299,18 +299,18 @@ function function1(val){
 <img alt="" src="image/join1.png" width="5%">서브포지션2
 <select name="user_position13">
 <option value=""></option>
-								<option value="GK(골키퍼)">GK(골키퍼)</option>
-								<option value="RB(오른쪽 수비수)">RB(오른쪽 수비수)</option>
-								<option value="LB(왼쪽 수비수)">LB(왼쪽 수비수)</option>
-								<option value="CB(중앙 수비수)">CB(중앙 수비수)</option>
-								<option value="CM(중앙 미드필더)">CM(중앙 미드필더)</option>
-								<option value="CAM(공격형 미드필더)">CAM(공격형 미드필더)</option>
-								<option value="CDM(수비형 미드필더)">CDM(수비형 미드필더)</option>
-								<option value="LM(왼쪽 윙어)">LM(왼쪽 윙어)</option>
-								<option value="RM(오른쪽 윙어)">RM(오른쪽 윙어)</option>
-								<option value="ST(스트라이커)">ST(스트라이커)</option>
-								<option value="LWF(왼쪽 공격수)">LWF(왼쪽 공격수)</option>
-								<option value="RWF(오른쪽 공격수)">RWF(오른쪽 공격수)</option>
+								<option value="GK">GK(골키퍼)</option>
+								<option value="RB">RB(오른쪽 수비수)</option>
+								<option value="LB">LB(왼쪽 수비수)</option>
+								<option value="CB">CB(중앙 수비수)</option>
+								<option value="CM">CM(중앙 미드필더)</option>
+								<option value="CAM">CAM(공격형 미드필더)</option>
+								<option value="CDM">CDM(수비형 미드필더)</option>
+								<option value="LM">LM(왼쪽 윙어)</option>
+								<option value="RM">RM(오른쪽 윙어)</option>
+								<option value="ST">ST(스트라이커)</option>
+								<option value="LWF">LWF(왼쪽 공격수)</option>
+								<option value="RWF">RWF(오른쪽 공격수)</option>
 </select>
 <input type="hidden" name="user_position3">
 </td>

@@ -2,7 +2,7 @@ package soccer.co.Service.impl;
 
 import java.util.ArrayList;
 import soccer.co.DTO.foot_cal_DTO;
-import soccer.co.DTO.foot_calteam_DTO;
+import soccer.co.DTO.foot_teamcal_DTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class foot_teamCalendarService_impl implements foot_teamCalendarService{
 	@Autowired
 	foot_teamCalendar_DAO mdao;
 	
-	public ArrayList<foot_calteam_DTO> getmycal(foot_cal_DTO cdto) throws Exception{
+	public ArrayList<foot_teamcal_DTO> getmycal(foot_cal_DTO cdto) throws Exception{
 		return mdao.getmycal(cdto);
 	}
 	public foot_cal_DTO makecal(foot_cal_DTO cdto) throws Exception{
@@ -38,13 +38,18 @@ public class foot_teamCalendarService_impl implements foot_teamCalendarService{
 		return mdao.writecal(cdto);
 	}
 	@Override
-	public boolean writecal1(foot_calteam_DTO mcdto) throws Exception {
+	public boolean writecal1(foot_teamcal_DTO mcdto) throws Exception {
 		// TODO Auto-generated method stub
 		return mdao.writecal1(mcdto);
 	}
 	@Override
-	public ArrayList<foot_calteam_DTO> caldetail(foot_calteam_DTO mcdto) throws Exception {
+	public ArrayList<foot_teamcal_DTO> caldetail(foot_teamcal_DTO mcdto) throws Exception {
 		// TODO Auto-generated method stub
 		return mdao.caldetail(mcdto);
+	}
+	@Override
+	public foot_teamcal_DTO caldetail1(foot_teamcal_DTO mcdto) throws Exception {
+		// TODO Auto-generated method stub
+		return mdao.caldetail1(mcdto);
 	}
 }

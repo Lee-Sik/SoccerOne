@@ -8,7 +8,9 @@
 </head>
 <body>
 <script type="text/javascript">
-alert("회원가입 완료! 로그인하세요!")
+opener.parent.location.reload();
+alert("완료!")
+
 self.close();
 </script>
 </body>

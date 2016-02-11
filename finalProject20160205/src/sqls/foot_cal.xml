@@ -4,16 +4,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cal">
-	<select id="getcal" parameterType="soccer.co.DTO.foot_cal_DTO" resultType="soccer.co.DTO.foot_calteam_DTO">
-		select *from foot_calteam where team_name=#{team_name} and substr(rdate,1,6)=#{yyyydd} order by rdate , wdate
+	<select id="getcal" parameterType="soccer.co.DTO.foot_cal_DTO" resultType="soccer.co.DTO.foot_teamcal_DTO">
+		select *from foot_teamcal where team_name=#{team_name} and substr(rdate,1,6)=#{yyyydd} order by rdate , wdate
 	</select>
 	
-	<insert id="writecal" parameterType="soccer.co.DTO.foot_calteam_DTO">
-		insert into foot_calteam values(no_calteam.nextval,#{team_name},#{textname},#{location},#{text},sysdate,#{rdate})
+	<insert id="writecal" parameterType="soccer.co.DTO.foot_teamcal_DTO">
+		insert into foot_teamcal values(no_teamcal.nextval,#{team_name},#{textname},#{location},#{text},sysdate,#{rdate})
 	</insert>
 	
-	<select id="caldetail" parameterType="soccer.co.DTO.foot_calteam_DTO" resultType="soccer.co.DTO.foot_calteam_DTO">
-		select *from foot_calteam where team_name=#{team_name} and rdate=#{rdate} order by rdate , wdate
+	<select id="caldetail" parameterType="soccer.co.DTO.foot_teamcal_DTO" resultType="soccer.co.DTO.foot_teamcal_DTO">
+		select *from foot_teamcal where team_name=#{team_name} and rdate=#{rdate} order by rdate , wdate
+	</select>
+	
+	<select id="caldetail1" parameterType="soccer.co.DTO.foot_teamcal_DTO" resultType="soccer.co.DTO.foot_teamcal_DTO">
+		select *from foot_teamcal where no=#{no}
 	</select>
 	
 

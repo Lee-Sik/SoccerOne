@@ -36,7 +36,6 @@ public class foot_user_DAO{
 	public boolean join(foot_user_DTO fudto) throws Exception {
 		// TODO Auto-generated method stub
 		sqlse.insert(ns+"join", fudto);
-		
 		return true;
 	}
 

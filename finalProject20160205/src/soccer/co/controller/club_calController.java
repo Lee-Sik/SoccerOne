@@ -8,12 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import soccer.co.DTO.foot_cal_DTO;
-import soccer.co.DTO.foot_calteam_DTO;
+import soccer.co.DTO.foot_teamcal_DTO;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
@@ -21,11 +22,13 @@ import soccer.co.Service.foot_teamCalendarService;
 import soccer.co.Service.foot_teamService;
 import soccer.co.Service.foot_userService;
 
+@Controller
 public class club_calController {
 
 	@Autowired
 	foot_teamCalendarService cs; 
-	private static final Logger logger = LoggerFactory.getLogger(clubController.class);
+	
+	private static final Logger logger = LoggerFactory.getLogger(club_calController.class);
 	
 	@RequestMapping(value="writecal.do",method={RequestMethod.POST,RequestMethod.GET})
 	public String writecal(foot_cal_DTO cdto,HttpServletRequest request,Model model) throws Exception{
@@ -38,9 +41,9 @@ public class club_calController {
 	
 	
 	@RequestMapping(value="writecal1.do",method={RequestMethod.POST,RequestMethod.GET})
-	public String writecal1(foot_calteam_DTO mcdto,HttpServletRequest request,Model model) throws Exception{
+	public String writecal1(foot_teamcal_DTO mcdto,HttpServletRequest request,Model model) throws Exception{
 		logger.info("Welcome HelloMemberController writecal1! "+ new Date());
-		System.out.println(mcdto.toString());
+		
 		foot_cal_DTO cdtoclick1= (foot_cal_DTO) request.getSession().getAttribute("cdtoclick");
 		
 		String year = cdtoclick1.getYear()+""; 
@@ -67,21 +70,26 @@ public class club_calController {
 		
 		cs.writecal1(mcdto);
 		
-		return "redirect:club.do";
+		return "exit.tiles";
 	}
 	
 	
 	@RequestMapping(value="caldetail.do",method={RequestMethod.POST,RequestMethod.GET})
-	public String caldetail(foot_calteam_DTO mcdto,HttpServletRequest request,Model model) throws Exception{
-		logger.info("Welcome HelloMemberController caldetail! "+ new Date());
+	public String caldetail(foot_teamcal_DTO mcdto,HttpServletRequest request,Model model) throws Exception{
+		logger.info(mcdto.toString()+"Welcome HelloMemberController caldetail! "+ new Date());
 		
-		ArrayList<foot_calteam_DTO> caldetail = cs.caldetail(mcdto);
-		System.out.println(caldetail.get(0).getRdate());
+		ArrayList<foot_teamcal_DTO> caldetail = cs.caldetail(mcdto);
 		model.addAttribute("caldetail", caldetail);
-		
-		
-		
 		return "caldetail.tiles";
+	}
+	
+	@RequestMapping(value="caldetail1.do",method={RequestMethod.POST,RequestMethod.GET})
+	public String caldetail1(foot_teamcal_DTO mcdto1,HttpServletRequest request,Model model) throws Exception{
+		logger.info("Welcome HelloMemberController caldetail1! "+ new Date());
+		
+		foot_teamcal_DTO mcdto = cs.caldetail1(mcdto1);
+		model.addAttribute("caldetail1", mcdto);
+		return "caldetail1.tiles";
 	}
 	
 }
