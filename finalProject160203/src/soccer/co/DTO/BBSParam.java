@@ -117,8 +117,6 @@ public class BBSParam implements Serializable{
 		this.wdate = wdate;
 	}
 	
-	
-
 	public BBSParam(int bbs_no, String topic, String user_email, String title, String content, String wdate, int good,
 			int readcount, String imageurl, int del) {
 		super();

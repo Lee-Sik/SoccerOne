@@ -10,6 +10,30 @@ public class MATCHINGParam implements Serializable{
 	private int game_state;
 	private int pay1;
 	private int pay2;
+	
+	public MATCHINGParam(){}
+	
+	
+	
+	public MATCHINGParam(String game_location, String game_date, String suBground, int game_state, int pay1, int pay2) {
+		super();
+		this.game_location = game_location;
+		this.game_date = game_date;
+		this.suBground = suBground;
+		this.game_state = game_state;
+		this.pay1 = pay1;
+		this.pay2 = pay2;
+	}
+	
+	public MATCHINGParam(String game_date, String suBground, int game_state, int pay1, int pay2) {
+		super();
+		this.game_date = game_date;
+		this.suBground = suBground;
+		this.game_state = game_state;
+		this.pay1 = pay1;
+		this.pay2 = pay2;
+	}
+	
 	public String getGame_location() {
 		return game_location;
 	}

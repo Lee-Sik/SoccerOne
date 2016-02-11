@@ -11,12 +11,25 @@
    
    <li class='active'><a href='./kickoff.do'>킥오프</a>
       <ul>
-         <li><a href='./matching.do'>매칭등록</a></li>
-         <li><a href='./matchingsearch.do'>매칭검색</a></li>
-         <li><a href='./lanking.do'>랭킹</a></li>
+         <li><a href='#'>매칭 등록</a>
+            <ul>
+               <li><a href='publicgame.do'>랭킹전</a></li>
+               <li><a href='freegame.do'>친선경기</a></li>
+            </ul>
+         </li>
+         
+         <li><a href='#'>매칭 검색</a>
+            <ul>
+               <li><a href='publicms.do'>랭킹전</a></li>
+               <li><a href='freems.do'>친선경기</a></li>
+            </ul>
+         </li>
+         
+         <li><a href='./matching.do'>랭킹</a>
+         </li>
       </ul>
    </li>
-   
+
    <li class='active'><a href='#'>구장대관</a>
       <ul>
          <li><a href='bookingList.do'>공식대관</a></li>

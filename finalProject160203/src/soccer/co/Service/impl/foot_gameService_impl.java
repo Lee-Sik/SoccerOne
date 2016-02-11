@@ -2,6 +2,7 @@ package soccer.co.Service.impl;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 import soccer.co.DAO.foot_game_DAO;
 import soccer.co.DTO.MATCHINGParam;
 import soccer.co.DTO.foot_game_DTO;
+import soccer.co.DTO.foot_game_record;
 import soccer.co.Service.foot_gameService;
+
 @Service
 public class foot_gameService_impl implements foot_gameService{
 
@@ -23,9 +26,23 @@ public class foot_gameService_impl implements foot_gameService{
 	}
 	
 	@Override
-	public boolean publicgame(foot_game_DTO fgdto) throws Exception {
+	@Transactional(readOnly=true)
+	public foot_game_DTO publicgame(foot_game_DTO fgdto) throws Exception {
 		// TODO Auto-generated method stub
 		return fgdao.publicgame(fgdto);
+	}
+	
+//	@Override
+//	@Transactional(readOnly=true)
+//	public foot_game_DTO getpublicgame(foot_game_DTO fgdto) throws Exception {
+//		// TODO Auto-generated method stub
+//		return fgdao.publicgame(fgdto);
+//	}
+	
+	@Override
+	public boolean publicgamerecord(foot_game_record fgr) throws Exception {
+		// TODO Auto-generated method stub
+		return fgdao.publicgamerecord(fgr);
 	}
 	
 	@Override
@@ -42,8 +59,14 @@ public class foot_gameService_impl implements foot_gameService{
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<foot_game_DTO> getmatchingsearchList(MATCHINGParam param) throws Exception {
-		return fgdao.getmatchingsearchList(param);
+	public List<foot_game_DTO> getpmatchingsearchList(MATCHINGParam param) throws Exception {
+		return fgdao.getpmatchingsearchList(param);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public List<foot_game_DTO> getfmatchingsearchList(MATCHINGParam param) throws Exception {
+		return fgdao.getfmatchingsearchList(param);
 	}
 	
 }

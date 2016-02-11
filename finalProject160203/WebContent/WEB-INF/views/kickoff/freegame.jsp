@@ -45,7 +45,19 @@ $(function() {
 
 <tr>
 	<th>경기요약</th>
-	<td style="text-align: left"><textarea rows="10" cols="50" name='game_content'></textarea></td>
+	<td style="text-align: left"><textarea rows="10" cols="50" name='game_content'>
+
+
+게임일시 : 
+
+구장위치 : 
+ 
+대관료 : 
+
+담당자 연락처 : 
+	
+*친선경기시 발생된 일은 저희 사커원과 무관합니다.*
+</textarea></td>
 </tr>
 
 <tr>

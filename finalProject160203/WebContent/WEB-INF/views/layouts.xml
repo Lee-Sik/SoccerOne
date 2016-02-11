@@ -63,9 +63,15 @@
 
 </definition>
 
-<definition name="matchingsearch.tiles" extends="login.tiles">
+<definition name="pmatchingsearch.tiles" extends="login.tiles">
 
-	<put-attribute name="main" value="/WEB-INF/views/kickoff/matchingsearch.jsp" />
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/pmatchingsearch.jsp" />
+
+</definition>
+
+<definition name="fmatchingsearch.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/fmatchingsearch.jsp" />
 
 </definition>
 

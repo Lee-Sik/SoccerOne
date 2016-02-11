@@ -79,7 +79,7 @@ $(function() {
 
 <tr>
 	<th>경기요약</th>
-	<td style="text-align: left"><textarea rows="10" cols="50" name='game_content'></textarea></td>
+	<td style="text-align: left"><textarea rows="10" cols="50" name="game_content"></textarea></td>
 </tr>
 
 

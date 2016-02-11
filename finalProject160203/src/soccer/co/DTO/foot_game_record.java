@@ -20,7 +20,7 @@ package soccer.co.DTO;
  */
 public class foot_game_record {
 
-	String game_no; // 경기 시퀀스 번호 publicgame의 game_no와 forgin
+	int game_no; // 경기 시퀀스 번호 publicgame의 game_no와 forgin
 	String game_date; // 경기 날짜
 	String score; // 1,2 왼이 이긴팀 점수, 오른쪽이 진팀점수
 	String win_team; // 승리팀
@@ -38,7 +38,7 @@ public class foot_game_record {
 	}
 
 	
-	public foot_game_record(String game_no, String game_date, String score,
+	public foot_game_record(int game_no, String game_date, String score,
 			String win_team, String lose_team, int maching_state,
 			String win_goal_player, String lose_goal_player, String home_local,
 			String away_local, String win_team_logo, String lose_team_logo) {
@@ -78,11 +78,11 @@ public class foot_game_record {
 	}
 
 
-	public String getGame_no() {
+	public int getGame_no() {
 		return game_no;
 	}
 
-	public void setGame_no(String game_no) {
+	public void setGame_no(int game_no) {
 		this.game_no = game_no;
 	}
 

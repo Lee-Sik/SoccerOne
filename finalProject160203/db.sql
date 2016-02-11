@@ -1,19 +1,67 @@
+SELECT * from foot_publicgame where ROWNUM < 6 order by game_no desc 
+
+INSERT INTO foot_game_record
+		VALUES(46,'2016-02-20',null, null, null,0,
+		null,null,null,null,null,null)
+
+
+
+SELECT * from foot_publicgame 
+where game_no = (select MAX(game_no) from FOOT_PUBLICGAME)
+
+        
+
+
+select * from foot_freegame 
+         and GAME_DATE = '2016-02-13'  
+
+            and GROUND is not null
+         
+         and GAME_STATE = 0
+         and PAY BETWEEN 10000 and 150000
+
+
+this.game_no = game_no;
+		this.game_date = game_date;
+		this.score = score;
+		this.win_team = win_team;
+		this.lose_team = lose_team;
+		this.maching_state = maching_state;
+		this.win_goal_player = win_goal_player;
+		this.lose_goal_player = lose_goal_player;
+		this.home_local = home_local;
+		this.away_local = away_local;
+		this.win_team_logo = win_team_logo;
+		this.lose_team_logo = lose_team_logo;
+
+
+		INSERT INTO foot_game_record
+		VALUES(#{game_no},#{game_date},null, null, null,0,
+		null,null,null,null,null,null)
+
+
+
+delete from FOOT_PUBLICGAME where game_no = 33
+
 select * from FOOT_PUBLICGAME
 
 update 
 
 select * from foot_publicgame 
-			where GAME_LOCATION = '마포구'
-			and GAME_DATE = '2016-02-02'  
-			and GROUND is not null
-			and game_state = 1
-			and pay BETWEEN 10000 and 50000;
+			where GAME_LOCATION = '강남구'
+			and GAME_DATE = '2016-02-11'  
+
+				and GROUND is not null
+
+			
+			and GAME_STATE = 0
+			and pay BETWEEN 10000 and 150000;
 
 
 select game_no, team_name, game_location, game_date, ground, pay, game_state 
 from FOOT_PUBLICGAME 
-where game_date = '2016-02-25'
-and pay BETWEEN 10000 and 500000
+where game_date = '2016-02-11'
+and pay BETWEEN 10000 and 150000
 and game_state = '0'
 and NVL(ground, '없음');
 

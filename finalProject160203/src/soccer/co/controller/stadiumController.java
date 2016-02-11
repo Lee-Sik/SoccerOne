@@ -270,6 +270,7 @@ public class stadiumController {
 		
 		model.addAttribute("user_email", user_email);
 		model.addAttribute("slist", slist);
+		model.addAttribute("title", "공식대관");
 		
 		return "stadiumList.tiles";
 	}

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import soccer.co.DTO.MATCHINGParam;
 import soccer.co.DTO.foot_game_DTO;
+import soccer.co.DTO.foot_game_record;
 import soccer.co.Service.foot_gameService;
 
 @Controller
@@ -46,40 +47,48 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 		return "matching.tiles";
 	}
 	
-	@RequestMapping(value = "matchingsearch.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String matchingsearch(Model model) throws Exception {	
-		logger.info("Welcome gameController matchingsearch! "+ new Date());
+	@RequestMapping(value = "publicms.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String pmatchingsearch(Model model) throws Exception {	
+		logger.info("Welcome gameController pmatchingsearch! "+ new Date());
 		
-		model.addAttribute("title", "매칭검색");
-		return "matchingsearch.tiles";
+		model.addAttribute("title", "랭킹전 검색");
+		return "pmatchingsearch.tiles";
 	}
 	
-	@RequestMapping(value = "matchingsearchAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String matchingsearchAf(MATCHINGParam param,Model model) throws Exception {	
-		logger.info("Welcome gameController matchingsearch! "+ new Date());
+	@RequestMapping(value = "pmatchingsearchAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String pmatchingsearchAf(MATCHINGParam param,Model model) throws Exception {	
+		logger.info("Welcome gameController pmatchingsearchAf! "+ new Date());
 		
-		String getGame_location = param.getGame_location();
-		String getGame_date = param.getGame_date();
-		String getGround = param.getSuBground();
-		int pay1 = param.getPay1();
-		int pay2 = param.getPay2();
-		
-		System.out.println(getGame_location);
-		System.out.println(getGame_date);
-		System.out.println(getGround);
-		System.out.println(pay1);
-		System.out.println(pay2);
-		
-		
-		List<foot_game_DTO> matchingsearchlist = fgameservice.getmatchingsearchList(param);
-		for(foot_game_DTO dto: matchingsearchlist){
+		List<foot_game_DTO> pmatchingsearchlist = fgameservice.getpmatchingsearchList(param);
+		for(foot_game_DTO dto: pmatchingsearchlist){
 			System.out.println(dto.toString());
-			
 		}
-		model.addAttribute("matchingsearchlist", matchingsearchlist);
+		model.addAttribute("pmatchingsearchlist", pmatchingsearchlist);
 		
-		model.addAttribute("title", "매칭 검색 결과");
-		return "matchingsearch.tiles";
+		model.addAttribute("title", "랭킹전 검색 결과");
+		return "pmatchingsearch.tiles";
+	}
+	
+	@RequestMapping(value = "freems.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String fmatchingsearch(Model model) throws Exception {	
+		logger.info("Welcome gameController fmatchingsearch! "+ new Date());
+		
+		model.addAttribute("title", "친선경기 검색");
+		return "fmatchingsearch.tiles";
+	}
+	
+	@RequestMapping(value = "fmatchingsearchAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String fmatchingsearchAf(MATCHINGParam param,Model model) throws Exception {	
+		logger.info("Welcome gameController fmatchingsearchAf! "+ new Date());
+		
+		List<foot_game_DTO> fmatchingsearchlist = fgameservice.getfmatchingsearchList(param);
+		for(foot_game_DTO dto: fmatchingsearchlist){
+			System.out.println(dto.toString());
+		}
+		model.addAttribute("fmatchingsearchlist", fmatchingsearchlist);
+		
+		model.addAttribute("title", "친선경기 검색 결과");
+		return "fmatchingsearch.tiles";
 	}
 	
 	@RequestMapping(value = "publicgame.do", method = {RequestMethod.GET,RequestMethod.POST})	
@@ -94,10 +103,28 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	public String publicgameAf(foot_game_DTO fgdto,Model model) throws Exception {	
 		logger.info("Welcome gameController publicgameAf! "+ new Date());
 		
-		fgameservice.publicgame(fgdto);
+		foot_game_DTO fgd = null;
 		
+		fgd = fgameservice.publicgame(fgdto);
+		
+		foot_game_record fgr = new foot_game_record();
+		
+		fgr.setGame_no(fgd.getGame_no());
+		fgr.setGame_date(fgd.getGame_date());
+		
+		fgameservice.publicgamerecord(fgr);
+			
 		return "redirect:/kickoff.do";
 	}
+	
+//	@RequestMapping(value = "publicgamerecordAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
+//	public String publicgamerecordAf(foot_game_DTO fgdto,Model model) throws Exception {	
+//		logger.info("Welcome gameController publicgamerecordAf! "+ new Date());
+//		
+//		
+//		return "redirect:/kickoff.do";
+//	}
+//	
 	
 	@RequestMapping(value = "freegame.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String freegame(Model model) throws Exception {	
@@ -115,5 +142,7 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 		
 		return "redirect:/kickoff.do";
 	}
+	
+	
 	
 }

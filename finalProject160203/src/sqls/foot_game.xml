@@ -5,47 +5,76 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="foot_game">
 
-	<insert id="freegame" parameterType="soccer.co.DTO.foot_game_DTO">
-		INSERT INTO foot_freegame
-		VALUES(foot_freegame_seq.nextval,#{team_name},#{game_content},#{game_date}
-		,#{ground},#{pay})
-	</insert>
+   <insert id="freegame" parameterType="soccer.co.DTO.foot_game_DTO">
+      INSERT INTO foot_freegame
+      VALUES(foot_freegame_seq.nextval,#{team_name},#{game_content},#{game_date}
+      ,#{ground},#{pay})
+   </insert>
 
-	<insert id="publicgame" parameterType="soccer.co.DTO.foot_game_DTO">
-		INSERT INTO foot_publicgame
-		VALUES(foot_publicgame_seq.nextval,#{team_name},#{game_location},#{game_date}
-		,#{ground},#{pay},0)
-	</insert>
+   <insert id="publicgame" parameterType="soccer.co.DTO.foot_game_DTO">
+      INSERT INTO foot_publicgame
+      VALUES(foot_publicgame_seq.nextval,#{team_name},#{game_location},#{game_date}
+      ,#{ground},#{pay},0)
+   </insert>
+   
+   <select id="getpublicgame" resultType="soccer.co.DTO.foot_game_DTO">
+          SELECT * from foot_publicgame 
+          where game_no = (select MAX(game_no) from FOOT_PUBLICGAME)
+   </select>
+   
+   <insert id="publicgamerecord" parameterType="soccer.co.DTO.foot_game_record">
+      	INSERT INTO foot_game_record
+		VALUES(#{game_no},#{game_date},null, null, null,0,
+		null,null,null,null,null,null)
+   </insert>
 
-	<select id="getfreegameList" resultType="soccer.co.DTO.foot_game_DTO">
-	<![CDATA[
-			SELECT * from foot_freegame where ROWNUM < 6 order by game_no desc 
-		]]>
-	</select>
+   <select id="getfreegameList" resultType="soccer.co.DTO.foot_game_DTO">
+   <![CDATA[
+         SELECT * from foot_freegame where ROWNUM < 6 order by game_no desc 
+      ]]>
+   </select>
 
-	<select id="getpublicgameList" resultType="soccer.co.DTO.foot_game_DTO">
-	<![CDATA[
-			SELECT * from foot_publicgame where ROWNUM < 6 order by game_no desc
-		]]>
-	</select>
+   <select id="getpublicgameList" resultType="soccer.co.DTO.foot_game_DTO">
+   <![CDATA[
+         SELECT * from foot_publicgame where ROWNUM < 6 order by game_no desc
+      ]]>
+   </select>
 
-	<select id="getmatchingsearchList" parameterType="soccer.co.DTO.MATCHINGParam"
-		resultType="soccer.co.DTO.foot_game_DTO">
-	
-			select * from foot_publicgame 
-			where GAME_LOCATION = #{game_location}
-			and GAME_DATE = #{game_date}  
-			
-			<if test = "suBground == 'null'">
-				and GROUND == null
-			</if>
-			<if test = "suBground != 'null'">
-				and GROUND is not null
-			</if>
-			
-			and GAME_STATE = 0
-			and PAY BETWEEN #{pay1} and #{pay2}
-	
-	</select>
+   <select id="getpmatchingsearchList" parameterType="soccer.co.DTO.MATCHINGParam"
+      resultType="soccer.co.DTO.foot_game_DTO">
+   
+         select * from foot_publicgame 
+         where GAME_LOCATION = #{game_location}
+         and GAME_DATE = #{game_date}  
+         
+         <if test = "suBground == 'null'">
+            and GROUND = null
+         </if>
+         <if test = "suBground != 'null'">
+            and GROUND is not null
+         </if>
+         
+         and GAME_STATE = 0
+         and PAY BETWEEN #{pay1} and #{pay2}
+   
+   </select>
+   
+   <select id="getfmatchingsearchList" parameterType="soccer.co.DTO.MATCHINGParam"
+      resultType="soccer.co.DTO.foot_game_DTO">
+   
+         select * from foot_freegame 
+         where GAME_DATE = #{game_date}  
+         
+         <if test = "suBground == 'null'">
+            and GROUND = null
+         </if>
+         <if test = "suBground != 'null'">
+            and GROUND is not null
+         </if>
+         
+         and GAME_STATE = 0
+         and PAY BETWEEN #{pay1} and #{pay2}
+   
+   </select>
 
 </mapper>

@@ -4,7 +4,7 @@ package soccer.co.DTO;
  */
 public class foot_game_DTO {
 	
-	private String game_no;
+	private int game_no;
 	private String team_name;
 	private String game_location;
 	private String game_content;
@@ -15,7 +15,7 @@ public class foot_game_DTO {
 	
 	public foot_game_DTO(){}
 
-	public foot_game_DTO(String game_no, String team_id, String game_location, String game_date, String ground,
+	public foot_game_DTO(int game_no, String team_id, String game_location, String game_date, String ground,
 			int pay, int game_state) { //공식 경기
 		super();
 		this.game_no = game_no;
@@ -29,7 +29,7 @@ public class foot_game_DTO {
 
 
 
-	public foot_game_DTO(String game_no, String team_id, String game_content, String game_date, String ground,
+	public foot_game_DTO(int game_no, String team_id, String game_content, String game_date, String ground,
 			int pay) {		// 친선 경기
 		super();
 		this.game_no = game_no;
@@ -40,11 +40,11 @@ public class foot_game_DTO {
 		this.pay = pay;
 	}
 
-	public String getGame_no() {
+	public int getGame_no() {
 		return game_no;
 	}
 
-	public void setGame_no(String game_no) {
+	public void setGame_no(int game_no) {
 		this.game_no = game_no;
 	}
 
