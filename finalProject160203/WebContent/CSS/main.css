@@ -14,10 +14,10 @@ body, table{
 	font-weight: bold;
 }
 
-#member div{
- float: left;
+.member div{
+/*  float: left; */
 }
-#member{
+.member{
 		max-width:200px; 
 		height:50px; 
 		line-height:80px; 

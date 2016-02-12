@@ -76,7 +76,6 @@ function something(a,b){
              var m=document.getElementById('map');
              var map = new google.maps.Map(m, mapOptions); // id: map, body에 있는 div태그의 id와 같아야 함
 
-
              var marker;
              marker = new google.maps.Marker({
                  position: markLocation, // 마커가 위치할 위도와 경도(변수)
@@ -109,14 +108,17 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 	}
 
 	function drag(ev,this1) {
-		ev.dataTransfer.setData("text", ev.target.id);
-		
+	
+		ev.dataTransfer.setData("text",this1.id);
+		//alert(this1.id);
 	}
 
 	function drop(ev) {
 		ev.preventDefault();
 		var bool = true;
+		
 		var data = ev.dataTransfer.getData("text");  //id
+		//alert(data);
 		
 		for(var i=0; i<userPosition.length; i++){
 			if(userPosition[i] == data){ // userPosition에 data가 있으면
@@ -127,13 +129,11 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 			userPosition.push(data);//id 값을 userPosition배열 에 넣는다.
 		}
 		
-// 		for(var i=0; i<userPosition.length; i++){
-// 			alert(userPosition[i]); //확인
-// 		}
 		
 		var x_pos = ev.clientX + document.body.scrollLeft-50 + 'px';//이동 할 x좌표
 		var y_pos = ev.clientY + document.body.scrollTop-35 + 'px';//이동 할 y좌표
-		var obj = document.getElementById(data);			//이동 할 객체
+		var obj = document.getElementById(data).cloneNode(true);			//이동 할 객체
+		
 		
 		ev.target.appendChild(obj);
 		obj.style.position = "absolute";
@@ -158,7 +158,15 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 
  //--------------------구글맵-------------------------
 </script>
+<script>
 
+window.onload = function () {
+
+	for(var i=0; i<kk.length; i++){
+		//alert(kk[i].user_address); //확인
+	}
+}
+</script>
 </head>
 <body>
 
@@ -272,21 +280,18 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
    
    <table class="1" style="width: 100%; height: 681px;">
          <tr>
+
             <td style="background-image: url('image/gujang.png'); width: 400px; height: 681px; 
             background-repeat: no-repeat;" ondrop="drop(event)" ondragover="allowDrop(event)">
-<!--             <div style=" width:100px; height:100px; background-image:url('image/gujang.png');" -->
-<!-- 			ondrop="drop(event)" ondragover="allowDrop(event)" ></div> -->
-<!-- 			<div style="background-image: url('image/gujang.png'); width: 310px; height: 533px;" ondrop="drop(event)" ondragover="allowDrop(event)" ></div> -->
+
             </td>
             <td style="height: 681px;">
             <div style="overflow:scroll; height: 681px">
             	<c:forEach items="${teamMemberList}" var="mem">
-            	<div id="member">
-            		<div ><img src="image/${mem.user_profile}" style="width:50px; height:50px;">&nbsp;</div>
+            	<div class="member" id="${mem.user_profile}" draggable="true" ondragstart="drag(event,this)">
+            		<div>${mem.user_position1}&nbsp;/&nbsp;${mem.user_position2}&nbsp;/&nbsp;${mem.user_position3}</div>
+            		<div><img src="image/${mem.user_profile}" id="${mem.user_profile}-img" style="width:50px; height:50px;">&nbsp;</div>
             		<div>${mem.user_name}&nbsp;</div>
-            		<div>${mem.user_position1}&nbsp;/&nbsp;</div>
-            		<div>${mem.user_position2}&nbsp;/&nbsp;</div>
-            		<div>${mem.user_position3}</div>
             	</div>
             	</c:forEach>
             </div>
