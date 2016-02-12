@@ -223,7 +223,7 @@ function something(a,b){
             <td>팀 게시판</td>
          </tr>
          <tr>
-            <td style="background-color: lightgreen"><img src="image/gujang.png" width="50%" height="30%"></td>
+            <td style="background-color: lightgreen"><img src="image/gujang.png" style="size: 30%"></td>
             <td style="background-color: lightblue">
             <div style="width:100%;height:70%; overflow:scroll;">
             	<c:forEach items="${teamMemberList}" var="mem">
