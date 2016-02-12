@@ -111,17 +111,7 @@ function something(a,b){
    google.maps.event.addDomListener(window, 'load', initialize);
 
 
-   function popupOpen1(){
-      var popUrl = "";   //팝업창에 출력될 페이지 URL
-      var popOption = "width=900, height=730,top=70, left=220, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-         window.open(popUrl,"",popOption);
-      }
-
-   function popupOpen2(){
-      var popUrl = "";   //팝업창에 출력될 페이지 URL
-      var popOption = "width=900, height=730,top=70, left=220, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
-         window.open(popUrl,"",popOption);
-      }
+  
 </script>
 
 </head>
@@ -156,8 +146,8 @@ function something(a,b){
                style="width: 300px; height: 200px;"></td>
             <td>
                <!---------------------------------- 달력 ------------------------------------------>
-               <div align="center">
-
+                <div align="center">
+				 
                   <table class="calcla">
                      <tr class="date">
                         <td colspan="7"><a
@@ -173,15 +163,19 @@ function something(a,b){
                         </c:forEach>
                         <c:forEach var="i" step="1" begin="1" end="${cdto.lastday}">
                            <td height="50" width="50" align="left" valign="top">
-                              ${i } <a href="" onclick="popupOpen1()">
-                              <input type="hidden" value="writecal.do?year=${cdto.year}&month=${cdto.month}&day=${i }">
+                              ${i } <a href="javascript:window.open('writecal.do?year=${cdto.year}&month=${cdto.month}&day=${i }','',
+                              				'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+                              
                                  <img src="image/pen.gif">
                            </a> 
                            <c:forEach var="j" items="${getmycal }">
                                  <c:if test="${i eq j.getRdate().substring(6, 8)}">
-                                    <a href="" onclick="popupOpen2()"><img src='image/on.png'>
-                                    <input type="hidden" value="caldetail.do?rdate=${j.getRdate() }&id=${j.getTeam_name()}">
+                                 
+                                    <a href="javascript:window.open('caldetail.do?rdate=${j.getRdate() }&team_name=${j.getTeam_name()}','',
+                              				'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+                                    <img src='image/on.png'>
                                     </a>
+                                    
                                  </c:if>
                            </c:forEach></td>
                            <c:if test="${(i+cdto.dayOfWeek-1)%7==0}"></tr><tr></c:if>
@@ -191,7 +185,9 @@ function something(a,b){
                         </c:forEach>
                      </tr>
                   </table>
+                  
                </div>
+               
             </td>
             <!---------------------------------- 달력 ------------------------------------------>
             

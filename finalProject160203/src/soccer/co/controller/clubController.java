@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import soccer.co.DTO.foot_cal_DTO;
-import soccer.co.DTO.foot_calteam_DTO;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
+import soccer.co.DTO.foot_teamcal_DTO;
 import soccer.co.DTO.foot_user_DTO;
 import soccer.co.Service.foot_teamCalendarService;
 import soccer.co.Service.foot_teamService;
@@ -110,7 +110,7 @@ public class clubController {
 		foot_cal_DTO caldto = new foot_cal_DTO();
 		caldto.setId(ftdto.getTeam_name());
 		caldto.setYyyydd(yyyydd);
-		ArrayList<foot_calteam_DTO> getmycal = cs.getmycal(caldto);
+		ArrayList<foot_teamcal_DTO> getmycal = cs.getmycal(caldto);
 		model.addAttribute("getmycal", getmycal);
 		////////////////////////////////////////////////////////////////////////////////////////////////
 		
