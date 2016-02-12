@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -265,14 +266,20 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
             <td>팀 게시판</td>
          </tr>
            <!----------------------------------포지션 ------------------------------------------>
-         <tr>
-            <td style="background-color: lightgreen">
-            <div style=" width:100px; height:100px; background-image:url('image/gujang.png');"
-			ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
            
+   </table>
+   
+   
+   <table class="1" style="width: 100%; height: 681px;">
+         <tr>
+            <td style="background-image: url('image/gujang.png'); width: 400px; height: 681px; 
+            background-repeat: no-repeat;" ondrop="drop(event)" ondragover="allowDrop(event)">
+<!--             <div style=" width:100px; height:100px; background-image:url('image/gujang.png');" -->
+<!-- 			ondrop="drop(event)" ondragover="allowDrop(event)" ></div> -->
+<!-- 			<div style="background-image: url('image/gujang.png'); width: 310px; height: 533px;" ondrop="drop(event)" ondragover="allowDrop(event)" ></div> -->
             </td>
-            <td style="background-color: lightblue">
-            <div style="width:100%;height:70%; overflow:scroll;">
+            <td style="height: 681px;">
+            <div style="overflow:scroll; height: 681px">
             	<c:forEach items="${teamMemberList}" var="mem">
             	<div id="member">
             		<div ><img src="image/${mem.user_profile}" style="width:50px; height:50px;">&nbsp;</div>

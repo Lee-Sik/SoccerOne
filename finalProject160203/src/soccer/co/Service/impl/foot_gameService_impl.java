@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import soccer.co.DAO.foot_game_DAO;
 import soccer.co.DTO.MATCHINGParam;
+import soccer.co.DTO.foot_comunity_DTO;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.Service.foot_gameService;
@@ -30,6 +31,12 @@ public class foot_gameService_impl implements foot_gameService{
 	public foot_game_DTO publicgame(foot_game_DTO fgdto) throws Exception {
 		// TODO Auto-generated method stub
 		return fgdao.publicgame(fgdto);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public foot_game_DTO getPublicgamedetail(foot_game_DTO fgdto) throws Exception {
+		return fgdao.getPublicgamedetail(fgdto);
 	}
 	
 //	@Override

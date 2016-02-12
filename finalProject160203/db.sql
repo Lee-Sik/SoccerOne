@@ -1,3 +1,8 @@
+SELECT *
+		FROM FOOT_PUBLICGAME
+		WHERE game_no=28
+
+
 SELECT * from foot_publicgame where ROWNUM < 6 order by game_no desc 
 
 INSERT INTO foot_game_record

@@ -9,9 +9,6 @@ import soccer.co.DTO.foot_comunity_DTO;
 public interface foot_comunityService {
 	boolean writeBBS(foot_comunity_DTO bbs) throws Exception;
 	
-	
-	
-	
 	List<foot_comunity_DTO> getBBSList()throws Exception;
 	List<foot_comunity_DTO> getBBSPagingList(BBSParam param)throws Exception;
 	

@@ -84,6 +84,18 @@
 
 </definition>
 
+<definition name="pmatchingdetail.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/pmatchingdetail.jsp" />
+
+</definition>
+
+<definition name="fmatchingsearch.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/fmatchingsearch.jsp" />
+
+</definition>
+
 <definition name="publicgame.tiles" extends="login.tiles">
 
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/publicgame.jsp" />

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import soccer.co.DTO.MATCHINGParam;
+import soccer.co.DTO.foot_comunity_DTO;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
 
@@ -35,6 +36,12 @@ public class foot_game_DAO{
 		fgt=(foot_game_DTO)sqlse.selectOne(ns+"getpublicgame", fgdto);
 
 		return fgt;
+	}
+	
+	public foot_game_DTO getPublicgamedetail(foot_game_DTO fgdto)throws Exception{
+		foot_game_DTO fgd=null;
+		fgd=(foot_game_DTO)sqlse.selectOne(ns+"getPublicgamedetail",fgdto);
+		return fgd;
 	}
 	
 	public boolean publicgamerecord(foot_game_record fgr) throws Exception {

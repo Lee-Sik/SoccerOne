@@ -108,8 +108,9 @@ $(function() {
 		<td>${pglist.ground}</td> 
 		<td><fmt:formatNumber value="${pglist.pay}" pattern="#,###.##' 원'"/></td> 
 			<c:if test="${pglist.game_state == 0}">
-				<td bgcolor="orange">부킹중
+				<td bgcolor="orange"><a href='pmatchingdetail.do?game_no=${pglist.game_no}'>부킹중</a>
 			</td> 
+			
 			</c:if>
 			
 			<c:if test="${pglist.game_state == 1}">

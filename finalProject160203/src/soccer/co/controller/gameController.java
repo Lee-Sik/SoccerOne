@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import soccer.co.DTO.MATCHINGParam;
+import soccer.co.DTO.foot_comunity_DTO;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.Service.foot_gameService;
@@ -115,6 +116,18 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 		fgameservice.publicgamerecord(fgr);
 			
 		return "redirect:/kickoff.do";
+	}
+	
+	@RequestMapping(value = "pmatchingdetail.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String pmatchingdetail(foot_game_DTO fgdto,Model model) throws Exception {
+		logger.info("Welcome MemberController pmatchingdetail! "+ new Date());
+		
+		foot_game_DTO fgd = fgameservice.getPublicgamedetail(fgdto);
+				
+		model.addAttribute("pmd",fgd);
+		model.addAttribute("title", "랭킹전 상세보기");
+		
+		return "pmatchingdetail.tiles";
 	}
 	
 //	@RequestMapping(value = "publicgamerecordAf.do", method = {RequestMethod.GET,RequestMethod.POST})	

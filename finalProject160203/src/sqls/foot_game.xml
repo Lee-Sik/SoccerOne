@@ -8,14 +8,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    <insert id="freegame" parameterType="soccer.co.DTO.foot_game_DTO">
       INSERT INTO foot_freegame
       VALUES(foot_freegame_seq.nextval,#{team_name},#{game_content},#{game_date}
-      ,#{ground},#{pay})
+      ,#{ground},#{pay}, 0)
    </insert>
+   
+    <select id="getFreegamedetail" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">
+		SELECT *
+		FROM FOOT_FREEGAME
+		WHERE game_no=#{game_no}
+	</select>
 
    <insert id="publicgame" parameterType="soccer.co.DTO.foot_game_DTO">
       INSERT INTO foot_publicgame
       VALUES(foot_publicgame_seq.nextval,#{team_name},#{game_location},#{game_date}
       ,#{ground},#{pay},0)
    </insert>
+   
+   <select id="getPublicgamedetail" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">
+		SELECT *
+		FROM FOOT_PUBLICGAME
+		WHERE game_no=#{game_no}
+	</select>
    
    <select id="getpublicgame" resultType="soccer.co.DTO.foot_game_DTO">
           SELECT * from foot_publicgame 
