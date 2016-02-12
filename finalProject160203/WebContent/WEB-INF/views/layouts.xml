@@ -25,6 +25,15 @@
 <definition name="myinform.tiles" template="/WEB-INF/views/login/myinform.jsp">
 </definition>
 
+<definition name="modify.tiles" template="/WEB-INF/views/login/modify.jsp">
+</definition>
+
+<definition name="modify1.tiles" template="/WEB-INF/views/login/modify1.jsp">
+</definition>
+
+<definition name="modifyfail.tiles" template="/WEB-INF/views/login/modifyfail.jsp">
+</definition>
+
 <definition name="exit.tiles" template="/WEB-INF/views/join/exit.jsp">
 </definition>
 

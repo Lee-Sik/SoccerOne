@@ -14,7 +14,7 @@
 
 <div align="center">
 <br>
-<p class="wow1">회 원 정 보 확 인</p>
+<p class="wow1" style="size: 20">회 원 정 보 확 인</p>
 <br>
 <table class="myinform">
 <col width=100>
@@ -71,7 +71,9 @@
 </tr>
 
 </c:if>
-
+<tr>
+<td><input type="button" value="수정하기" onclick="location.href='modify.do'"><td>
+</tr>
 </table>
 
 </div>

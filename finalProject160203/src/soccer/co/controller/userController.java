@@ -128,4 +128,32 @@ public class userController {
 
 		return "myinform.tiles";
 	}
+	
+	@RequestMapping(value = "modify.do", method = RequestMethod.GET)
+	public String modify(HttpServletRequest request, Model model) throws Exception {
+		logger.info("Welcome HelloMemberController modify! " + new Date());
+		
+		return "modify.tiles";
+	}
+	@RequestMapping(value = "modify1.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String modify1(foot_user_DTO fudto,HttpServletRequest request, Model model) throws Exception {
+		logger.info("Welcome HelloMemberController modify1! " + new Date());
+		String re=null;
+		
+		foot_user_DTO pw = (foot_user_DTO) request.getSession().getAttribute("login");
+		
+		if(pw.getUser_pw().equals(fudto.getUser_pw())){
+			re = "modify1.tiles";
+		}else{
+			re = "modifyfail.tiles";
+		}
+		return re;
+	}
+	
+	@RequestMapping(value = "modify2.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String modify2(@RequestParam("file") MultipartFile file, foot_user_DTO fudto,HttpServletRequest request, Model model) throws Exception {
+		logger.info("Welcome HelloMemberController modify2! " + new Date());
+		
+		return "redirect:myinform.do";
+	}
 }
