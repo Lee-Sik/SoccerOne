@@ -106,7 +106,7 @@ $(function() {
 		<td>${pglist.team_name}</td>
 		<td>${pglist.game_date}</td> 
 		<td>${pglist.ground}</td> 
-		<td>${pglist.pay}</td> 
+		<td><fmt:formatNumber value="${pglist.pay}" pattern="#,###.##' 원'"/></td> 
 			<c:if test="${pglist.game_state == 0}">
 				<td bgcolor="orange">부킹중
 			</td> 

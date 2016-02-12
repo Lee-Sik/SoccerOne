@@ -77,7 +77,7 @@ $(function() {
 		<td>${fglist.team_name}</td>
 		<td>${fglist.game_date}</td> 
 		<td>${fglist.ground}</td> 
-		<td>${fglist.pay}</td> 
+		<td><fmt:formatNumber value="${fglist.pay}" pattern="#,###.##' 원'"/></td> 
 			<c:if test="${fglist.game_state == 0}">
 				<td bgcolor="orange">부킹중
 			</td> 
