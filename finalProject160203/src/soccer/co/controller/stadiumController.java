@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -16,6 +17,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.sun.org.apache.regexp.internal.recompile;
+
 
 import soccer.co.DTO.ZipcodeDTO;
 import soccer.co.DTO.foot_sbooking_DTO;
@@ -180,85 +182,89 @@ public class stadiumController {
 			foot_stadium_DTO dto,Model model,HttpServletRequest request) throws Exception {
 
 		
-		String root = request.getServletContext().getRealPath("/"); //여기까지가 study/
-		//실제 주소
-		String path = root + File.separator + "stadiumImg";
+		/*String root = request.getServletContext().getRealPath("/"); //여기까지가 study/
+	      //실제 주소
+	      String path = root + File.separator + "stadiumImg";*/
+	     
+		String root = "c:/jsp/spring/finalProject160205/WebContent/image/";	
 		
-		File dir = new File(path);
-		if(!dir.exists()){
-			dir.mkdirs();
-		}
-		
-		String fileName = null;
-		String fileName2 = null;
-		String fileName3 = null;
-		String fileName4 = null;
-		
-		File upload = null;
-		File upload2 = null;
-		File upload3 = null;
-		File upload4 = null;
-		
-		if (!file.isEmpty()) {
-			try {
-				
-				fileName = file.getOriginalFilename();
-				fileName2 =file2.getOriginalFilename();
-				fileName3 = file3.getOriginalFilename();
-				fileName4 = file4.getOriginalFilename();
-				
-				
-				
-				//upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
-				upload = new File(path + "/" + fileName);
-				upload2 = new File(path + "/" + fileName2);
-				upload3 = new File(path + "/" + fileName3);
-				upload4 = new File(path + "/" + fileName4);
-				
-				byte[] bytes = file.getBytes();
-				byte[] bytes2 = file2.getBytes();
-				byte[] bytes3 = file3.getBytes();
-				byte[] bytes4 = file4.getBytes();
-				
-				BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(upload));
-				BufferedOutputStream buffStream2 = new BufferedOutputStream(new FileOutputStream(upload2));
-				BufferedOutputStream buffStream3 = new BufferedOutputStream(new FileOutputStream(upload3));
-				BufferedOutputStream buffStream4 = new BufferedOutputStream(new FileOutputStream(upload4));
-				
-				buffStream.write(bytes);
-				buffStream2.write(bytes2);
-				buffStream3.write(bytes3);
-				buffStream4.write(bytes4);
-				
-				buffStream.close();
-				buffStream2.close();
-				buffStream3.close();
-				buffStream4.close();
-				
-				dto.setStadium_img1(fileName);
-				dto.setStadium_img2(fileName2);
-				dto.setStadium_img3(fileName3);
-				dto.setStadium_img4(fileName4);
-				
-				String addr = request.getParameter("addr1") + request.getParameter("addr2");
-			    dto.setAddr(addr);
-				System.out.println("You have successfully uploaded " + fileName);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else {
-			System.out.println("empty!!!!!!!!");
-			dto.setStadium_img1("");
-		}
-			
-		try{
-			 service.stadiumWrite(dto);
-			
-		}catch(Exception e){
-			e.printStackTrace();
-		}
+		String path = root + "stadiumImg";
+		  
+	      File dir = new File(path);
+	      if(!dir.exists()){
+	         dir.mkdirs();
+	      }
+	      
+	      String fileName = null;
+	      String fileName2 = null;
+	      String fileName3 = null;
+	      String fileName4 = null;
+	      
+	      File upload = null;
+	      File upload2 = null;
+	      File upload3 = null;
+	      File upload4 = null;
+	      
+	      if (!file.isEmpty()) {
+	         try {
+	            
+	            fileName = file.getOriginalFilename();
+	            fileName2 =file2.getOriginalFilename();
+	            fileName3 = file3.getOriginalFilename();
+	            fileName4 = file4.getOriginalFilename();
+	            
+	            
+	            
+	            //upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
+	            upload = new File(path + "/" + fileName);
+	            upload2 = new File(path + "/" + fileName2);
+	            upload3 = new File(path + "/" + fileName3);
+	            upload4 = new File(path + "/" + fileName4);
+	            
+	            byte[] bytes = file.getBytes();
+	            byte[] bytes2 = file2.getBytes();
+	            byte[] bytes3 = file3.getBytes();
+	            byte[] bytes4 = file4.getBytes();
+	            
+	            BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(upload));
+	            BufferedOutputStream buffStream2 = new BufferedOutputStream(new FileOutputStream(upload2));
+	            BufferedOutputStream buffStream3 = new BufferedOutputStream(new FileOutputStream(upload3));
+	            BufferedOutputStream buffStream4 = new BufferedOutputStream(new FileOutputStream(upload4));
+	            
+	            buffStream.write(bytes);
+	            buffStream2.write(bytes2);
+	            buffStream3.write(bytes3);
+	            buffStream4.write(bytes4);
+	            
+	            buffStream.close();
+	            buffStream2.close();
+	            buffStream3.close();
+	            buffStream4.close();
+	            
+	            dto.setStadium_img1(fileName);
+	            dto.setStadium_img2(fileName2);
+	            dto.setStadium_img3(fileName3);
+	            dto.setStadium_img4(fileName4);
+	            
+	            String addr = request.getParameter("addr1") + request.getParameter("addr2");
+	             dto.setAddr(addr);
+	            System.out.println("You have successfully uploaded " + fileName);
+	         } catch (Exception e) {
+	            e.printStackTrace();
+	         }
+	      } else {
+	         System.out.println("empty!!!!!!!!");
+	         dto.setStadium_img1("");
+	      }
+	         
+	      try{
+	          service.stadiumWrite(dto);
+	         
+	      }catch(Exception e){
+	         e.printStackTrace();
+	      }
 
-	       return "redirect:/bookingList.do";
+	          return "redirect:/bookingList.do";
 	}
 	
 	@RequestMapping(value = "stadiumList.do", method = {RequestMethod.GET,RequestMethod.POST})	
@@ -270,7 +276,6 @@ public class stadiumController {
 		
 		model.addAttribute("user_email", user_email);
 		model.addAttribute("slist", slist);
-		model.addAttribute("title", "공식대관");
 		
 		return "stadiumList.tiles";
 	}
@@ -345,7 +350,34 @@ public class stadiumController {
 		
 	}
 	
+	@RequestMapping(value = "bookingDetail.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String bookingDetail(Model model,HttpServletRequest request,HttpSession session) throws Exception {
+		
+		/*String root = request.getServletContext().getRealPath("/"); //여기까지가 study/
+*/		//실제 주소
+		
+/*		String root = session.getServletContext().getRealPath("/");
+		
+		Set<String> pathSet = request.getSession().getServletContext().getResourcePaths("/");*/
 	
+		int stadium_seq = Integer.parseInt(request.getParameter("stadium_seq"));
+		int booking_seq = Integer.parseInt(request.getParameter("booking_seq"));
+		
+		System.out.println("stadium_seq : " + stadium_seq);
+		System.out.println("booking_seq : " + booking_seq);
+		
+		foot_stadium_DTO sdto = service.stadiumDetail(stadium_seq);
+		foot_sbooking_DTO bdto = service.bookingDetail(booking_seq);
+		
+		/*String path = "c:/jsp/spring/finalProject160205/WebContent/image/stadiumImg";	
+		
+		model.addAttribute("path", path);*/
+		model.addAttribute("sdto", sdto);
+		model.addAttribute("bdto", bdto);
+		
+		return "bookingDetail.tiles";
+		
+	}
 	
 	
 	

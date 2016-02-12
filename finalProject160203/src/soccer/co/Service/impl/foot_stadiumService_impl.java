@@ -66,6 +66,18 @@ public class foot_stadiumService_impl implements foot_stadiumService{
 		return dao.bookingList();
 	}
 
+	@Override
+	public foot_stadium_DTO stadiumDetail(int stadium_seq) throws Exception {
+	
+		return dao.stadiumDetail(stadium_seq);
+	}
+
+	@Override
+	public foot_sbooking_DTO bookingDetail(int booking_seq) throws Exception {
+	
+		return dao.bookingDetail(booking_seq);
+	}
+
 
 	
 }

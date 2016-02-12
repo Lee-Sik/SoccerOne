@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!-- <link rel="stylesheet" type="text/css" media="all" href="booking/ie11.css" />
-<script type="text/javascript" src="booking/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript" src="booking/json"></script> -->
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
+
 
 
 			<!-- 콘텐츠 -->			
@@ -147,7 +147,7 @@
 		<td class="status"><span class="none"></span></td>
 		<td class="status"><span class="occupied">확정</span></td>
 		<td class="status"><span class="none"></span></td>
-	<td><a href="#" hidden_href="/booking/stadium/view?idx=5305&lig_idx=0" class="btn viewbt">보 기</a></td>
+	<td><a href="./bookingDetail.do?booking_seq=${dto.booking_seq}&stadium_seq=${dto.stadium_seq}" class="btn viewbt">보 기</a></td>
 	<td><strong>${dto.booking_area}</strong></td>
 	</tr>
 	</c:forEach>
