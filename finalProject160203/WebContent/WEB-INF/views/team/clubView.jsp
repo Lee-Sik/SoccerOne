@@ -20,7 +20,7 @@
 var a,b;
 var url='https://maps.googleapis.com/maps/api/geocode/json?address=<%=myteam.getTeam_home()%>&key=AIzaSyDmrTAC2knfxkHTWStqoS59Pf7IquSj9QE';
 
-$.ajax({
+$.ajax({ //구글 에서 가져오는 좌표 를 위한 ajax
     url: url,
     dataType: 'JSON',
     jsonpCallback: 'callback',
@@ -32,7 +32,7 @@ $.ajax({
     }
 });
 
-$.ajax({
+$.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오는 ajax
     url: "getTeamMember.do",
     dataType: 'JSON',
     jsonpCallback: 'callback',
@@ -99,7 +99,52 @@ function something(a,b){
 }
 
 </script>
-<script>
+<script> //--------------------포지션 드레그 엔 드롭-------------------------//
+try {
+var userPosition = []; //나중에 el 태그로 넣어 준다.
+	
+	function allowDrop(ev) {
+		ev.preventDefault();
+	}
+
+	function drag(ev,this1) {
+		ev.dataTransfer.setData("text", ev.target.id);
+		
+	}
+
+	function drop(ev) {
+		ev.preventDefault();
+		var bool = true;
+		var data = ev.dataTransfer.getData("text");  //id
+		
+		for(var i=0; i<userPosition.length; i++){
+			if(userPosition[i] == data){ // userPosition에 data가 있으면
+				bool = false;
+			}
+		}
+		if(bool){
+			userPosition.push(data);//id 값을 userPosition배열 에 넣는다.
+		}
+		
+// 		for(var i=0; i<userPosition.length; i++){
+// 			alert(userPosition[i]); //확인
+// 		}
+		
+		var x_pos = ev.clientX + document.body.scrollLeft-50 + 'px';//이동 할 x좌표
+		var y_pos = ev.clientY + document.body.scrollTop-35 + 'px';//이동 할 y좌표
+		var obj = document.getElementById(data);			//이동 할 객체
+		
+		ev.target.appendChild(obj);
+		obj.style.position = "absolute";
+		obj.style.left = x_pos;
+		obj.style.top = y_pos;
+	}
+	
+} catch (exception) {
+	alert('예외 발생');
+} finally {} //--------------------포지션 드레그 엔 드롭-------------------------
+</script>
+<script> //--------------------구글맵-------------------------
    function initialize() {
       var mapProp = {
          center : new google.maps.LatLng(51.508742, -0.120850),
@@ -110,8 +155,7 @@ function something(a,b){
    }
    google.maps.event.addDomListener(window, 'load', initialize);
 
-
-  
+ //--------------------구글맵-------------------------
 </script>
 
 </head>
@@ -142,8 +186,10 @@ function something(a,b){
       <table>
 
          <tr>
+        
             <td><img alt="팀로고" src="image/${team.team_logo} "
-               style="width: 300px; height: 200px;"></td>
+               style="width: 300px; height: 200px;">
+               </td>
             <td>
                <!---------------------------------- 달력 ------------------------------------------>
                 <div align="center">
@@ -218,18 +264,28 @@ function something(a,b){
             </td>
             <td>팀 게시판</td>
          </tr>
+           <!----------------------------------포지션 ------------------------------------------>
          <tr>
-            <td style="background-color: lightgreen"><img src="image/gujang.png" style="size: 30%"></td>
+            <td style="background-color: lightgreen">
+            <div style=" width:100px; height:100px; background-image:url('image/gujang.png');"
+			ondrop="drop(event)" ondragover="allowDrop(event)" ></div>
+           
+            </td>
             <td style="background-color: lightblue">
             <div style="width:100%;height:70%; overflow:scroll;">
             	<c:forEach items="${teamMemberList}" var="mem">
             	<div id="member">
-            		<div><img src="image/${mem.user_profile}" style="width:50px; height:50px;"></div><div>${mem.user_name}</div><div>${mem.user_position1}</div><div>${mem.user_position2}</div><div>${mem.user_position3}</div>
+            		<div ><img src="image/${mem.user_profile}" style="width:50px; height:50px;">&nbsp;</div>
+            		<div>${mem.user_name}&nbsp;</div>
+            		<div>${mem.user_position1}&nbsp;/&nbsp;</div>
+            		<div>${mem.user_position2}&nbsp;/&nbsp;</div>
+            		<div>${mem.user_position3}</div>
             	</div>
             	</c:forEach>
             </div>
             </td>
          </tr>
+         <!----------------------------------포지션 ------------------------------------------>
          <tr style="width: 100px;">
          	
             <td colspan="2">주소 : ${team.team_home}</td>
@@ -241,7 +297,7 @@ function something(a,b){
       </table>
    </c:if>
 <script>
-alert(kk[0].user_address);
+//alert(kk[0].user_address);
 </script>
 </body>
 </html>
