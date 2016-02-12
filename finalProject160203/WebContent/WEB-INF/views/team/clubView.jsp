@@ -5,10 +5,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-
+<link href="CSS/clubview.css" rel="stylesheet" type="text/css" >
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -288,11 +289,15 @@ window.onload = function () {
             <td style="height: 681px;">
             <div style="overflow:scroll; height: 681px">
             	<c:forEach items="${teamMemberList}" var="mem">
-            	<div class="member" id="${mem.user_profile}" draggable="true" ondragstart="drag(event,this)">
-            		<div>${mem.user_position1}&nbsp;/&nbsp;${mem.user_position2}&nbsp;/&nbsp;${mem.user_position3}</div>
-            		<div><img src="image/${mem.user_profile}" id="${mem.user_profile}-img" style="width:50px; height:50px;">&nbsp;</div>
-            		<div>${mem.user_name}&nbsp;</div>
+            	<div class="member" style="background-image: url('image/member_bg.png'); background-size:120px" 
+              	id="${mem.user_profile}" draggable="true" ondragstart="drag(event,this)">
+            		<div class="member_position">${mem.user_position1}&nbsp;/&nbsp;${mem.user_position2}&nbsp;/&nbsp;${mem.user_position3}</div>
+            		<div class="member_pic">
+            			<p><img align="middle" src="image/${mem.user_profile}" id="${mem.user_profile}-img" style="width:80px; height:80px; margin:auto;"></p>
+            		</div>
+            		<div class="member_name">${mem.user_name}</div>
             	</div>
+                       	
             	</c:forEach>
             </div>
             </td>

@@ -18,7 +18,7 @@
 </tr>
 
 <tr>
-		<th>지역구</th> <th>팀명</th> <th>경기날짜</th>  <th>운동장</th> <th>대관료</th>  <th>대전현황</th> 
+		<th>지역구</th> <th>클럽명</th> <th>경기일자</th>  <th>경기장</th> <th>대전료</th>  <th>대전현황</th> 
 </tr>
 <c:forEach items="${publicgamelist}" var="pglist" varStatus="vs">
 	<tr>
@@ -27,14 +27,15 @@
 		<td>${pglist.game_date}</td> 
 		<td>${pglist.ground}</td> 
 		<td><fmt:formatNumber value="${pglist.pay}" pattern="#,###.##' 원'"/></td> 
-		<c:if test="${pglist.game_state == 0}">
-				<td bgcolor="orange">부킹중
-			</td> 
+			<c:if test="${pglist.game_state == 0}">
+				<td bgcolor="orange">대기중</td> 
 			</c:if>
 			
 			<c:if test="${pglist.game_state == 1}">
-				<td bgcolor="lightgray">부킹완료
-			</td> 
+				<td bgcolor="green">경기중</td> 
+			</c:if>
+			<c:if test="${pglist.game_state == 2}">
+				<td bgcolor="lightgray">경기완료</td> 
 			</c:if>
 	</tr>
 </c:forEach>
@@ -54,7 +55,7 @@
 	<td colspan="5" style="text-align: center; font-weight: bold">최근 친선경기 등록 현황</td>
 </tr>
 <tr>
-		<th>팀명</th> <th>요약</th>  <th>경기날짜</th>  <th>운동장</th> <th>대관료</th> 
+		<th>클럽명</th> <th>요약</th>  <th>경기일자</th>  <th>경기장</th> <th>대전료</th> 
 </tr>
 <c:forEach items="${freegamelist}" var="fglist" varStatus="vs">
 	<tr>

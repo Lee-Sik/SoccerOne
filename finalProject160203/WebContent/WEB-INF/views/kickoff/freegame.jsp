@@ -26,12 +26,12 @@ $(function() {
 <table class="list_table" style="width:60%;">
 
 <tr>
-	<th>클럽이름</th>
+	<th>클럽명</th>
 	<td style="text-align: left"><input type="text" name="team_name" readonly="readonly" value="${team.team_name}"></td>
 </tr>
 
 <tr>
-	<th>게임일자</th>
+	<th>경기일자</th>
 	<td style="text-align: left"><input type="text" name="game_date" id="datepicker1"></td>
 </tr>
 

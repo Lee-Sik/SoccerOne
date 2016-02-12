@@ -17,7 +17,7 @@
 <tbody>	
 
 <tr class="id">
-	<th>클럽마스터</th>
+	<th>클럽장</th>
 	<td style="text-align: left">${login.user_email}</td>
 </tr>
 
@@ -34,7 +34,7 @@
 </tr>
 
 <tr>
-	<th>운동장</th><td style="text-align: left">${pmd.ground}</td>
+	<th>경기장</th><td style="text-align: left">${pmd.ground}</td>
 </tr>
 
 <tr>
@@ -45,13 +45,15 @@
 <tr>
 	<th>대전현황</th>
 		<c:if test="${pmd.game_state == 0}">
-			<td style="text-align: left" bgcolor="orange">부킹중
-			</td> 
+			<td style="text-align: left" bgcolor="orange">대기중</td> 
 		</c:if>
 			
 		<c:if test="${pmd.game_state == 1}">
-			<td style="text-align: left" bgcolor="lightgray">부킹완료
-			</td> 
+			<td style="text-align: left" bgcolor="green">경기중</td> 
+		</c:if>
+		
+		<c:if test="${pmd.game_state == 2}">
+			<td style="text-align: left" bgcolor="lightgray">경기완료</td> 
 		</c:if>
 </tr>
 

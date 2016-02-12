@@ -32,7 +32,7 @@ $(function() {
 <table class="list_table" style="width:85%;">
 <tr>
 	<td colspan="7">
-		활동지역 : <select name="game_location">
+		지역구 : <select name="game_location">
 			<option value="강남구" selected="selected">강남구</option>
 			<option value="강동구">강동구</option>
 			<option value="강북구">강북구</option>
@@ -60,9 +60,9 @@ $(function() {
 			<option value="중랑구">중랑구</option>
 		</select>
 		
-		게임일시 : <input type="text" name="game_date" id="datepicker1" size="15">
+		경기일자 : <input type="text" name="game_date" id="datepicker1" size="15">
 
-		구장유무 : <select name="suBground">
+		경기장 : <select name="suBground">
 			<option value="is not null" selected="selected">유</option>
 			<option value="null">무</option> 
 		</select>
@@ -97,7 +97,7 @@ $(function() {
 </colgroup>
 <tr>
 
-	<th>지역구</th> <th>클럽명</th> <th>경기일자</th> <th>운동장</th> <th>대전료</th>  <th>대전현황</th> 
+	<th>지역구</th> <th>클럽명</th> <th>경기일자</th> <th>경기장</th> <th>대전료</th>  <th>대전현황</th> 
 </tr>
 <c:if test="${not empty pmatchingsearchlist}">
 	<c:forEach items="${pmatchingsearchlist}" var="pglist" varStatus="vs">
@@ -108,14 +108,15 @@ $(function() {
 		<td>${pglist.ground}</td> 
 		<td><fmt:formatNumber value="${pglist.pay}" pattern="#,###.##' 원'"/></td> 
 			<c:if test="${pglist.game_state == 0}">
-				<td bgcolor="orange"><a href='pmatchingdetail.do?game_no=${pglist.game_no}'>부킹중</a>
-			</td> 
-			
+				<td bgcolor="orange"><a href='pmatchingdetail.do?game_no=${pglist.game_no}'>대기중</a></td> 
+			</c:if>
+		
+			<c:if test="${pglist.game_state == 1}">
+				<td bgcolor="green">경기중</td> 
 			</c:if>
 			
-			<c:if test="${pglist.game_state == 1}">
-				<td bgcolor="lightgray">부킹완료
-			</td> 
+			<c:if test="${pglist.game_state == 2}">
+				<td bgcolor="lightgray">경기완료</td> 
 			</c:if>
 		
 	</tr>

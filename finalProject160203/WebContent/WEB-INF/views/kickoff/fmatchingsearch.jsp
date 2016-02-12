@@ -33,9 +33,9 @@ $(function() {
 <tr>
 	<td colspan="5">
 		
-		게임일시 : <input type="text" name="game_date" id="datepicker1" size="15">
+		경기일자 : <input type="text" name="game_date" id="datepicker1" size="15">
 
-		구장유무 : <select name="suBground">
+		경기장 : <select name="suBground">
 			<option value="is not null" selected="selected">유</option>
 			<option value="null">무</option> 
 		</select>
@@ -69,7 +69,7 @@ $(function() {
 </colgroup>
 <tr>
 
-	<th>클럽명</th> <th>경기일자</th> <th>운동장</th> <th>대전료</th>  <th>대전현황</th> 
+	<th>클럽명</th> <th>경기일자</th> <th>경기장</th> <th>대전료</th>  <th>대전현황</th> 
 </tr>
 <c:if test="${not empty fmatchingsearchlist}">
 	<c:forEach items="${fmatchingsearchlist}" var="fglist" varStatus="vs">
@@ -79,12 +79,12 @@ $(function() {
 		<td>${fglist.ground}</td> 
 		<td><fmt:formatNumber value="${fglist.pay}" pattern="#,###.##' 원'"/></td> 
 			<c:if test="${fglist.game_state == 0}">
-				<td bgcolor="orange">부킹중
+				<td bgcolor="orange">대기중
 			</td> 
 			</c:if>
 			
 			<c:if test="${fglist.game_state == 1}">
-				<td bgcolor="lightgray">부킹완료
+				<td bgcolor="lightgray">완료
 			</td> 
 			</c:if>
 		
