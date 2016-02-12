@@ -19,4 +19,6 @@ public interface foot_stadiumService {
 	public boolean bookingWrtie(foot_sbooking_DTO dto)throws Exception;
 	public boolean stadiumDelete(int stadium_seq)throws Exception;
 	public List<foot_sbooking_DTO> bookingList()throws Exception;
+	public foot_stadium_DTO stadiumDetail(int stadium_seq)throws Exception;
+	public foot_sbooking_DTO bookingDetail(int booking_seq)throws Exception;
 }

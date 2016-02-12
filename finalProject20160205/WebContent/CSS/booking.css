@@ -12002,7 +12002,7 @@ div.booking_wrap ul.input_list ul.inner_list div.file_wr .del {
 	position: relative;
 } /*입력폼 - 뷰페이지 view_list*/
 div.booking_wrap ul.input_list.view_list {
-	
+	text-align: left;
 }
 
 div.booking_wrap ul.input_list.view_list>li {
@@ -12105,7 +12105,7 @@ div.booking_wrap div.book_view ul.img_list li img {
 	height: 130px;
 	text-align: center;
 	vertical-align: middle;
-	max-width: 184px;
+	/* max-width: 184px; */
 } /*뷰페이지 - 공유메뉴박스*/
 div.booking_wrap div.book_view div.share_box {
 	margin-top: -47px;

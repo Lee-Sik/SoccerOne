@@ -78,6 +78,21 @@ public class foot_stadium_DAO {
 		
 	}
 	
+	public foot_stadium_DTO stadiumDetail(int stadium_seq)throws Exception{
+			
+		foot_stadium_DTO sdto = (foot_stadium_DTO)sqlsession.selectOne("stadium.stadiumDetail", stadium_seq);
+		
+		return sdto;
+	}
+	
+	public  foot_sbooking_DTO bookingDetail(int booking_seq)throws Exception{
+		
+		foot_sbooking_DTO bdto = (foot_sbooking_DTO)sqlsession.selectOne("stadium.bookingDetail", booking_seq);
+		
+		return bdto;
+		
+	}
+	
 	
 	
 	

@@ -40,6 +40,24 @@ select booking_seq,s.stadium_name,b.stadium_seq,booking_day,booking_area,rentals
 game1,game2,game3,game4,game5,game6,game7 from foot_booking b, foot_stadium s where b.stadium_seq = s.stadium_seq
 </select>
 
+<select id="bookingDetail" parameterType="int" resultType="soccer.co.DTO.foot_sbooking_DTO">
+	select booking_seq,booking_day,rentalsum,rentalaccount,game1,game2,game3,game4,game5,game6,game7
+	from foot_booking where booking_seq = #{booking_seq}   
+</select>
+
+<select id="stadiumDetail" parameterType="int" resultType="soccer.co.DTO.foot_stadium_DTO">
+	select user_email,stadium_name,stadium_phone,addr,s_content,findway,stadium_img1,stadium_img2,stadium_img3,stadium_img4
+	from foot_stadium where stadium_seq = #{stadium_seq}  
+</select>
+
+
+
+
+
+
+
+
+
 
 
 </mapper>

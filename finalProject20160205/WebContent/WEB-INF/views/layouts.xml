@@ -121,6 +121,11 @@
 	<put-attribute name="main" value="/WEB-INF/views/stadium/booking_write.jsp"/>
 </definition>
 
+<definition name="bookingDetail.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/stadium/bookingDetail.jsp"/>
+</definition>
+
+
 
 <definition name="bbswrite.tiles" extends="login.tiles">
 
