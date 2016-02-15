@@ -42,6 +42,9 @@
 <definition name="exit.tiles" template="/WEB-INF/views/join/exit.jsp">
 </definition>
 
+<definition name="exit1.tiles" template="/WEB-INF/views/team/cal/exit1.jsp">
+</definition>
+
 <definition name="writecal.tiles" template="/WEB-INF/views/team/cal/writecal.jsp">
 </definition>
 

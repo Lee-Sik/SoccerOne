@@ -1,7 +1,7 @@
 <%@page import="soccer.co.DTO.foot_user_DTO"%>
 <%@page import="soccer.co.DTO.foot_team_DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maps.google.com/maps/api/js"></script>
 <%
    foot_team_DTO myteam = (foot_team_DTO)session.getAttribute("team");
@@ -121,7 +121,6 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
       
       var data = ev.dataTransfer.getData("text");  //id
       //alert(data);
-      
       for(var i=0; i<userPosition.length; i++){
          if(userPosition[i] == data){ // userPosition에 data가 있으면
             bool = false;
@@ -131,11 +130,9 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
          userPosition.push(data);//id 값을 userPosition배열 에 넣는다.
       }
       
-      
       var x_pos = ev.clientX + document.body.scrollLeft-50 + 'px';//이동 할 x좌표
       var y_pos = ev.clientY + document.body.scrollTop-35 + 'px';//이동 할 y좌표
       var obj = document.getElementById(data).cloneNode(true);         //이동 할 객체
-      
       
       ev.target.appendChild(obj);
       obj.style.position = "absolute";
@@ -171,129 +168,119 @@ window.onload = function () {
 </script>
 </head>
 <body>
+   
+      <table>
+         <tr>
 
-	<c:if test="${empty login.user_team}">
+            <td><img alt="팀로고" src="image/${team.team_logo} "
+               style="width: 300px; height: 200px;"></td>
+            <td>
+               <!---------------------------------- 달력 ------------------------------------------>
+               <div align="center">
 
-		<div class="club_notteam" align="center">
-			<table border="1" style="border-collapse: 1;">
-				<tr>
-					<td colspan="2">현재 소속한 팀이 없습니다.<br></td>
-				</tr>
-			</table>
-			<table>
-				<c:forEach var="a" items="${notteamlist}">
-					<tr>
-						<td>a</td>
-						<td><a href="#">${a.team_name} 팀이 팀을 구하고 있습니다.</a></td>
-					</tr>
-				</c:forEach>
-			</table>
-
-		</div>
-
-	</c:if>
-
-	<c:if test="${not empty login.user_team}">
-		<table>
-
-			<tr>
-
-				<td><img alt="팀로고" src="image/${team.team_logo} "
-					style="width: 300px; height: 200px;"></td>
-				<td>
-					<!---------------------------------- 달력 ------------------------------------------>
-					<div align="center">
-
-						<table class="calcla">
-							<tr class="date">
-								<td colspan="7"><a
-									href="club.do?cal=sleft&year=${cdto.year}&month=${cdto.month}&user_address=${login.user_address}&user_team=${login.user_team}"><img
-										src="image/left.png"></a> ${cdto.year}년 ${cdto.month}월 <a
-									href="club.do?cal=sright&year=${cdto.year}&month=${cdto.month}&user_address=${login.user_address}&user_team=${login.user_team}"><img
-										src="image/right.png"></a></td>
-							</tr>
-							<tr class="date">
-								<td>일</td>
-								<td>월</td>
-								<td>화</td>
-								<td>수</td>
-								<td>목</td>
-								<td>금</td>
-								<td>토</td>
-							</tr>
-							<tr>
-								<c:forEach begin="1" end="${cdto.dayOfWeek-1}" step="1">
-									<td>&nbsp;</td>
-								</c:forEach>
-								<c:forEach var="i" step="1" begin="1" end="${cdto.lastday}">
-									<td height="50" width="50" align="left" valign="top">${i }
-										<a
-										href="javascript:window.open('writecal.do?year=${cdto.year}&month=${cdto.month}&day=${i }','',
+                  <table class="calcla">
+                     <tr class="date">
+                        <td colspan="7"><a
+                           href="club.do?cal=sleft&year=${cdto.year}&month=${cdto.month}&user_address=${login.user_address}&user_team=${login.user_team}"><img
+                              src="image/left.png"></a> ${cdto.year}년 ${cdto.month}월 <a
+                           href="club.do?cal=sright&year=${cdto.year}&month=${cdto.month}&user_address=${login.user_address}&user_team=${login.user_team}"><img
+                              src="image/right.png"></a></td>
+                     </tr>
+                     <tr class="date">
+                        <td>일</td>
+                        <td>월</td>
+                        <td>화</td>
+                        <td>수</td>
+                        <td>목</td>
+                        <td>금</td>
+                        <td>토</td>
+                     </tr>
+                     <tr>
+                        <c:forEach begin="1" end="${cdto.dayOfWeek-1}" step="1">
+                           <td>&nbsp;</td>
+                        </c:forEach>
+                        <c:forEach var="i" step="1" begin="1" end="${cdto.lastday}">
+                           <td height="50" width="50" align="left" valign="top">${i }
+                              <a
+                              href="javascript:window.open('writecal.do?year=${cdto.year}&month=${cdto.month}&day=${i }','',
                                           'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 
-											<img src="image/pen.gif">
-									</a> <c:forEach var="j" items="${getmycal }">
-											<c:if test="${i eq j.getRdate().substring(6, 8)}">
+                                 <img src="image/pen.gif">
+                           </a> <c:forEach var="j" items="${getmycal }">
+                                 <c:if test="${i eq j.getRdate().substring(6, 8)}">
 
-												<a
-													href="javascript:window.open('caldetail.do?rdate=${j.getRdate() }&team_name=${j.getTeam_name()}','',
+                                    <a
+                                       href="javascript:window.open('caldetail.do?rdate=${j.getRdate() }&team_name=${j.getTeam_name()}','',
                                           'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
-													<img src='image/on.png'>
-												</a>
+                                       <img src='image/on.png'>
+                                    </a>
 
-											</c:if>
-										</c:forEach>
-									</td>
-									<c:if test="${(i+cdto.dayOfWeek-1)%7==0}">
+                                 </c:if>
+                              </c:forEach>
+                           </td>
+                           <c:if test="${(i+cdto.dayOfWeek-1)%7==0}">
+                     </tr>
+                     <tr>
+                        </c:if>
+                        </c:forEach>
+                        <c:forEach var="i" begin="1" step="1"
+                           end="${(7-(cdto.dayOfWeek +cdto.lastday-1)%7)%7}">
+                           <td>&nbsp;</td>
+                        </c:forEach>
+                     </tr>
+                  </table>
+
+               </div>
+
+            </td>
+            <!---------------------------------- 달력 ------------------------------------------>
+         </tr>
+         <tr>
+            <td>팀 소개 내용 ${team.team_intro}</td>
+            <td>
+					<table class="qwe">
+						<col width="10">
+						<col width="300">
+						<col width="400">
+						<col width="100">
+						<tr>
+								<td>날짜</td>
+								<td>제목</td>
+								<td>내용</td>
+								<td>위치</td>
 							</tr>
+						<c:forEach var="i" items="${ getmycal}" end="4">
+							
 							<tr>
-								</c:if>
-								</c:forEach>
-								<c:forEach var="i" begin="1" step="1"
-									end="${(7-(cdto.dayOfWeek +cdto.lastday-1)%7)%7}">
-									<td>&nbsp;</td>
-								</c:forEach>
+								<td>${i.rdate }</td>
+								<td>${i.textname }</td>
+								<td><a href="" onclick="javascript:window.open('caldetail1.do?no=${i.no }','',
+                         'width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">${i.text }</a></td>
+								<td>${i.location }</td>
 							</tr>
-						</table>
-
-					</div>
-
+						</c:forEach>
+						<c:if test="${empty getmycal }">
+							
+							<tr>
+							<td colspan="4">이번달의 일정이 없습니다.</td>
+							</tr>
+						</c:if>
+					</table>
 				</td>
-				<!---------------------------------- 달력 ------------------------------------------>
 
-			</tr>
-			<tr>
-				<td>팀 소개 내용 ${team.team_intro}</td>
-				<td>일정 내용 5개</td>
 			</tr>
 			<tr>
 				<td>
 					<table>
 						<c:forEach items="${gameRecList}" var="gameRecVO">
 							<tr>
-
-
-								<td>
-									<div style="background-color: blue;">
-										<img src="image/${gameRecVO.win_team_logo}"
-											style="width: 200px; height: 100px;"
-											onclick="javascript:window.open('teamView.do?team_name=${gameRecVO.win_team}','',
-	                                          'width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
-									
-									<div>${gameRecVO.win_team}</div>
-									</div>
-								</td>
-
+								<td style="background-color: blue;"><img
+									src="image/${gameRecVO.win_team_logo}"
+									style="width: 200px; height: 100px;"></td>
 								<td>VS</td>
-								<td>
-									<div style="background-color: red;">
-										<img src="image/${gameRecVO.lose_team_logo}"
-											style="width: 200px; height: 100px;"
-											onclick="javascript:window.open('teamView.do?team_name=${gameRecVO.lose_team}','',
-	                                          'width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
-										<div>${gameRecVO.lose_team}</div>
-									</div>
-								</td>
+								<td style="background-color: red;"><img
+									src="image/${gameRecVO.lose_team_logo}"
+									style="width: 200px; height: 100px;"></td>
 							</tr>
 							<tr>
 								<td>win</td>
@@ -303,51 +290,84 @@ window.onload = function () {
 						</c:forEach>
 					</table>
 				</td>
-				<td>팀 게시판</td>
-			</tr>
-			<!----------------------------------포지션 ------------------------------------------>
+         </tr>
+         <tr>
+            <td>
+               <table>
+                  <c:forEach items="${gameRecList}" var="gameRecVO">
+                     <tr>
+                        <td>
+                           <div style="background-color: blue;">
+                              <img src="image/${gameRecVO.win_team_logo}"
+                                 style="width: 200px; height: 100px;"
+                                 onclick="javascript:window.open('teamView.do?team_name=${gameRecVO.win_team}','',
+                                             'width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+                           
+                           <div>${gameRecVO.win_team}</div>
+                           </div>
+                        </td>
+                        <td>VS</td>
+                        <td>
+                           <div style="background-color: red;">
+                              <img src="image/${gameRecVO.lose_team_logo}"
+                                 style="width: 200px; height: 100px;"
+                                 onclick="javascript:window.open('teamView.do?team_name=${gameRecVO.lose_team}','',
+                                             'width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+                              <div>${gameRecVO.lose_team}</div>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>win</td>
+                        <td>${gameRecVO.score}</td>
+                        <td>lose</td>
+                     </tr>
+                  </c:forEach>
+               </table>
+            </td>
+            <td>팀 게시판</td>
+         </tr>
+         <!----------------------------------포지션 ------------------------------------------>
 
-		</table>
+      </table>
 
-		<table class="1" style="width: 100%; height: 851px;">
-			<tr>
-				<td
-					style="background-image: url('image/gujang.png'); width: 500px; height: 851px; background-repeat: no-repeat;"
-					ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-				<td style="height: 681px;">
-					<div style="overflow: scroll; height: 851px">
-						<c:forEach items="${teamMemberList}" var="mem">
-							<div class="member"
-								style="background-image: url('image/member_bg.png'); background-size: 70px"
-								id="${mem.user_profile}" draggable="true"
-								ondragstart="drag(event,this)">
-								<%--                   <div class="member_position">${mem.user_position1}&nbsp;/${mem.user_position2}&nbsp;/${mem.user_position3}</div> --%>
-								<div class="member_position">${mem.user_position1}</div>
-								<div class="member_pic">
-									<p>
-										<img align="middle" src="image/${mem.user_profile}"
-											id="${mem.user_profile}-img"
-											style="width: 70px; height: 50px; margin: auto;">
-									</p>
-								</div>
-								<div class="member_name">${mem.user_name}</div>
-							</div>
-						</c:forEach>
-					</div>
-				</td>
-			</tr>
-			<!----------------------------------포지션 ------------------------------------------>
-			<tr style="width: 100px;">
+      <table class="1" style="width: 100%; height: 851px;">
+         <tr>
+            <td
+               style="background-image: url('image/gujang.png'); width: 500px; height: 851px; background-repeat: no-repeat;"
+               ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+            <td style="height: 681px;" id="basket">
+               <div style="overflow: scroll; height: 851px">
+                  <c:forEach items="${teamMemberList}" var="mem">
+                     <div class="member"
+                        style="background-image: url('image/member_bg.png'); background-size: 70px"
+                        id="${mem.user_profile}" draggable="true"
+                        ondragstart="drag(event,this)">
+                        <div class="member_position">${mem.user_position1}</div>
+                        <div class="member_pic">
+                           <p>
+                              <img align="middle" src="image/${mem.user_profile}"
+                                 id="${mem.user_profile}-img"
+                                 style="width: 70px; height: 50px; margin: auto;">
+                           </p>
+                        </div>
+                        <div class="member_name">${mem.user_name}</div>
+                     </div>
+                  </c:forEach>
+               </div>
+            </td>
+         </tr>
+         <!----------------------------------포지션 ------------------------------------------>
+         <tr style="width: 100px;">
 
-				<td colspan="2">주소 : ${team.team_home}</td>
+            <td colspan="2">주소 : ${team.team_home}</td>
 
-			</tr>
-			<tr>
-				<td colspan="2" id="map" style="width: 400px; height: 300px"></td>
-			</tr>
-		</table>
-	</c:if>
-	<script>
+         </tr>
+         <tr>
+            <td colspan="2" id="map" style="width: 400px; height: 300px"></td>
+         </tr>
+      </table>
+   <script>
 //alert(kk[0].user_address);
 </script>
 </body>

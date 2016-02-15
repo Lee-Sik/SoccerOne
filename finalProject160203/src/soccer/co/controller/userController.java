@@ -196,6 +196,7 @@ public class userController {
 		fudto1.setUser_enabled(fudto.getUser_enabled());
 		
 		fuservice.modify(fudto1);
+		model.addAttribute("login", fudto1);
 		
 		return "redirect:myinform.do";
 	}

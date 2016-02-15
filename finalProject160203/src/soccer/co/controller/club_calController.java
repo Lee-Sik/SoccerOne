@@ -70,7 +70,7 @@ public class club_calController {
 		
 		cs.writecal1(mcdto);
 		
-		return "exit.tiles";
+		return "exit1.tiles";
 	}
 	
 	

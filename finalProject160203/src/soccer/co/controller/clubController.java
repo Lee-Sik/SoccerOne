@@ -120,9 +120,11 @@ public class clubController {
 		caldto.setYyyydd(yyyydd);
 		ArrayList<foot_teamcal_DTO> getmycal = cs.getmycal(caldto);
 		model.addAttribute("getmycal", getmycal);
+		////////////////////////////////이번달 달력불러오기////////////////////////////////////////////////
+		
+		
+		
 		////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		
 		model.addAttribute("teamMemberList",teamMemberList);
 		model.addAttribute("gameRecList", gameRecList);
 		model.addAttribute("title", "마이 클럽");
