@@ -132,7 +132,7 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
       
       var x_pos = ev.clientX + document.body.scrollLeft-50 + 'px';//이동 할 x좌표
       var y_pos = ev.clientY + document.body.scrollTop-35 + 'px';//이동 할 y좌표
-      var obj = document.getElementById(data).cloneNode(true);         //이동 할 객체
+      var obj = document.getElementById(data);//.cloneNode(true);         //이동 할 객체
       
       ev.target.appendChild(obj);
       obj.style.position = "absolute";
@@ -160,18 +160,35 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 <script>
 
 window.onload = function () {
-
+	
    for(var i=0; i<kk.length; i++){
-      //alert(kk[i].user_address); //확인
+	  // alert(kk[i].user_position1+','+kk[i].user_profile+','+kk[i].user_name);
+
+	  newDiv = document.createElement("div");// 1.노드를 생성한다.
+	  newDiv.setAttribute("class", "member");
+	  newDiv.setAttribute("style", "background-image: url('image/member_bg.png'); background-size: 70px");
+	  newDiv.setAttribute("id", kk[i].user_profile);
+	  newDiv.setAttribute("ondragstart", "drag(event,this)");
+	  newDiv.setAttribute("draggable", "true");
+	  
+	  newDiv.innerHTML = '<div class="member_position">'+kk[i].user_position1+'</div>'
+			+'<div class="member_pic">'
+				+'<p>'
+					+'<img align="middle" src="image/'+kk[i].user_profile+'" '+'id="'+kk[i].user_profile+'-img" '+'style="width: 70px; height: 50px; margin: auto;">'
+				+'</p>'
+			+'</div>'
+			+'<div class="member_name">'+kk[i].user_name+'</div>';
+	   
+		var basket=document.getElementById("basket");// 2.basket에 노드를 추가한다.
+		basket.appendChild(newDiv);
    }
 }
 </script>
 </head>
 <body>
-   
+
       <table>
          <tr>
-
             <td><img alt="팀로고" src="image/${team.team_logo} "
                style="width: 300px; height: 200px;"></td>
             <td>
@@ -229,9 +246,7 @@ window.onload = function () {
                         </c:forEach>
                      </tr>
                   </table>
-
                </div>
-
             </td>
             <!---------------------------------- 달력 ------------------------------------------>
          </tr>
@@ -267,30 +282,8 @@ window.onload = function () {
 						</c:if>
 					</table>
 				</td>
-
 			</tr>
-			<tr>
-				<td>
-					<table>
-						<c:forEach items="${gameRecList}" var="gameRecVO">
-							<tr>
-								<td style="background-color: blue;"><img
-									src="image/${gameRecVO.win_team_logo}"
-									style="width: 200px; height: 100px;"></td>
-								<td>VS</td>
-								<td style="background-color: red;"><img
-									src="image/${gameRecVO.lose_team_logo}"
-									style="width: 200px; height: 100px;"></td>
-							</tr>
-							<tr>
-								<td>win</td>
-								<td>${gameRecVO.score}</td>
-								<td>lose</td>
-							</tr>
-						</c:forEach>
-					</table>
-				</td>
-         </tr>
+		
          <tr>
             <td>
                <table>
@@ -331,43 +324,45 @@ window.onload = function () {
 
       </table>
 
-      <table class="1" style="width: 100%; height: 851px;">
-         <tr>
-            <td
-               style="background-image: url('image/gujang.png'); width: 500px; height: 851px; background-repeat: no-repeat;"
-               ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-            <td style="height: 681px;" id="basket">
-               <div style="overflow: scroll; height: 851px">
-                  <c:forEach items="${teamMemberList}" var="mem">
-                     <div class="member"
-                        style="background-image: url('image/member_bg.png'); background-size: 70px"
-                        id="${mem.user_profile}" draggable="true"
-                        ondragstart="drag(event,this)">
-                        <div class="member_position">${mem.user_position1}</div>
-                        <div class="member_pic">
-                           <p>
-                              <img align="middle" src="image/${mem.user_profile}"
-                                 id="${mem.user_profile}-img"
-                                 style="width: 70px; height: 50px; margin: auto;">
-                           </p>
-                        </div>
-                        <div class="member_name">${mem.user_name}</div>
-                     </div>
-                  </c:forEach>
-               </div>
-            </td>
-         </tr>
-         <!----------------------------------포지션 ------------------------------------------>
-         <tr style="width: 100px;">
+		<table class="1" style="width: 100%; height: 851px;">
+			<tr>
+				<td
+					style="background-image: url('image/gujang.png'); width: 500px; height: 851px; background-repeat: no-repeat;"
+					ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+				<td style="height: 681px;">
+					<div style="overflow: scroll; height: 851px" id="basket">
+<%-- 						<c:forEach items="${teamMemberList}" var="mem"> --%>
+<!-- 							<div class="member" -->
+<!-- 								style="background-image: url('image/member_bg.png'); background-size: 70px" -->
+<%-- 								id="${mem.user_profile}" draggable="true" --%>
+<!-- 								ondragstart="drag(event,this)"> -->
+<%-- 								<div class="member_position">${mem.user_position1}</div> --%>
+<!-- 								<div class="member_pic"> -->
+<!-- 									<p> -->
+<%-- 										<img align="middle" src="image/${mem.user_profile}" --%>
+<%-- 											id="${mem.user_profile}-img" --%>
+<!-- 											style="width: 70px; height: 50px; margin: auto;"> -->
+<!-- 									</p> -->
+<!-- 								</div> -->
+<%-- 								<div class="member_name">${mem.user_name}</div> --%>
+<!-- 							</div> -->
+<%-- 						</c:forEach> --%>
+					</div>
+				</td>
+			</tr>
+			<!----------------------------------포지션 ------------------------------------------>
+			<tr style="width: 100px;">
+
 
             <td colspan="2">주소 : ${team.team_home}</td>
 
-         </tr>
-         <tr>
-            <td colspan="2" id="map" style="width: 400px; height: 300px"></td>
-         </tr>
-      </table>
-   <script>
+			</tr>
+			<tr>
+				<td colspan="2" id="map" style="width: 400px; height: 300px"></td>
+			</tr>
+		</table>
+	<script>
+
 //alert(kk[0].user_address);
 </script>
 </body>

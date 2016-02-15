@@ -70,10 +70,7 @@ public class clubController {
 //	@ResponseBody
 	public String club(String cal,foot_cal_DTO cdto,foot_user_DTO fudto,Model model, HttpServletRequest req) throws Exception {	
 		logger.info("clubController club!");
-		if(fudto.getUser_team().equals("") || fudto.getUser_team()==null){
-			List<foot_team_DTO> notteamlist = clubservice.notteamGu(fudto.getUser_address());
-			model.addAttribute("notteamlist", notteamlist);
-		}
+	
 		HttpSession session=req.getSession();
 		/*	1.팀 로고, 팀 소개 (세션) ->뷰딴에서 꺼내기만 하면 됨
 		 *  6.팀 주소 (세션)에서 꺼내기 ->뷰딴에서 꺼내기만 하면 됨
@@ -84,14 +81,8 @@ public class clubController {
 		 * 
 		 * */
 		foot_team_DTO team=(foot_team_DTO)session.getAttribute("team");
-		if(team==null){
-			System.out.println("");
-			System.out.println("");
-			System.out.println("세션 team ->null!!");
-			System.out.println("");
-			System.out.println("");
-		}
 		
+		if(team !=null){
 		List<foot_game_record> gameRecList = clubservice.getGameRecord(team.getTeam_name()); 
 		List<foot_user_DTO> teamMemberList = clubservice.getTeamMember(team.getTeam_name());
 		//3.최근경기-경기 기록 가져오기, 경기 기록에 있는 상대팀의  로고(.jpg)들 가져오기 
@@ -123,12 +114,17 @@ public class clubController {
 		////////////////////////////////이번달 달력불러오기////////////////////////////////////////////////
 		
 		
-		
 		////////////////////////////////////////////////////////////////////////////////////////////////
 		model.addAttribute("teamMemberList",teamMemberList);
 		model.addAttribute("gameRecList", gameRecList);
 		model.addAttribute("title", "마이 클럽");
 		return "team_club.tiles";
+		}else{
+			List<foot_team_DTO> notteamlist = clubservice.notteamGu(fudto.getUser_address());
+			model.addAttribute("notteamlist", notteamlist);
+			return "no_team_club.tiles";
+		}
+		
 	}
 
 	@RequestMapping(value ="teamView.do", method = RequestMethod.GET)	
