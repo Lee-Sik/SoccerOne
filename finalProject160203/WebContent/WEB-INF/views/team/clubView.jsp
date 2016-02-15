@@ -276,15 +276,12 @@ window.onload = function () {
          </tr>
            <!----------------------------------포지션 ------------------------------------------>
            
-   </table>
-   
+</table>
    
    <table class="1" style="width: 100%; height: 851px;">
          <tr>
-
             <td style="background-image: url('image/gujang.png'); width: 500px; height: 851px; 
             background-repeat: no-repeat;" ondrop="drop(event)" ondragover="allowDrop(event)">
-
             </td>
             <td style="height: 681px;">
             <div style="overflow:scroll; height: 851px">
@@ -298,7 +295,6 @@ window.onload = function () {
             		</div>
             		<div class="member_name">${mem.user_name}</div>
             	</div>
-                       	
             	</c:forEach>
             </div>
             </td>
