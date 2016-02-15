@@ -31,5 +31,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	 ]]> 
    </select>
    
+   <select id="getTeam" parameterType="java.lang.String" resultType="soccer.co.DTO.foot_team_DTO">
+
+  	 SELECT * FROM foot_team where team_name = #{team_name} and team_open =1
+  
+   </select>
+   
+   
    
 </mapper>

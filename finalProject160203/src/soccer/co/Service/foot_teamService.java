@@ -17,4 +17,6 @@ public interface foot_teamService {
 	public List<foot_game_record> getGameRecord(String team_name);
 
 	public List<foot_user_DTO> getTeamMember(String team_name);
+
+	public foot_team_DTO getTeam(foot_team_DTO team);
 }

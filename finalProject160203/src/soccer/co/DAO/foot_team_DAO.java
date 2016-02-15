@@ -71,5 +71,9 @@ public class foot_team_DAO {
 	public List<foot_user_DTO> getTeamMember(String team_name) {
 		return sql.selectList(ns1+"getTeamMember",team_name);
 	}
+
+	public foot_team_DTO getTeam(foot_team_DTO team) {
+		return (foot_team_DTO) sql.selectOne(ns+"getTeam",team.getTeam_name());
+	}
 	
 }

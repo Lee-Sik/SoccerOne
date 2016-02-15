@@ -43,4 +43,10 @@ public class foot_teamService_impl implements foot_teamService{
 		return teamdao.getTeamMember(team_name);
 	}
 
+	@Override
+	public foot_team_DTO getTeam(foot_team_DTO team) {
+		return teamdao.getTeam(team);
+		
+	}
+
 }

@@ -128,6 +128,17 @@ public class clubController {
 		model.addAttribute("title", "마이 클럽");
 		return "team_club.tiles";
 	}
+
+	@RequestMapping(value ="teamView.do", method = RequestMethod.GET)	
+	public String teamView(foot_team_DTO team,Model model){//팀정보를 가져올
+		logger.info("teamView !!!!");
+		System.out.println(team.toString());
+		foot_team_DTO dto = clubservice.getTeam(team);
+		
+		model.addAttribute("teamViewDTO",dto);
+		return "teamView.tiles";
+	}
+	
 	
 	@RequestMapping(value ="createTeamAf.do", method = RequestMethod.POST)	
 	public String joinAf(@RequestParam("file") MultipartFile file,

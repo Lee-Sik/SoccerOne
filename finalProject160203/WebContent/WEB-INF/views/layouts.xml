@@ -34,6 +34,11 @@
 <definition name="modifyfail.tiles" template="/WEB-INF/views/login/modifyfail.jsp">
 </definition>
 
+
+<definition name="teamView.tiles" template="/WEB-INF/views/team/teamView.jsp">
+</definition>
+
+
 <definition name="exit.tiles" template="/WEB-INF/views/join/exit.jsp">
 </definition>
 
@@ -49,6 +54,7 @@
 <definition name="team_create.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/createTeam.jsp" />
 </definition>
+
 <definition name="team_createAf.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/createTeamAf.jsp" />
 </definition>
