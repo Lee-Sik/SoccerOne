@@ -15,7 +15,7 @@
 </tr>
 <tr>
 <td><input type="submit" value="비밀번호 확인"></td>
-<td><input type="button" value="뒤로" onclick="myinform.do"></td>
+<td><input type="button" value="뒤로" onclick="location.href='myinform.do'"></td>
 </tr>
 </table>
 </form>

@@ -105,8 +105,7 @@ public class userController {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("empty!!!!!!!!");
-			fudto.setUser_profile("");
+			fudto.setUser_profile("noimage.jpeg");
 		}
 		
 		
@@ -153,6 +152,50 @@ public class userController {
 	@RequestMapping(value = "modify2.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String modify2(@RequestParam("file") MultipartFile file, foot_user_DTO fudto,HttpServletRequest request, Model model) throws Exception {
 		logger.info("Welcome HelloMemberController modify2! " + new Date());
+		
+		foot_user_DTO fudto1 = (foot_user_DTO) request.getSession().getAttribute("login");
+		
+		String fileName = null;
+		File upload = null;
+
+		if (!file.isEmpty()) {
+			try {
+
+				fileName = file.getOriginalFilename();
+				upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
+				//upload = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160203/WebContent/image/" + fileName);
+				byte[] bytes = file.getBytes();
+				BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(upload));
+
+				buffStream.write(bytes);
+				buffStream.close();
+				fudto.setUser_profile(fileName);
+
+				System.out.println("You have successfully uploaded " + fileName);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			fudto.setUser_profile(fudto1.getUser_profile());
+		}
+
+		fudto1.setUser_pw(fudto.getUser_pw());
+		fudto1.setUser_name(fudto.getUser_name());
+		fudto1.setUser_birth(fudto.getUser_birth());
+		fudto1.setUser_age(fudto.getUser_age());
+		fudto1.setUser_phone(fudto.getUser_phone());
+		fudto1.setUser_high(fudto.getUser_high());
+		fudto1.setUser_weight(fudto.getUser_weight());
+		fudto1.setUser_foot(fudto.getUser_foot());
+		fudto1.setUser_position1(fudto.getUser_position1());
+		fudto1.setUser_position2(fudto.getUser_position2());
+		fudto1.setUser_position3(fudto.getUser_position3());
+		fudto1.setUser_address(fudto.getUser_address());
+		fudto1.setUser_profile(fudto.getUser_profile());
+		fudto1.setUser_helper(fudto.getUser_helper());
+		fudto1.setUser_enabled(fudto.getUser_enabled());
+		
+		fuservice.modify(fudto1);
 		
 		return "redirect:myinform.do";
 	}

@@ -43,8 +43,15 @@ public class foot_user_DAO{
 	public foot_team_DTO loginteam(foot_user_DTO fudto) {
 		// TODO Auto-generated method stub
 		foot_team_DTO ftdto = (foot_team_DTO) sqlse.selectOne(ns1+"loginteam", fudto);
-		System.out.println(fudto.toString());
+		
 		return ftdto;
+	}
+
+
+	public boolean modify(foot_user_DTO fudto1) {
+		// TODO Auto-generated method stub
+		sqlse.update(ns+"modify", fudto1);
+		return false;
 	}
 
 

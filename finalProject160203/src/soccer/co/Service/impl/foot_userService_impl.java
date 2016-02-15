@@ -36,5 +36,11 @@ public class foot_userService_impl implements foot_userService{
 		// TODO Auto-generated method stub
 		return fudao.login1(fudto);
 	}
+
+	@Override
+	public boolean modify(foot_user_DTO fudto1) {
+		// TODO Auto-generated method stub
+		return fudao.modify(fudto1);
+	}
 	
 }

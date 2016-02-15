@@ -2,13 +2,15 @@
 <%@page import ="java.util.StringTokenizer" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<link href="CSS/styles.css" rel="stylesheet" >
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -107,7 +109,6 @@ font-size: 10pt;
 
 function function1(val){
 	var pw = document.getElementsByName('user_pw');
-	var pw1 = document.getElementsByName('user_pw1');
 	var name = document.getElementsByName('user_name');
 	var age = document.getElementsByName('user_age');
 	
@@ -115,19 +116,30 @@ function function1(val){
 		alert("비밀번호는 6자리부터 9자리까지만 입력하셔야합니다.");
 		pw[0].focus();
 	}
-	else if(pw1[0].value!=pw[0].value){
-		alert("비밀번호와 비밀번호 확인의 값은 같아야합니다.");
-		pw1[0].focus();
-	} 
 	else if(name[0].value.length<=1||name[0].value.length>=6){
 		alert("이름은 2자리부터 5자리까지 입력하셔야합니다.");
 		name[0].focus();
 	} else{
-		
-		
 		var foot1 = document.f.user_foot1.value;
 		var foot = document.f.user_foot;
 		foot.value = foot1;
+		
+		var helper = document.f.user_helper.value;
+		var user_helper = document.f.user_helper;
+		if(helper=="on"){
+			user_helper.value=1;
+		}else if(helper=="off"){
+			user_helper.value=0;
+		}
+		
+		var enabled = document.f.user_enabled.value;
+		var user_enabled = document.f.user_enabled;
+		if(enabled=="on"){
+			user_enabled.value=1;
+		}else if(enabled=="off"){
+			user_enabled.value=0;
+		}
+		
 		var position11 = document.f.user_position11.value;
 		var position12 = document.f.user_position12.value;
 		var position13 = document.f.user_position13.value;
@@ -174,6 +186,11 @@ function function1(val){
 
 <form action="modify2.do" name="f" method="post" enctype="multipart/form-data">
 <table class="list_table">
+
+<tr>
+<th>프로필 사진</th>
+<td colspan="5"><img alt="" src="image/${login.user_profile }"> </td>
+</tr>
 
 <tr>
 <th>비밀번호</th>
@@ -243,20 +260,20 @@ function function1(val){
 <tr>
 <th>주 발</th>
 
-<%
-	int user_foot = fudto.getUser_foot();
-	String foot = null;
-	if(user_foot==0){
-		foot="왼발";
-	}else if(user_foot==1){
-		foot="오른발";
-	}else if(user_foot==2){
-		foot="양발";
-	}
-%>
+
 <td colspan="5" style="text-align: left">
 <select name="user_foot1">
-<option value="<%=user_foot %>"><%=foot %></option>
+<option value="${login.user_foot }">
+<c:if test="${login.user_foot eq 0 }">
+왼발
+</c:if>
+<c:if test="${login.user_foot eq 1 }">
+오른발
+</c:if>
+<c:if test="${login.user_foot eq 2 }">
+양발
+</c:if>
+</option>
 <option value="0">왼발</option>
 <option value="1">오른발</option>
 <option value="2">양발</option>
@@ -272,9 +289,6 @@ function function1(val){
 	String user_position1 = fudto.getUser_position1();
 	String user_position2 = fudto.getUser_position2();
 	String user_position3 = fudto.getUser_position3();
-	
-	
-	
 %>
 <select name="user_position11">
 								<option value="<%=user_position1%>"><%= user_position1%></option>
@@ -432,6 +446,16 @@ function function1(val){
 </td>
 </tr>
 <tr>
+         <th>용병 유무</th>
+         <td style="text-align: left" colspan="5" ><input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" name="user_helper" type="checkbox">
+         <label for="cmn-toggle-1"></label></td>
+</tr>
+<tr>
+         <th>정보 공개 유무</th>
+         <td style="text-align: left" colspan="5"><input id="cmn-toggle-2" class="cmn-toggle cmn-toggle-round" name="user_enabled" type="checkbox">
+         <label for="cmn-toggle-2"></label></td>
+</tr>
+<tr>
             <th>프로필사진</th> 
             <td colspan="5"><input type="file" name="file"></td>
          
@@ -442,6 +466,7 @@ function function1(val){
 		<input type="button" class="Cancel_Btn" value="취소" value="취소" onclick="location.href='myinform.do'">
 	</td>
 </tr>
+
 </table>
 
 </form>

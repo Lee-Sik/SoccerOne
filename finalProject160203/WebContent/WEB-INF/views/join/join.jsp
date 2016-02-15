@@ -5,6 +5,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link href="CSS/styles.css" rel="stylesheet" >
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -125,7 +126,21 @@ function function1(val){
 		alert("이름은 2자리부터 5자리까지 입력하셔야합니다.");
 		name[0].focus();
 	} else{
+		var helper = document.f.user_helper.value;
+		var user_helper = document.f.user_helper;
+		if(helper=="on"){
+			user_helper.value=1;
+		}else if(helper=="off"){
+			user_helper.value=0;
+		}
 		
+		var enabled = document.f.user_enabled.value;
+		var user_enabled = document.f.user_enabled;
+		if(enabled=="on"){
+			user_enabled.value=1;
+		}else if(enabled=="off"){
+			user_enabled.value=0;
+		}
 		
 		var foot1 = document.f.user_foot1.value;
 		var foot = document.f.user_foot;
@@ -407,6 +422,17 @@ function function1(val){
 <input type="hidden" name="user_address">
 </td>
 </tr>
+<tr>
+         <th>용병 유무</th>
+         <td style="text-align: left" colspan="5" ><input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" name="user_helper" type="checkbox">
+         <label for="cmn-toggle-1"></label></td>
+</tr>
+<tr>
+         <th>정보 공개 유무</th>
+         <td style="text-align: left" colspan="5"><input id="cmn-toggle-2" class="cmn-toggle cmn-toggle-round" name="user_enabled" type="checkbox">
+         <label for="cmn-toggle-2"></label></td>
+</tr>
+
 <tr>
             <th>프로필사진</th>
             <td colspan="5"><input type="file" name="file"></td>

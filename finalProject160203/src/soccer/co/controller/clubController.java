@@ -91,6 +91,7 @@ public class clubController {
 			System.out.println("");
 			System.out.println("");
 		}
+		
 		List<foot_game_record> gameRecList = clubservice.getGameRecord(team.getTeam_name()); 
 		List<foot_user_DTO> teamMemberList = clubservice.getTeamMember(team.getTeam_name());
 		//3.최근경기-경기 기록 가져오기, 경기 기록에 있는 상대팀의  로고(.jpg)들 가져오기 

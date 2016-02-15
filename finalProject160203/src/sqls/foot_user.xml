@@ -29,10 +29,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    INSERT INTO foot_user VALUES(#{user_email},#{user_pw},#{user_name},#{user_birth},#{user_age},
    							#{user_phone},#{user_high},#{user_weight},#{user_foot},
    							#{user_position1},#{user_position2},#{user_position3},#{user_address},
-   							#{user_profile},null,0,0,null,null,null,null)
+   							#{user_profile},null,#{user_helper},#{user_enabled},null,null,null,null,null,null)
    </insert>
    
    <update id="teamjoin_userupdate" parameterType="soccer.co.DTO.foot_team_DTO">
    update foot_user set user_team = #{team_name} where user_email = #{team_managerid}
    </update>
+   
+   <update id="modify" parameterType="soccer.co.DTO.foot_user_DTO">
+   update foot_user set user_pw = #{user_pw},user_name = #{user_name},user_birth = #{user_birth},user_age = #{user_age},
+   user_phone = #{user_phone},
+   user_high = #{user_high},user_weight = #{user_weight},user_foot = #{user_foot},user_position1 = #{user_position1},
+   user_position2 = #{user_position2},user_position3 = #{user_position3},
+   user_address = #{user_address},user_profile = #{user_profile},user_helper = #{user_helper},
+   user_enabled = #{user_enabled} where user_email = #{user_email}
+   </update>
+   
+   
 </mapper>
