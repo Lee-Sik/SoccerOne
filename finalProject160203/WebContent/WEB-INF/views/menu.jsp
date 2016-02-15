@@ -45,15 +45,19 @@
          </c:if>
          <c:if test="${not empty login.user_team }">
          <li><a href='#'>클럽검색/모집</a></li>
+         <li><a href='clubmyinform.do'>내정보</a></li>
+         <c:if test="${login.user_email eq team.team_managerid }">
+         	<li><a href='teamsetting.do'>클럽설정</a></li>
          </c:if>
-         <li><a href='#'>내 정보</a></li>
+         <li><a href='#'>클럽게시판</a></li>
+         </c:if>
+         
          
         	<c:if test="${empty login.user_team }">
          	<li><a href='team_create.do?user_email=${login.user_email }'>팀 생성</a></li>
         	</c:if>
          
-         <li><a href='#'>클럽설정</a></li>
-         <li><a href='#'>클럽게시판</a></li>
+         
       </ul>
    </li>
    

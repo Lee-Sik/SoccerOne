@@ -198,5 +198,12 @@
 
 </definition>
 
+<definition name="clubmyinform.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/clubmyinform.jsp" />
+</definition>
+
+<definition name="teamsetting.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/teamsetting.jsp" />
+</definition>
 
 </tiles-definitions>

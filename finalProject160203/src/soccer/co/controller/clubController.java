@@ -167,8 +167,8 @@ public class clubController {
 				e.printStackTrace();
 			}
 		} else {
-			System.out.println("empty!!!!!!!!");
-			team.setTeam_logo("");
+			
+			team.setTeam_logo("noimage.jpeg");
 		}
 		
 		team.setTeam_home(team_h);
@@ -184,6 +184,22 @@ public class clubController {
 		}
 		
 		return "team_createAf.tiles";
+	}
+	
+	@RequestMapping(value = "clubmyinform.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String clubmyinform(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
+		logger.info("clubmyinform join!");
+		
+		
+		return "clubmyinform.tiles";
+	}
+	
+	@RequestMapping(value = "teamsetting.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String teamsetting(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
+		logger.info("clubmyinform teamsetting!");
+		
+		
+		return "teamsetting.tiles";
 	}
 	
 	
