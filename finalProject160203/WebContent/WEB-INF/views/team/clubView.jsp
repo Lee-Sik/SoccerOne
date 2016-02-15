@@ -46,6 +46,34 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
           kk.push(data[i]);
           //alert(kk[i].user_address);
        }
+       
+       for(var i=0; i<kk.length; i++){
+    		  // alert(kk[i].user_position1+','+kk[i].user_profile+','+kk[i].user_name);
+    			
+    		  newDiv = document.createElement("div");// 1.노드를 생성한다.
+    		  $(newDiv).attr('class', 'member');
+    		  $(newDiv).attr('style', "background-image: url('image/member_bg.png'); background-size: 70px");
+    		  $(newDiv).attr('id', i);
+    		  $(newDiv).attr('ondragstart', 'drag(event,this)');
+    		  $(newDiv).attr('draggable', 'true');
+    		  
+//    	 	  newDiv.setAttribute("class", "member");
+//    	 	  newDiv.setAttribute("style", "background-image: url('image/member_bg.png'); background-size: 70px");
+//    	 	  newDiv.setAttribute("id", kk[i].user_profile);
+//    	 	  newDiv.setAttribute("ondragstart", "drag(event,this)");
+//    	 	  newDiv.setAttribute("draggable", "true");
+    		  
+    		  newDiv.innerHTML = '<div class="member_position">'+kk[i].user_position1+'</div>'
+    				+'<div class="member_pic">'
+    					+'<p>'
+    						+'<img align="middle" src="image/'+kk[i].user_profile+'" '+'id="'+kk[i].user_profile+'-img" '+'style="width: 70px; height: 50px; margin: auto;">'
+    					+'</p>'
+    				+'</div>'
+    				+'<div class="member_name">'+kk[i].user_name+'</div>';
+    		   
+    			var basket=document.getElementById("basket");// 2.basket에 노드를 추가한다.
+    			basket.appendChild(newDiv);
+    	   }
     }
 });
 
@@ -117,29 +145,33 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 
    function drop(ev) {
       ev.preventDefault();
-      var bool = true;
-      
+      var $nodes1 = $(ev.target).contents();
+//      alert("body의 자식노드자식 노드 갯수는 ? " + $nodes1.size());
+      if($nodes1.size() < 11){
       var data = ev.dataTransfer.getData("text");  //id
-      //alert(data);
-      for(var i=0; i<userPosition.length; i++){
-         if(userPosition[i] == data){ // userPosition에 data가 있으면
-            bool = false;
-         }
-      }
-      if(bool){
-         userPosition.push(data);//id 값을 userPosition배열 에 넣는다.
-      }
       
+      //alert(data);
+
+      //-----------------------------------
+      //el 일때 크롬과 좌표 이동 이 다름.
       var x_pos = ev.clientX + document.body.scrollLeft-50 + 'px';//이동 할 x좌표
       var y_pos = ev.clientY + document.body.scrollTop-35 + 'px';//이동 할 y좌표
       var obj = document.getElementById(data);//.cloneNode(true);         //이동 할 객체
-      
+    //-----------------------------------
+    
       ev.target.appendChild(obj);
+    
       obj.style.position = "absolute";
       obj.style.left = x_pos;
       obj.style.top = y_pos;
+      
+      }else{
+   	   alert("인원을 11명 이상 추가 할 수 없습니다.");
+      }
+      
    }
-   
+      
+  
 } catch (exception) {
    alert('예외 발생');
 } finally {} //--------------------포지션 드레그 엔 드롭-------------------------
@@ -158,31 +190,11 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
  //--------------------구글맵-------------------------
 </script>
 <script>
-
-window.onload = function () {
+$(document).ready(function(){
+//window.onload = function () {
 	
-   for(var i=0; i<kk.length; i++){
-	  // alert(kk[i].user_position1+','+kk[i].user_profile+','+kk[i].user_name);
-
-	  newDiv = document.createElement("div");// 1.노드를 생성한다.
-	  newDiv.setAttribute("class", "member");
-	  newDiv.setAttribute("style", "background-image: url('image/member_bg.png'); background-size: 70px");
-	  newDiv.setAttribute("id", kk[i].user_profile);
-	  newDiv.setAttribute("ondragstart", "drag(event,this)");
-	  newDiv.setAttribute("draggable", "true");
-	  
-	  newDiv.innerHTML = '<div class="member_position">'+kk[i].user_position1+'</div>'
-			+'<div class="member_pic">'
-				+'<p>'
-					+'<img align="middle" src="image/'+kk[i].user_profile+'" '+'id="'+kk[i].user_profile+'-img" '+'style="width: 70px; height: 50px; margin: auto;">'
-				+'</p>'
-			+'</div>'
-			+'<div class="member_name">'+kk[i].user_name+'</div>';
-	   
-		var basket=document.getElementById("basket");// 2.basket에 노드를 추가한다.
-		basket.appendChild(newDiv);
-   }
-}
+   
+});
 </script>
 </head>
 <body>
@@ -279,6 +291,7 @@ window.onload = function () {
 							<tr>
 							<td colspan="4">이번달의 일정이 없습니다.</td>
 							</tr>
+							
 						</c:if>
 					</table>
 				</td>
