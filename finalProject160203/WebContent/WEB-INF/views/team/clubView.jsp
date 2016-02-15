@@ -43,13 +43,16 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     success: function (data) {
        kk=[];
        for(var i=0;i<data.length;i++){
-          kk.push(data[i]);
+          kk.push(data[i]);// kk에 json 객체 담기 
           //alert(kk[i].user_address);
        }
        
        for(var i=0; i<kk.length; i++){
     		  // alert(kk[i].user_position1+','+kk[i].user_profile+','+kk[i].user_name);
-    			
+    		  //if x,y 좌표가 null이면 basket에 추가 하고,
+    		  //null이 아니면, gujang에 추가 
+    		  
+    		  
     		  newDiv = document.createElement("div");// 1.노드를 생성한다.
     		  $(newDiv).attr('class', 'member');
     		  $(newDiv).attr('style', "background-image: url('image/member_bg.png'); background-size: 70px");
@@ -154,8 +157,8 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 
       //-----------------------------------
       //el 일때 크롬과 좌표 이동 이 다름.
-      var x_pos = ev.clientX + document.body.scrollLeft-50 + 'px';//이동 할 x좌표
-      var y_pos = ev.clientY + document.body.scrollTop-35 + 'px';//이동 할 y좌표
+      var x_pos = ev.clientX + document.body.scrollLeft-40 + 'px';//이동 할 x좌표
+      var y_pos = ev.clientY + document.body.scrollTop-55 + 'px';//이동 할 y좌표
       var obj = document.getElementById(data);//.cloneNode(true);         //이동 할 객체
     //-----------------------------------
     
@@ -339,7 +342,7 @@ $(document).ready(function(){
 
 		<table class="1" style="width: 100%; height: 851px;">
 			<tr>
-				<td
+				<td id="gujang"
 					style="background-image: url('image/gujang.png'); width: 500px; height: 851px; background-repeat: no-repeat;"
 					ondrop="drop(event)" ondragover="allowDrop(event)"></td>
 				<td style="height: 681px;">
@@ -361,9 +364,13 @@ $(document).ready(function(){
 <!-- 							</div> -->
 <%-- 						</c:forEach> --%>
 					</div>
+					<input type="button" onclick="" value="위치 저장">
+<!-- 			ajax로 kk의 json 객체를 전송 해야 한다. -->
 				</td>
 			</tr>
+			
 			<!----------------------------------포지션 ------------------------------------------>
+			
 			<tr style="width: 100px;">
 
 
