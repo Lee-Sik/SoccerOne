@@ -279,21 +279,22 @@ window.onload = function () {
    </table>
    
    
-   <table class="1" style="width: 100%; height: 681px;">
+   <table class="1" style="width: 100%; height: 851px;">
          <tr>
 
-            <td style="background-image: url('image/gujang.png'); width: 400px; height: 681px; 
+            <td style="background-image: url('image/gujang.png'); width: 500px; height: 851px; 
             background-repeat: no-repeat;" ondrop="drop(event)" ondragover="allowDrop(event)">
 
             </td>
             <td style="height: 681px;">
-            <div style="overflow:scroll; height: 681px">
+            <div style="overflow:scroll; height: 851px">
             	<c:forEach items="${teamMemberList}" var="mem">
-            	<div class="member" style="background-image: url('image/member_bg.png'); background-size:120px" 
+            	<div class="member" style="background-image: url('image/member_bg.png'); background-size:70px" 
               	id="${mem.user_profile}" draggable="true" ondragstart="drag(event,this)">
-            		<div class="member_position">${mem.user_position1}&nbsp;/&nbsp;${mem.user_position2}&nbsp;/&nbsp;${mem.user_position3}</div>
+<%--             		<div class="member_position">${mem.user_position1}&nbsp;/${mem.user_position2}&nbsp;/${mem.user_position3}</div> --%>
+            		<div class="member_position">${mem.user_position1}</div>
             		<div class="member_pic">
-            			<p><img align="middle" src="image/${mem.user_profile}" id="${mem.user_profile}-img" style="width:80px; height:80px; margin:auto;"></p>
+            			<p><img align="middle" src="image/${mem.user_profile}" id="${mem.user_profile}-img" style="width:70px; height:50px; margin:auto;"></p>
             		</div>
             		<div class="member_name">${mem.user_name}</div>
             	</div>
