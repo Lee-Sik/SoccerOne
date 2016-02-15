@@ -6,7 +6,7 @@
 <link href="CSS/BBStable.css" rel="stylesheet" >
 
 <br><br><br><br><br>
-<form name="frmForm" id="_frmForm" method="post" action="bbswriteAf.do">
+<form name="frmForm" id="_frmForm" method="post" action="bbswriteAf.do" enctype="multipart/form-data">
 <table class="list_table" style="width:85%;">
 
 <colgroup>
@@ -44,7 +44,8 @@
 
 <tr>
 	<th>이미지경로</th>
-	<td style="text-align: left"><input type="text" name="imageurl" size="60"/></td>
+	<td style="text-align: left">
+	<input type="file" name="file"></td>
 </tr>
 
 <tr>

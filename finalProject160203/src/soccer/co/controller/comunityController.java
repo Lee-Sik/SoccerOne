@@ -1,5 +1,8 @@
 package soccer.co.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Date;
 import java.util.List;
 
@@ -10,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import soccer.co.DTO.BBSParam;
 import soccer.co.DTO.foot_comunity_DTO;
@@ -36,21 +41,58 @@ public class comunityController {
 	}
 	
 	
-	@RequestMapping(value = "bbswrite.do", 
-			method = {RequestMethod.GET,
-			RequestMethod.POST})
+	@RequestMapping(value = "bbswrite.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String bbswrite(Model model) {
 		logger.info("Welcome MemberController bbswrite! "+ new Date());
 		model.addAttribute("title", "게시판 글쓰기");
 		return "bbswrite.tiles";
 	}
 	
-	@RequestMapping(value = "bbswriteAf.do", 
-			method = RequestMethod.POST)
-	public String bbswriteAf(foot_comunity_DTO bbs,Model model) throws Exception {
+	@RequestMapping(value = "bbswriteAf.do", method = RequestMethod.POST)
+	public String bbswriteAf(@RequestParam("file") MultipartFile file, 
+			foot_comunity_DTO bbs,Model model,String topic, String user_email, String title, String content) throws Exception {
 		logger.info("Welcome MemberController bbswriteAf! "+ new Date());
-		System.out.println("topic = " + bbs.getTopic());
-		System.out.println("id = " + bbs.getUser_email());
+
+		String fileName = null;
+		File upload = null;
+		
+		if (!file.isEmpty()) {
+			try {
+				fileName = file.getOriginalFilename();
+				
+				//upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
+				//upload = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160203/WebContent/image/" + fileName);
+				//upload = new File("C:/springstudy/finalProject160203/WebContent/image/" + fileName);
+				upload = new File("c:/image/" + fileName);
+				// 
+				byte[] bytes = file.getBytes();
+				BufferedOutputStream buffStream = new BufferedOutputStream(
+						new FileOutputStream(upload));
+
+				buffStream.write(bytes);
+				buffStream.close();
+				bbs.setImageurl(fileName);
+				
+				System.out.println("You have successfully uploaded " + fileName);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("empty!!!!!!!!");
+			bbs.setImageurl("");
+		}
+		
+		bbs.setUser_email(user_email);
+		bbs.setTopic(topic);
+		bbs.setTitle(title);
+		bbs.setContent(content);
+		
+//		try{
+//			clubservice.join(team);//팀생성 실패시 어떻게 할까?
+//			req.getSession().setAttribute("team",team);
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
 		BBSService.writeBBS(bbs);
 		
 		return "redirect:/bbslist.do";

@@ -20,8 +20,8 @@
 /* 	text-align:center;  */
 	transition:all 0.8s, color 0.3s 0.3s;  
 	color:#504f4f; cursor: pointer; 
-/* 	display: block; */
-	float: left;
+	display: inline-block;
+/* 	float: left; */
 	
 }
 .member_position{

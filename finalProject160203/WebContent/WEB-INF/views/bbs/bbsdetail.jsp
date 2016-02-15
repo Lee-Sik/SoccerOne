@@ -35,8 +35,8 @@
 
 <tr>
 	<th>내 용</th>
-	<td style="text-align: left"><textarea rows="10" cols="50" 
-	name='content' id="_content">${bbs.content}</textarea></td>
+	<td style="text-align: left">${bbs.content}<br>
+	<a href="javascript:window.open('C:/image/${bbs.imageurl}','','resizable=no, scrollbars=yes, status=no;')"><img src="C:/image/${bbs.imageurl}" width="50%;" alt="이미지없음"/></a></td>
 </tr>
 
 <%-- 

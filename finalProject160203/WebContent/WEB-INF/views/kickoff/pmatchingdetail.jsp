@@ -6,7 +6,7 @@
 
 
 <form name="frmForm" id="_frmForm" method="post" action="bbsupdate.do">
-<table class="list_table" style="width:85%;">
+<table class="list_table" style="width:50%;">
 <%-- <input type="hidden" name="seq" value="${bbs.bbs_no}"/> --%>
 
 <colgroup>
@@ -45,15 +45,15 @@
 <tr>
 	<th>대전현황</th>
 		<c:if test="${pmd.game_state == 0}">
-			<td style="text-align: left" bgcolor="orange">대기중</td> 
+			<td style="text-align: center;" bgcolor="orange">대기중</td> 
 		</c:if>
 			
 		<c:if test="${pmd.game_state == 1}">
-			<td style="text-align: left" bgcolor="green">경기중</td> 
+			<td style="text-align: center" bgcolor="green">경기중</td> 
 		</c:if>
 		
 		<c:if test="${pmd.game_state == 2}">
-			<td style="text-align: left" bgcolor="lightgray">경기완료</td> 
+			<td style="text-align: center" bgcolor="lightgray">경기완료</td> 
 		</c:if>
 </tr>
 

@@ -290,9 +290,7 @@ window.onload = function () {
               	id="${mem.user_profile}" draggable="true" ondragstart="drag(event,this)">
 <%--             		<div class="member_position">${mem.user_position1}&nbsp;/${mem.user_position2}&nbsp;/${mem.user_position3}</div> --%>
             		<div class="member_position">${mem.user_position1}</div>
-            		<div class="member_pic">
-            			<p><img align="middle" src="image/${mem.user_profile}" id="${mem.user_profile}-img" style="width:70px; height:50px; margin:auto;"></p>
-            		</div>
+            		<div class="member_pic"><p><img align="middle" src="image/${mem.user_profile}" id="${mem.user_profile}-img" style="width:70px; height:50px; margin:auto;"></p></div>
             		<div class="member_name">${mem.user_name}</div>
             	</div>
             	</c:forEach>
