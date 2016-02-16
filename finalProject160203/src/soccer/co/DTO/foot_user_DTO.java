@@ -54,6 +54,8 @@ public class foot_user_DTO {
 	private String user_attendtime;
 	private String user_goal;
 	
+	int x;
+	int y;
 	
 	public foot_user_DTO(){}
 	
@@ -119,6 +121,57 @@ public class foot_user_DTO {
 		this.user_attendtime = user_attendtime;
 		this.user_goal = user_goal;
 	}
+	
+	
+	public foot_user_DTO(String user_email, String user_pw, String user_name,
+			String user_birth, int user_age, String user_phone, int user_high,
+			int user_weight, int user_foot, String user_position1,
+			String user_position2, String user_position3, String user_address,
+			String user_profile, String user_team, int user_helper,
+			int user_enabled, String user_speed, String user_attendrate,
+			String user_attendtime, String user_goal, int x, int y) {
+		super();
+		this.user_email = user_email;
+		this.user_pw = user_pw;
+		this.user_name = user_name;
+		this.user_birth = user_birth;
+		this.user_age = user_age;
+		this.user_phone = user_phone;
+		this.user_high = user_high;
+		this.user_weight = user_weight;
+		this.user_foot = user_foot;
+		this.user_position1 = user_position1;
+		this.user_position2 = user_position2;
+		this.user_position3 = user_position3;
+		this.user_address = user_address;
+		this.user_profile = user_profile;
+		this.user_team = user_team;
+		this.user_helper = user_helper;
+		this.user_enabled = user_enabled;
+		this.user_speed = user_speed;
+		this.user_attendrate = user_attendrate;
+		this.user_attendtime = user_attendtime;
+		this.user_goal = user_goal;
+		this.x = x;
+		this.y = y;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
 	public String getUser_email() {
 		return user_email;
 	}

@@ -41,17 +41,17 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     jsonpCallback: 'callback',
     type: 'get',
     success: function (data) {
+    	
        kk=[];
        for(var i=0;i<data.length;i++){
           kk.push(data[i]);// kk에 json 객체 담기 
-          //alert(kk[i].user_address);
+        
        }
        
        for(var i=0; i<kk.length; i++){
     		  // alert(kk[i].user_position1+','+kk[i].user_profile+','+kk[i].user_name);
-    		  //if x,y 좌표가 null이면 basket에 추가 하고,
-    		  //null이 아니면, gujang에 추가 
-    		  
+    		  var basket=document.getElementById("basket");// basket에 노드를 추가한다.
+    		  var gujang=document.getElementById("gujang");// gujang에 노드를 추가한다.
     		  
     		  newDiv = document.createElement("div");// 1.노드를 생성한다.
     		  $(newDiv).attr('class', 'member');
@@ -60,12 +60,6 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     		  $(newDiv).attr('ondragstart', 'drag(event,this)');
     		  $(newDiv).attr('draggable', 'true');
     		  
-//    	 	  newDiv.setAttribute("class", "member");
-//    	 	  newDiv.setAttribute("style", "background-image: url('image/member_bg.png'); background-size: 70px");
-//    	 	  newDiv.setAttribute("id", kk[i].user_profile);
-//    	 	  newDiv.setAttribute("ondragstart", "drag(event,this)");
-//    	 	  newDiv.setAttribute("draggable", "true");
-    		  
     		  newDiv.innerHTML = '<div class="member_position">'+kk[i].user_position1+'</div>'
     				+'<div class="member_pic">'
     					+'<p>'
@@ -73,9 +67,20 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     					+'</p>'
     				+'</div>'
     				+'<div class="member_name">'+kk[i].user_name+'</div>';
-    		   
-    			var basket=document.getElementById("basket");// 2.basket에 노드를 추가한다.
-    			basket.appendChild(newDiv);
+    				
+    		  if(kk[i].x == 0 && kk[i].y == 0){//if x,y 좌표가 null이면 basket에 추가 하고,
+  
+        			basket.appendChild(newDiv);
+    			  
+    		  }else{//null이 아니면, gujang에 추가 
+    			  gujang.appendChild(newDiv);
+    		  
+    			  $(newDiv).css({
+    		    	   "position" : "absolute",
+    		    	   "top" :  kk[i].y+'px',
+    		    	   "left" : kk[i].x+'px'
+    		    	});
+    		  }
     	   }
     }
 });
@@ -151,22 +156,27 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
       var $nodes1 = $(ev.target).contents();
 //      alert("body의 자식노드자식 노드 갯수는 ? " + $nodes1.size());
       if($nodes1.size() < 11){
-      var data = ev.dataTransfer.getData("text");  //id
+    	  
+       var data = ev.dataTransfer.getData("text");  //id
+    		    	  
+       var obj = document.getElementById(data);//.cloneNode(true);
       
-      //alert(data);
-
-      //-----------------------------------
-      //el 일때 크롬과 좌표 이동 이 다름.
-      var x_pos = ev.clientX + document.body.scrollLeft-40 + 'px';//이동 할 x좌표
-      var y_pos = ev.clientY + document.body.scrollTop-55 + 'px';//이동 할 y좌표
-      var obj = document.getElementById(data);//.cloneNode(true);         //이동 할 객체
+       kk[data].x =ev.pageX-45;//json 객체의 포지션을 변경 ->나중에 저장 할 때 필요
+       kk[data].y =ev.pageY-55;
+       
+   	  var x_pos = ev.pageX-45;//이동 할 x좌표
+      var y_pos = ev.pageY-55;//이동 할 y좌표
+     //alert(x_pos+','+y_pos);
+      //alert(y_pos);
+   
     //-----------------------------------
     
       ev.target.appendChild(obj);
-    
-      obj.style.position = "absolute";
-      obj.style.left = x_pos;
-      obj.style.top = y_pos;
+      $(obj).css({
+    	   "position" : "absolute",
+    	   "top" : y_pos +'px',
+    	   "left" : x_pos +'px'
+    	});
       
       }else{
    	   alert("인원을 11명 이상 추가 할 수 없습니다.");
@@ -174,10 +184,9 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
       
    }
       
-  
 } catch (exception) {
    alert('예외 발생');
-} finally {} //--------------------포지션 드레그 엔 드롭-------------------------
+} finally {} //--------------------포지션 드레그 엔 드롭-----------
 </script>
 <script> //--------------------구글맵-------------------------
    function initialize() {
@@ -194,7 +203,6 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 </script>
 <script>
 $(document).ready(function(){
-//window.onload = function () {
 	
    
 });
@@ -246,7 +254,6 @@ $(document).ready(function(){
                                           'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
                                        <img src='image/on.png'>
                                     </a>
-
                                  </c:if>
                               </c:forEach>
                            </td>
@@ -346,23 +353,8 @@ $(document).ready(function(){
 					style="background-image: url('image/gujang.png'); width: 500px; height: 851px; background-repeat: no-repeat;"
 					ondrop="drop(event)" ondragover="allowDrop(event)"></td>
 				<td style="height: 681px;">
-					<div style="overflow: scroll; height: 851px" id="basket">
-<%-- 						<c:forEach items="${teamMemberList}" var="mem"> --%>
-<!-- 							<div class="member" -->
-<!-- 								style="background-image: url('image/member_bg.png'); background-size: 70px" -->
-<%-- 								id="${mem.user_profile}" draggable="true" --%>
-<!-- 								ondragstart="drag(event,this)"> -->
-<%-- 								<div class="member_position">${mem.user_position1}</div> --%>
-<!-- 								<div class="member_pic"> -->
-<!-- 									<p> -->
-<%-- 										<img align="middle" src="image/${mem.user_profile}" --%>
-<%-- 											id="${mem.user_profile}-img" --%>
-<!-- 											style="width: 70px; height: 50px; margin: auto;"> -->
-<!-- 									</p> -->
-<!-- 								</div> -->
-<%-- 								<div class="member_name">${mem.user_name}</div> --%>
-<!-- 							</div> -->
-<%-- 						</c:forEach> --%>
+					<div style="overflow: scroll; height: 851px" id="basket" 
+					ondrop="drop(event)" ondragover="allowDrop(event)">
 					</div>
 					<input type="button" onclick="" value="위치 저장">
 <!-- 			ajax로 kk의 json 객체를 전송 해야 한다. -->
