@@ -3,6 +3,7 @@ package soccer.co.Service;
 import java.util.List;
 
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_sbookingReserve_DTO;
 import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.DTO.postDTO;
@@ -21,4 +22,5 @@ public interface foot_stadiumService {
 	public List<foot_sbooking_DTO> bookingList()throws Exception;
 	public foot_stadium_DTO stadiumDetail(int stadium_seq)throws Exception;
 	public foot_sbooking_DTO bookingDetail(int booking_seq)throws Exception;
+	public boolean bookingReserve(foot_sbookingReserve_DTO dto)throws Exception;
 }

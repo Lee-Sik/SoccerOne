@@ -145,6 +145,9 @@
 <definition name="zipsearch.tiles" template="/WEB-INF/views/stadium/zipsearch.jsp">
 </definition>
 
+<definition name="BookingLayer.tiles" template="/WEB-INF/views/stadium/BookingLayer.jsp">
+</definition>
+
 <definition name="zipsearch_result.tiles" template="/WEB-INF/views/stadium/zipsearch_result.jsp">
 </definition>
 

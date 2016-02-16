@@ -33,6 +33,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_sbookingReserve_DTO;
 import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.DTO.postDTO;
@@ -186,9 +187,9 @@ public class stadiumController {
 	      //실제 주소
 	      String path = root + File.separator + "stadiumImg";*/
 	     
-		String root = "c:/jsp/spring/finalProject160205/WebContent/image/";	
+		String path = "//211.238.142.152/공유/ryu";	
 		
-		String path = root + "stadiumImg";
+	
 		  
 	      File dir = new File(path);
 	      if(!dir.exists()){
@@ -379,8 +380,22 @@ public class stadiumController {
 		
 	}
 	
+	@RequestMapping(value = "BookingLayer.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String BookingLayer(Model model,HttpServletRequest request,HttpSession session) throws Exception {
+		
+		return "BookingLayer.tiles";
+	}
 	
-	
+	@RequestMapping(value = "booking_reserve.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String booking_reserve(Model model,HttpServletRequest request,foot_sbookingReserve_DTO dto) throws Exception {
+		System.out.println("gametime : " + dto.getGametime());
+		String phone = request.getParameter("num1") + request.getParameter("num2") + request.getParameter("num3"); 
+		dto.setPhone(phone);
+		String stadium_seq = request.getParameter("stadium_seq");
+		service.bookingReserve(dto);
+		
+		return "redirect:/bookingDetail.do?booking_seq=" + Integer.toString(dto.getBooking_seq()) + "&stadium_seq=" + stadium_seq;
+	}
 	
 	
 	

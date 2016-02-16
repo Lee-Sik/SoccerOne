@@ -12082,12 +12082,14 @@ div.booking_wrap div.book_view ul.img_list {
 	zoom: 1;
 	padding: 13px 10px;
 	border-bottom: 2px solid #d2d2d2;
+	
 }
 
 div.booking_wrap div.book_view ul.img_list:after {
 	display: block;
 	content: "";
 	clear: both;
+	
 }
 
 div.booking_wrap div.book_view ul.img_list li {
@@ -12097,6 +12099,7 @@ div.booking_wrap div.book_view ul.img_list li {
 	border: 1px solid #d2d2d2;
 	float: left;
 	margin: 0 3px;
+	
 }
 
 div.booking_wrap div.book_view ul.img_list li img {
@@ -12105,6 +12108,7 @@ div.booking_wrap div.book_view ul.img_list li img {
 	height: 130px;
 	text-align: center;
 	vertical-align: middle;
+
 	/* max-width: 184px; */
 } /*뷰페이지 - 공유메뉴박스*/
 div.booking_wrap div.book_view div.share_box {
@@ -14882,3 +14886,4 @@ body .ui-tooltip {
 .ui-widget-content.ui-datepicker-inline {
 	border: none;
 }
+

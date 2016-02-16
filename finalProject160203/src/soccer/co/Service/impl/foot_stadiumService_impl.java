@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import soccer.co.DAO.foot_stadium_DAO;
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_sbookingReserve_DTO;
 import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.DTO.postDTO;
@@ -76,6 +77,12 @@ public class foot_stadiumService_impl implements foot_stadiumService{
 	public foot_sbooking_DTO bookingDetail(int booking_seq) throws Exception {
 	
 		return dao.bookingDetail(booking_seq);
+	}
+
+	@Override
+	public boolean bookingReserve(foot_sbookingReserve_DTO dto) throws Exception {
+		
+		return dao.bookingReserve(dto);
 	}
 
 

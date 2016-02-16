@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_sbookingReserve_DTO;
 import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.DTO.postDTO;
@@ -93,7 +94,11 @@ public class foot_stadium_DAO {
 		
 	}
 	
-	
+	public boolean bookingReserve(foot_sbookingReserve_DTO dto)throws Exception{
+		sqlsession.insert("stadium.bookingReserve", dto);
+		sqlsession.update("stadium.bookingUpdate", dto);
+		return true;
+	}
 	
 	
 	

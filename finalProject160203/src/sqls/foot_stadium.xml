@@ -46,10 +46,18 @@ game1,game2,game3,game4,game5,game6,game7 from foot_booking b, foot_stadium s wh
 </select>
 
 <select id="stadiumDetail" parameterType="int" resultType="soccer.co.DTO.foot_stadium_DTO">
-	select user_email,stadium_name,stadium_phone,addr,s_content,findway,stadium_img1,stadium_img2,stadium_img3,stadium_img4
+	select stadium_seq,user_email,stadium_name,stadium_phone,addr,s_content,findway,stadium_img1,stadium_img2,stadium_img3,stadium_img4
 	from foot_stadium where stadium_seq = #{stadium_seq}  
 </select>
 
+<insert id="bookingReserve" parameterType="soccer.co.DTO.foot_sbookingReserve_DTO">
+	insert into foot_booking_reserve (booking_seq,gametime,user_email,rental_switch,phone)
+	values (#{booking_seq},#{gametime},#{user_email},0,#{phone})
+</insert>
+
+<update id="bookingUpdate" parameterType="soccer.co.DTO.foot_sbookingReserve_DTO">
+	update foot_booking set ${gametime} = #{user_email} where booking_seq = #{booking_seq}
+</update>
 
 
 
