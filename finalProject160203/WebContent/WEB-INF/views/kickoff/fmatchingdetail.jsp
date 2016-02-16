@@ -6,8 +6,8 @@
 
 
 <form name="frmForm" id="_frmForm" method="post" action="bbsupdate.do">
-<table class="list_table" style="width:85%;">
-<input type="hidden" name="seq" value="${bbs.bbs_no}"/>
+<table class="list_table" style="width:50%;">
+<%-- <input type="hidden" name="seq" value="${bbs.bbs_no}"/> --%>
 
 <colgroup>
 <col style="width:200px;" />
@@ -17,27 +17,43 @@
 <tbody>	
 
 <tr class="id">
-	<th>아이디</th>
-	<td style="text-align: left">${bbs.user_email}</td>
+	<th>클럽장</th>
+	<td style="text-align: left">${login.user_email}</td>
 </tr>
 
 <tr>
-	<th>제 목</th><td style="text-align: left">${bbs.title}</td>
+	<th>클럽명</th><td style="text-align: left">${fmd.team_name}</td>
 </tr>
 
 <tr>
-	<th>작성일</th><td style="text-align: left">${bbs.wdate}</td>
+	<th>경기일자</th><td style="text-align: left">${fmd.game_date}</td>
 </tr>
 
 <tr>
-	<th>조회수</th><td style="text-align: left">${bbs.readcount}</td>
+	<th>경기장</th><td style="text-align: left">${fmd.ground}</td>
 </tr>
 
 <tr>
-	<th>내 용</th>
-	<td style="text-align: left">${bbs.content}<br>
-	<a href="javascript:window.open('file://C:/image/${bbs.imageurl}', 'resizable=no, scrollbars=yes, status=no;')"><img src="C:/image/${bbs.imageurl}" width="50%;" alt="이미지없음"/></a></td>
+	<th>대전료</th><td style="text-align: left">
+	<fmt:formatNumber value="${fmd.pay}" pattern="#,###.##' 원'"/></td>
 </tr>
+
+<tr>
+	<th>대전현황</th>
+		<c:if test="${fmd.game_state == 0}">
+			<td style="text-align: center;" bgcolor="orange">대기중</td> 
+		</c:if>
+			
+		<c:if test="${fmd.game_state == 1}">
+			<td style="text-align: center" bgcolor="green">경기중</td> 
+		</c:if>
+		
+		<c:if test="${fmd.game_state == 2}">
+			<td style="text-align: center" bgcolor="lightgray">경기완료</td> 
+		</c:if>
+</tr>
+
+
 
 <%-- 
 <tr>
@@ -71,19 +87,19 @@
 <!-- </form> -->
 <%-- </c:if> --%>
 
-<c:if test="${login.user_email eq bbs.user_email}">
-<form action="bbsupdate.do" method="post">
-<input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" />
-<input type="submit"  value="수정하기" />
-</form>
-</c:if>
+<%-- <c:if test="${login.user_email eq bbs.user_email}"> --%>
+<!-- <form action="bbsupdate.do" method="post"> -->
+<%-- <input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" /> --%>
+<!-- <input type="submit"  value="수정하기" /> -->
+<!-- </form> -->
+<%-- </c:if> --%>
 
-<c:if test="${login.user_email eq bbs.user_email}">
-<form action="bbsdel.do" method="post">
-<input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" />
-<input type="submit"  value="삭제하기" />
-</form>
-</c:if>
+<%-- <c:if test="${login.user_email eq bbs.user_email}"> --%>
+<!-- <form action="bbsdel.do" method="post"> -->
+<%-- <input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" /> --%>
+<!-- <input type="submit"  value="삭제하기" /> -->
+<!-- </form> -->
+<%-- </c:if> --%>
 
 <script type="text/javascript">
 $("#_btnUpdate").click(function() {	

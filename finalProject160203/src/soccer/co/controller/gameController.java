@@ -156,6 +156,18 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 		return "redirect:/kickoff.do";
 	}
 	
+	@RequestMapping(value = "fmatchingdetail.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String fmatchingdetail(foot_game_DTO fgdto,Model model) throws Exception {
+		logger.info("Welcome MemberController fmatchingdetail! "+ new Date());
+		
+		foot_game_DTO fgd = fgameservice.getFreegamedetail(fgdto);
+				
+		model.addAttribute("fmd",fgd);
+		model.addAttribute("title", "친선경기 상세보기");
+		
+		return "fmatchingdetail.tiles";
+	}
+	
 	
 	
 }

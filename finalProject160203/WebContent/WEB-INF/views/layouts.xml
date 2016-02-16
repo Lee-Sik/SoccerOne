@@ -114,6 +114,12 @@
 
 </definition>
 
+<definition name="fmatchingdetail.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/fmatchingdetail.jsp" />
+
+</definition>
+
 <definition name="fmatchingsearch.tiles" extends="login.tiles">
 
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/fmatchingsearch.jsp" />

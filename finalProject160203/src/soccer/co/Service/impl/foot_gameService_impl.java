@@ -28,6 +28,12 @@ public class foot_gameService_impl implements foot_gameService{
 	
 	@Override
 	@Transactional(readOnly=true)
+	public foot_game_DTO getFreegamedetail(foot_game_DTO fgdto) throws Exception {
+		return fgdao.getFreegamedetail(fgdto);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
 	public foot_game_DTO publicgame(foot_game_DTO fgdto) throws Exception {
 		// TODO Auto-generated method stub
 		return fgdao.publicgame(fgdto);

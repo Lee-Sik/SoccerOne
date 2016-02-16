@@ -32,12 +32,12 @@
 <table class="list_table" style="width:85%;">
 
 <colgroup>
-<col style="width:30px;" />
-<col style="width:30px;" />
-<col style="width:200px;" />
-<col style="width:50px;" />
-<col style="width:80px;" />
-<col style="width:35px;" />
+	<col style="width:5%;"/>
+	<col style="width:10%;"/>
+	<col style="width:auto;"/>
+	<col style="width:20%;"/>
+	<col style="width:13%;"/>
+	<col style="width:7%;"/>
 </colgroup>
 
 <thead>
@@ -46,26 +46,21 @@
 	</tr>
 </thead>
 
-<tbody>	
-
 <c:if test="${empty bbslist}">
 	<tr>
-		<td colspan="5">작성된 글이 없습니다.</td>
+		<td colspan="6">작성된 글이 없습니다.</td>
 	</tr>
 </c:if>
 
- 
 <c:forEach items="${bbslist}" var="bbs" varStatus="vs">
 <c:if test="${bbs.del == 0}">
 	<tr class="_hover_tr">
 		<td>${vs.count}</td> 
 		<td>${bbs.topic}</td>
 		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'>${bbs.title}</a></td>
-		<td>${bbs.user_email}</td> 
-		
-		<c:set var="rdate" value="${bbs.wdate}"/>
-		<c:set var="len" value="${fn:length(wdate)}"/>
-		
+		<td>${bbs.user_email}</td>
+			<c:set var="rdate" value="${bbs.wdate}"/>
+			<c:set var="len" value="${fn:length(wdate)}"/>
 		<td>${fn:substring(bbs.wdate, 0, 10)}</td>  
 		<td>${bbs.readcount}</td> 
 	</tr>
@@ -93,9 +88,8 @@
 	</tr>
 </c:forEach>
 --%>
-</tbody>
-</table>
 
+</table>
 
 <div id="buttons_wrap">
 	<span class="button blue">

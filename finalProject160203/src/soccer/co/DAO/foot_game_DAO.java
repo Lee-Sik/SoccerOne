@@ -28,6 +28,12 @@ public class foot_game_DAO{
 		return true;
 	}
 	
+	public foot_game_DTO getFreegamedetail(foot_game_DTO fgdto)throws Exception{
+		foot_game_DTO fgd=null;
+		fgd=(foot_game_DTO)sqlse.selectOne(ns+"getFreegamedetail",fgdto);
+		return fgd;
+	}
+	
 	public foot_game_DTO publicgame(foot_game_DTO fgdto) throws Exception {
 		
 		sqlse.insert(ns+"publicgame", fgdto);

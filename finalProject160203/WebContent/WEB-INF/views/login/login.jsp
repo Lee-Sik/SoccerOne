@@ -2,7 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<link rel="stylesheet" type="text/css" href="./CSS/main.css">
+
 <html>
 <head>
 <title>Insert title here</title>
@@ -11,7 +11,7 @@
 <script type="text/javascript">
 function popupOpen(){
 	var popUrl = "myinform.do";	//팝업창에 출력될 페이지 URL
-	var popOption = "width=800, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+	var popOption = "width=500, height=700,top=70, left=220, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 		window.open(popUrl,"",popOption);
 	}
 </script>

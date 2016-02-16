@@ -11,6 +11,7 @@ public interface foot_gameService {
 	public boolean freegame(foot_game_DTO fgdto) throws Exception;
 	public foot_game_DTO publicgame(foot_game_DTO fgdto) throws Exception;
 	foot_game_DTO getPublicgamedetail(foot_game_DTO fgdto)throws Exception;
+	foot_game_DTO getFreegamedetail(foot_game_DTO fgdto)throws Exception;
 	
 //	public foot_game_DTO getpublicgame(foot_game_DTO fgdto) throws Exception;
 	
