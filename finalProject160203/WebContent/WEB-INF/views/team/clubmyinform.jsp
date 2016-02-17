@@ -22,13 +22,21 @@ table,tr,td{
 </style>
 </head>
 <body>
-<div style="float:left; width: 50%;">
-<img alt="" src="image/${login.user_profile }" style="width:100%">
-</div>
 
-<div style="float:left;width: 50%;">
-<p style="font-size: 30pt;color: blue;">팀 내 나의 정보</p>
+
+<table style="width: 100%">
+
+
+<tr>
+<td width="300" >
+<img alt="" src="image/${login.user_profile }" style="width:100%; margin: auto; padding: 0;"></td>
+
+<td>
 <table style="width: 100%" class="qwe">
+<tr>
+<th colspan="2" style="background-color: lightgray;">
+클럽과 나의 연결고리</th>
+</tr>
 <tr>
 <td>이름</td>
 <td>${login.user_name }</td>
@@ -78,15 +86,20 @@ table,tr,td{
 <td>${login.user_goal }</td>
 </tr>
 </table>
-</div>
+</td>
+</tr>
 
-<div style="width: 100%">
-육각형으로 보여주기
-</div>
 
-<div style="width: 100%">
-개인 그래프
-</div>
+
+<tr>
+<td colspan="2">육각형으로 보여주기</td>
+</tr>
+
+
+<tr>
+<td colspan="2">개인 그래프</td>
+</tr>
+</table>
 
 </body>
 </html>
