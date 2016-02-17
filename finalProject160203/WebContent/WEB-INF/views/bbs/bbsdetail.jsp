@@ -28,7 +28,7 @@ function openNewsWin2(openUrl) {
 function sendNews(media) {
     var sendUrl,locUrl,message;
     locUrl = window.location.href;
-    message = ${};
+    message = "대부분의 암이 남자가 여자보다 사망율이 높다던데요";
     switch(media) {
         case "twitter":
             sendUrl = "http://twitter.com/home?status="+encodeURIComponent(message)+"+"+escape(locUrl);
