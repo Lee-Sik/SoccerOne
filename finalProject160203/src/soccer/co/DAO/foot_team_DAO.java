@@ -1,6 +1,7 @@
 package soccer.co.DAO;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -69,11 +70,24 @@ public class foot_team_DAO {
 	}
 
 	public List<foot_user_DTO> getTeamMember(String team_name) {
-		return sql.selectList(ns1+"getTeamMember",team_name);
+		List<foot_user_DTO> q = sql.selectList(ns1+"getTeamMember",team_name);
+		return q;
 	}
 
 	public foot_team_DTO getTeam(foot_team_DTO team) {
 		return (foot_team_DTO) sql.selectOne(ns+"getTeam",team.getTeam_name());
+	}
+
+	public boolean modifyteam(foot_team_DTO team, foot_user_DTO fudto, String originteamname) {
+		// TODO Auto-generated method stub
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("originteamname", originteamname);
+		map.put("team", team);
+		
+		sql.update(ns+"modifyteam", map);
+		
+		sql.update(ns1+"modifyteam1",fudto);
+		return true;
 	}
 	
 }

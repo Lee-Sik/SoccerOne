@@ -49,4 +49,10 @@ public class foot_teamService_impl implements foot_teamService{
 		
 	}
 
+	@Override
+	public boolean modifyteam(foot_team_DTO team, foot_user_DTO fudto, String originteamname) {
+		// TODO Auto-generated method stub
+		return teamdao.modifyteam(team,fudto,originteamname);
+	}
+
 }

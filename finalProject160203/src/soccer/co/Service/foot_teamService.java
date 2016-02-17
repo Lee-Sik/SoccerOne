@@ -19,4 +19,6 @@ public interface foot_teamService {
 	public List<foot_user_DTO> getTeamMember(String team_name);
 
 	public foot_team_DTO getTeam(foot_team_DTO team);
+	
+	public boolean modifyteam(foot_team_DTO team, foot_user_DTO fudto, String originteamname);
 }

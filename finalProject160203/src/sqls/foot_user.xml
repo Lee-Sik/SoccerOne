@@ -45,5 +45,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    user_enabled = #{user_enabled} where user_email = #{user_email}
    </update>
    
+   <update id="modifyteam1" parameterType="soccer.co.DTO.foot_user_DTO">
+   update foot_user set user_team = #{user_team} where user_team = #{user_name}
+   </update>
+   
    
 </mapper>

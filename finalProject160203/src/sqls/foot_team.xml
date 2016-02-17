@@ -37,6 +37,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
    </select>
    
+   <update id="modifyteam" parameterType="hashmap">
+   update foot_team set team_managerid=#{team.team_managerid},team_name=#{team.team_name},team_intro=#{team.team_intro},
+   team_location1=#{team.team_location1},team_location2=#{team.team_location2},team_location3=#{team.team_location3},
+   team_join=#{team.team_join},team_open=#{team.team_open},team_home=#{team.team_home},
+   team_logo=#{team.team_logo} where team_name=#{originteamname}
+   </update>
+   
    
    
 </mapper>

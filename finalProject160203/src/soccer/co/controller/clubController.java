@@ -56,7 +56,7 @@ public class clubController {
 	
 	@RequestMapping(value = "getTeamMember.do", method = {RequestMethod.GET,RequestMethod.POST})
 	@ResponseBody
-	public List<foot_user_DTO> getTeamMember(HttpServletRequest req){
+	public List<foot_user_DTO> getTeamMember(HttpServletRequest req,Model model){
 		logger.info("getTeamMember do!");
 		
 		HttpSession session=req.getSession();
@@ -197,9 +197,70 @@ public class clubController {
 	@RequestMapping(value = "teamsetting.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String teamsetting(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
 		logger.info("clubmyinform teamsetting!");
-		
-		
+		HttpSession session=request.getSession();
+		foot_team_DTO team=(foot_team_DTO)session.getAttribute("team");
+		List<foot_user_DTO> teamMemberList = clubservice.getTeamMember(team.getTeam_name());
+		model.addAttribute("getteammember", teamMemberList);
 		return "teamsetting.tiles";
+	}
+	
+	
+	@RequestMapping(value = "teamsetting1.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String teamsetting1(@RequestParam("file") MultipartFile file,
+			HttpServletRequest req,foot_team_DTO team,String team_h,String team_o,String team_j, Model model) throws Exception {	
+		logger.info("clubmyinform teamsetting1!");
+		
+		String fileName = null;
+		File upload = null;
+		foot_team_DTO team1 = (foot_team_DTO)req.getSession().getAttribute("team");
+		
+		
+		if (!file.isEmpty()) {
+			try {
+				fileName = file.getOriginalFilename();
+				
+				//upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
+				//upload = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160203/WebContent/image/" + fileName);
+				//upload = new File("C:/springstudy/finalProject160203/WebContent/image/" + fileName);
+				upload = new File("D:/Spring/finalProject160203/WebContent/image/" + fileName);
+				// 
+				byte[] bytes = file.getBytes();
+				BufferedOutputStream buffStream = new BufferedOutputStream(
+						new FileOutputStream(upload));
+
+				buffStream.write(bytes);
+				buffStream.close();
+				team.setTeam_logo(fileName);
+				
+				System.out.println("You have successfully uploaded " + fileName);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			
+			team.setTeam_logo(team1.getTeam_logo());
+		}
+		String originteamname = team1.getTeam_name();
+		team1.setTeam_managerid(team.getTeam_managerid());
+		team1.setTeam_name(team.getTeam_name());
+		team1.setTeam_intro(team.getTeam_intro());
+		team1.setTeam_location1(team.getTeam_location1());
+		team1.setTeam_location2(team.getTeam_location2());
+		team1.setTeam_location3(team.getTeam_location3());
+		team1.setTeam_join(team.getTeam_join());
+		team1.setTeam_open(team.getTeam_open());
+		team1.setTeam_home(team.getTeam_home());
+		team1.setTeam_logo(team.getTeam_logo());
+		model.addAttribute("team", team1);
+		foot_user_DTO fudto = (foot_user_DTO) req.getSession().getAttribute("login");
+		fudto.setUser_team(team1.getTeam_name());
+		model.addAttribute("login", fudto);
+		fudto.setUser_name(originteamname);
+		System.out.println(team1.toString());
+		clubservice.modifyteam(team1,fudto,originteamname);
+		
+		
+		return "redirect:club.do";
 	}
 	
 	
