@@ -18,11 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sun.org.apache.regexp.internal.recompile;
-
 import soccer.co.DTO.BBSParam;
 import soccer.co.DTO.foot_comment_DTO;
 import soccer.co.DTO.foot_comunity_DTO;
+import soccer.co.DTO.foot_like_DTO;
 import soccer.co.Service.foot_comunityService;
 
 @Controller
@@ -116,12 +115,29 @@ public class comunityController {
 	}
 	
 	@RequestMapping(value = "bbslike.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String bbslike(int bbs_no, foot_comunity_DTO bbs, Model model) throws Exception {
+	public String bbslike(int bbs_no, String user_email, foot_like_DTO flike, Model model) throws Exception {
 		logger.info("Welcome BBSController bbslike! "+ new Date());
 		
-		bbs.setBbs_no(bbs_no);
+		flike.setParent_bbs_no(bbs_no);
+		flike.setUser_email(user_email);
+		BBSService.bbsLike(flike);
 		
-		BBSService.bbsLike(bbs);
+		BBSService.bbsLikeCount(bbs_no);
+		
+		
+		return  "redirect:/bbsdetail.do?bbs_no=" + bbs_no;
+	}
+	
+	@RequestMapping(value = "bbslikedel.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String bbslikedel(int bbs_no, String user_email, foot_like_DTO flike, Model model) throws Exception {
+		logger.info("Welcome BBSController bbslikedel! "+ new Date());
+		
+		flike.setParent_bbs_no(bbs_no);
+		flike.setUser_email(user_email);
+		BBSService.bbsLikeDel(flike);
+		
+		BBSService.bbsLikeCountDel(bbs_no);
+		
 		
 		return  "redirect:/bbsdetail.do?bbs_no=" + bbs_no;
 	}
@@ -249,6 +265,9 @@ public class comunityController {
 		model.addAttribute("bbs",dto);
 		model.addAttribute("title", "글 상세보기");
 		
+		List<foot_like_DTO> flike = BBSService.getLikeList(bbs_no);
+		
+		model.addAttribute("flike",flike);
 		
 		int sn=param.getPageNumber();
 		int start=(sn)*param.getRecordCountPerPage()+1;

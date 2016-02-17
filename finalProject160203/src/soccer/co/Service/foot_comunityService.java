@@ -5,6 +5,7 @@ import java.util.List;
 import soccer.co.DTO.BBSParam;
 import soccer.co.DTO.foot_comment_DTO;
 import soccer.co.DTO.foot_comunity_DTO;
+import soccer.co.DTO.foot_like_DTO;
 
 
 public interface foot_comunityService {
@@ -14,13 +15,17 @@ public interface foot_comunityService {
 	
 	List<foot_comunity_DTO> getBBSList()throws Exception;
 	List<foot_comunity_DTO> getBBSPagingList(BBSParam param)throws Exception;
+	List<foot_like_DTO> getLikeList(int parent_bbs_no)throws Exception;
 	
 	int getBBSCount(BBSParam param) throws Exception;
 	foot_comunity_DTO getBBS(foot_comunity_DTO dto)throws Exception;
 	
 	boolean replyBBS(foot_comunity_DTO bbs)throws Exception;
 	boolean incrementReadCount(foot_comunity_DTO bbs)throws Exception;
-	boolean bbsLike(foot_comunity_DTO bbs)throws Exception;
+	boolean bbsLike(foot_like_DTO flike)throws Exception;
+	boolean bbsLikeCount(int bbs_no)throws Exception;
+	boolean bbsLikeDel(foot_like_DTO flike)throws Exception;
+	boolean bbsLikeCountDel(int bbs_no)throws Exception;
 	
 	boolean updateBBS(foot_comunity_DTO bbs)throws Exception;
 	

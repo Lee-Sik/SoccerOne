@@ -1,3 +1,11 @@
+create table foot_bbs_like(                    --친선경기 게시판 
+   parent_bbs_no number not null, --게시글 시퀀스
+   user_email varchar2(50) not null,    --작성자
+   CONSTRAINT FK_parent_bbs_no FOREIGN KEY(parent_bbs_no) REFERENCES foot_bbs(bbs_no)      
+);
+
+
+
 SELECT T.TEAM_MANAGERID, F.GAME_NO, F.TEAM_NAME, F.GAME_LOCATION, F.GAME_DATE, F.GROUND, F.PAY, F.GAME_STATE
 FROM FOOT_PUBLICGAME F, FOOT_TEAM T
 WHERE F.GAME_NO=48
@@ -7,6 +15,15 @@ AND F.TEAM_NAME = T.TEAM_NAME;
 select * from foot_team
 
 
+select * from FOOT_BBS
+
+delete good from FOOT_BBS
+
+update FOOT_BBS set good = 0
+
+delete from foot_bbs_like
+
+select * from FOOT_BBS_LIKE
 
 
 INSERT INTO FOOT_BBS_COMMENT

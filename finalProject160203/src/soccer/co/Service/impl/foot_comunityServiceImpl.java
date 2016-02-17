@@ -10,6 +10,7 @@ import soccer.co.DAO.foot_comunity_DAO;
 import soccer.co.DTO.BBSParam;
 import soccer.co.DTO.foot_comment_DTO;
 import soccer.co.DTO.foot_comunity_DTO;
+import soccer.co.DTO.foot_like_DTO;
 import soccer.co.Service.foot_comunityService;
 
 
@@ -50,6 +51,14 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 		
 		return BBSDao.getBBSPagingList(param);
 	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public List<foot_like_DTO> getLikeList(int parent_bbs_no)
+			throws Exception {
+		
+		return BBSDao.getLikeList(parent_bbs_no);
+	}
 
 	@Override
 	@Transactional(readOnly=true)
@@ -77,9 +86,27 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 	}
 	
 	@Override
-	public boolean bbsLike(foot_comunity_DTO bbs) throws Exception {
+	public boolean bbsLike(foot_like_DTO flike) throws Exception {
 		
-		return BBSDao.bbsLike(bbs);
+		return BBSDao.bbsLike(flike);
+	}
+	
+	@Override
+	public boolean bbsLikeCount(int bbs_no) throws Exception {
+		
+		return BBSDao.bbsLikeCount(bbs_no);
+	}
+	
+	@Override
+	public boolean bbsLikeDel(foot_like_DTO flike) throws Exception {
+		
+		return BBSDao.bbsLikeDel(flike);
+	}
+	
+	@Override
+	public boolean bbsLikeCountDel(int bbs_no) throws Exception {
+		
+		return BBSDao.bbsLikeCountDel(bbs_no);
 	}
 
 	@Override

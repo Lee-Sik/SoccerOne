@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import soccer.co.DTO.BBSParam;
 import soccer.co.DTO.foot_comment_DTO;
 import soccer.co.DTO.foot_comunity_DTO;
+import soccer.co.DTO.foot_like_DTO;
 
 @Repository
 public class foot_comunity_DAO {
@@ -41,6 +42,12 @@ public class foot_comunity_DAO {
 		return list;
 	}
 	
+	public List<foot_like_DTO> getLikeList(int parent_bbs_no)throws Exception{
+		List<foot_like_DTO> list=new ArrayList<foot_like_DTO>();
+		list=(List<foot_like_DTO>)
+				sqlSession.selectList(ns+"getLikeList", parent_bbs_no);
+		return list;
+	}
 	
 	public List<foot_comunity_DTO> getBBSPagingList(BBSParam param)throws Exception{
 		List<foot_comunity_DTO> list=new ArrayList<foot_comunity_DTO>();
@@ -66,8 +73,28 @@ public class foot_comunity_DAO {
 		return true;
 	}
 	
-	public boolean bbsLike(foot_comunity_DTO bbs)throws Exception{
-		sqlSession.update(ns+"bbsLike",bbs);
+	public boolean bbsLike(foot_like_DTO flike)throws Exception{
+		sqlSession.insert(ns+"bbsLike",flike);
+		return true;
+	}
+	
+	public boolean bbsLikeCount(int bbs_no)throws Exception{
+		sqlSession.update(ns+"bbsLikeCount",bbs_no);
+		return true;
+	}
+	
+	public boolean bbsLikeDel(foot_like_DTO flike)throws Exception{
+		sqlSession.delete(ns+"bbsLikeDel",flike);
+		return true;
+	}
+	
+	public boolean bbsLikeCountDel(int bbs_no)throws Exception{
+		sqlSession.update(ns+"bbsLikeCountDel",bbs_no);
+		return true;
+	}
+	
+	public boolean bbsLikeReadCount(foot_comunity_DTO bbs)throws Exception{
+		sqlSession.update(ns+"bbsLikeReadCount",bbs);
 		return true;
 	}
 	
