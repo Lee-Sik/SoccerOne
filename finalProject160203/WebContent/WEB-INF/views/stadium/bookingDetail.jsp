@@ -224,8 +224,8 @@ $(function(){
 	<div id="BookingLayer" class="bookinglayer">
 		<form name="BookingLayerForm" id="BookingLayerForm" action="./booking_reserve.do" method="post">
 			<div class="section_header">
-				<h3>축구장 부킹신청</h3>
-				<h4>${sdto.stadium_name}</h4>
+				<h3 style="margin-top: -1px;">축구장 부킹신청</h3>
+				<h4 style="margin-top: -1px;">${sdto.stadium_name}</h4>
 			</div>
 			<div class="section">
 				<table class="game_table" summary="야구장 부킹신청">
@@ -296,13 +296,13 @@ $(function(){
 			<col span="1" />
 		</colgroup>
 		<caption>
-		<dl>
+		<dl style="margin-top: 1px;">
 			<dt>대관료 납부계좌</dt>
 			<dd>
-				<dl>
+				<dl style="margin-top: -20px;">
 					<dd>${bdto.rentalaccount}</dd>
 				</dl>
-				<p>※ 입금후, 관리자가 확정(예약완료)을 해야 부킹신청 완료됩니다.</p>
+				<p style="margin-top: -10px;">※ 입금후, 관리자가 확정(예약완료)을 해야 부킹신청 완료됩니다.</p>
 			</dd>
 		</dl></caption>
 		
@@ -537,7 +537,7 @@ $(function(){
 	</ul>
 	<div class="btn_group">
 		<div class="right">
-			<a href="http://www.gameone.kr/booking/stadium/main&lig_idx=0" class="sbbtn">목록보기</a>
+			<a href="./bookingList.do" class="sbbtn">목록보기</a>
 		</div>
 	</div>
 		

@@ -35,9 +35,7 @@ $(document).ready(function () {
     	 onSelect: function (dateText, inst) {  
     		
     		 var v = $( "#testDatepicker" ).val();
-    		 
-    		 alert(v);
-    		 
+    		 		 
     		 location.href="./bookingList.do?day=" + v + "&mode=day";
     	 }  
     	
@@ -60,42 +58,43 @@ $(document).ready(function () {
 				<div class="hb_wrap booking_wrap">
 
 
-<div class="book_list_top" style="width: 81%; margin-left: 30px;">
+<div class="book_list_top" style="width: 82%; margin-left: 30px;">
 	<div class="tab_area">
 		<ul class="tab">
 					<li class="on"><a href="./bookingList.do">전체</a></li>
 			<li class="" style="padding-left: 5.2px;"><a href="./bookingList.do?mode=area&area=동대문구">동대문구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=도봉구">도봉구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=03&date=&selectGround=&kword=">성북구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=04&date=&selectGround=&kword=">중랑구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=05&date=&selectGround=&kword=">서대문구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=06&date=&selectGround=&kword=">성동구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=07&date=&selectGround=&kword=">마포구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=08&date=&selectGround=&kword=">영등포구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=09&date=&selectGround=&kword=">강북구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=10&date=&selectGround=&kword=">중 구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=11&date=&selectGround=&kword=">구로구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=12&date=&selectGround=&kword=">강서구</a></li>
-			<li class="" style="width: 60px;"><a href="/booking/stadium/main?area=13&date=&selectGround=&kword=">동작구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=성북구">성북구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=중랑구">중랑구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=서대문구">서대문구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=성동구">성동구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=마포구">마포구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=영등포구">영등포구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=강북구">강북구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=중구">중 구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=구로구">구로구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=강서구">강서구</a></li>
+			<li class="" style="width: 60px;"><a href="./bookingList.do?mode=area&area=동작구">동작구</a></li>
 			<!-- <li class="" style="padding-left: 10.5px;"></li> -->
-			<li class=""><a href="/booking/stadium/main?area=14&date=&selectGround=&kword=">관악구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=15&date=&selectGround=&kword=">노원구</a></li>
-			<li class="" style="width: 59px;"><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">송파구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=관악구">관악구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=노원구">노원구</a></li>
+			<li class="" style="width: 59px;"><a href="./bookingList.do?mode=area&area=송파구">송파구</a></li>
 			
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">은평구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">양천구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">강남구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">금천구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">종로구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">용산구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">강동구</a></li>			
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">서초구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=16&date=&selectGround=&kword=">광진구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=은평구">은평구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=양천구">양천구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=강남구">강남구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=금천구">금천구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=종로구">종로구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=용산구">용산구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=강동구">강동구</a></li>			
+			<li class=""><a href="./bookingList.do?mode=area&area=서초구">서초구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=광진구">광진구</a></li>
 			<li class=""></li><li class=""></li><li class=""></li><li class=""></li>
 			
 		</ul>
 		<br><br>
-	</div>
+	</div> <!-- tab_area -->
+	
 	 <div class="schedule_info">
 		<div class="calendar">
 	<form name="f1" action="">	
@@ -104,11 +103,11 @@ $(document).ready(function () {
 	</div>
 	</form>
 		</div>
-	 </div>
-	<!--	<div class="game_booking">
+	 
+		<div class="game_booking" style="margin-left: 225px; margin-top: -215px; width: 70%;">
 			<h4>게임부킹</h4>
 			<a href="/booking/board/list?board_idx=22" class="more">게임부킹 더보기</a>
-			<ul class="game_booking">
+			<ul class="game_booking" style="margin-top: -18px;">
 
 							<li><a href="/booking/board/view?board_idx=22&post_idx=66487">
 					<span class="area">서울, 경기</span>
@@ -137,9 +136,11 @@ $(document).ready(function () {
 				</li>
 			 
 			</ul>
-		</div>
-	</div> -->
-</div>
+		</div> <!-- game_booking -->
+		
+	</div> <!-- schedule_info -->
+</div> <!-- book_list_top -->
+
 <div class="book_list_body">
 	<div class="book_search">
 		
@@ -360,7 +361,7 @@ $(document).ready(function () {
 
 </div>
 
-
+<br><br><br><br><br><br>
 
 
 
