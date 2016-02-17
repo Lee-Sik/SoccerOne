@@ -131,14 +131,6 @@ function sendNews(media) {
 
 
 
-
-
-
-
-
-
-
-
 <%-- 
 <tr>
 	<td colspan="2" style="height:50px; text-align:center;">
@@ -200,10 +192,11 @@ $("#_btnUpdate").click(function() {
 <col width="auto"/>
 <col width="8%"/>
 <tr>
-	<td></td>
+	<td colspan="2"></td>
 </tr>
 <tr>
-	<th colspan="2"> 댓글 보기 </th>
+	<td> 댓글 </td>
+	<td> 작성자 </td>
 </tr>
 	<c:if test="${empty comlist}">
 		<tr>
