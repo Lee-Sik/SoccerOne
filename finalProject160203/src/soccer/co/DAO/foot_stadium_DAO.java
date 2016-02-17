@@ -18,7 +18,7 @@ import soccer.co.DTO.postDTO;
 public class foot_stadium_DAO {
 	
 	@Autowired
-	private SqlSession sqlsession;
+	SqlSession sqlsession;
 	
 	public List<ZipcodeDTO> zipcode(String dong)throws Exception{
 		
@@ -71,9 +71,9 @@ public class foot_stadium_DAO {
 		return true;
 	}
 	
-	public List<foot_sbooking_DTO> bookingList()throws Exception{
+	public List<foot_sbooking_DTO> bookingList(foot_sbooking_DTO dto)throws Exception{
 		
-		List<foot_sbooking_DTO> bookingList = sqlsession.selectList("stadium.bookingList");
+		List<foot_sbooking_DTO> bookingList = sqlsession.selectList("stadium.bookingList",dto);
 		
 		return bookingList;
 		
@@ -100,6 +100,28 @@ public class foot_stadium_DAO {
 		return true;
 	}
 	
+	public int getRentalSwitch(String booking_seq, String gametime)throws Exception{
+		
+		System.out.println("booking_seq123131 : " + booking_seq);
+		System.out.println("gametime123131 : " + gametime);
+		
+		Map<String, String> map = new HashMap<String,String>();
+
+		map.put("booking_seq", booking_seq);
+		map.put("gametime", gametime);
+		
+		System.out.println("Dada");
+		
+		Integer rentalswitch = (Integer)sqlsession.selectOne("stadium.getRentalSwitch", map);
+		
+		System.out.println("rental : " + rentalswitch);
+		
+		
+		if (rentalswitch==null)
+			return 0;
+		else
+			return rentalswitch;
+	}
 	
 	
 }

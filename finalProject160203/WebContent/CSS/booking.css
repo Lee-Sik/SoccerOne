@@ -18,6 +18,7 @@
 body, div, p, a, ul, ol, li, dl, dt, h1, h2, h3, h4, h5, h6, table, td,
 	tr, img, dl, dd, dt, strong, span, form {
 	padding: 0;
+	
 }
 
 /* body { */
@@ -10673,7 +10674,7 @@ div.booking_wrap div.game_booking ul.game_booking a:hover span.area {
 } /*부킹인포(캘린더,부킹최근글리스트)*/
 div.booking_wrap div.schedule_info {
 	border: 1px solid #b6b5bd;
-	padding: 10px 9px;
+	padding: 40px 9px;
 	border-top: 0;
 	margin-top: -1px;
 	background: #fff;

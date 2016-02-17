@@ -14,13 +14,11 @@
 <style type="text/css">
 
 * {
-  margin: 0;
+ 
   padding: 0;
 }
 
-body {
-  margin: 100px;
-}
+
 
 .pop-layer .pop-container {
   padding: 20px 25px;
@@ -324,49 +322,183 @@ $(function(){
 				<td>08시 00분 부터</td>
 				<td>2시간</td>
 				<td><span class="price">${bdto.rentalsum}원</span><span class="option">심판없음</span></td>
-				<td class="status"><span id="game1" title="08시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+	
+				<c:choose>
+				    <c:when test="${empty bdto.game1}">
+				    <td class="status">				
+					<span id="game1" title="08시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				    </c:when>
+	
+				    <c:otherwise>			        
+				        <c:choose>				        
+						    <c:when test="${game1==1}">
+						    <td class="status">				
+							<span id="game1" title="08시 00분 부터" class="occupied">확정</span></td><td><strong>예약확정</strong></td>
+						    </c:when>				        
+						    
+						    <c:otherwise>
+						   	<td class="status">				
+							<span id="game1" title="08시 00분 부터" class="reserved">예약</span></td><td><strong>예약중</strong></td>
+						    </c:otherwise>
+				        </c:choose>			
+				    </c:otherwise>
+				</c:choose>
+			
 			</tr>
 			<tr>
 				<th>2게임</th>
 				<td>10시 00분 부터</td>
 				<td>2시간</td>
 				<td><span class="price">${bdto.rentalsum}원</span><span class="option">심판없음</span></td>
-				<td class="status"><span id="game2" title="10시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				<c:choose>
+				    <c:when test="${empty bdto.game2}">
+				    <td class="status">				
+					<span id="game2" title="10시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				    </c:when>
+	
+				    <c:otherwise>			        
+				        <c:choose>				        
+						    <c:when test="${game2==1}">
+						    <td class="status">				
+							<span id="game2" title="10시 00분 부터" class="occupied">확정</span></td><td><strong>예약확정</strong></td>
+						    </c:when>				        
+						    
+						    <c:otherwise>
+						   	<td class="status">				
+							<span id="game2" title="10시 00분 부터" class="reserved">예약</span></td><td><strong>예약중</strong></td>
+						    </c:otherwise>
+				        </c:choose>			
+				    </c:otherwise>
+				</c:choose>
 			</tr>
 			<tr>
 				<th>3게임</th>
 				<td>12시 00분 부터</td>
 				<td>2시간</td>
 				<td><span class="price">${bdto.rentalsum} 원</span><span class="option">심판없음</span></td>
-				<td class="status"><span id="game3" title="12시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+					<c:choose>
+				    <c:when test="${empty bdto.game3}">
+				    <td class="status">				
+					<span id="game3" title="12시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				    </c:when>
+				    <c:otherwise>			        
+				        <c:choose>				        
+						    <c:when test="${game3==1}">
+						    <td class="status">				
+							<span id="game3" title="12시 00분 부터" class="occupied">확정</span></td><td><strong>예약확정</strong></td>
+						    </c:when>				        
+						    
+						    <c:otherwise>
+						   	<td class="status">				
+							<span id="game3" title="12시 00분 부터" class="reserved">예약</span></td><td><strong>예약중</strong></td>
+						    </c:otherwise>
+				        </c:choose>			
+				    </c:otherwise>
+				</c:choose>
 			</tr>
 			<tr>
 				<th>4게임</th>
 				<td>14시 00분 부터</td>
 				<td>2시간</td>
 				<td><span class="price">${bdto.rentalsum} 원</span><span class="option">심판없음</span></td>
-				<td class="status"><span id="game4" title="14시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				<c:choose>
+				    <c:when test="${empty bdto.game4}">
+				    <td class="status">				
+					<span id="game4" title="14시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				    </c:when>
+	
+				    <c:otherwise>			        
+				        <c:choose>				        
+						    <c:when test="${game4==1}">
+						    <td class="status">				
+							<span id="game4" title="14시 00분 부터" class="occupied">확정</span></td><td><strong>예약확정</strong></td>
+						    </c:when>				        
+						    
+						    <c:otherwise>
+						   	<td class="status">				
+							<span id="game4" title="14시 00분 부터" class="reserved">예약</span></td><td><strong>예약중</strong></td>
+						    </c:otherwise>
+				        </c:choose>			
+				    </c:otherwise>
+				</c:choose>
 			</tr>
 			<tr>
 				<th>5게임</th>
 				<td>16시 00분 부터</td>
 				<td>2시간</td>
 				<td><span class="price">${bdto.rentalsum} 원</span><span class="option">심판없음</span></td>
-				<td class="status"><span id="game5" title="16시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				<c:choose>
+				    <c:when test="${empty bdto.game5}">
+				    <td class="status">				
+					<span id="game5" title="16시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				    </c:when>
+	
+				    <c:otherwise>			        
+				        <c:choose>				        
+						    <c:when test="${game5==1}">
+						    <td class="status">				
+							<span id="game5" title="16시 00분 부터" class="occupied">확정</span></td><td><strong>예약확정</strong></td>
+						    </c:when>				        
+						    
+						    <c:otherwise>
+						   	<td class="status">				
+							<span id="game5" title="16시 00분 부터" class="reserved">예약</span></td><td><strong>예약중</strong></td>
+						    </c:otherwise>
+				        </c:choose>			
+				    </c:otherwise>
+				</c:choose>
 			</tr>
 			<tr>
 				<th>6게임</th>
 				<td>18시 00분 부터</td>
 				<td>2시간</td>
 				<td><span class="price">${bdto.rentalsum} 원</span><span class="option">심판없음</span></td>
-				<td class="status"><span id="game6" title="18시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				<c:choose>
+				    <c:when test="${empty bdto.game6}">
+				    <td class="status">				
+					<span id="game6" title="18시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				    </c:when>
+	
+				    <c:otherwise>			        
+				        <c:choose>				        
+						    <c:when test="${game6==1}">
+						    <td class="status">				
+							<span id="game6" title="18시 00분 부터" class="occupied">확정</span></td><td><strong>예약확정</strong></td>
+						    </c:when>				        
+						    
+						    <c:otherwise>
+						   	<td class="status">				
+							<span id="game6" title="18시 00분 부터" class="reserved">예약</span></td><td><strong>예약중</strong></td>
+						    </c:otherwise>
+				        </c:choose>			
+				    </c:otherwise>
+				</c:choose>
 			</tr>
 			<tr>
 				<th>7게임</th>
 				<td>20시 00분 부터</td>
 				<td>2시간</td>
 				<td><span class="price">${bdto.rentalsum} 원</span><span class="option">심판없음</span></td>
-				<td class="status"><span id="game7" title="20시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				<c:choose>
+				    <c:when test="${empty bdto.game7}">
+				    <td class="status">				
+					<span id="game7" title="20시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
+				    </c:when>
+	
+				    <c:otherwise>			        
+				        <c:choose>				        
+						    <c:when test="${game7==1}">
+						    <td class="status">				
+							<span id="game7" title="20시 00분 부터" class="occupied">확정</span></td><td><strong>예약확정</strong></td>
+						    </c:when>				        
+						    
+						    <c:otherwise>
+						   	<td class="status">				
+							<span id="game7" title="20시 00분 부터" class="reserved">예약</span></td><td><strong>예약중</strong></td>
+						    </c:otherwise>
+				        </c:choose>			
+				    </c:otherwise>
+				</c:choose>
 			</tr>
 		</tbody>
 		</table>
@@ -385,12 +517,12 @@ $(function(){
 			<p class="description">${sdto.findway}</p>
 		</li>
 		<li><span class="title">구장연락처</span>
-			<strong>${sdto.stadium_phone}<br> <br> ${sdto.stadium_img1}</strong>
+			<strong>${sdto.stadium_phone}</strong>
 		</li>
 	</ul>
-	<ul class="img_list">
+	<ul class="img_list" style="width: 98%;">
 
-		<li style="width: 750px; height: 360px; " ><img id="img" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img1}'/>" style="width: 730px; height: 350px;"/></a></li>
+		<li style="width: 750px; height: 360px; " ><img id="img" src="file://211.238.142.152/공유/ryu/<c:out value='${sdto.stadium_img1}'/>" style="width: 730px; height: 350px;"/></a></li>
 		<li style="margin-top: 20px;"><img id="img1" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img1}'/>" /></a></li>		
 		<li style="margin-top: 20px;"><img id="img2" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img2}'/>" /></a></li>		
 		<li style="margin-top: 20px;"><img id="img3" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img3}'/>" /></a></li>			

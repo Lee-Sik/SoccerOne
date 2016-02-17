@@ -16,6 +16,9 @@ public class foot_sbooking_DTO {
 	private String game5;
 	private String game6;
 	private String game7;
+	private String mode;
+	
+	
 	
 	public int getBooking_seq() {
 		return booking_seq;
@@ -100,6 +103,12 @@ public class foot_sbooking_DTO {
 	}
 	public void setGame7(String game7) {
 		this.game7 = game7;
+	}
+	public String getMode() {
+		return mode;
+	}
+	public void setMode(String mode) {
+		this.mode = mode;
 	}
 	
 	

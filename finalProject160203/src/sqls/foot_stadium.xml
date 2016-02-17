@@ -35,9 +35,13 @@ values
 delete from foot_stadium where stadium_seq=#{stadium_seq}
 </delete>
 
-<select id="bookingList" resultType="soccer.co.DTO.foot_sbooking_DTO">
+<select id="bookingList" resultType="soccer.co.DTO.foot_sbooking_DTO" parameterType="soccer.co.DTO.foot_sbooking_DTO">
 select booking_seq,s.stadium_name,b.stadium_seq,booking_day,booking_area,rentalsum,rentalaccount,
 game1,game2,game3,game4,game5,game6,game7 from foot_booking b, foot_stadium s where b.stadium_seq = s.stadium_seq
+ <if test="mode != '' or mode != null">
+         <if test="mode == 'day'"> AND booking_day = #{booking_day}</if>   
+         <if test="mode == 'area'"> AND booking_area = #{booking_area}</if>   
+ </if>
 </select>
 
 <select id="bookingDetail" parameterType="int" resultType="soccer.co.DTO.foot_sbooking_DTO">
@@ -56,10 +60,12 @@ game1,game2,game3,game4,game5,game6,game7 from foot_booking b, foot_stadium s wh
 </insert>
 
 <update id="bookingUpdate" parameterType="soccer.co.DTO.foot_sbookingReserve_DTO">
-	update foot_booking set ${gametime} = #{user_email} where booking_seq = #{booking_seq}
+	update foot_booking set ${gametime} = '예약' where booking_seq = #{booking_seq}
 </update>
 
-
+<select id="getRentalSwitch" parameterType="hashmap" resultType="int">
+	select rental_switch from foot_booking_reserve where booking_seq = #{booking_seq} and gametime = #{gametime} 
+</select>
 
 
 

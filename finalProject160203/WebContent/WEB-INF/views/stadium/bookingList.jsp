@@ -1,23 +1,71 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="soccer.co.Service.impl.foot_stadiumService_impl"%>
+<%@page import="soccer.co.Service.foot_stadiumService"%>
+<%@page import="soccer.co.DAO.foot_stadium_DAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
+
 <!-- <link rel="stylesheet" type="text/css" media="all" href="booking/ie11.css" />
 <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
 <script type="text/javascript" src="booking/json"></script> -->
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
+<!-- // jQuery UI CSS파일  -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<!-- // jQuery 기본 js파일 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!-- // jQuery UI 라이브러리 js파일 -->
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
+<script type="text/javascript">
+
+/* var dtNow = new Date();  
+$(document).ready(function () {  
+	 var x = new Date(2013, 1, 22, 0, 0, 0, 0);
+     $( "#testDatepicker" ).datepicker({
+    		 setDate:"7/11/2011"
+    	});
+});   */
+
+	
+	
+ $(function() {
+    $( "#testDatepicker" ).datepicker({
+    	
+    	 onSelect: function (dateText, inst) {  
+    		
+    		 var v = $( "#testDatepicker" ).val();
+    		 
+    		 alert(v);
+    		 
+    		 location.href="./bookingList.do?day=" + v + "&mode=day";
+    	 }  
+    	
+    	
+    }); 
+	/* $("#testDatepicker").click(function(){
+		var v = $("#testDatepicker").val();
+		location.href = "./bookingDayList.do?day=" + v;
+	}); */
+	
+});
+	  
+	  
+	  
+	  
+</script>
 
 
 			<!-- 콘텐츠 -->			
 				<div class="hb_wrap booking_wrap">
 
 
-<div class="book_list_top" style="width: 80%; margin-left: 30px;">
+<div class="book_list_top" style="width: 81%; margin-left: 30px;">
 	<div class="tab_area">
 		<ul class="tab">
-					<li class="on"><a href="/booking/stadium/main?area=00&date=&selectGround=&kword=">전체</a></li>
-			<li class="" style="padding-left: 5.2px;"><a href="/booking/stadium/main?area=01&date=&selectGround=&kword=">동대문구</a></li>
-			<li class=""><a href="/booking/stadium/main?area=02&date=&selectGround=&kword=">도봉구</a></li>
+					<li class="on"><a href="./bookingList.do">전체</a></li>
+			<li class="" style="padding-left: 5.2px;"><a href="./bookingList.do?mode=area&area=동대문구">동대문구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=도봉구">도봉구</a></li>
 			<li class=""><a href="/booking/stadium/main?area=03&date=&selectGround=&kword=">성북구</a></li>
 			<li class=""><a href="/booking/stadium/main?area=04&date=&selectGround=&kword=">중랑구</a></li>
 			<li class=""><a href="/booking/stadium/main?area=05&date=&selectGround=&kword=">서대문구</a></li>
@@ -48,11 +96,16 @@
 		</ul>
 		<br><br>
 	</div>
-	<!-- <div class="schedule_info">
+	 <div class="schedule_info">
 		<div class="calendar">
-
+	<form name="f1" action="">	
+	<div id="testDatepicker" style="margin-top: -10px;">
+		<input type="hidden" name="booking_day" id="testDatepicker">
+	</div>
+	</form>
 		</div>
-		<div class="game_booking">
+	 </div>
+	<!--	<div class="game_booking">
 			<h4>게임부킹</h4>
 			<a href="/booking/board/list?board_idx=22" class="more">게임부킹 더보기</a>
 			<ul class="game_booking">
@@ -137,16 +190,134 @@
 		<th>${dto.booking_day}</th>
 		<th><strong><a href="#" hidden_href="/booking/stadium/view?idx=5305&lig_idx=0" 
 		class="viewbt">${dto.stadium_name}</a></strong></th>
-		<td class="status"><span class="none"></span></td>
-		<c:if test="${dto.game2 == null}">
-		<td class="status"><span class="occupied">확정</span></td>
-		</c:if>
-		<!-- <td class="status"><span class="booking">부킹</span></td> -->
-		<td class="status"><span class="none"></span></td>
-		<td class="status"><span class="reserved">예약</span></td>
-		<td class="status"><span class="none"></span></td>
-		<td class="status"><span class="occupied">확정</span></td>
-		<td class="status"><span class="none"></span></td>
+	
+	 	<c:choose>
+				<c:when test="${empty dto.game1}">
+				<td class="status"><span class="booking">부킹</span></td>
+				</c:when>
+				
+				<c:otherwise>	
+				  <c:choose>				 	
+				 	<c:when test="${dto.game1=='예약'}">
+					<td class="status"><span class="reserved">예약</span></td>
+					</c:when>
+				 			
+				 	<c:otherwise>
+				 	<td class="status"><span class="occupied">확정</span></td>
+				 	</c:otherwise>				
+					</c:choose>
+				</c:otherwise>
+		</c:choose>
+		
+		<c:choose>
+				<c:when test="${empty dto.game2}">
+				<td class="status"><span class="booking">부킹</span></td>
+				</c:when>
+				
+				<c:otherwise>	
+				  <c:choose>				 	
+				 	<c:when test="${dto.game2=='예약'}">
+					<td class="status"><span class="reserved">예약</span></td>
+					</c:when>
+				 			
+				 	<c:otherwise>
+				 	<td class="status"><span class="occupied">확정</span></td>
+				 	</c:otherwise>				
+					</c:choose>
+				</c:otherwise>
+		</c:choose>
+		
+		<c:choose>
+				<c:when test="${empty dto.game3}">
+				<td class="status"><span class="booking">부킹</span></td>
+				</c:when>
+				
+				<c:otherwise>	
+				  <c:choose>				 	
+				 	<c:when test="${dto.game3=='예약'}">
+					<td class="status"><span class="reserved">예약</span></td>
+					</c:when>
+				 			
+				 	<c:otherwise>
+				 	<td class="status"><span class="occupied">확정</span></td>
+				 	</c:otherwise>				
+					</c:choose>
+				</c:otherwise>
+		</c:choose>
+		
+		<c:choose>
+				<c:when test="${empty dto.game4}">
+				<td class="status"><span class="booking">부킹</span></td>
+				</c:when>
+				
+				<c:otherwise>	
+				  <c:choose>				 	
+				 	<c:when test="${dto.game4=='예약'}">
+					<td class="status"><span class="reserved">예약</span></td>
+					</c:when>
+				 			
+				 	<c:otherwise>
+				 	<td class="status"><span class="occupied">확정</span></td>
+				 	</c:otherwise>				
+					</c:choose>
+				</c:otherwise>
+		</c:choose>
+		
+		<c:choose>
+				<c:when test="${empty dto.game5}">
+				<td class="status"><span class="booking">부킹</span></td>
+				</c:when>
+				
+				<c:otherwise>	
+				  <c:choose>				 	
+				 	<c:when test="${dto.game5=='예약'}">
+					<td class="status"><span class="reserved">예약</span></td>
+					</c:when>
+				 			
+				 	<c:otherwise>
+				 	<td class="status"><span class="occupied">확정</span></td>
+				 	</c:otherwise>				
+					</c:choose>
+				</c:otherwise>
+		</c:choose>      
+		
+		
+		<c:choose>
+				<c:when test="${empty dto.game6}">
+				<td class="status"><span class="booking">부킹</span></td>
+				</c:when>
+				
+				<c:otherwise>	
+				  <c:choose>				 	
+				 	<c:when test="${dto.game6=='예약'}">
+					<td class="status"><span class="reserved">예약</span></td>
+					</c:when>
+				 			
+				 	<c:otherwise>
+				 	<td class="status"><span class="occupied">확정</span></td>
+				 	</c:otherwise>				
+					</c:choose>
+				</c:otherwise>
+		</c:choose>
+		
+		<c:choose>
+				<c:when test="${empty dto.game7}">
+				<td class="status"><span class="booking">부킹</span></td>
+				</c:when>
+				
+				<c:otherwise>	
+				  <c:choose>				 	
+				 	<c:when test="${dto.game7=='예약'}">
+					<td class="status"><span class="reserved">예약</span></td>
+					</c:when>
+				 			
+				 	<c:otherwise>
+				 	<td class="status"><span class="occupied">확정</span></td>
+				 	</c:otherwise>				
+					</c:choose>
+				</c:otherwise>
+		</c:choose>  
+		
 	<td><a href="./bookingDetail.do?booking_seq=${dto.booking_seq}&stadium_seq=${dto.stadium_seq}" class="btn viewbt">보 기</a></td>
 	<td><strong>${dto.booking_area}</strong></td>
 	</tr>

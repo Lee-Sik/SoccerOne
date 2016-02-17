@@ -62,9 +62,9 @@ public class foot_stadiumService_impl implements foot_stadiumService{
 	}
 
 	@Override
-	public List<foot_sbooking_DTO> bookingList() throws Exception {
+	public List<foot_sbooking_DTO> bookingList(foot_sbooking_DTO dto) throws Exception {
 		
-		return dao.bookingList();
+		return dao.bookingList(dto);
 	}
 
 	@Override
@@ -83,6 +83,12 @@ public class foot_stadiumService_impl implements foot_stadiumService{
 	public boolean bookingReserve(foot_sbookingReserve_DTO dto) throws Exception {
 		
 		return dao.bookingReserve(dto);
+	}
+
+	@Override
+	public int getRentalSwitch(String booking_seq, String gametime) throws Exception {
+		
+		return dao.getRentalSwitch(booking_seq, gametime);
 	}
 
 

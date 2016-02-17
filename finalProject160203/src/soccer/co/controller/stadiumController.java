@@ -64,9 +64,28 @@ public class stadiumController {
 		return "stadium_write.tiles";
 	}
 	@RequestMapping(value = "bookingList.do", method = RequestMethod.GET)	
-	public String bookingList(Model model) throws Exception {		
+	public String bookingList(Model model,HttpServletRequest request) throws Exception {		
+		System.out.println("들어와");
+		String mode = request.getParameter("mode");
+		String day = request.getParameter("day");
+		String area = request.getParameter("area");
 		
-		List<foot_sbooking_DTO> blist = service.bookingList();
+		System.out.println("mode : " + mode);
+		System.out.println("area : " + area);
+		
+		foot_sbooking_DTO dto = new foot_sbooking_DTO();
+		
+		if(!(mode==null || mode.equals(""))){
+			if(mode=="day" || mode.equals("day")){
+				dto.setMode(mode);
+				dto.setBooking_day(day.substring(6, 10) + day.substring(0, 2) + day.substring(3, 5));
+			}else{
+				dto.setMode(mode);
+				dto.setBooking_area(area);
+			}
+		}
+		
+		List<foot_sbooking_DTO> blist = service.bookingList(dto);
 		
 		model.addAttribute("blist", blist);
 		
@@ -370,9 +389,26 @@ public class stadiumController {
 		foot_stadium_DTO sdto = service.stadiumDetail(stadium_seq);
 		foot_sbooking_DTO bdto = service.bookingDetail(booking_seq);
 		
+		int game1 = service.getRentalSwitch(request.getParameter("booking_seq"),"game1");
+		int game2 = service.getRentalSwitch(request.getParameter("booking_seq"),"game2");
+		int game3 = service.getRentalSwitch(request.getParameter("booking_seq"),"game3");
+		int game4 = service.getRentalSwitch(request.getParameter("booking_seq"),"game4");
+		int game5 = service.getRentalSwitch(request.getParameter("booking_seq"),"game5");
+		int game6 = service.getRentalSwitch(request.getParameter("booking_seq"),"game6");
+		int game7 = service.getRentalSwitch(request.getParameter("booking_seq"),"game7");
+		
+		System.out.println("game1 : " + game1);
+		
 		/*String path = "c:/jsp/spring/finalProject160205/WebContent/image/stadiumImg";	
 		
 		model.addAttribute("path", path);*/
+		model.addAttribute("game1", game1);
+		model.addAttribute("game2", game2);
+		model.addAttribute("game3", game3);
+		model.addAttribute("game4", game4);
+		model.addAttribute("game5", game5);
+		model.addAttribute("game6", game6);
+		model.addAttribute("game7", game7);
 		model.addAttribute("sdto", sdto);
 		model.addAttribute("bdto", bdto);
 		
