@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import soccer.co.DAO.foot_comunity_DAO;
 import soccer.co.DTO.BBSParam;
+import soccer.co.DTO.foot_comment_DTO;
 import soccer.co.DTO.foot_comunity_DTO;
 import soccer.co.Service.foot_comunityService;
 
@@ -23,7 +24,19 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 	public boolean writeBBS(foot_comunity_DTO bbs) throws Exception {
 		return BBSDao.writeBBS(bbs);
 	}
-
+	
+	@Override
+	@Transactional
+	public boolean writeComment(foot_comment_DTO comdto) throws Exception {
+		return BBSDao.writeComment(comdto);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public List<foot_comment_DTO> getCommentList(int parent_bbs_no) throws Exception {
+		return BBSDao.getCommentList(parent_bbs_no);
+	}
+	
 	@Override
 	@Transactional(readOnly=true)
 	public List<foot_comunity_DTO> getBBSList() throws Exception {

@@ -11,6 +11,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(foot_bbs_seq.nextval,#{topic},#{user_email},#{title},#{content},SYSDATE,
 				0,0,#{imageurl},0)
 	</insert>
+	
+	<insert id="writeComment" parameterType="soccer.co.DTO.foot_comment_DTO">
+		INSERT INTO FOOT_BBS_COMMENT
+		(COMMENT_NO, PARENT_BBS_NO, USER_EMAIL, CONTENT, WDATE, DEL) 
+		VALUES(foot_comment_seq.nextval,#{parent_bbs_no},#{user_email},#{content},SYSDATE,0)
+	</insert>
+	
+	<select id="getCommentList" parameterType="java.lang.Integer" resultType="soccer.co.DTO.foot_comment_DTO">
+	<![CDATA[
+  			SELECT * FROM FOOT_BBS_COMMENT
+  			WHERE PARENT_BBS_NO = #{parent_bbs_no}
+ 			ORDER BY COMMENT_NO DESC
+  		]]>
+	</select>
  
 	<select id="getBBSList" resultType="soccer.co.DTO.foot_comunity_DTO">
 	<![CDATA[

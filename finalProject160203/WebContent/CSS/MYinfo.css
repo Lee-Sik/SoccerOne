@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 		
-	.list_table { width:50%; border-bottom:1px solid #EFEFEF; border-right:1px solid #EFEFEF; border-collapse:collapse; margin-left:auto; margin-right:auto; clear:both; }
+	.list_table { width:85%; border-bottom:1px solid #EFEFEF; border-right:1px solid #EFEFEF; border-collapse:collapse; margin-left:auto; margin-right:auto; clear:both; }
 	.list_table td,.list_table th { text-align:center; border-top:1px solid #EFEFEF; border-left:1px solid #EFEFEF; padding:0.3em; }
 	.list_table th { background-color:#333333; color:#FFFFFF; line-height:1.7em; font-weight:normal; width: 100px;}
 	.list_table tr td { padding-top:0.5em; padding-bottom:0.5em;}	

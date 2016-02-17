@@ -91,6 +91,35 @@ $("#_btnUpdate").click(function() {
 	submitContents($("#_frmForm"));
 //	$("#_frmForm").attr({ "target":"_self", "action":"bbswriteAf.do" }).submit();
 });
-
-
 </script>
+<form action="commentAf.do">
+<input type="hidden" name="parent_no" value="${bbs.bbs_no}"/>
+<input type="hidden" name="user_email" value="${login.user_email}"/>
+
+<table class="list_table" style="width:85%;">
+<col width="auto"/>
+<col width="8%"/>
+
+	<c:if test="${empty comlist}">
+		<tr>
+		<td colspan="2">작성된 댓글이 없습니다.</td>
+		</tr>
+	</c:if>
+	
+	<c:if test="${not empty comlist}">
+		<c:forEach items="${comlist}" var="comlist">
+			<tr>
+			<td>${comlist.content}</td>
+			<td>${comlist.user_email}</td>
+			</tr>
+		</c:forEach>
+	</c:if>		
+
+<tr>
+	<td><textarea rows="10" cols="50" name="content"></textarea></td>
+	<td><input type="submit" value="댓글달기"></td>
+</tr>
+</table>
+
+</form>
+

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import soccer.co.DTO.BBSParam;
+import soccer.co.DTO.foot_comment_DTO;
 import soccer.co.DTO.foot_comunity_DTO;
 
 @Repository
@@ -20,12 +21,27 @@ public class foot_comunity_DAO {
 		sqlSession.insert(ns+"writeBBS",bbs);
 		return true;
 	}
+	
+	public boolean writeComment(foot_comment_DTO comdto) throws Exception{
+		sqlSession.insert(ns+"writeComment",comdto);
+		return true;
+	}
+	
 	public List<foot_comunity_DTO> getBBSList()throws Exception{
 		List<foot_comunity_DTO> list=new ArrayList<foot_comunity_DTO>();
 		list=(List<foot_comunity_DTO>)
 				sqlSession.selectList(ns+"getBBSList");
 		return list;
 	}
+	
+	public List<foot_comment_DTO> getCommentList(int parent_bbs_no)throws Exception{
+		List<foot_comment_DTO> list=new ArrayList<foot_comment_DTO>();
+		list=(List<foot_comment_DTO>)
+				sqlSession.selectList(ns+"getCommentList", parent_bbs_no);
+		return list;
+	}
+	
+	
 	public List<foot_comunity_DTO> getBBSPagingList(BBSParam param)throws Exception{
 		List<foot_comunity_DTO> list=new ArrayList<foot_comunity_DTO>();
 		list=(List<foot_comunity_DTO>)

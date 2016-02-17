@@ -1,3 +1,34 @@
+INSERT INTO FOOT_BBS_COMMENT
+		(COMMENT_NO, PARENT_BBS_NO, USER_EMAIL, CONTENT, WDATE, DEL) 
+		VALUES(foot_comment_seq.nextval,64,'4','dddd',SYSDATE,0)
+
+create table foot_bbs_comment(                    --친선경기 게시판 
+   comment_no number primary key, --게시글 시퀀스
+   parent_bbs_no number not null, --게시글 시퀀스
+   user_email varchar2(50) not null,    --작성자
+   content varchar2(4000) not null,		--글내용
+   wdate date not null,					--작성일
+   del number(8) not null,
+   CONSTRAINT FK_bbs_parent_bbs_no FOREIGN KEY(parent_bbs_no) REFERENCES foot_bbs(bbs_no)      
+);
+
+SELECT * FROM FOOT_BBS_COMMENT
+  			WHERE PARENT_BBS_NO = 62
+ 			ORDER BY COMMENT_NO DESC;
+
+
+delete from FOOT_BBS_COMMENT
+
+create sequence foot_comment_seq
+start with 1 increment by 1;
+
+select * from FOOT_BBS_COMMENT
+---------------����---------------------
+DROP TABLE foot_bbs CASCADE CONSTRAINT;
+
+DROP SEQUENCE foot_bbs_seq;
+
+
 SELECT *
 		FROM FOOT_PUBLICGAME
 		WHERE game_no=28

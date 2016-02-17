@@ -2,24 +2,31 @@
 <%@ page import="soccer.co.DTO.foot_user_DTO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html>
 
 <link href="CSS/styles.css" rel="stylesheet" >
 <link href="CSS/MYinfo.css" rel="stylesheet" >
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <style type="text/css">
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-body{
-	background-color: white;
-	color:black;
+body, table{
 	font-size: 10pt;
+	font-family: Montserrat, sans-serif;
+}
+.wow1{
+	text-align: center;
+	color:black;
+	font-size: 25pt;
+	font-family: Montserrat, sans-serif;
+}
+.wow2{
+	text-align: center;
+	color:black;
+	font-size: 13pt;
 	font-family: Montserrat, sans-serif;
 }
 </style>
 
-<body>
 <script type="text/javascript">
 var user_helper = document.f.user_helper;
 var user_enabled = document.f.user_enabled;
@@ -40,10 +47,9 @@ user_enabled.value=="off";
 
 <body>
 <div align="center">
-<br>
-<p style="font-size: 20px;">회 원 정 보 확 인</p>
+<p class="wow1"><img src="image/join.png"><b>회원 정보 확인</b></p>
 
-<table class="list_table" style="width:70%;">
+<table class="list_table">
 <colgroup>
 <col style="width:30%;"/>
 <col style="width:auto;"/>

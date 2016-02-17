@@ -1,24 +1,18 @@
-<%@page import="soccer.co.DTO.foot_user_DTO"%>
-<%@page import ="java.util.StringTokenizer" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page import="soccer.co.DTO.foot_user_DTO"%>
+<%@ page import ="java.util.StringTokenizer" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
 
 <link href="CSS/styles.css" rel="stylesheet" >
-
+<link href="CSS/MYinfo.css" rel="stylesheet" >
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="CSS/JOINtable.css" rel="stylesheet" >
-<title>Insert title here</title>
-<style>
 
+<style>
 .Join_Btn,.Cancel_Btn {
 	text-decoration:none;
 	box-shadow:inset #787878 0px -5px 8px -1px,#333333 0px 3px 0px;
@@ -74,10 +68,10 @@
 	background:linear-gradient(#5e5e5e, #4f4f4f);
 }
 
-
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-body{
-	background-color: white;
+body, table{
+	font-size: 10pt;
+	font-family: Montserrat, sans-serif;
 }
 .wow1{
 	text-align: center;
@@ -91,22 +85,9 @@ body{
 	font-size: 13pt;
 	font-family: Montserrat, sans-serif;
 }
-table{
-font-size: 10pt;
-	font-family: Montserrat, sans-serif;
-}
-
-.center{
-
-}
-
 </style>
-</head>
-<body>
- <script type="text/javascript">
 
-
-
+<script type="text/javascript">
 function function1(val){
 	var pw = document.getElementsByName('user_pw');
 	var name = document.getElementsByName('user_name');
@@ -180,16 +161,19 @@ function function1(val){
 }
 </script>
 
+<body>
 <div class="center" align="center">
 <p class="wow1"><img src="image/join.png"><b> 회원 정보 수정</b></p>
-
-
 <form action="modify2.do" name="f" method="post" enctype="multipart/form-data">
 <table class="list_table">
+<colgroup>
+<col style="width:30%;"/>
+<col style="width:auto;"/>
+</colgroup>
 
 <tr>
 <th>프로필 사진</th>
-<td colspan="5"><img alt="" src="image/${login.user_profile }"> </td>
+<td colspan="5"><img alt="" src="image/${login.user_profile }" style="width: 150px;"> </td>
 </tr>
 
 <tr>
@@ -219,7 +203,6 @@ function function1(val){
 <input type="text" name="user_birth3" maxlength="2"size="2" value="<%=s[2]%>" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;">일
 <input type="hidden" name="user_birth">
 </td>
-
 </tr>
 
 <tr>
@@ -305,7 +288,7 @@ function function1(val){
 								<option value="LWF">LWF(왼쪽 공격수)</option>
 								<option value="RWF">RWF(오른쪽 공격수)</option>
 </select>
-<input type="hidden" name="user_position1">
+<input type="hidden" name="user_position1"><br>
 <img alt="" src="image/join1.png" width="5%">서브포지션1
 <select name="user_position12">
 								<option value="<%=user_position2%>"><%=user_position2%></option>
@@ -322,7 +305,7 @@ function function1(val){
 								<option value="LWF">LWF(왼쪽 공격수)</option>
 								<option value="RWF">RWF(오른쪽 공격수)</option>
 </select>
-<input type="hidden" name="user_position2">
+<input type="hidden" name="user_position2"><br>
 
 
 <img alt="" src="image/join1.png" width="5%">서브포지션2
@@ -471,6 +454,4 @@ function function1(val){
 
 </form>
 </div>
-
 </body>
-</html>

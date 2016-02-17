@@ -3,11 +3,14 @@ package soccer.co.Service;
 import java.util.List;
 
 import soccer.co.DTO.BBSParam;
+import soccer.co.DTO.foot_comment_DTO;
 import soccer.co.DTO.foot_comunity_DTO;
 
 
 public interface foot_comunityService {
 	boolean writeBBS(foot_comunity_DTO bbs) throws Exception;
+	boolean writeComment(foot_comment_DTO comdto) throws Exception;
+	List<foot_comment_DTO> getCommentList(int parent_bbs_no)throws Exception;
 	
 	List<foot_comunity_DTO> getBBSList()throws Exception;
 	List<foot_comunity_DTO> getBBSPagingList(BBSParam param)throws Exception;

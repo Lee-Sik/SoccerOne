@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.sun.org.apache.regexp.internal.recompile;
+
 import soccer.co.DTO.BBSParam;
+import soccer.co.DTO.foot_comment_DTO;
 import soccer.co.DTO.foot_comunity_DTO;
 import soccer.co.Service.foot_comunityService;
 
@@ -98,6 +103,19 @@ public class comunityController {
 		
 		return "redirect:/bbslist.do";
 	}
+	
+	@RequestMapping(value = "commentAf.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String commentAf(int parent_no, foot_comment_DTO comdto,Model model) throws Exception {
+		logger.info("Welcome BBSController commentAf! "+ new Date());
+		
+		comdto.setParent_bbs_no(parent_no);
+		
+		BBSService.writeComment(comdto);
+		
+		return  "redirect:/bbsdetail.do?bbs_no=" + parent_no;
+	}
+	
+	
 	
 //	@RequestMapping(value = "bbslist.do", 
 //			method = {RequestMethod.GET,
@@ -205,9 +223,16 @@ public class comunityController {
 	}
 	
 	@RequestMapping(value = "bbsdetail.do", method = {RequestMethod.GET,RequestMethod.POST})
-	public String bbsdetail(foot_comunity_DTO bbs,Model model) throws Exception {
-		logger.info("Welcome MemberController bbsdetail! "+ new Date());
-		logger.info("Welcome MemberController bbs.getBbs_no()! "+ bbs.getBbs_no());
+	public String bbsdetail(foot_comunity_DTO bbs,Model model,HttpServletRequest request) throws Exception {
+		
+		int bbs_no = Integer.parseInt(request.getParameter("bbs_no"));
+		
+		//int parent_no = Integer.parseInt(request.getParameter("parent_no"));
+		
+		List<foot_comment_DTO> comdto  = BBSService.getCommentList(bbs_no);
+		
+		model.addAttribute("comlist",comdto);
+		
 		foot_comunity_DTO dto=BBSService.getBBS(bbs);
 		
 		BBSService.incrementReadCount(bbs);
