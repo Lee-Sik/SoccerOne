@@ -4,6 +4,7 @@ package soccer.co.DTO;
  */
 public class foot_game_DTO {
 	
+	private String team_managerid;
 	private int game_no;
 	private String team_name;
 	private String game_location;
@@ -15,6 +16,19 @@ public class foot_game_DTO {
 	
 	public foot_game_DTO(){}
 
+	public foot_game_DTO(String team_managerid, int game_no, String team_id, String game_location, String game_date, String ground,
+			int pay, int game_state) { //공식 경기
+		super();
+		this.team_managerid = team_managerid;
+		this.game_no = game_no;
+		this.team_name = team_id;
+		this.game_location = game_location;
+		this.game_date = game_date;
+		this.ground = ground;
+		this.pay = pay;
+		this.game_state = game_state;
+	}
+	
 	public foot_game_DTO(int game_no, String team_id, String game_location, String game_date, String ground,
 			int pay, int game_state) { //공식 경기
 		super();
@@ -26,8 +40,7 @@ public class foot_game_DTO {
 		this.pay = pay;
 		this.game_state = game_state;
 	}
-
-
+	
 
 	public foot_game_DTO(int game_no, String team_id, String game_content, String game_date, String ground,
 			int pay) {		// 친선 경기
@@ -38,6 +51,27 @@ public class foot_game_DTO {
 		this.game_date = game_date;
 		this.ground = ground;
 		this.pay = pay;
+	}
+	
+	public foot_game_DTO(String team_managerid, int game_no, String team_id, String game_content, String game_date, String ground,
+			int pay) {		// 친선 경기
+		super();
+		this.team_managerid = team_managerid;
+		this.game_no = game_no;
+		this.team_name = team_id;
+		this.game_content = game_content;
+		this.game_date = game_date;
+		this.ground = ground;
+		this.pay = pay;
+	}
+	
+
+	public String getTeam_managerid() {
+		return team_managerid;
+	}
+
+	public void setTeam_managerid(String team_managerid) {
+		this.team_managerid = team_managerid;
 	}
 
 	public int getGame_no() {
@@ -106,11 +140,12 @@ public class foot_game_DTO {
 
 	@Override
 	public String toString() {
-		return "foot_game_DTO [game_no=" + game_no + ", team_name=" + team_name + ", game_location=" + game_location
-				+ ", game_content=" + game_content + ", game_date=" + game_date + ", ground=" + ground + ", pay=" + pay
-				+ ", game_state=" + game_state + "]";
+		return "foot_game_DTO [team_managerid=" + team_managerid + ", game_no=" + game_no + ", team_name=" + team_name
+				+ ", game_location=" + game_location + ", game_content=" + game_content + ", game_date=" + game_date
+				+ ", ground=" + ground + ", pay=" + pay + ", game_state=" + game_state + "]";
 	}
-	
+
+
 	
 	
 

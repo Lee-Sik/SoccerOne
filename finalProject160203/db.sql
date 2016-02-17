@@ -1,3 +1,14 @@
+SELECT T.TEAM_MANAGERID, F.GAME_NO, F.TEAM_NAME, F.GAME_LOCATION, F.GAME_DATE, F.GROUND, F.PAY, F.GAME_STATE
+FROM FOOT_PUBLICGAME F, FOOT_TEAM T
+WHERE F.GAME_NO=48
+AND F.TEAM_NAME = T.TEAM_NAME;
+
+
+select * from foot_team
+
+
+
+
 INSERT INTO FOOT_BBS_COMMENT
 		(COMMENT_NO, PARENT_BBS_NO, USER_EMAIL, CONTENT, WDATE, DEL) 
 		VALUES(foot_comment_seq.nextval,64,'4','dddd',SYSDATE,0)
@@ -12,10 +23,12 @@ create table foot_bbs_comment(                    --친선경기 게시판
    CONSTRAINT FK_bbs_parent_bbs_no FOREIGN KEY(parent_bbs_no) REFERENCES foot_bbs(bbs_no)      
 );
 
+select * from FOOT_freegame
+
 SELECT * FROM FOOT_BBS_COMMENT
   			WHERE PARENT_BBS_NO = 62
  			ORDER BY COMMENT_NO DESC;
-
+select * from FOOT_PUBLICGAME
 
 delete from FOOT_BBS_COMMENT
 

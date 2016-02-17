@@ -20,6 +20,7 @@ public interface foot_comunityService {
 	
 	boolean replyBBS(foot_comunity_DTO bbs)throws Exception;
 	boolean incrementReadCount(foot_comunity_DTO bbs)throws Exception;
+	boolean bbsLike(foot_comunity_DTO bbs)throws Exception;
 	
 	boolean updateBBS(foot_comunity_DTO bbs)throws Exception;
 	

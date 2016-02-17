@@ -72,6 +72,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE bbs_no=#{bbs_no}
 	</update>
 	
+	<update id="bbsLike" parameterType="soccer.co.DTO.foot_comunity_DTO">
+		UPDATE FOOT_BBS SET
+		GOOD = GOOD+1
+		WHERE bbs_no=#{bbs_no}
+	</update>
+	
 	<update id="replyBBSUpdate" parameterType="soccer.co.DTO.foot_comunity_DTO">
 		UPDATE FOOT_BBS SET
 		STEP=STEP+1

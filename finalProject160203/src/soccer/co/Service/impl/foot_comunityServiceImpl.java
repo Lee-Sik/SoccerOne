@@ -75,6 +75,12 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 		
 		return BBSDao.incrementReadCount(bbs);
 	}
+	
+	@Override
+	public boolean bbsLike(foot_comunity_DTO bbs) throws Exception {
+		
+		return BBSDao.bbsLike(bbs);
+	}
 
 	@Override
 	public boolean updateBBS(foot_comunity_DTO bbs) throws Exception {

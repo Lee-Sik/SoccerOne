@@ -69,7 +69,7 @@ public class comunityController {
 				//upload = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160203/WebContent/image/" + fileName);
 				//upload = new File("C:/springstudy/finalProject160203/WebContent/image/" + fileName);
 //				upload = new File("file://211.238.142.152/share/siksama/" + fileName);
-				upload = new File("c://image/" + fileName);
+				upload = new File("//211.238.142.152/공유/ryu/" + fileName);
 				// 
 				byte[] bytes = file.getBytes();
 				BufferedOutputStream buffStream = new BufferedOutputStream(
@@ -115,6 +115,16 @@ public class comunityController {
 		return  "redirect:/bbsdetail.do?bbs_no=" + parent_no;
 	}
 	
+	@RequestMapping(value = "bbslike.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String bbslike(int bbs_no, foot_comunity_DTO bbs, Model model) throws Exception {
+		logger.info("Welcome BBSController bbslike! "+ new Date());
+		
+		bbs.setBbs_no(bbs_no);
+		
+		BBSService.bbsLike(bbs);
+		
+		return  "redirect:/bbsdetail.do?bbs_no=" + bbs_no;
+	}
 	
 	
 //	@RequestMapping(value = "bbslist.do", 

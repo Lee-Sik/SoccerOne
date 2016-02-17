@@ -12,9 +12,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </insert>
    
     <select id="getFreegamedetail" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">
-		SELECT *
-		FROM FOOT_FREEGAME
-		WHERE game_no=#{game_no}
+		SELECT T.TEAM_MANAGERID, F.GAME_NO, F.TEAM_NAME, F.GAME_CONTENT, F.GAME_DATE, F.GROUND, F.PAY, F.GAME_STATE
+		FROM FOOT_FREEGAME F, FOOT_TEAM T
+		WHERE F.GAME_NO=#{game_no}
+		AND F.TEAM_NAME = T.TEAM_NAME
 	</select>
 
    <insert id="publicgame" parameterType="soccer.co.DTO.foot_game_DTO">
@@ -24,9 +25,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </insert>
    
    <select id="getPublicgamedetail" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">
-		SELECT *
-		FROM FOOT_PUBLICGAME
-		WHERE game_no=#{game_no}
+		SELECT T.TEAM_MANAGERID, F.GAME_NO, F.TEAM_NAME, F.GAME_LOCATION, F.GAME_DATE, F.GROUND, F.PAY, F.GAME_STATE
+		FROM FOOT_PUBLICGAME F, FOOT_TEAM T
+		WHERE F.GAME_NO=#{game_no}
+		AND F.TEAM_NAME = T.TEAM_NAME
 	</select>
    
    <select id="getpublicgame" resultType="soccer.co.DTO.foot_game_DTO">

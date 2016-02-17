@@ -38,17 +38,18 @@
 	<col style="width:20%;"/>
 	<col style="width:13%;"/>
 	<col style="width:7%;"/>
+	<col style="width:7%;"/>
 </colgroup>
 
 <thead>
 	<tr>
-		<th>번호</th> <th>분류</th> <th>제목</th> <th>작성자</th>  <th>작성일</th>  <th>조회수</th> 
+		<th>번호</th> <th>분류</th> <th>제목</th> <th>작성자</th>  <th>작성일</th>  <th>조회수</th>  <th>추천수</th> 
 	</tr>
 </thead>
 
 <c:if test="${empty bbslist}">
 	<tr>
-		<td colspan="6">작성된 글이 없습니다.</td>
+		<td colspan="7">작성된 글이 없습니다.</td>
 	</tr>
 </c:if>
 
@@ -63,6 +64,7 @@
 			<c:set var="len" value="${fn:length(wdate)}"/>
 		<td>${fn:substring(bbs.wdate, 0, 10)}</td>  
 		<td>${bbs.readcount}</td> 
+		<td>${bbs.good}</td> 
 	</tr>
 </c:if>
 <c:if test="${bbs.del == 1}">
@@ -73,6 +75,7 @@
 		<td>${bbs.user_email}</td> 
 		<td></td> 
 		<td></td> 
+		<td></td>
 	</tr>
 </c:if>	
 </c:forEach>

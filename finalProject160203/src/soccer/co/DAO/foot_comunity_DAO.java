@@ -66,6 +66,11 @@ public class foot_comunity_DAO {
 		return true;
 	}
 	
+	public boolean bbsLike(foot_comunity_DTO bbs)throws Exception{
+		sqlSession.update(ns+"bbsLike",bbs);
+		return true;
+	}
+	
 	public boolean replyBBSUpdate(foot_comunity_DTO bbs)throws Exception{
 		sqlSession.update(ns+"replyBBSUpdate",bbs);
 		return true;

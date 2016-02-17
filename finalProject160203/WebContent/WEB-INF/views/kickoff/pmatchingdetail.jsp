@@ -18,7 +18,7 @@
 
 <tr class="id">
 	<th>클럽장</th>
-	<td style="text-align: left">${login.user_email}</td>
+	<td style="text-align: left">${pmd.team_managerid}</td>
 </tr>
 
 <tr>

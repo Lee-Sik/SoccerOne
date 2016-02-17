@@ -44,8 +44,6 @@ public class foot_comunity_DTO implements Serializable{
 		
 	}
 	
-	
-
 	public foot_comunity_DTO(int bbs_no, String topic, String user_email, String title, String content, String wdate,
 			int good, int readcount, String imageurl, int del) {
 		super();

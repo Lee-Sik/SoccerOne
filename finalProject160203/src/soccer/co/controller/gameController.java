@@ -123,7 +123,7 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 		logger.info("Welcome MemberController pmatchingdetail! "+ new Date());
 		
 		foot_game_DTO fgd = fgameservice.getPublicgamedetail(fgdto);
-				
+
 		model.addAttribute("pmd",fgd);
 		model.addAttribute("title", "랭킹전 상세보기");
 		
