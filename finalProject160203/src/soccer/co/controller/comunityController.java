@@ -233,7 +233,7 @@ public class comunityController {
 	}
 	
 	@RequestMapping(value = "bbsdetail.do", method = {RequestMethod.GET,RequestMethod.POST})
-	public String bbsdetail(foot_comunity_DTO bbs,Model model,HttpServletRequest request) throws Exception {
+	public String bbsdetail(BBSParam param,foot_comunity_DTO bbs,Model model,HttpServletRequest request) throws Exception {
 		
 		int bbs_no = Integer.parseInt(request.getParameter("bbs_no"));
 		
@@ -248,6 +248,31 @@ public class comunityController {
 		BBSService.incrementReadCount(bbs);
 		model.addAttribute("bbs",dto);
 		model.addAttribute("title", "글 상세보기");
+		
+		
+		int sn=param.getPageNumber();
+		int start=(sn)*param.getRecordCountPerPage()+1;
+		int end=(sn+1)*param.getRecordCountPerPage();
+		
+		param.setStart(start);
+		param.setEnd(end);
+		//logger.info("start number : "+sn);
+		//logger.info("start : "+start);
+		//logger.info("end : "+end);
+		
+		int totalRecordCount=BBSService.getBBSCount(param);
+		List<foot_comunity_DTO> bbslist=BBSService.getBBSPagingList(param);
+		model.addAttribute("bbslist", bbslist);
+		model.addAttribute("doc_title", "BBS 리스트");
+		
+		model.addAttribute("pageNumber", sn);
+		model.addAttribute("pageCountPerScreen", 10);
+		model.addAttribute("recordCountPerPage", param.getRecordCountPerPage());
+		model.addAttribute("totalRecordCount", totalRecordCount);
+		
+		model.addAttribute("s_category", param.getS_category());
+		model.addAttribute("s_keyword", param.getS_keyword());
+		
 		
 		return "bbsdetail.tiles";
 	}
