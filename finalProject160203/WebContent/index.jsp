@@ -6,7 +6,6 @@
 	<title>Home </title>
 </head>
 <body>
-
 <%
 	response.sendRedirect("first.do");
 %>

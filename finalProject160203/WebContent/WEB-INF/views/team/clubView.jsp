@@ -60,6 +60,9 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     		  $(newDiv).attr('ondragstart', 'drag(event,this)');
     		  $(newDiv).attr('draggable', 'true');
     		  
+    		  $(newDiv).attr('ondrop', 'drop3(event,this)');
+    		  $(newDiv).attr('ondragover', 'allowDrop3(event)');
+    		  
     		  newDiv.innerHTML = '<div class="member_position">'+kk[i].user_position1+'</div>'
     				+'<div class="member_pic">'
     					+'<p>'
@@ -132,57 +135,207 @@ function something(a,b){
              });
 
              }//initialize 끝
-
               google.maps.event.addDomListener(window, 'load', initialize);
 }
 
 </script>
 <script> //--------------------포지션 드레그 엔 드롭-------------------------//
 try {
+	tmp= false;
 var userPosition = []; //나중에 el 태그로 넣어 준다.
    
    function allowDrop(ev) {
       ev.preventDefault();
    }
-
+   
+   function allowDrop2(ev) {
+	   //alert('allowDrop2');
+	      ev.preventDefault();
+	}
+   
+   function allowDrop3(ev) {
+	      ev.preventDefault();
+	}
+   function drop3(ev,this2) {
+	   ev.preventDefault();
+	  
+	   data3=this2.id;//target
+	   
+	   tmp = true;
+	   
+   }
+   
+   
    function drag(ev,this1) {
    
       ev.dataTransfer.setData("text",this1.id);
       //alert(this1.id);
    }
+   
+   function drop2(ev) {
+	   ev.preventDefault();
+	   var data = ev.dataTransfer.getData("text");
+	   
+	   if(tmp){
+		   //alert('a');
+			var target = document.getElementById(data3);
+	 		var source = document.getElementById(data);
+	 		
+			if(source.parentNode.id == 'gujang'){//외부에서 들어 올때
+				
+			//alert('외부에서 접근');
+			 var index = Array.prototype.indexOf.call(basket.children, target);
+			// alert(index);
+				document.getElementById('gujang').appendChild(target);
+				
+				$(target).css({
+		   	  	 "position" : "absolute",
+		   	 	  "top" : kk[data].y +'px',
+		   		   "left" : kk[data].x +'px'
+		   		});
+				
+				//document.getElementById('basket').appendChild(source);
+				// document.getElementById('basket').insertBefore(source,target);
+				
+				
+				   var list = document.getElementById("basket");
+				    list.insertBefore(source, list.childNodes[index+1]);
+				
+				$(source).css({
+		   	  	 "position" : "relative",
+		   	 	  "top" : 0 +'px',
+		   		   "left" : 0 +'px'
+		   		});
+				
+				var tmpX=kk[data].x;
+				var tmpY=kk[data].y;
+				kk[data].x=0;
+				kk[data].y=0;
+				kk[data3].x=tmpX;
+				kk[data3].y=tmpY;
+				
+			}else{//내부끼리 교환
+				
+				 var sourceClone=source.cloneNode(true);
+					 var targetClone=target.cloneNode(true);
+							 
+					  document.getElementById('basket').replaceChild(targetClone,source);
+					  document.getElementById('basket').replaceChild(sourceClone,target);
+		
+			}
+			
+		   tmp= false;
+	   }else{//배경에 닿았을 때
+		   var obj = document.getElementById(data);
+		   
+	    $(obj).css({
+    	   "position" : "relative",
+    	   "top" : 0 +'px',
+    	   "left" : 0 +'px'
+    	});
+	    
+	    kk[data].x =0;//json 객체의 포지션을 변경 ->나중에 저장 할 때 필요
+	    kk[data].y = 0;
+	   
+	   ev.target.appendChild(obj);
+	   
+	   	tmp= false;
+	   }
+   }
+   
 
    function drop(ev) {
       ev.preventDefault();
       var $nodes1 = $(ev.target).contents();
 //      alert("body의 자식노드자식 노드 갯수는 ? " + $nodes1.size());
-      if($nodes1.size() < 11){
+
+	   if($nodes1.size() < 11){
     	  
        var data = ev.dataTransfer.getData("text");  //id
     		    	  
-       var obj = document.getElementById(data);//.cloneNode(true);
+       var obj = document.getElementById(data); //.cloneNode(true);
       
-       kk[data].x =ev.pageX-45;//json 객체의 포지션을 변경 ->나중에 저장 할 때 필요
-       kk[data].y =ev.pageY-55;
-       
    	  var x_pos = ev.pageX-45;//이동 할 x좌표
       var y_pos = ev.pageY-55;//이동 할 y좌표
      //alert(x_pos+','+y_pos);
-      //alert(y_pos);
-   
-    //-----------------------------------
-    
-      ev.target.appendChild(obj);
-      $(obj).css({
-    	   "position" : "absolute",
-    	   "top" : y_pos +'px',
-    	   "left" : x_pos +'px'
-    	});
+		if(tmp){//카드끼리 위치 바꾸기
+			//alert('b');
+// 			alert(data3);//target
+// 			alert(data);//source
+
+			var target = document.getElementById(data3);
+	 		var source = document.getElementById(data);
+	 		//alert(source.parentNode.id);
+			if(source.parentNode.id == 'gujang'){//내부
+				alert(target.id);
+		 		$(target).css({
+	    	  	 "position" : "absolute",
+	    	 	  "top" : kk[data].y +'px',
+	    		   "left" : kk[data].x +'px'
+	    		});
+		 	//	alert(source.id);
+	 		$(source).css({
+	    	  	 "position" : "absolute",
+	    	 	  "top" : kk[data3].y +'px',
+	    		   "left" : kk[data3].x +'px'
+	    		});
+	 		var tmpX=kk[data].x;
+	 		var tmpY=kk[data].y;
+	 		kk[data].x=kk[data3].x;
+	 		kk[data].y=kk[data3].y;
+	 		kk[data3].x=tmpX;
+	 		kk[data3].y=tmpY;
+	 		
+			}else{//basket에서 들어올때
+				
+				 var index = Array.prototype.indexOf.call(basket.children, source);
+				document.getElementById('gujang').appendChild(source);
+			//	alert('kk[data3].y='+kk[data3].y);
+				$(source).css({
+		    	  	 "position" : "absolute",
+		    	 	  "top" : kk[data3].y +'px',
+		    		   "left" : kk[data3].x +'px'
+		    	});
+				
+				var list = document.getElementById("basket");
+			    list.insertBefore(target, list.childNodes[index+1]);
+				
+			    $(target).css({
+			   	  	 "position" : "relative",
+			   	 	  "top" : 0 +'px',
+			   		   "left" : 0 +'px'
+			   		});
+				
+			    var tmpX=kk[data3].x;
+				var tmpY=kk[data3].y;
+				kk[data3].x=0;
+				kk[data3].y=0;
+				kk[data].x=tmpX;
+				kk[data].y=tmpY;
+			
+			}
+			
+			tmp= false;
+			
+		}else{//배경에 닿았을 때
+			  kk[data].x =ev.pageX-45;//json 객체의 포지션을 변경 ->나중에 저장 할 때 필요
+		      kk[data].y =ev.pageY-55;
+			  
+     	 	ev.target.appendChild(obj);
+     	 	
+     	 	$(obj).css({
+    	  	 "position" : "absolute",
+    	 	  "top" : y_pos +'px',
+    		   "left" : x_pos +'px'
+    		});
+     	 	tmp= false;
+		}
       
       }else{
    	   alert("인원을 11명 이상 추가 할 수 없습니다.");
       }
       
-   }
+    }
       
 } catch (exception) {
    alert('예외 발생');
@@ -209,7 +362,6 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-
       <table>
          <tr>
             <td><img alt="팀로고" src="image/${team.team_logo} "
@@ -354,7 +506,7 @@ $(document).ready(function(){
 					ondrop="drop(event)" ondragover="allowDrop(event)"></td>
 				<td style="height: 681px;">
 					<div style="overflow: scroll; height: 851px" id="basket" 
-					ondrop="drop(event)" ondragover="allowDrop(event)">
+					ondrop="drop2(event)" ondragover="allowDrop2(event)">
 					</div>
 					<input type="button" onclick="" value="위치 저장">
 <!-- 			ajax로 kk의 json 객체를 전송 해야 한다. -->
