@@ -1,6 +1,7 @@
 package soccer.co.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,6 +55,31 @@ public class clubController {
 		return "team_create.tiles";
 	}
 	
+	
+	@RequestMapping(value = "savePosition.do", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public int savePosition(@RequestBody List<Map<String, Object>> list){
+		logger.info("savePosition do!");
+
+		for(Map<String, Object> m : list) {
+			foot_user_DTO tmpUserDTO 
+			= new foot_user_DTO(
+			m.get("user_email").toString(), m.get("user_pw").toString(), m.get("user_name").toString(),
+			m.get("user_birth").toString(),(int)m.get("user_age"), m.get("user_phone").toString(),
+			(int)m.get("user_high"), (int)m.get("user_weight"), (int)m.get("user_foot"),
+			m.get("user_position1").toString(),m.get("user_position2").toString(), 
+			m.get("user_position3").toString(), m.get("user_address").toString(), 
+			m.get("user_profile").toString(), m.get("user_team").toString(),
+			(int)m.get("user_helper"), (int)m.get("user_enabled"), m.get("user_speed").toString(), 
+			m.get("user_attendrate").toString(), m.get("user_attendtime").toString(), m.get("user_goal").toString(), 
+			(int)m.get("x"), (int)m.get("y"));
+			//System.out.println(tmpUserDTO.toString());
+			//userList.add(menu);
+			clubservice.userUpdate(tmpUserDTO);
+		}
+
+		return 1;
+	}
 	
 	@RequestMapping(value = "getTeamMember.do", method = {RequestMethod.GET,RequestMethod.POST})
 	@ResponseBody

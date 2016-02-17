@@ -21,4 +21,6 @@ public interface foot_teamService {
 	public foot_team_DTO getTeam(foot_team_DTO team);
 	
 	public boolean modifyteam(foot_team_DTO team, foot_user_DTO fudto, String originteamname);
+
+	public void userUpdate(foot_user_DTO tmpUserDTO);
 }

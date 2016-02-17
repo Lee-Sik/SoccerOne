@@ -299,18 +299,21 @@ public class foot_user_DTO {
 		this.user_goal = user_goal;
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "foot_user_DTO [user_email=" + user_email + ", user_pw=" + user_pw + ", user_name=" + user_name
-				+ ", user_birth=" + user_birth + ", user_age=" + user_age + ", user_phone=" + user_phone
-				+ ", user_high=" + user_high + ", user_weight=" + user_weight + ", user_foot=" + user_foot
-				+ ", user_position1=" + user_position1 + ", user_position2=" + user_position2 + ", user_position3="
-				+ user_position3 + ", user_address=" + user_address + ", user_profile=" + user_profile + ", user_team="
-				+ user_team + ", user_helper=" + user_helper + ", user_enabled=" + user_enabled + ", user_speed="
-				+ user_speed + ", user_attendrate=" + user_attendrate + ", user_attendtime=" + user_attendtime
-				+ ", user_goal=" + user_goal + "]";
+		return "foot_user_DTO [user_email=" + user_email + ", user_pw="
+				+ user_pw + ", user_name=" + user_name + ", user_birth="
+				+ user_birth + ", user_age=" + user_age + ", user_phone="
+				+ user_phone + ", user_high=" + user_high + ", user_weight="
+				+ user_weight + ", user_foot=" + user_foot
+				+ ", user_position1=" + user_position1 + ", user_position2="
+				+ user_position2 + ", user_position3=" + user_position3
+				+ ", user_address=" + user_address + ", user_profile="
+				+ user_profile + ", user_team=" + user_team + ", user_helper="
+				+ user_helper + ", user_enabled=" + user_enabled
+				+ ", user_speed=" + user_speed + ", user_attendrate="
+				+ user_attendrate + ", user_attendtime=" + user_attendtime
+				+ ", user_goal=" + user_goal + ", x=" + x + ", y=" + y + "]";
 	}
 	
 	

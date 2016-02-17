@@ -89,5 +89,9 @@ public class foot_team_DAO {
 		sql.update(ns1+"modifyteam1",fudto);
 		return true;
 	}
+
+	public void userUpdate(foot_user_DTO tmpUserDTO) {
+		sql.update(ns1+"userUpdate", tmpUserDTO);		
+	}
 	
 }

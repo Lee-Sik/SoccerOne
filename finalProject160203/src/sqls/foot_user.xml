@@ -17,6 +17,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	 
    </select>
    
+    <update id="userUpdate" parameterType="soccer.co.DTO.foot_user_DTO">
+    update foot_user set x=#{x},y=#{y} where user_email = #{user_email}
+   </update>
+   
    <select id="login1"
    parameterType="soccer.co.DTO.foot_user_DTO"
    resultType="soccer.co.DTO.foot_user_DTO">

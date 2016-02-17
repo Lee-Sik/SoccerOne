@@ -143,6 +143,45 @@ function something(a,b){
 try {
 	tmp= false;
 var userPosition = []; //나중에 el 태그로 넣어 준다.
+
+	function savePosition(){
+	
+// 		for(var i=0; i<kk.length;i++){
+// 			alert(i+' = '+kk[i].y);
+// 		}	
+
+// 		$.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오는 ajax
+// 		    url: "savePosition.do",
+// 		    dataType: 'JSON',
+// 		    data: kk,
+// 		    jsonpCallback: 'callback',
+// 		    type: 'get',
+// 		    success: function (data) {
+		    	
+// 		    }
+// 		});
+		
+		var jsonStr = JSON.stringify(kk);
+		console.log("jsonStr : " + jsonStr);
+		$.ajax({
+			url : 'savePosition.do'
+	        ,method : "post"
+			,dataType : 'json'
+			,data : jsonStr
+			,processData : true /*querySTring make false*/
+			,contentType : "application/json; charset=UTF-8"
+			,success : function(data, stat, xhr) {
+				alert("success");
+			}
+		    ,error : function(xhr, stat, err) {
+		    	alert("error");
+		    	console.log(err);
+		    }
+		});
+
+
+	}
+   
    
    function allowDrop(ev) {
       ev.preventDefault();
@@ -249,7 +288,7 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
       var $nodes1 = $(ev.target).contents();
 //      alert("body의 자식노드자식 노드 갯수는 ? " + $nodes1.size());
 
-	   if($nodes1.size() < 11){
+	  // if($nodes1.size() < 11){
     	  
        var data = ev.dataTransfer.getData("text");  //id
     		    	  
@@ -257,6 +296,8 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
       
    	  var x_pos = ev.pageX-45;//이동 할 x좌표
       var y_pos = ev.pageY-55;//이동 할 y좌표
+      
+      var source = document.getElementById(data);
      //alert(x_pos+','+y_pos);
 		if(tmp){//카드끼리 위치 바꾸기
 			//alert('b');
@@ -264,10 +305,10 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 // 			alert(data);//source
 
 			var target = document.getElementById(data3);
-	 		var source = document.getElementById(data);
+	 		
 	 		//alert(source.parentNode.id);
 			if(source.parentNode.id == 'gujang'){//내부
-				alert(target.id);
+				//alert(target.id);
 		 		$(target).css({
 	    	  	 "position" : "absolute",
 	    	 	  "top" : kk[data].y +'px',
@@ -317,7 +358,7 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 			
 			tmp= false;
 			
-		}else{//배경에 닿았을 때
+		}else if(source.parentNode.id == 'basket' && $nodes1.size() < 11){//배경에 닿았을 때
 			  kk[data].x =ev.pageX-45;//json 객체의 포지션을 변경 ->나중에 저장 할 때 필요
 		      kk[data].y =ev.pageY-55;
 			  
@@ -329,11 +370,22 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
     		   "left" : x_pos +'px'
     		});
      	 	tmp= false;
-		}
+ 		}else if(source.parentNode.id == 'gujang'){
+ 			  kk[data].x =ev.pageX-45;//json 객체의 포지션을 변경 ->나중에 저장 할 때 필요
+		      kk[data].y =ev.pageY-55;
+			  
+     	 	//ev.target.appendChild(obj);
+     	 	
+     	 	$(obj).css({
+    	  	 "position" : "absolute",
+    	 	  "top" : y_pos +'px',
+    		   "left" : x_pos +'px'
+    		});
+     	 	tmp= false;
+ 		}else{
+ 			 alert("인원을 11명 이상 추가 할 수 없습니다.");
+ 		}
       
-      }else{
-   	   alert("인원을 11명 이상 추가 할 수 없습니다.");
-      }
       
     }
       
@@ -356,7 +408,6 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 </script>
 <script>
 $(document).ready(function(){
-	
    
 });
 </script>
@@ -508,7 +559,7 @@ $(document).ready(function(){
 					<div style="overflow: scroll; height: 851px" id="basket" 
 					ondrop="drop2(event)" ondragover="allowDrop2(event)">
 					</div>
-					<input type="button" onclick="" value="위치 저장">
+					<input type="button" onclick="savePosition()" value="위치 저장">
 <!-- 			ajax로 kk의 json 객체를 전송 해야 한다. -->
 				</td>
 			</tr>
