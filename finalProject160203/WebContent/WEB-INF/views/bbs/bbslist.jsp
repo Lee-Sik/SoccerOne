@@ -58,9 +58,11 @@
 	<tr class="_hover_tr">
 		<td>${vs.count}</td> 
 		<td>${bbs.topic}</td>
-		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'>${bbs.title}
-		 &nbsp;&nbsp; ${bbs.commentcount}
-		</a></td>
+		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'>${bbs.title}</a>
+		 &nbsp;&nbsp;
+		 <a href="#" 
+		 onclick="javascript:window.open('./commentlist.do?bbs_no=${bbs.bbs_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">[${bbs.commentcount}]</a>
+		</td>
 		<td>${bbs.user_email}</td>
 			<c:set var="rdate" value="${bbs.wdate}"/>
 			<c:set var="len" value="${fn:length(wdate)}"/>

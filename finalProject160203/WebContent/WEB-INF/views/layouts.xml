@@ -207,6 +207,9 @@
 
 </definition>
 
+<definition name="commentlist.tiles" template="/WEB-INF/views/bbs/commentlist.jsp">
+</definition>
+
 <definition name="clubmyinform.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/clubmyinform.jsp" />
 </definition>

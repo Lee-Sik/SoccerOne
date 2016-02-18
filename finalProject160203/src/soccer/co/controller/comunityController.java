@@ -316,5 +316,17 @@ public class comunityController {
 		
 		return "bbsdetail.tiles";
 	}
+	
+	@RequestMapping(value = "commentlist.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String commentlist(Model model,HttpServletRequest request) throws Exception {
+		
+		int bbs_no = Integer.parseInt(request.getParameter("bbs_no"));
+		
+		List<foot_comment_DTO> comdto  = BBSService.getCommentList(bbs_no);
+		
+		model.addAttribute("comlist",comdto);
+		
+		return "commentlist.tiles";
+	}
 }
 
