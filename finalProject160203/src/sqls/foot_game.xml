@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{game_no},#{game_date},null, null, null,0,
 		null,null,null,null,null,null)
    </insert>
-
+    
    <select id="getfreegameList" resultType="soccer.co.DTO.foot_game_DTO">
    <![CDATA[
          SELECT * from foot_freegame where ROWNUM < 6 order by game_no desc 

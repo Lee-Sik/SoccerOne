@@ -119,11 +119,11 @@ function sendNews(media) {
 	<br><br><br><br>	
 	<div align="center">
 
-		<c:if test="${flike.user_email == null }">
-			<a href="bbslike.do?bbs_no=${bbs.bbs_no}&user_email=${login.user_email}"><img src="./image/like_btn.gif"></a><br>
+		<c:if test="${flike.user_email == null}">
+			<a href="bbslike.do?bbs_no=${bbs.bbs_no}&user_email=${login.user_email}"><img src="./image/like_btnd.gif"></a><br>
 		</c:if>
-		<c:if test="${flike.user_email != null }">
-			<a href="bbslikedel.do?bbs_no=${bbs.bbs_no}&user_email=${login.user_email}"><img src="./image/like_btnd.gif"></a><br>
+		<c:if test="${flike.user_email != null}">
+			<a href="bbslikedel.do?bbs_no=${bbs.bbs_no}&user_email=${login.user_email}"><img src="./image/like_btn.gif"></a><br>
 		</c:if>
 	
 	 <a href="javascript:sendNews('cyworld');"><img src="./image/cyworld_top.gif" width="16" height="16" alt="싸이월드 공감" border="0"></a>
@@ -195,36 +195,44 @@ $("#_btnUpdate").click(function() {
 <input type="hidden" name="user_email" value="${login.user_email}"/>
 
 <table class="list_table" style="width:85%;">
-<col width="auto"/>
 <col width="8%"/>
+<col width="auto"/>
+<col width="10%"/>
+
+<br>
+
 <tr>
-	<td colspan="2"></td>
-</tr>
-<tr>
-	<td> 댓글 </td>
 	<td> 작성자 </td>
+	<td colspan="2"> 댓글 </td>	
 </tr>
+	
 	<c:if test="${empty comlist}">
 		<tr>
-		<td colspan="2">작성된 댓글이 없습니다.</td>
+		<td colspan="3">작성된 댓글이 없습니다.</td>
 		</tr>
 	</c:if>
 	
 	<c:if test="${not empty comlist}">
 		<c:forEach items="${comlist}" var="comlist">
 			<tr>
-			<td style="text-align: left;">${comlist.content}</td>
 			<td>${comlist.user_email}</td>
+			<td style="text-align: left;">${comlist.content}</td>
+			<td style="text-align: right;">
+			${comlist.wdate}<br>
+			<a href="commentedit.do?bbs_no=${comlist.comment_no}"><img src="./image/comment_del.gif"/></a>&nbsp;
+			<a href="commentdel.do?bbs_no=${comlist.comment_no}"><img src="./image/comment_edit.gif"/></a>
+			</td>
 			</tr>
 		</c:forEach>
 	</c:if>		
+</table>
+<table class="list_table" style="width:85%;">
 
 <tr>
 	<td style="text-align: left;"><textarea rows="5" cols="80" name="content"></textarea></td>
 	<td><input type="submit" value="댓글달기"></td>
 </tr>
 </table>
-
 </form>
 
 <br>

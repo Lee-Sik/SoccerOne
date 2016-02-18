@@ -73,6 +73,11 @@ public class foot_comunity_DAO {
 		return true;
 	}
 	
+	public boolean incrementCommentCount(foot_comunity_DTO bbs)throws Exception{
+		sqlSession.update(ns+"incrementCommentCount",bbs);
+		return true;
+	}
+	
 	public boolean bbsLike(foot_like_DTO flike)throws Exception{
 		sqlSession.insert(ns+"bbsLike",flike);
 		return true;

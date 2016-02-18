@@ -3,7 +3,9 @@ create table foot_bbs_like(                    --친선경기 게시판
    user_email varchar2(50) not null,    --작성자
    CONSTRAINT FK_parent_bbs_no FOREIGN KEY(parent_bbs_no) REFERENCES foot_bbs(bbs_no)      
 );
-
+SELECT count(PARENT_BBS_NO)
+FROM FOOT_BBS_COMMENT
+WHERE PARENT_BBS_NO = 67
 
 
 SELECT T.TEAM_MANAGERID, F.GAME_NO, F.TEAM_NAME, F.GAME_LOCATION, F.GAME_DATE, F.GROUND, F.PAY, F.GAME_STATE

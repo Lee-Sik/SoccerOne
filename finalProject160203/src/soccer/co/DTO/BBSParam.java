@@ -104,6 +104,7 @@ public class BBSParam implements Serializable{
 		this.pageNumber = pageNumber;
 	}
 
+
 	public BBSParam() {
 		
 	}

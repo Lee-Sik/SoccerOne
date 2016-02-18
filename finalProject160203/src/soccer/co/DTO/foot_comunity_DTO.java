@@ -39,13 +39,14 @@ public class foot_comunity_DTO implements Serializable{
 	private int readcount;
 	private String imageurl;
 	private int del;
+	private int commentcount;
 
 	public foot_comunity_DTO() {
 		
 	}
 	
 	public foot_comunity_DTO(int bbs_no, String topic, String user_email, String title, String content, String wdate,
-			int good, int readcount, String imageurl, int del) {
+			int good, int readcount, String imageurl, int del, int commentcount) {
 		super();
 		this.bbs_no = bbs_no;
 		this.topic = topic;
@@ -57,6 +58,7 @@ public class foot_comunity_DTO implements Serializable{
 		this.readcount = readcount;
 		this.imageurl = imageurl;
 		this.del = del;
+		this.commentcount = commentcount;
 	}
 
 	public int getBbs_no() {
@@ -138,8 +140,14 @@ public class foot_comunity_DTO implements Serializable{
 	public void setDel(int del) {
 		this.del = del;
 	}
-	
 
+	public int getCommentcount() {
+		return commentcount;
+	}
+
+	public void setCommentcount(int commentcount) {
+		this.commentcount = commentcount;
+	}
 	
 
 }

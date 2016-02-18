@@ -7,9 +7,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="writeBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">
 		INSERT INTO FOOT_BBS
-		(BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL) 
+		(BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL, COMMENTCOUNT) 
 		VALUES(foot_bbs_seq.nextval,#{topic},#{user_email},#{title},#{content},SYSDATE,
-				0,0,#{imageurl},0)
+				0,0,#{imageurl},0,0)
 	</insert>
 	
 	<insert id="writeComment" parameterType="soccer.co.DTO.foot_comment_DTO">
@@ -18,11 +18,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(foot_comment_seq.nextval,#{parent_bbs_no},#{user_email},#{content},SYSDATE,0)
 	</insert>
 	
+	 <select id="incrementCommentCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
+   	<![CDATA[
+ 		UPDATE FOOT_BBS SET
+		COMMENTCOUNT = COMMENTCOUNT+1
+		WHERE bbs_no=#{bbs_no}
+      ]]>
+   	</select>
+   
 	<select id="getCommentList" parameterType="java.lang.Integer" resultType="soccer.co.DTO.foot_comment_DTO">
 	<![CDATA[
   			SELECT * FROM FOOT_BBS_COMMENT
   			WHERE PARENT_BBS_NO = #{parent_bbs_no}
- 			ORDER BY COMMENT_NO DESC
+ 			ORDER BY COMMENT_NO ASC
   		]]>
 	</select>
  
@@ -34,10 +42,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="getBBSPagingList" parameterType="soccer.co.DTO.BBSParam" resultType="soccer.co.DTO.foot_comunity_DTO">
-			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL
+			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL, COMMENTCOUNT
 			FROM 	
 		( SELECT ROW_NUMBER() OVER (ORDER BY BBS_NO DESC) as rnum,
-		BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL 
+		BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL, COMMENTCOUNT 
 		FROM FOOT_BBS
 	    WHERE 1 = 1 
 	    <if test="s_category != '' and s_category != null and s_keyword != '' and s_keyword != null">
@@ -61,7 +69,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="getBBS" parameterType="soccer.co.DTO.foot_comunity_DTO" resultType="soccer.co.DTO.foot_comunity_DTO">
-			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL
+			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL, COMMENTCOUNT
 			FROM FOOT_BBS
 			WHERE bbs_no=#{bbs_no}
 	</select>
@@ -114,14 +122,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="replyBBSInsert" parameterType="soccer.co.DTO.foot_comunity_DTO">
 		INSERT INTO BBS
 		(bbs_no,ID,TITLE,CONTENT,REF,STEP,
-		DEPTH, PARENT, DEL, WDATE, READCOUNT)
+		DEPTH, PARENT, DEL, WDATE, READCOUNT, COMMENTCOUNT)
 		VALUES(
 		bbs_no_BBS.NEXTVAL,
 		#{id},#{title},#{content},
 		(SELECT REF FROM BBS WHERE bbs_no=#{bbs_no}),
 		(SELECT STEP FROM BBS WHERE bbs_no=#{bbs_no})+1,
 		(SELECT DEPTH FROM BBS WHERE bbs_no=#{bbs_no})+1,
-		#{bbs_no},0,SYSDATE,0) 
+		#{bbs_no},0,SYSDATE,0,0) 
 	</insert>
 	
 	<update id="updateBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">

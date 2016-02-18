@@ -105,11 +105,16 @@ public class comunityController {
 	}
 	
 	@RequestMapping(value = "commentAf.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String commentAf(int parent_no, foot_comment_DTO comdto,Model model) throws Exception {
+	public String commentAf(int parent_no, foot_comment_DTO comdto, Model model) throws Exception {
 		logger.info("Welcome BBSController commentAf! "+ new Date());
 		
 		comdto.setParent_bbs_no(parent_no);
 		
+		foot_comunity_DTO bbs = new foot_comunity_DTO();
+		
+		bbs.setBbs_no(parent_no);
+		
+		BBSService.incrementCommentCount(bbs);
 		BBSService.writeComment(comdto);
 		
 		return  "redirect:/bbsdetail.do?bbs_no=" + parent_no;
@@ -217,9 +222,7 @@ public class comunityController {
 		return "redirect:/bbslist.do";
 	}
 	
-	@RequestMapping(value = "bbslist.do", 
-			method = {RequestMethod.GET,
-			RequestMethod.POST})
+	@RequestMapping(value = "bbslist.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String bbslist(BBSParam param,Model model) throws Exception {
 		logger.info("Welcome MemberController bbslist! "+ new Date());
 		logger.info("Welcome MemberController param! "+ param);
@@ -245,9 +248,9 @@ public class comunityController {
 		
 		model.addAttribute("s_category", param.getS_category());
 		model.addAttribute("s_keyword", param.getS_keyword());
-		
-		
+				
 		model.addAttribute("title", "축덕포럼");
+
 		return "bbslist.tiles";
 	}
 	
