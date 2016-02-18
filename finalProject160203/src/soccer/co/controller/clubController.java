@@ -94,7 +94,6 @@ public class clubController {
 	}
 	
 	@RequestMapping(value = "club.do", method = {RequestMethod.GET,RequestMethod.POST})	
-//	@ResponseBody
 	public String club(String cal,foot_cal_DTO cdto,foot_user_DTO fudto,Model model, HttpServletRequest req) throws Exception {	
 		logger.info("clubController club!");
 	

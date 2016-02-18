@@ -19,21 +19,10 @@
    foot_team_DTO myteam = (foot_team_DTO)session.getAttribute("team");
                  
 %>
-<script>
-var a,b;
-var url='https://maps.googleapis.com/maps/api/geocode/json?address=<%=myteam.getTeam_home()%>&key=AIzaSyDmrTAC2knfxkHTWStqoS59Pf7IquSj9QE';
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=b96f6f78cb32a760eab6750a6cdc3266&libraries=services"></script>
 
-$.ajax({ //구글 에서 가져오는 좌표 를 위한 ajax
-    url: url,
-    dataType: 'JSON',
-    jsonpCallback: 'callback',
-    type: 'GET',
-    success: function (data) {
-        a=data.results[0].geometry.location.lat;
-        b=data.results[0].geometry.location.lng;
-        something(a,b);
-    }
-});
+
+<script>
 
 $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오는 ajax
     url: "getTeamMember.do",
@@ -88,56 +77,6 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     }
 });
 
-function something(a,b){
-              var m_title = "<%=myteam.getTeam_name()%> 홈 구장"; // 마커에 마우스 포인트를 갖다댔을 때 뜨는 타이틀
-             var m_marker_title = "<%=myteam.getTeam_home()%>";// 말풍선 안에 들어갈 내용
-             
-             function initialize() {
-                var m_width = "400px";
-                var m_height = "300px";
-                
-                var m_tmpLat = a;
-                var m_tmpLng = b;   
-                
-             var mapLocation = new google.maps.LatLng(m_tmpLat,m_tmpLng); // 지도에서 가운데로 위치할 위도와 경도
-             var markLocation = new google.maps.LatLng(m_tmpLat,m_tmpLng); // 마커가 위치할 위도와 경도
-             /*
-                 MapTypeId.ROADMAP - 기본 로드맵 보기를 표시합니다.
-                 MapTypeId.SATELLITE - Google 어스 위성 이미지를 표시합니다.
-                 MapTypeId.HYBRID - 일반 뷰와 위성 보기를 혼합하여 표시합니다.
-                 MapTypeId.TERRAIN - 지형 정보를 바탕으로 실제 지도를 표시합니다.
-             */
-
-             var mapOptions = {
-                 center: mapLocation, // 지도에서 가운데로 위치할 위도와 경도(변수)
-                 zoom: 15, // 지도 zoom단계
-                 mapTypeId: google.maps.MapTypeId.ROADMAP /* 기본 로드맵 보기를 표시합니다. */
-
-             };
-             var m=document.getElementById('map');
-             var map = new google.maps.Map(m, mapOptions); // id: map, body에 있는 div태그의 id와 같아야 함
-
-             var marker;
-             marker = new google.maps.Marker({
-                 position: markLocation, // 마커가 위치할 위도와 경도(변수)
-                 map: map,
-                // info: m_title,
-                 title: m_marker_title // 마커에 마우스 포인트를 갖다댔을 때 뜨는 타이틀
-             });
-
-             var content = m_title; // 말풍선 안에 들어갈 내용
-
-             // 마커를 클릭했을 때의 이벤트. 말풍선
-             var infowindow = new google.maps.InfoWindow({ content: content});
-
-             google.maps.event.addListener(marker, "click", function() {
-                 infowindow.open(map,marker);
-             });
-
-             }//initialize 끝
-              google.maps.event.addDomListener(window, 'load', initialize);
-}
-
 </script>
 <script> //--------------------포지션 드레그 엔 드롭-------------------------//
 try {
@@ -145,22 +84,7 @@ try {
 var userPosition = []; //나중에 el 태그로 넣어 준다.
 
 	function savePosition(){
-	
-// 		for(var i=0; i<kk.length;i++){
-// 			alert(i+' = '+kk[i].y);
-// 		}	
 
-// 		$.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오는 ajax
-// 		    url: "savePosition.do",
-// 		    dataType: 'JSON',
-// 		    data: kk,
-// 		    jsonpCallback: 'callback',
-// 		    type: 'get',
-// 		    success: function (data) {
-		    	
-// 		    }
-// 		});
-		
 		var jsonStr = JSON.stringify(kk);
 		console.log("jsonStr : " + jsonStr);
 		$.ajax({
@@ -181,7 +105,6 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 
 
 	}
-   
    
    function allowDrop(ev) {
       ev.preventDefault();
@@ -353,9 +276,7 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 				kk[data3].y=0;
 				kk[data].x=tmpX;
 				kk[data].y=tmpY;
-			
 			}
-			
 			tmp= false;
 			
 		}else if(source.parentNode.id == 'basket' && $nodes1.size() < 11){//배경에 닿았을 때
@@ -375,7 +296,6 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 		      kk[data].y =ev.pageY-55;
 			  
      	 	//ev.target.appendChild(obj);
-     	 	
      	 	$(obj).css({
     	  	 "position" : "absolute",
     	 	  "top" : y_pos +'px',
@@ -385,32 +305,13 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
  		}else{
  			 alert("인원을 11명 이상 추가 할 수 없습니다.");
  		}
-      
-      
     }
       
 } catch (exception) {
    alert('예외 발생');
 } finally {} //--------------------포지션 드레그 엔 드롭-----------
 </script>
-<script> //--------------------구글맵-------------------------
-   function initialize() {
-      var mapProp = {
-         center : new google.maps.LatLng(51.508742, -0.120850),
-         zoom : 5,
-         mapTypeId : google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(document.getElementById("map"), mapProp);
-   }
-   google.maps.event.addDomListener(window, 'load', initialize);
 
- //--------------------구글맵-------------------------
-</script>
-<script>
-$(document).ready(function(){
-   
-});
-</script>
 </head>
 <body>
       <table>
@@ -575,9 +476,59 @@ $(document).ready(function(){
 				<td colspan="2" id="map" style="width: 400px; height: 300px"></td>
 			</tr>
 		</table>
-	<script>
+<script>
+// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+var infowindow = new daum.maps.InfoWindow({zIndex:1});
 
-//alert(kk[0].user_address);
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+        level: 10 // 지도의 확대 레벨
+    };  
+
+// 지도를 생성합니다    
+var map = new daum.maps.Map(mapContainer, mapOption); 
+
+// 장소 검색 객체를 생성합니다
+var ps = new daum.maps.services.Places(); 
+
+// 키워드로 장소를 검색합니다
+ps.keywordSearch('서울 양천구 서울강서초등학교', placesSearchCB); 
+
+// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+function placesSearchCB (status, data, pagination) {
+    if (status === daum.maps.services.Status.OK) {
+
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        // LatLngBounds 객체에 좌표를 추가합니다
+        var bounds = new daum.maps.LatLngBounds();
+
+        for (var i=0; i<1; i++) {
+            displayMarker(data.places[i]);    
+            bounds.extend(new daum.maps.LatLng(data.places[i].latitude, data.places[i].longitude));
+        }       
+
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+        map.setBounds(bounds);
+    } 
+}
+
+// 지도에 마커를 표시하는 함수입니다
+function displayMarker(place) {
+    
+    // 마커를 생성하고 지도에 표시합니다
+    var marker = new daum.maps.Marker({
+        map: map,
+        position: new daum.maps.LatLng(place.latitude, place.longitude) 
+    });
+
+    // 마커에 클릭이벤트를 등록합니다
+    daum.maps.event.addListener(marker, 'click', function() {
+        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.title + '</div>');
+        infowindow.open(map, marker);
+    });
+}
 </script>
 </body>
 </html>
