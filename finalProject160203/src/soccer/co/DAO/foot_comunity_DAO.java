@@ -41,12 +41,12 @@ public class foot_comunity_DAO {
 				sqlSession.selectList(ns+"getCommentList", parent_bbs_no);
 		return list;
 	}
-	
-	public List<foot_like_DTO> getLikeList(int parent_bbs_no)throws Exception{
-		List<foot_like_DTO> list=new ArrayList<foot_like_DTO>();
-		list=(List<foot_like_DTO>)
-				sqlSession.selectList(ns+"getLikeList", parent_bbs_no);
-		return list;
+
+	public foot_like_DTO getLike(foot_like_DTO flike)throws Exception{
+		foot_like_DTO fdto=null;
+		fdto=(foot_like_DTO)
+				sqlSession.selectOne(ns+"getLike",flike);
+		return fdto;
 	}
 	
 	public List<foot_comunity_DTO> getBBSPagingList(BBSParam param)throws Exception{

@@ -22,8 +22,7 @@
 		<select id="topic" name="topic">
 			<option value="" selected="selected">선택</option>
 			<option value="korea">국내축구</option>
-			<option value="europe">해외축구</option>
-			<option value="sellbuy">중고장터</option>			
+			<option value="europe">해외축구</option>		
 		</select>
 	</td>
 </tr>

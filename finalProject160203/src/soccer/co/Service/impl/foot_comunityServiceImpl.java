@@ -54,10 +54,11 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<foot_like_DTO> getLikeList(int parent_bbs_no)
-			throws Exception {
+	public foot_like_DTO getLike(foot_like_DTO flike) throws Exception {
+		foot_like_DTO fail=  BBSDao.getLike(flike);
+		foot_like_DTO init=  new foot_like_DTO();
 		
-		return BBSDao.getLikeList(parent_bbs_no);
+		return fail == null? init: fail;
 	}
 
 	@Override

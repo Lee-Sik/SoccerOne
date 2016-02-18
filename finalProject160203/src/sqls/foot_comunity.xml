@@ -96,10 +96,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE BBS_NO=#{bbs_no}
 	</update>
 	
-	<select id="getLikeList" parameterType="soccer.co.DTO.foot_like_DTO" resultType="soccer.co.DTO.foot_like_DTO">
+	<select id="getLike" parameterType="soccer.co.DTO.foot_like_DTO" resultType="soccer.co.DTO.foot_like_DTO">
 			SELECT *
 			FROM FOOT_BBS_LIKE
-			WHERE PARENT_BBS_NO=#{bbs_no}
+			WHERE PARENT_BBS_NO=#{parent_bbs_no}
+			AND USER_EMAIL=#{user_email}
 	</select>
 	
 	

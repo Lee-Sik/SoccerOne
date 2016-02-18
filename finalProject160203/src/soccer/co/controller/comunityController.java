@@ -22,6 +22,7 @@ import soccer.co.DTO.BBSParam;
 import soccer.co.DTO.foot_comment_DTO;
 import soccer.co.DTO.foot_comunity_DTO;
 import soccer.co.DTO.foot_like_DTO;
+import soccer.co.DTO.foot_user_DTO;
 import soccer.co.Service.foot_comunityService;
 
 @Controller
@@ -183,6 +184,8 @@ public class comunityController {
 				
 		foot_comunity_DTO rbbs=BBSService.getBBS(bbs);		
 		model.addAttribute("bbs", rbbs);
+		model.addAttribute("title", "글 수정");
+		
 		return "bbsupdate.tiles";
 	}
 	
@@ -265,9 +268,24 @@ public class comunityController {
 		model.addAttribute("bbs",dto);
 		model.addAttribute("title", "글 상세보기");
 		
-		List<foot_like_DTO> flike = BBSService.getLikeList(bbs_no);
+		foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
 		
-		model.addAttribute("flike",flike);
+		String user_email = fudto.getUser_email();
+		
+		System.out.println("bbs_no = " + bbs_no);
+		System.out.println("user_email = " + user_email);
+		
+		foot_like_DTO flike = new foot_like_DTO();
+		
+		flike.setParent_bbs_no(bbs_no);
+		flike.setUser_email(user_email);
+		
+		foot_like_DTO fdto = BBSService.getLike(flike);
+		
+		//System.out.println("parent_bbs_no = " + fdto.getParent_bbs_no());
+		//System.out.println("id = " + fdto.getUser_email());
+		
+		model.addAttribute("flike",fdto);
 		
 		int sn=param.getPageNumber();
 		int start=(sn)*param.getRecordCountPerPage()+1;

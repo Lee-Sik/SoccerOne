@@ -118,29 +118,14 @@ function sendNews(media) {
 	<a href="javascript:window.open('file://211.238.142.152/공유/ryu/${bbs.imageurl}', 'resizable=no, scrollbars=yes, status=no;')"><img src="file://211.238.142.152/공유/ryu/${bbs.imageurl}" width="50%;" alt="이미지없음"/></a>
 	<br><br><br><br>	
 	<div align="center">
-	
-	<c:choose>
-	<c:when test="${empty flike}">
-		<a href="bbslike.do?bbs_no=${bbs.bbs_no}&user_email=${login.user_email}"><img src="./image/like_btn.gif"></a><br>
-	</c:when>
-	
-	<c:otherwise>
-	<c:forEach items="${flike}" var="f">
 
-	<c:choose>
-		<c:when test="${f.user_email ne login.user_email}">
+		<c:if test="${flike.user_email == null }">
 			<a href="bbslike.do?bbs_no=${bbs.bbs_no}&user_email=${login.user_email}"><img src="./image/like_btn.gif"></a><br>
-		</c:when>
-		
-		<c:otherwise>
+		</c:if>
+		<c:if test="${flike.user_email != null }">
 			<a href="bbslikedel.do?bbs_no=${bbs.bbs_no}&user_email=${login.user_email}"><img src="./image/like_btnd.gif"></a><br>
-		</c:otherwise>
-	</c:choose>
-	</c:forEach>
-	</c:otherwise>
+		</c:if>
 	
-</c:choose>
-	 
 	 <a href="javascript:sendNews('cyworld');"><img src="./image/cyworld_top.gif" width="16" height="16" alt="싸이월드 공감" border="0"></a>
      <a href="javascript:sendNews('facebook');"><img src="./image/facebook_top.gif" width="16" height="16" alt="페이스북" border="0"></a>
      <a href="javascript:sendNews('twitter');"><img src="./image/twitter_top.gif" width="16" height="16" alt="트위터" border="0"></a>
@@ -151,8 +136,6 @@ function sendNews(media) {
 	
 	</td>
 </tr>
-
-
 
 <%-- 
 <tr>

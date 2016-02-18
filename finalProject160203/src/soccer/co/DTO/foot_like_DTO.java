@@ -40,6 +40,11 @@ public class foot_like_DTO implements Serializable{
 		this.user_email = user_email;
 	}
 
+	@Override
+	public String toString() {
+		return "foot_like_DTO [parent_bbs_no=" + parent_bbs_no + ", user_email=" + user_email + "]";
+	}
+
 	
 	
 }
