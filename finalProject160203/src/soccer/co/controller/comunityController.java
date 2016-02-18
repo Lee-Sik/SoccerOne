@@ -325,8 +325,32 @@ public class comunityController {
 		List<foot_comment_DTO> comdto  = BBSService.getCommentList(bbs_no);
 		
 		model.addAttribute("comlist",comdto);
+		model.addAttribute("bbs_no",bbs_no);
 		
 		return "commentlist.tiles";
 	}
+	
+	@RequestMapping(value = "commentdel.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String commentdel(foot_comment_DTO comdto, foot_comunity_DTO bbs, Model model,HttpServletRequest request) throws Exception {
+		logger.info("Welcome BBSController commentdel! "+ new Date());
+		String mode = request.getParameter("mode");
+		int comment_no = Integer.parseInt(request.getParameter("comment_no"));
+		int bbs_no = Integer.parseInt(request.getParameter("bbs_no"));
+		
+		comdto.setComment_no(comment_no);
+		BBSService.delComment(comdto);
+		
+		bbs.setBbs_no(bbs_no);
+		BBSService.decrementCommentCount(bbs);
+		
+		if(mode.equals("popuplist")){
+			return "redirect:/commentlist.do?bbs_no=" + bbs_no;
+		}else{
+			return "redirect:/bbsdetail.do?bbs_no=" + bbs_no;
+		}
+		
+	}
+	
+	
 }
 

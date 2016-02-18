@@ -123,5 +123,14 @@ public class foot_comunity_DAO {
 		return true;
 	}
 	
+	public boolean delComment(foot_comment_DTO comdto)throws Exception{
+		sqlSession.delete(ns+"delComment",comdto);
+		return true;
+	}
+	
+	public boolean decrementCommentCount(foot_comunity_DTO bbs)throws Exception{		
+		sqlSession.update(ns+"decrementCommentCount", bbs);
+		return true;
+	}
 	
 }

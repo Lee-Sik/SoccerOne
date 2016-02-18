@@ -219,8 +219,8 @@ $("#_btnUpdate").click(function() {
 			<td style="text-align: left;">${comlist.content}</td>
 			<td style="text-align: right;">
 			${comlist.wdate}<br>
-			<a href="commentedit.do?bbs_no=${comlist.comment_no}"><img src="./image/comment_del.gif"/></a>&nbsp;
-			<a href="commentdel.do?bbs_no=${comlist.comment_no}"><img src="./image/comment_edit.gif"/></a>
+			<a href="commentedit.do?comment_no=${comlist.comment_no}"><img src="./image/comment_edit.gif"/></a>&nbsp;
+			<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs.bbs_no}&mode=detail"><img src="./image/comment_del.gif"/></a>
 			</td>
 			</tr>
 		</c:forEach>

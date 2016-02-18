@@ -132,4 +132,16 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 		return BBSDao.delBBS(bbs);		
 	}
 	
+	@Override
+	public boolean delComment(foot_comment_DTO comdto) throws Exception {
+		
+		return BBSDao.delComment(comdto);
+	}
+	
+	@Override
+	public boolean decrementCommentCount(foot_comunity_DTO bbs) throws Exception {
+		
+		return BBSDao.decrementCommentCount(bbs);		
+	}
+	
 }

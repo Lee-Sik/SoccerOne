@@ -6,6 +6,13 @@
 <link href="CSS/BBStable.css" rel="stylesheet" >
 
 <head>
+<script type="text/javascript">
+function del(){
+alert("댓글 완료!");
+opener.parent.location.reload();
+}
+</script>
+
 <style type="text/css">
 body, table{
     font-size: 12px;
@@ -47,8 +54,9 @@ body, table{
 			<td style="text-align: left;">${comlist.content}</td>
 			<td style="text-align: right;">
 			${comlist.wdate}<br>
-			<a href="commentedit.do?bbs_no=${comlist.comment_no}"><img src="./image/comment_del.gif"/></a>&nbsp;
-			<a href="commentdel.do?bbs_no=${comlist.comment_no}"><img src="./image/comment_edit.gif"/></a>
+			<a href="commentedit.do?comment_no=${comlist.comment_no}"><img src="./image/comment_edit.gif"/></a>&nbsp;
+			<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs_no}&mode=popuplist"><img src="./image/comment_del.gif" 
+			onclick="del()"/></a>
 			</td>
 			</tr>
 		</c:forEach>

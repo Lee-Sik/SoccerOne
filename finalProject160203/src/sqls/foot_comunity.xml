@@ -18,13 +18,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(foot_comment_seq.nextval,#{parent_bbs_no},#{user_email},#{content},SYSDATE,0)
 	</insert>
 	
-	 <select id="incrementCommentCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
+	<delete id="delComment" parameterType="soccer.co.DTO.foot_comment_DTO">
+		DELETE FROM FOOT_BBS_COMMENT
+		WHERE COMMENT_NO = #{comment_no}
+	</delete>
+	
+	 <update id="incrementCommentCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
    	<![CDATA[
  		UPDATE FOOT_BBS SET
 		COMMENTCOUNT = COMMENTCOUNT+1
 		WHERE bbs_no=#{bbs_no}
       ]]>
-   	</select>
+   	</update>
+   	
+   	<update id="decrementCommentCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
+   	<![CDATA[
+ 		UPDATE FOOT_BBS SET
+		COMMENTCOUNT = COMMENTCOUNT-1
+		WHERE bbs_no=#{bbs_no}
+      ]]>
+   	</update>
    
 	<select id="getCommentList" parameterType="java.lang.Integer" resultType="soccer.co.DTO.foot_comment_DTO">
 	<![CDATA[

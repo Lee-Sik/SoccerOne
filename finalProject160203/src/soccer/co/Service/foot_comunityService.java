@@ -33,4 +33,7 @@ public interface foot_comunityService {
 	boolean updateBBS(foot_comunity_DTO bbs)throws Exception;
 	
 	boolean delBBS(foot_comunity_DTO bbs)throws Exception;
+	boolean delComment(foot_comment_DTO comdto)throws Exception;
+	boolean decrementCommentCount(foot_comunity_DTO bbs)throws Exception;
+	
 }
