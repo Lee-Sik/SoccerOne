@@ -218,4 +218,13 @@
 	<put-attribute name="main" value="/WEB-INF/views/team/teamsetting.jsp" />
 </definition>
 
+<definition name="introduce.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/site/introduce.jsp" />
+</definition>
+
+<definition name="address.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/site/address.jsp" />
+</definition>
+
+
 </tiles-definitions>

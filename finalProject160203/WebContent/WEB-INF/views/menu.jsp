@@ -69,11 +69,11 @@
       </ul>
    </li>
   
-  <li class='active'><a href='#'>사이트소개</a>
+  <li class='active'><a href='./introduce.do'>사이트소개</a>
       <ul>
          <li><a href='#'>인사말</a></li>
          <li><a href='#'>개설목적</a></li>
-         <li><a href='#'>연락처</a></li>
+         <li><a href='./address.do'>연락처</a></li>
       </ul>
    </li>
 
