@@ -351,6 +351,40 @@ public class comunityController {
 		
 	}
 	
+	@RequestMapping(value = "commentupdate.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String commentupdate(foot_comment_DTO comdto ,Model model,HttpServletRequest request) throws Exception {
+		logger.info("Welcome BBSController commentupdate! "+ new Date());
+
+		int comment_no = Integer.parseInt(request.getParameter("comment_no"));
+
+		comdto.setComment_no(comment_no);
+
+		foot_comment_DTO com = BBSService.getComment(comdto);
+
+		model.addAttribute("com",com);
+
+		return "commentupdate.tiles";
+	}
+	
+	@RequestMapping(value = "commentupdateAf.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String commentupdateAf(foot_comment_DTO comdto ,Model model,HttpServletRequest request) throws Exception {
+		logger.info("Welcome BBSController commentupdateAf! "+ new Date());
+		
+		int comment_no = Integer.parseInt(request.getParameter("comment_no"));
+		String content = request.getParameter("content");
+		
+		System.out.println("comment_no = " + comment_no);
+		System.out.println("content = " + content);
+		
+		
+		comdto.setComment_no(comment_no);
+		comdto.setContent(content);
+		
+		BBSService.updateComment(comdto);
+
+		return "bbsupdate.tiles"; 
+	}
+	
 	
 }
 

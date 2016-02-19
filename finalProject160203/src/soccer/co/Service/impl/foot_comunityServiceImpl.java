@@ -74,6 +74,12 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 	}
 	
 	@Override
+	@Transactional(readOnly=true)
+	public foot_comment_DTO getComment(foot_comment_DTO comdto) throws Exception {
+		return BBSDao.getComment(comdto);
+	}
+	
+	@Override
 	public boolean replyBBS(foot_comunity_DTO bbs) throws Exception {
 		BBSDao.replyBBSUpdate(bbs);
 		BBSDao.replyBBSInsert(bbs);
@@ -142,6 +148,12 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 	public boolean decrementCommentCount(foot_comunity_DTO bbs) throws Exception {
 		
 		return BBSDao.decrementCommentCount(bbs);		
+	}
+	
+	@Override
+	public boolean updateComment(foot_comment_DTO comdto) throws Exception {
+		
+		return BBSDao.updateComment(comdto);		
 	}
 	
 }

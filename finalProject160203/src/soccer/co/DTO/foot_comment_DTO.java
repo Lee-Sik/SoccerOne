@@ -30,6 +30,7 @@ public class foot_comment_DTO implements Serializable{
 	private String content;
 	private String wdate; //to_date 2015-07-23	
 	private int del;
+	private String user_profile;
 
 	public foot_comment_DTO() {
 		
@@ -44,6 +45,18 @@ public class foot_comment_DTO implements Serializable{
 		this.content = content;
 		this.wdate = wdate;
 		this.del = del;
+	}
+	
+	public foot_comment_DTO(int comment_no, int parent_bbs_no, String user_email, String content, String wdate,
+			int del, String user_profile) {
+		super();
+		this.comment_no = comment_no;
+		this.parent_bbs_no = parent_bbs_no;
+		this.user_email = user_email;
+		this.content = content;
+		this.wdate = wdate;
+		this.del = del;
+		this.user_profile = user_profile;
 	}
 
 	public int getComment_no() {
@@ -94,5 +107,14 @@ public class foot_comment_DTO implements Serializable{
 		this.del = del;
 	}
 
+	public String getUser_profile() {
+		return user_profile;
+	}
+
+	public void setUser_profile(String user_profile) {
+		this.user_profile = user_profile;
+	}
+
+	
 	
 }

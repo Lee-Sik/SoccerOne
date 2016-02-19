@@ -18,6 +18,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(foot_comment_seq.nextval,#{parent_bbs_no},#{user_email},#{content},SYSDATE,0)
 	</insert>
 	
+	<update id="updateComment" parameterType="soccer.co.DTO.foot_comment_DTO">
+		UPDATE FOOT_BBS_COMMENT SET
+		CONTENT = #{content}, WDATE = SYSDATE
+		WHERE COMMENT_NO=#{comment_no}
+	</update>
+	
 	<delete id="delComment" parameterType="soccer.co.DTO.foot_comment_DTO">
 		DELETE FROM FOOT_BBS_COMMENT
 		WHERE COMMENT_NO = #{comment_no}
@@ -38,11 +44,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE bbs_no=#{bbs_no}
       ]]>
    	</update>
+   	
+   	<select id="getComment" parameterType="soccer.co.DTO.foot_comment_DTO" resultType="soccer.co.DTO.foot_comment_DTO">
+	<![CDATA[
+  			SELECT *
+  			FROM FOOT_BBS_COMMENT
+  			WHERE COMMENT_NO = #{comment_no}
+  		]]>
+	</select>
    
 	<select id="getCommentList" parameterType="java.lang.Integer" resultType="soccer.co.DTO.foot_comment_DTO">
 	<![CDATA[
-  			SELECT * FROM FOOT_BBS_COMMENT
+  			SELECT U.USER_PROFILE, C.COMMENT_NO, C.PARENT_BBS_NO, C.USER_EMAIL, C.CONTENT, C.WDATE, C.DEL 
+  			FROM FOOT_BBS_COMMENT C, FOOT_USER U
   			WHERE PARENT_BBS_NO = #{parent_bbs_no}
+  			AND C.USER_EMAIL = U.USER_EMAIL
  			ORDER BY COMMENT_NO ASC
   		]]>
 	</select>
@@ -82,9 +98,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="getBBS" parameterType="soccer.co.DTO.foot_comunity_DTO" resultType="soccer.co.DTO.foot_comunity_DTO">
-			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL, COMMENTCOUNT
-			FROM FOOT_BBS
-			WHERE bbs_no=#{bbs_no}
+			SELECT U.USER_PROFILE, B.BBS_NO, B.TOPIC, B.USER_EMAIL, B.TITLE, B.CONTENT, B.WDATE, B.GOOD, B.READCOUNT, B.IMAGEURL, B.DEL, B.COMMENTCOUNT
+			FROM FOOT_BBS B, FOOT_USER U
+			WHERE B.BBS_NO=#{bbs_no}
+			AND U.USER_EMAIL = B.USER_EMAIL
 	</select>
 	
 	<update id="incrementReadCount" parameterType="soccer.co.DTO.foot_comunity_DTO">

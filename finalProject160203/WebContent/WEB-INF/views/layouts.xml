@@ -23,8 +23,6 @@
 	<put-attribute name="main" value="/WEB-INF/views/team/clubView.jsp" />
 </definition>
 
-
-
 <definition name="join.tiles" template="/WEB-INF/views/join/join.jsp">
 </definition>
 
@@ -175,36 +173,27 @@
 	<put-attribute name="main" value="/WEB-INF/views/stadium/bookingDetail.jsp"/>
 </definition>
 
-
-
 <definition name="bbswrite.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/bbs/bbswrite.jsp" />
-
 </definition>
 
 <definition name="bbslist.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/bbs/bbslist.jsp" />
-
 </definition>
 
 <definition name="bbsdetail.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/bbs/bbsdetail.jsp" />
-
 </definition>
 
 <definition name="bbsupdate.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/bbs/bbsupdate.jsp" />
+</definition>
 
+<definition name="commentupdate.tiles" template="/WEB-INF/views/bbs/commentupdate.jsp">
 </definition>
 
 <definition name="comunity.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/bbs/comunity.jsp" />
-
 </definition>
 
 <definition name="commentlist.tiles" template="/WEB-INF/views/bbs/commentlist.jsp">

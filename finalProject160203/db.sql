@@ -1,3 +1,21 @@
+
+SELECT U.USER_PROFILE, C.COMMENT_NO, C.PARENT_BBS_NO, C.USER_EMAIL, C.CONTENT, C.WDATE, C.DEL 
+  			FROM FOOT_BBS_COMMENT C, FOOT_USER U
+  			WHERE PARENT_BBS_NO = 84
+  			AND C.USER_EMAIL = U.USER_EMAIL
+ 			ORDER BY COMMENT_NO ASC
+
+
+		SELECT U.USER_PROFILE B.BBS_NO, B.TOPIC, B.USER_EMAIL, B.TITLE, B.CONTENT, B.WDATE, B.GOOD, B.READCOUNT, B.IMAGEURL, B.DEL, B.COMMENTCOUNT
+			FROM FOOT_BBS B, FOOT_USER U
+			WHERE B.BBS_NO = 79
+			AND U.USER_EMAIL = B.USER_EMAIL
+
+
+select *  from FOOT_USER
+
+select *  from FOOT_BBS
+
 create table foot_bbs_like(                    --친선경기 게시판 
    parent_bbs_no number not null, --게시글 시퀀스
    user_email varchar2(50) not null,    --작성자

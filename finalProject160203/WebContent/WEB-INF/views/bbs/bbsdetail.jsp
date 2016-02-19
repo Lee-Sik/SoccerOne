@@ -106,7 +106,9 @@ function sendNews(media) {
 
 <tr>
 	<td style="text-align: left;">작성자</td>
-	<td style="text-align: left;"><b>${bbs.user_email}</b></td>
+	<td style="text-align: left;">
+	<img src="./image/${bbs.user_profile}" style="width: 80px;">
+	<b>${bbs.user_email}</b></td>
 </tr>
 <tr>
 	<th colspan="2">내용</th>
@@ -215,11 +217,15 @@ $("#_btnUpdate").click(function() {
 	<c:if test="${not empty comlist}">
 		<c:forEach items="${comlist}" var="comlist">
 			<tr>
-			<td>${comlist.user_email}</td>
+			<td>
+			<img src="./image/${comlist.user_profile}" style="width: 80px;"><br>
+			${comlist.user_email}</td>
 			<td style="text-align: left;">${comlist.content}</td>
 			<td style="text-align: right;">
 			${comlist.wdate}<br>
-			<a href="commentedit.do?comment_no=${comlist.comment_no}"><img src="./image/comment_edit.gif"/></a>&nbsp;
+			<a href="#" 
+		 	onclick="javascript:window.open('./commentupdate.do?comment_no=${comlist.comment_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">
+			<img src="./image/comment_edit.gif"/></a>&nbsp;
 			<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs.bbs_no}&mode=detail"><img src="./image/comment_del.gif"/></a>
 			</td>
 			</tr>

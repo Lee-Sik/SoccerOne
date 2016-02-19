@@ -19,6 +19,7 @@ public interface foot_comunityService {
 	int getBBSCount(BBSParam param) throws Exception;
 	
 	foot_comunity_DTO getBBS(foot_comunity_DTO dto)throws Exception;
+	foot_comment_DTO getComment(foot_comment_DTO comdto)throws Exception;
 	foot_like_DTO getLike(foot_like_DTO flike)throws Exception;
 	
 	boolean replyBBS(foot_comunity_DTO bbs)throws Exception;
@@ -31,6 +32,7 @@ public interface foot_comunityService {
 	boolean bbsLikeCountDel(int bbs_no)throws Exception;
 	
 	boolean updateBBS(foot_comunity_DTO bbs)throws Exception;
+	boolean updateComment(foot_comment_DTO comdto)throws Exception;
 	
 	boolean delBBS(foot_comunity_DTO bbs)throws Exception;
 	boolean delComment(foot_comment_DTO comdto)throws Exception;

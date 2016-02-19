@@ -61,6 +61,13 @@ public class foot_comunity_DAO {
 		return num;
 	}
 	
+	public foot_comment_DTO getComment(foot_comment_DTO comdto)throws Exception{
+		foot_comment_DTO com=null;
+		com=(foot_comment_DTO)
+				sqlSession.selectOne(ns+"getComment",comdto);
+		return com;
+	}
+	
 	public foot_comunity_DTO getBBS(foot_comunity_DTO dto)throws Exception{
 		foot_comunity_DTO bbs=null;
 		bbs=(foot_comunity_DTO)
@@ -130,6 +137,11 @@ public class foot_comunity_DAO {
 	
 	public boolean decrementCommentCount(foot_comunity_DTO bbs)throws Exception{		
 		sqlSession.update(ns+"decrementCommentCount", bbs);
+		return true;
+	}
+	
+	public boolean updateComment(foot_comment_DTO comdto)throws Exception{
+		sqlSession.update(ns+"updateComment",comdto);
 		return true;
 	}
 	
