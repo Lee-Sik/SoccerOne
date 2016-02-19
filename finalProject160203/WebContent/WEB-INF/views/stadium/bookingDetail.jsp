@@ -218,7 +218,7 @@ $(function(){
 			<strong>${sdto.stadium_name}</strong>
 		</li>
 		<li><span class="title">사용날짜</span>
-			<strong>${bdto.booking_day}</strong>
+			<strong>${bdto.booking_day.substring(0,10)}</strong>
 		</li>
 	</ul>
 	<div id="BookingLayer" class="bookinglayer">

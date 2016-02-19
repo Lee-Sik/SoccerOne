@@ -6,6 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<!-- // jQuery UI CSS파일  -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<!-- // jQuery 기본 js파일 -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!-- // jQuery UI 라이브러리 js파일 -->
+<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+
+$(function() {
+    $( "#testDatepicker" ).datepicker({
+    	
+    }); 
+
+});
+
+</script>
 
 <style type="text/css">
 
@@ -38,7 +55,7 @@ td.td2 {
 	</td>
 </tr>	
 <tr>
-	<td class="td1">날짜</td><td class="td2"> <input type="date" name="day"> </td>
+	<td class="td1">날짜</td><td class="td2"> <input type="text" name="day" id="testDatepicker"> </td>
 </tr>
 <tr>
 	<td class="td1">지역</td><td class="td2"> 

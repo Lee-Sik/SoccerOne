@@ -33,7 +33,7 @@
    <li class='active'><a href='#'>구장대관</a>
       <ul>
          <li><a href='bookingList.do'>공식대관</a></li>
-         <li><a href='#'>자유대관</a></li>
+         <li><a href='fbookingList.do'>자유대관</a></li>
          <li><a href='#'>자유계약선수</a></li>
       </ul>
    </li>

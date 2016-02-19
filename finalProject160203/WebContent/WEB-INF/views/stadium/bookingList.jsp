@@ -153,6 +153,7 @@ $(document).ready(function () {
 </div>
 </div>
 
+<form action="" id="_frmFormSearch" name="frmForm1" method="post">
 
 <h4 class="booking">부킹 정보</h4>
 	<div class="book_list stadium_list">
@@ -186,9 +187,15 @@ $(document).ready(function () {
 			none = 아무것도 없는상태
 			-->
 	<tbody>
+	<c:if test="${empty blist}">
+	<tr>
+		<td colspan="11">작성된 글이 없습니다.</td>
+	</tr>
+	</c:if>
+	
 	<c:forEach var="dto" items="${blist}">
 	<tr>
-		<th>${dto.booking_day}</th>
+		<th>${dto.booking_day.substring(0,8)}</th>
 		<th><strong><a href="#" hidden_href="/booking/stadium/view?idx=5305&lig_idx=0" 
 		class="viewbt">${dto.stadium_name}</a></strong></th>
 	
@@ -360,10 +367,27 @@ $(document).ready(function () {
 
 
 </div>
+<br>
+<div id="paging_wrap">
+<input type="hidden" name="pageNumber" id="_pageNumber" value="${(empty pageNumber)?0:pageNumber}"/>						
+	<input type="hidden" name="recordCountPerPage" id="_recordCountPerPage" value="${(empty recordCountPerPage)?10:recordCountPerPage}"/>
+<jsp:include page="/WEB-INF/views/common/paging.jsp" flush="false">
+	<jsp:param value="${pageNumber}" name="pageNumber"/>
+	<jsp:param value="${pageCountPerScreen}" name="pageCountPerScreen"/>
+	<jsp:param value="${recordCountPerPage}" name="recordCountPerPage"/>
+	<jsp:param value="${totalRecordCount}" name="totalRecordCount"/>							
+</jsp:include>				
+</div>
+</form>
 
 <br><br><br><br><br><br>
 
-
+<script type="text/javascript">
+function goPage(pageNumber) {	
+	$("#_pageNumber").val(pageNumber) ;
+	$("#_frmFormSearch").attr("target","_self").attr("action","bookingList.do").submit();
+}
+</script>
 
 
 

@@ -24,4 +24,5 @@ public interface foot_stadiumService {
 	public foot_sbooking_DTO bookingDetail(int booking_seq)throws Exception;
 	public boolean bookingReserve(foot_sbookingReserve_DTO dto)throws Exception;
 	public int getRentalSwitch(String booking_seq,String gametime)throws Exception;
+	public int getbookingCount()throws Exception;
 }

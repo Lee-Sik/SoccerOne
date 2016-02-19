@@ -91,6 +91,12 @@ public class foot_stadiumService_impl implements foot_stadiumService{
 		return dao.getRentalSwitch(booking_seq, gametime);
 	}
 
+	@Override
+	public int getbookingCount() throws Exception {
+	
+		return dao.getbookingCount();
+	}
+
 
 	
 }

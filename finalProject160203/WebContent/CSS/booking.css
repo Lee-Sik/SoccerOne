@@ -18,7 +18,7 @@
 body, div, p, a, ul, ol, li, dl, dt, h1, h2, h3, h4, h5, h6, table, td,
 	tr, img, dl, dd, dt, strong, span, form {
 	padding: 0;
-	
+
 }
 
 /* body { */
@@ -5299,7 +5299,7 @@ div.bbs .bbs-wbbtn {
 	width: 127px;
 	height: 35px;
 	float: left;
-	background: url('../../img.gameone.kr/board/bg_wbbtn.gif') left top
+	background: url('http://img.gameone.kr/board/bg_wbbtn.gif') left top
 		no-repeat;
 	text-align: center;
 	color: #fff;
@@ -5432,7 +5432,7 @@ div.bbs div.bbs-sch div.bbs-combo {
 	width: 90px;
 	height: 29px;
 	position: relative;
-	background: #fff url('../../img.gameone.kr/board/bar.gif') right center
+	background: #fff url('http://img.gameone.kr/board/bar.gif') right center
 		no-repeat;
 }
 
@@ -5449,7 +5449,7 @@ div.bbs div.bbs-sch a.bbs-btn-sch {
 	height: 31px;
 	overflow: hidden;
 	text-indent: -1000px;
-	background: url('../../img.gameone.kr/board/btn_search.gif') left top
+	background: url('http://img.gameone.kr/board/btn_search.gif') left top
 		no-repeat;
 	position: absolute;
 	right: 0;
@@ -5458,7 +5458,8 @@ div.bbs div.bbs-sch a.bbs-btn-sch {
 
 div.bbs div.bbs-sch dl.bbs-cb {
 	border: 1px solid #a5a6ac;
-	border-right: 0;
+	/*border-right: 0;*/
+	text-align:left;
 	position: absolute;
 	left: -1px;
 	top: -1px;
@@ -5466,6 +5467,7 @@ div.bbs div.bbs-sch dl.bbs-cb {
 	background: #fff;
 	text-indent: 10px;
 	cursor: default;
+	margin: 0;
 }
 
 div.bbs div.bbs-sch dl.bbs-cb.on {
@@ -5473,15 +5475,17 @@ div.bbs div.bbs-sch dl.bbs-cb.on {
 }
 
 div.bbs div.bbs-sch dl.bbs-cb dt {
+	border-bottom: 1px solid #e8e8ea;
 	height: 29px;
 	line-height: 29px;
 	padding-right: 10px;
-	background: url('../../img.gameone.kr/board/combo_darr.gif') right
+	background: url('http://img.gameone.kr/board/combo_darr.gif') right
 		center no-repeat;
+	margin: 0;
 }
 
 div.bbs div.bbs-sch dl.bbs-cb.on dt {
-	background-image: url('../../img.gameone.kr/board/combo_uarr.gif');
+	background-image: url('http://img.gameone.kr/board/combo_uarr.gif');
 	border-bottom: 1px solid #e8e8ea;
 }
 
@@ -5491,7 +5495,9 @@ div.bbs div.bbs-sch dl.bbs-cb.on dd {
 }
 
 div.bbs div.bbs-sch dl.bbs-cb dd {
-	display: none;
+	line-height: 22px;
+	display: block;
+	margin: 0;
 }
 
 div.bbs div.bbs-sch dl.bbs-cb dd:hover {
@@ -8357,7 +8363,7 @@ div.bbs ul.bbs-wtinfo input[type=text].title {
 div.bbs ul.bbs-wtinfo div.bbs-cb-pen {
 	width: 102px;
 	height: 29px;
-	background: url('../../img.gameone.kr/board/bg_pen.gif') left center
+	background: url('http://img.gameone.kr/board/bg_pen.gif') left center
 		no-repeat;
 	line-height: 29px;
 	font-weight: bold;
@@ -8373,7 +8379,7 @@ div.bbs ul.bbs-wtinfo div.bbs-cb-pen {
 }
 
 div.bbs ul.bbs-wtinfo div.bbs-cb-pen span.pen {
-	background: url('../../img.gameone.kr/board/combocolor.png') 6px top
+	background: url('http://img.gameone.kr/board/combocolor.png') 6px top
 		no-repeat;
 	display: block;
 	height: 29px;

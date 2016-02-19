@@ -123,5 +123,13 @@ public class foot_stadium_DAO {
 			return rentalswitch;
 	}
 	
+	public int getbookingCount()throws Exception{
+		int num = 0;
+		num = (int)sqlsession.selectOne("stadium.getbookingCount");
+		
+		return num;
+		
+	}
+	
 	
 }

@@ -1,13 +1,15 @@
 package soccer.co.controller;
 
 import java.io.BufferedOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.Iterator;
+
+
 import java.util.List;
-import java.util.Map;
+
 import java.util.Properties;
-import java.util.Set;
+
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -63,8 +65,8 @@ public class stadiumController {
 		
 		return "stadium_write.tiles";
 	}
-	@RequestMapping(value = "bookingList.do", method = RequestMethod.GET)	
-	public String bookingList(Model model,HttpServletRequest request) throws Exception {		
+	@RequestMapping(value = "bookingList.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String bookingList(Model model,HttpServletRequest request,foot_sbooking_DTO dto) throws Exception {		
 		System.out.println("들어와");
 		String mode = request.getParameter("mode");
 		String day = request.getParameter("day");
@@ -72,9 +74,7 @@ public class stadiumController {
 		
 		System.out.println("mode : " + mode);
 		System.out.println("area : " + area);
-		
-		foot_sbooking_DTO dto = new foot_sbooking_DTO();
-		
+	
 		if(!(mode==null || mode.equals(""))){
 			if(mode=="day" || mode.equals("day")){
 				dto.setMode(mode);
@@ -85,8 +85,21 @@ public class stadiumController {
 			}
 		}
 		
+		int sn = dto.getPageNumber();
+		int start=(sn)*dto.getRecordCountPerPage()+1;
+		int end=(sn+1)*dto.getRecordCountPerPage();
+		
+		dto.setStart(start);
+		dto.setEnd(end);
+		
+		int totalRecordCount=service.getbookingCount();
+		
 		List<foot_sbooking_DTO> blist = service.bookingList(dto);
 		
+		model.addAttribute("pageNumber", sn);
+		model.addAttribute("pageCountPerScreen", 10);
+		model.addAttribute("recordCountPerPage", dto.getRecordCountPerPage());
+		model.addAttribute("totalRecordCount", totalRecordCount);
 		model.addAttribute("blist", blist);
 		
 		return "bookingList.tiles";
@@ -350,7 +363,7 @@ public class stadiumController {
 		String rentalaccount = request.getParameter("bank") + " " + request.getParameter("banknum") 
 							+ " " + request.getParameter("bankuser");
 		dto.setRentalaccount(rentalaccount);
-		String booking_day = day.substring(0, 4) + day.substring(5, 7) + day.substring(8, 10);
+		String booking_day = day.substring(6, 10) + day.substring(0, 2) + day.substring(3, 5);
 		dto.setBooking_day(booking_day);
 		
 		service.bookingWrtie(dto);
@@ -424,6 +437,7 @@ public class stadiumController {
 	
 	@RequestMapping(value = "booking_reserve.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String booking_reserve(Model model,HttpServletRequest request,foot_sbookingReserve_DTO dto) throws Exception {
+	
 		System.out.println("gametime : " + dto.getGametime());
 		String phone = request.getParameter("num1") + request.getParameter("num2") + request.getParameter("num3"); 
 		dto.setPhone(phone);
