@@ -223,10 +223,12 @@ $("#_btnUpdate").click(function() {
 			<td style="text-align: left;">${comlist.content}</td>
 			<td style="text-align: right;">
 			${comlist.wdate}<br>
+			<c:if test="${comlist.user_email == login.user_email}">
 			<a href="#" 
 		 	onclick="javascript:window.open('./commentupdate.do?comment_no=${comlist.comment_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">
 			<img src="./image/comment_edit.gif"/></a>&nbsp;
 			<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs.bbs_no}&mode=detail"><img src="./image/comment_del.gif"/></a>
+			</c:if>
 			</td>
 			</tr>
 		</c:forEach>
