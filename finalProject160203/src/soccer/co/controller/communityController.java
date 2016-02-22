@@ -567,7 +567,36 @@ public class communityController {
 		}
 		
 		
+		// Gallery Update
+		@RequestMapping(value = "galleryupdate.do", method = RequestMethod.POST)
+		public String galleryupdate(foot_community_DTO bbs,Model model) throws Exception {
+			logger.info("Welcome BBSController galleryupdate! "+ new Date());
+					
+			foot_community_DTO rbbs=BBSService.getGallery(bbs);		
+			model.addAttribute("gal", rbbs);
+			model.addAttribute("title", "짤방 수정");
+			
+			return "galleryupdate.tiles";
+		}
 		
+		// Gallery UpdateAf
+		@RequestMapping(value = "galleryupdateAf.do", method = RequestMethod.POST)
+		public String galleryupdateAf(foot_community_DTO bbs,Model model) throws Exception {
+			logger.info("Welcome BBSController galleryupdateAf! "+ new Date());
+					
+			BBSService.updateGallery(bbs);
+			return "redirect:/gallerylist.do";
+		}
+		
+		// Gallery Delete
+		@RequestMapping(value = "gallerydel.do", method = RequestMethod.POST)
+		public String gallerydel(foot_community_DTO bbs,Model model) throws Exception {
+			logger.info("Welcome BBSController gallerydel! "+ new Date());
+			
+			BBSService.delGallery(bbs);
+	
+			return "redirect:/gallerylist.do";
+		}
 		
 	
 	

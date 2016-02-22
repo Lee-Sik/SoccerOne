@@ -60,7 +60,7 @@ function sendNews(media) {
 
 </script>
 </head>
-<form name="frmForm" id="_frmForm" method="post" action="bbsupdate.do">
+<form name="frmForm" id="_frmForm" method="post" action="galupdate.do">
 <table class="list_table" style="width:85%;">
 <%-- <input type="hidden" name="seq" value="${bbs.bbs_no}"/> --%>
 
@@ -70,30 +70,6 @@ function sendNews(media) {
 </colgroup>
 
 <tbody>	
-
-<!-- <tr class="id"> -->
-<!-- 	<th>아이디</th> -->
-<%-- 	<td style="text-align: left">${bbs.user_email}</td> --%>
-<!-- </tr> -->
-
-<!-- <tr> -->
-<%-- 	<th>제 목</th><td style="text-align: left">${bbs.title}</td> --%>
-<!-- </tr> -->
-
-<!-- <tr> -->
-<%-- 	<th>작성일</th><td style="text-align: left">${bbs.wdate}</td> --%>
-<!-- </tr> -->
-
-<!-- <tr> -->
-<%-- 	<th>조회수</th><td style="text-align: left">${bbs.readcount}</td> --%>
-<!-- </tr> -->
-
-<!-- <tr> -->
-<!-- 	<th>내 용</th> -->
-<%-- 	<td style="text-align: left">${bbs.content}<br> --%>
-<%-- 	<a href="javascript:window.open('file://C:/image/${bbs.imageurl}', 'resizable=no, scrollbars=yes, status=no;')"><img src="C:/image/${bbs.imageurl}" width="50%;" alt="이미지없음"/></a></td> --%>
-<!-- </tr> -->
-
 <tr>
 	<td style="text-align: left;">작성일</td>
 	<td style="text-align: left;">${gal.wdate}</td>
@@ -164,23 +140,17 @@ function sendNews(media) {
 --%>
 </form>
 
-<%-- <c:if test="${login.user_email ne bbs.user_email}"> --%>
-<!-- <form action="bbsreply.do" method="post"> -->
-<%-- <input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" /> --%>
-<!-- <input type="submit"  value="답글달기" /> -->
-<!-- </form> -->
-<%-- </c:if> --%>
 
-<c:if test="${login.user_email eq bbs.user_email}">
-<form action="bbsupdate.do" method="post">
-<input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" />
+<c:if test="${login.user_email eq gal.user_email}">
+<form action="galleryupdate.do" method="post">
+<input type="hidden" name="gallery_no"   value="${gal.gallery_no}" />
 <input type="submit"  value="수정하기" />
 </form>
 </c:if>
 
-<c:if test="${login.user_email eq bbs.user_email}">
-<form action="bbsdel.do" method="post">
-<input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" />
+<c:if test="${login.user_email eq gal.user_email}">
+<form action="gallerydel.do" method="post">
+<input type="hidden" name="gallery_no"   value="${gal.gallery_no}" />
 <input type="submit"  value="삭제하기" />
 </form>
 </c:if>
@@ -192,6 +162,8 @@ $("#_btnUpdate").click(function() {
 //	$("#_frmForm").attr({ "target":"_self", "action":"bbswriteAf.do" }).submit();
 });
 </script>
+
+
 <form action="galcommentAf.do">
 <input type="hidden" name="parent_no" value="${gal.gallery_no}"/>
 <input type="hidden" name="user_email" value="${login.user_email}"/>
@@ -265,7 +237,6 @@ $("#_btnUpdate").click(function() {
 
 
 <!-- 게시판 이어지기 -->
-
 <div class="box_border" style="margin-top:5px; margin-bottom: 10px;">
 <form name="frmForm1" id="_frmFormSearch" method="post" action="">
 
@@ -288,50 +259,78 @@ $("#_btnUpdate").click(function() {
 	</form>
 </div>
 
-
-<jsp:useBean id="ubbs" class="sist.co.help.BBSHelp"/>
 <table class="list_table" style="width:85%;">
-
-<colgroup>
-	<col style="width:5%;"/>
-	<col style="width:10%;"/>
-	<col style="width:auto;"/>
-	<col style="width:20%;"/>
-	<col style="width:13%;"/>
-	<col style="width:7%;"/>
-	<col style="width:7%;"/>
-</colgroup>
-
-<thead>
-	<tr>
-		<th>번호</th> <th>분류</th> <th>제목</th> <th>작성자</th>  <th>작성일</th>  <th>조회수</th>  <th>추천수</th> 
-	</tr>
-</thead>
 
 <c:if test="${empty gallerylist}">
 	<tr>
-		<td colspan="7">작성된 글이 없습니다.</td>
+		<td colspan="5">작성된 글이 없습니다.</td>
 	</tr>
 </c:if>
 
+
+<tr>
 <c:forEach items="${gallerylist}" var="gal" varStatus="vs">
-<c:if test="${gal.del == 0}">
-	<tr class="_hover_tr">
-		<td>${vs.count}</td> 
-		<td>${gal.topic}</td>
-		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${gal.gallery_no}'>${gal.title}</a>
-		&nbsp;&nbsp;
-		 <a href="#" 
-		 onclick="javascript:window.open('./commentlist.do?bbs_no=${gal.gallery_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">[${gal.commentcount}]</a>
+	
+	
+	<c:if test="${gal.del == 0}">
+		<td style="text-align: center; width: 170px; height: 170px;" >
+		<div class="gallery_list">
+		<ul style="padding-left: 0px;">
+			<li class="gallery_img" style="list-style:none;">
+			<a href='gallerydetail.do?gallery_no=${gal.gallery_no}'><img src="file://211.238.142.152/공유/ryu/${gal.imageurl}" width="100px;" height="100px;" alt="이미지없음"/>
+			</a></li>
+			<li class="gallery_title" style="list-style:none;">
+			<a href='gallerydetail.do?gallery_no=${gal.gallery_no}'>${gal.title}
+			</a></li>
+			<li class="gallery_name" style="list-style:none;">
+			<span>${gal.user_email}</span><br>댓글 : [${gal.commentcount}] &nbsp; 추천수 : ${gal.good}	</li>
+		</ul>
+        </div>
 		</td>
-		<td>${gal.user_email}</td>
-			<c:set var="rdate" value="${gal.wdate}"/>
-			<c:set var="len" value="${fn:length(wdate)}"/>
-		<td>${fn:substring(bbs.wdate, 0, 10)}</td>  
-		<td>${gal.readcount}</td> 
-		<td>${gal.good}</td> 
-	</tr>
-</c:if>
+		
+		<c:if test="${vs.count == 5 }">
+		<tr>
+		</c:if>
+		
+		<c:if test="${vs.count == 10 }">
+		</tr>
+		</c:if>
+	</c:if>
+</c:forEach>
+	
+		
+		
+		
+		
+		
+		
+		
+<%-- 			<a href='gallerydetail.do?gallery_no=${gal.gallery_no}'> --%>
+<!-- 			<div class="gallary" style="width: 150px; height: 150px;"> -->
+<%-- 				<div><img src="file://211.238.142.152/공유/ryu/${gal.imageurl}" width="100px;" height="100px;" alt="이미지없음"/></div> --%>
+<%-- 				<div align="left">${gal.title}</div> --%>
+<%-- 				<div align="left">${gal.user_email}</div> --%>
+<!-- 			</div></a> -->
+
+
+
+
+<!-- 	<tr class="_hover_tr"> -->
+<%-- 		<td>${vs.count}</td>  --%>
+<%-- 		<td style="text-align: left"><a href='gallerydetail.do?gallery_no=${gal.gallery_no}'>${gal.title}</a> --%>
+<!-- 		 &nbsp;&nbsp; -->
+<!-- 		 <a href="#"  -->
+<%-- 		 onclick="javascript:window.open('./commentlist.do?gallery_no=${gal.gallery_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">[${gal.commentcount}]</a> --%>
+<!-- 		</td> -->
+<%-- 		<td>${gal.user_email}</td> --%>
+<%-- 			<c:set var="rdate" value="${gal.wdate}"/> --%>
+<%-- 			<c:set var="len" value="${fn:length(wdate)}"/> --%>
+<%-- 		<td>${fn:substring(gal.wdate, 0, 10)}</td>   --%>
+<%-- 		<td>${gal.readcount}</td>  --%>
+<%-- 		<td>${gal.good}</td>  --%>
+<!-- 	</tr> -->
+
+
 <c:if test="${gal.del == 1}">
 	<tr class="_hover_tr">
 		<td>${vs.count}</td> 
@@ -343,19 +342,7 @@ $("#_btnUpdate").click(function() {
 		<td></td>
 	</tr>
 </c:if>	
-</c:forEach>
 
-<%-- 
-<c:forEach items="${bbslist}" var="bbs" varStatus="vs">
-	<tr class="_hover_tr">
-		<td>${vs.count}</td> 
-		<td style="text-align: left">
-			<a href='bbsdetail.do?seq=${bbs.seq}'>${bbs.title}</a>
-		</td>
-		<td>${bbs.id}</td> 
-	</tr>
-</c:forEach>
---%>
 
 </table>
 
@@ -390,19 +377,16 @@ $(document).ready(function() {	// 마우스에 따라서 컬러를 변경
 
 $("#_btnAdd").click(function() {	
 // 	alert('글쓰기');	
-	$("#_frmForm").attr({ "target":"_self", "action":"bbswrite.do" }).submit();
+	$("#_frmForm").attr({ "target":"_self", "action":"gallerywrite.do" }).submit();
 });
 
 $("#_btnSearch").click(function() {
 	//alert('search');						
-	$("#_frmFormSearch").attr({ "target":"_self", "action":"bbslist.do" }).submit();
+	$("#_frmFormSearch").attr({ "target":"_self", "action":"gallerylist.do" }).submit();
 });
 
 function goPage(pageNumber) {	
 	$("#_pageNumber").val(pageNumber) ;
-	$("#_frmFormSearch").attr("target","_self").attr("action","bbslist.do").submit();
+	$("#_frmFormSearch").attr("target","_self").attr("action","gallerylist.do").submit();
 }
 </script>
-
-
-

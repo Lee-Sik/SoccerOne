@@ -251,5 +251,9 @@
 	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerydetail.jsp" />
 </definition>
 
+<definition name="galleryupdate.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/galleryupdate.jsp" />
+</definition>
+
 
 </tiles-definitions>
