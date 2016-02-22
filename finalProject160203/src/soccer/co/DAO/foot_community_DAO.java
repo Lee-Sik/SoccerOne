@@ -9,16 +9,16 @@ import org.springframework.stereotype.Repository;
 
 import soccer.co.DTO.BBSParam;
 import soccer.co.DTO.foot_comment_DTO;
-import soccer.co.DTO.foot_comunity_DTO;
+import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_like_DTO;
 
 @Repository
-public class foot_comunity_DAO {
+public class foot_community_DAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private String ns="BBS.";
 	
-	public boolean writeBBS(foot_comunity_DTO bbs) throws Exception{
+	public boolean writeBBS(foot_community_DTO bbs) throws Exception{
 		sqlSession.insert(ns+"writeBBS",bbs);
 		return true;
 	}
@@ -28,9 +28,9 @@ public class foot_comunity_DAO {
 		return true;
 	}
 	
-	public List<foot_comunity_DTO> getBBSList()throws Exception{
-		List<foot_comunity_DTO> list=new ArrayList<foot_comunity_DTO>();
-		list=(List<foot_comunity_DTO>)
+	public List<foot_community_DTO> getBBSList()throws Exception{
+		List<foot_community_DTO> list=new ArrayList<foot_community_DTO>();
+		list=(List<foot_community_DTO>)
 				sqlSession.selectList(ns+"getBBSList");
 		return list;
 	}
@@ -49,9 +49,9 @@ public class foot_comunity_DAO {
 		return fdto;
 	}
 	
-	public List<foot_comunity_DTO> getBBSPagingList(BBSParam param)throws Exception{
-		List<foot_comunity_DTO> list=new ArrayList<foot_comunity_DTO>();
-		list=(List<foot_comunity_DTO>)
+	public List<foot_community_DTO> getBBSPagingList(BBSParam param)throws Exception{
+		List<foot_community_DTO> list=new ArrayList<foot_community_DTO>();
+		list=(List<foot_community_DTO>)
 				sqlSession.selectList(ns+"getBBSPagingList",param);
 		return list;
 	}	
@@ -68,19 +68,19 @@ public class foot_comunity_DAO {
 		return com;
 	}
 	
-	public foot_comunity_DTO getBBS(foot_comunity_DTO dto)throws Exception{
-		foot_comunity_DTO bbs=null;
-		bbs=(foot_comunity_DTO)
+	public foot_community_DTO getBBS(foot_community_DTO dto)throws Exception{
+		foot_community_DTO bbs=null;
+		bbs=(foot_community_DTO)
 				sqlSession.selectOne(ns+"getBBS",dto);
 		return bbs;
 	}
 	
-	public boolean incrementReadCount(foot_comunity_DTO bbs)throws Exception{
+	public boolean incrementReadCount(foot_community_DTO bbs)throws Exception{
 		sqlSession.update(ns+"incrementReadCount",bbs);
 		return true;
 	}
 	
-	public boolean incrementCommentCount(foot_comunity_DTO bbs)throws Exception{
+	public boolean incrementCommentCount(foot_community_DTO bbs)throws Exception{
 		sqlSession.update(ns+"incrementCommentCount",bbs);
 		return true;
 	}
@@ -105,27 +105,27 @@ public class foot_comunity_DAO {
 		return true;
 	}
 	
-	public boolean bbsLikeReadCount(foot_comunity_DTO bbs)throws Exception{
+	public boolean bbsLikeReadCount(foot_community_DTO bbs)throws Exception{
 		sqlSession.update(ns+"bbsLikeReadCount",bbs);
 		return true;
 	}
 	
-	public boolean replyBBSUpdate(foot_comunity_DTO bbs)throws Exception{
+	public boolean replyBBSUpdate(foot_community_DTO bbs)throws Exception{
 		sqlSession.update(ns+"replyBBSUpdate",bbs);
 		return true;
 	}
 	
-	public boolean replyBBSInsert(foot_comunity_DTO bbs)throws Exception{
+	public boolean replyBBSInsert(foot_community_DTO bbs)throws Exception{
 		sqlSession.insert(ns+"replyBBSInsert",bbs);
 		return true;
 	}
 	
-	public boolean updateBBS(foot_comunity_DTO bbs)throws Exception{
+	public boolean updateBBS(foot_community_DTO bbs)throws Exception{
 		sqlSession.update(ns+"updateBBS",bbs);
 		return true;
 	}
 	
-	public boolean delBBS(foot_comunity_DTO bbs)throws Exception{		
+	public boolean delBBS(foot_community_DTO bbs)throws Exception{		
 		sqlSession.update(ns+"delBBS", bbs);
 		return true;
 	}
@@ -135,7 +135,7 @@ public class foot_comunity_DAO {
 		return true;
 	}
 	
-	public boolean decrementCommentCount(foot_comunity_DTO bbs)throws Exception{		
+	public boolean decrementCommentCount(foot_community_DTO bbs)throws Exception{		
 		sqlSession.update(ns+"decrementCommentCount", bbs);
 		return true;
 	}

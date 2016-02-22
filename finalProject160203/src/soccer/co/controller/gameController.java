@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import soccer.co.DTO.MATCHINGParam;
-import soccer.co.DTO.foot_comunity_DTO;
+import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.Service.foot_gameService;

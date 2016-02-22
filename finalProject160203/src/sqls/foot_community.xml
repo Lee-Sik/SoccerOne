@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="BBS"> 
 
-	<insert id="writeBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">
+	<insert id="writeBBS" parameterType="soccer.co.DTO.foot_community_DTO">
 		INSERT INTO FOOT_BBS
 		(BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, DEL, COMMENTCOUNT) 
 		VALUES(foot_bbs_seq.nextval,#{topic},#{user_email},#{title},#{content},SYSDATE,
@@ -29,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE COMMENT_NO = #{comment_no}
 	</delete>
 	
-	 <update id="incrementCommentCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
+	 <update id="incrementCommentCount" parameterType="soccer.co.DTO.foot_community_DTO">
    	<![CDATA[
  		UPDATE FOOT_BBS SET
 		COMMENTCOUNT = COMMENTCOUNT+1
@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       ]]>
    	</update>
    	
-   	<update id="decrementCommentCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
+   	<update id="decrementCommentCount" parameterType="soccer.co.DTO.foot_community_DTO">
    	<![CDATA[
  		UPDATE FOOT_BBS SET
 		COMMENTCOUNT = COMMENTCOUNT-1
@@ -63,14 +63,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   		]]>
 	</select>
  
-	<select id="getBBSList" resultType="soccer.co.DTO.foot_comunity_DTO">
+	<select id="getBBSList" resultType="soccer.co.DTO.foot_community_DTO">
 	<![CDATA[
   			SELECT * FROM FOOT_BBS
  			ORDER BY BBS_NO DESC
   		]]>
 	</select>
 
-	<select id="getBBSPagingList" parameterType="soccer.co.DTO.BBSParam" resultType="soccer.co.DTO.foot_comunity_DTO">
+	<select id="getBBSPagingList" parameterType="soccer.co.DTO.BBSParam" resultType="soccer.co.DTO.foot_community_DTO">
 			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, DEL, COMMENTCOUNT
 			FROM 	
 		( SELECT ROW_NUMBER() OVER (ORDER BY BBS_NO DESC) as rnum,
@@ -95,16 +95,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="s_category == 'contents'"> AND CONTENT like '%'||#{s_keyword}||'%'</if>	
 		</if>
 	</select>
-
-
-	<select id="getBBS" parameterType="soccer.co.DTO.foot_comunity_DTO" resultType="soccer.co.DTO.foot_comunity_DTO">
+	
+	<select id="getBBS" parameterType="soccer.co.DTO.foot_community_DTO" resultType="soccer.co.DTO.foot_community_DTO">
 			SELECT U.USER_PROFILE, B.BBS_NO, B.TOPIC, B.USER_EMAIL, B.TITLE, B.CONTENT, B.WDATE, B.GOOD, B.READCOUNT, B.DEL, B.COMMENTCOUNT
 			FROM FOOT_BBS B, FOOT_USER U
 			WHERE B.BBS_NO=#{bbs_no}
 			AND U.USER_EMAIL = B.USER_EMAIL
 	</select>
 	
-	<update id="incrementReadCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
+	<update id="incrementReadCount" parameterType="soccer.co.DTO.foot_community_DTO">
 		UPDATE FOOT_BBS SET
 		READCOUNT = READCOUNT+1
 		WHERE bbs_no=#{bbs_no}
@@ -116,7 +115,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{parent_bbs_no}, #{user_email})
 	</insert>
 	
-	<update id="bbsLikeCount" parameterType="soccer.co.DTO.foot_comunity_DTO">
+	<update id="bbsLikeCount" parameterType="soccer.co.DTO.foot_community_DTO">
 		UPDATE FOOT_BBS SET
 		GOOD = GOOD+1
 		WHERE BBS_NO=#{bbs_no}
@@ -128,7 +127,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		AND USER_EMAIL = #{user_email}
 	</delete>
 	
-	<update id="bbsLikeCountDel" parameterType="soccer.co.DTO.foot_comunity_DTO">
+	<update id="bbsLikeCountDel" parameterType="soccer.co.DTO.foot_community_DTO">
 		UPDATE FOOT_BBS SET
 		GOOD = GOOD-1
 		WHERE BBS_NO=#{bbs_no}
@@ -142,14 +141,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	<update id="replyBBSUpdate" parameterType="soccer.co.DTO.foot_comunity_DTO">
+	<update id="replyBBSUpdate" parameterType="soccer.co.DTO.foot_community_DTO">
 		UPDATE FOOT_BBS SET
 		STEP=STEP+1
 		WHERE REF=(SELECT REF FROM BBS WHERE bbs_no=#{bbs_no})
 		AND STEP>(SELECT STEP FROM BBS WHERE bbs_no=#{bbs_no})
 	</update>
 			
-	<insert id="replyBBSInsert" parameterType="soccer.co.DTO.foot_comunity_DTO">
+	<insert id="replyBBSInsert" parameterType="soccer.co.DTO.foot_community_DTO">
 		INSERT INTO BBS
 		(bbs_no,ID,TITLE,CONTENT,REF,STEP,
 		DEPTH, PARENT, DEL, WDATE, READCOUNT, COMMENTCOUNT)
@@ -162,13 +161,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{bbs_no},0,SYSDATE,0,0) 
 	</insert>
 	
-	<update id="updateBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">
+	<update id="updateBBS" parameterType="soccer.co.DTO.foot_community_DTO">
 		UPDATE FOOT_BBS SET 
 		TITLE=#{title}, CONTENT=#{content}, WDATE=SYSDATE 
 		WHERE bbs_no=#{bbs_no}
 	</update>
 	
-	<update id="delBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">
+	<update id="delBBS" parameterType="soccer.co.DTO.foot_community_DTO">
 		UPDATE FOOT_BBS SET 
 		DEL=#{del} 
 		WHERE bbs_no=#{bbs_no}

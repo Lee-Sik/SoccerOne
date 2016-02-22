@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import soccer.co.DAO.foot_game_DAO;
 import soccer.co.DTO.MATCHINGParam;
-import soccer.co.DTO.foot_comunity_DTO;
+import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.Service.foot_gameService;

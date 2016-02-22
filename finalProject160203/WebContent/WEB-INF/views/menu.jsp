@@ -61,7 +61,7 @@
       </ul>
    </li>
    
-    <li class='active'><a href='./comunity.do'>커뮤니티</a>
+    <li class='active'><a href='./community.do'>커뮤니티</a>
       <ul>
          <li><a href='./bbslist.do'>축덕포럼</a></li>
          <li><a href='#'>짤방게시판</a></li>

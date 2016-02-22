@@ -2,48 +2,93 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
+
 <link href="CSS/BBStable.css" rel="stylesheet" >
 
-<form name="frmForm" id="_frmForm" method="post" action="bbsupdateAf.do">
-<table class="list_table" style="width:85%;">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script> 
+<script type="text/javascript" src="./editor/js/HuskyEZCreator.js" charset="utf-8"></script>
 
-<colgroup>
-	<col style="width:200px;" />
-	<col style="width:auto;" />
-</colgroup>
-
-<tbody>	
-
-<tr class="id">
-	<th>아이디</th><td style="text-align: left"><input type="text" name="user_email" readonly="readonly" 
-	value='${login.user_email}' size="60"/></td>
-</tr>
-
-<tr>
-	<th>제목</th><td style="text-align: left"><input type="text" name="title" size="60" value='${bbs.title}'/></td>
-</tr>
-
-<tr>
-	<th>내용</th>
-	<td style="text-align: left"><textarea rows="10" cols="50" name='content' id="_content">${bbs.content}</textarea></td>
-</tr>
-
-<tr>
-	<td colspan="2" style="height:50px; text-align:center;">
-		<input type="hidden" name="seq"   value="${bbs.bbs_no}" />
-		<span><a href="#none" id="_btnupdate" title="수정하기">수정하기</a>
-		</span>
-	</td>
-</tr>
-</tbody>
-</table>
-</form>
-
-
-<script type="text/javascript">
-$("#_btnupdate").click(function() {	
-	alert('수정하기');	
-	$("#_frmForm").attr({ "target":"_self", "action":"bbsupdateAf.do" }).submit();  // http://www.w3schools.com/jsref/prop_form_target.asp
-});
+<script>
+$(document).ready(function(){
+	$("#save").click(function(){		
+		alert("save click");
+		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
+		alert(document.getElementById("content").value);
+		$("#frm").submit();		
+	})
+})
 </script>
 
+</head>
+<body>
+
+<form id="frm" action="bbsupdateAf.do" method="post" >
+<table class="list_table" width="100%">
+
+<colgroup>
+<col style="width: 10%;">
+<col style="width: auto;">
+</colgroup>
+
+	<tr class="id">
+		<th>아이디</th><td style="text-align: left"><input type="hidden" name="user_email" readonly="readonly" 
+		value='${login.user_email}'/>${login.user_email}</td>
+	</tr>
+	<tr>
+		<th>말머리</th>
+		<td style="text-align: left">
+			<select id="topic" name="topic">
+				<option value="" selected="selected">선택</option>
+				<option value="korea">국내축구</option>
+				<option value="europe">해외축구</option>		
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<th>제목</th>
+		<td style="text-align: left"><input type="text" id="title" name="title" style="width: 500px;"/></td>
+	</tr>
+	<tr>
+		<th>내용</th>
+		<td> 
+			<textarea rows="10" cols="30" id="content" name="content" style="width:766px; height:412px; ">${bbs.content}</textarea>
+			
+			<script type="text/javascript">			
+				var oEditors = [];										
+				$(function(){
+				nhn.husky.EZCreator.createInIFrame({
+					oAppRef: oEditors,
+					elPlaceHolder: "content",
+					//SmartEditor2Skin.html 파일이 존재하는 경로
+					sSkinURI:"./editor/SmartEditor2Skin.html",
+					
+					htParams:{
+						// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+						bUseToolbar:true,				
+						// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+						bUseVerticalResizer:true,		
+						// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+						bUseModeChanger:true,			
+						fOnBeforeUnload:function(){							
+						}
+					}, 
+					fOnAppLoad:function(){						
+						//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
+						oEditors.getById["content"].exec("PASTE_HTML", [""]);
+					},
+					fCreator:"createSEditor2"
+				});
+				});	
+				
+			</script>											
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" id="save" value="저장" onclick="fOnAppLoad(this)"/>
+			<input type="hidden" name="bbs_no" value="${bbs.bbs_no}" />
+			<input type="button" value="취소"/>
+		</td>
+	</tr>
+</table>
+</form>

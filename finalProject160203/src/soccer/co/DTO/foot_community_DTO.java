@@ -28,7 +28,7 @@ DROP TABLE foot_bbs CASCADE CONSTRAINT;
 DROP SEQUENCE foot_bbs_seq;
 
 */
-public class foot_comunity_DTO implements Serializable{
+public class foot_community_DTO implements Serializable{
 	private int bbs_no;
 	private String topic;
 	private String user_email;
@@ -42,11 +42,11 @@ public class foot_comunity_DTO implements Serializable{
 	private int commentcount;
 	private String user_profile;
 
-	public foot_comunity_DTO() {
+	public foot_community_DTO() {
 		
 	}
 	
-	public foot_comunity_DTO(int bbs_no, String topic, String user_email, String title, String content, String wdate,
+	public foot_community_DTO(int bbs_no, String topic, String user_email, String title, String content, String wdate,
 			int good, int readcount, String imageurl, int del, int commentcount) {
 		super();
 		this.bbs_no = bbs_no;
@@ -62,7 +62,7 @@ public class foot_comunity_DTO implements Serializable{
 		this.commentcount = commentcount;
 	}
 	
-	public foot_comunity_DTO(int bbs_no, String topic, String user_email, String title, String content, String wdate,
+	public foot_community_DTO(int bbs_no, String topic, String user_email, String title, String content, String wdate,
 			int good, int readcount, String imageurl, int del, int commentcount, String user_profile) {
 		super();
 		this.bbs_no = bbs_no;

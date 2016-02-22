@@ -6,23 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import soccer.co.DAO.foot_comunity_DAO;
+import soccer.co.DAO.foot_community_DAO;
 import soccer.co.DTO.BBSParam;
 import soccer.co.DTO.foot_comment_DTO;
-import soccer.co.DTO.foot_comunity_DTO;
+import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_like_DTO;
-import soccer.co.Service.foot_comunityService;
+import soccer.co.Service.foot_communityService;
 
 
 @Service
-public class foot_comunityServiceImpl implements foot_comunityService {
+public class foot_communityServiceImpl implements foot_communityService {
     
 	@Autowired
-	private foot_comunity_DAO BBSDao;
+	private foot_community_DAO BBSDao;
 	
 	@Override
 	@Transactional
-	public boolean writeBBS(foot_comunity_DTO bbs) throws Exception {
+	public boolean writeBBS(foot_community_DTO bbs) throws Exception {
 		return BBSDao.writeBBS(bbs);
 	}
 	
@@ -40,13 +40,13 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<foot_comunity_DTO> getBBSList() throws Exception {
+	public List<foot_community_DTO> getBBSList() throws Exception {
 		return BBSDao.getBBSList();
 	}
 
 	@Override
 	@Transactional(readOnly=true)
-	public List<foot_comunity_DTO> getBBSPagingList(BBSParam param)
+	public List<foot_community_DTO> getBBSPagingList(BBSParam param)
 			throws Exception {
 		
 		return BBSDao.getBBSPagingList(param);
@@ -69,7 +69,7 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public foot_comunity_DTO getBBS(foot_comunity_DTO dto) throws Exception {
+	public foot_community_DTO getBBS(foot_community_DTO dto) throws Exception {
 		return BBSDao.getBBS(dto);
 	}
 	
@@ -80,20 +80,20 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 	}
 	
 	@Override
-	public boolean replyBBS(foot_comunity_DTO bbs) throws Exception {
+	public boolean replyBBS(foot_community_DTO bbs) throws Exception {
 		BBSDao.replyBBSUpdate(bbs);
 		BBSDao.replyBBSInsert(bbs);
 		return true;
 	}
 
 	@Override
-	public boolean incrementReadCount(foot_comunity_DTO bbs) throws Exception {
+	public boolean incrementReadCount(foot_community_DTO bbs) throws Exception {
 		
 		return BBSDao.incrementReadCount(bbs);
 	}
 	
 	@Override
-	public boolean incrementCommentCount(foot_comunity_DTO bbs) throws Exception {
+	public boolean incrementCommentCount(foot_community_DTO bbs) throws Exception {
 		
 		return BBSDao.incrementCommentCount(bbs);
 	}
@@ -123,13 +123,13 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 	}
 
 	@Override
-	public boolean updateBBS(foot_comunity_DTO bbs) throws Exception {
+	public boolean updateBBS(foot_community_DTO bbs) throws Exception {
 		
 		return BBSDao.updateBBS(bbs);		
 	}
 
 	@Override
-	public boolean delBBS(foot_comunity_DTO bbs) throws Exception {
+	public boolean delBBS(foot_community_DTO bbs) throws Exception {
 		
 		System.out.println("bbs.getDel = " + bbs.getDel());
 		bbs.setDel(1);
@@ -145,7 +145,7 @@ public class foot_comunityServiceImpl implements foot_comunityService {
 	}
 	
 	@Override
-	public boolean decrementCommentCount(foot_comunity_DTO bbs) throws Exception {
+	public boolean decrementCommentCount(foot_community_DTO bbs) throws Exception {
 		
 		return BBSDao.decrementCommentCount(bbs);		
 	}

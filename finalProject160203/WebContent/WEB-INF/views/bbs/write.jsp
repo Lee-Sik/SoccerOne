@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script> 
 <script type="text/javascript" src="./editor/js/HuskyEZCreator.js" charset="utf-8"></script>
@@ -15,8 +14,8 @@
 $(document).ready(function(){
 	$("#save").click(function(){		
 		alert("save click");
-		oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-		alert(document.getElementById("ir1").value);
+		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
+		alert(document.getElementById("content").value);
 		$("#frm").submit();		
 	})
 })
@@ -27,6 +26,11 @@ $(document).ready(function(){
 
 <form id="frm" action="bbswriteAf.do" method="post" >
 <table class="list_table" width="100%">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: auto;">
+</colgroup>
+
 	<tr class="id">
 		<th>아이디</th><td style="text-align: left"><input type="hidden" name="user_email" readonly="readonly" 
 		value='${login.user_email}'/>${login.user_email}</td>
@@ -48,14 +52,14 @@ $(document).ready(function(){
 	<tr>
 		<th>내용</th>
 		<td> 
-			<textarea rows="10" cols="30" id="ir1" name="ir1" style="width:766px; height:412px; "></textarea>
+			<textarea rows="10" cols="30" id="content" name="content" style="width:766px; height:412px; "></textarea>
 			
 			<script type="text/javascript">			
 				var oEditors = [];										
 				$(function(){
 				nhn.husky.EZCreator.createInIFrame({
 					oAppRef: oEditors,
-					elPlaceHolder: "ir1",
+					elPlaceHolder: "content",
 					//SmartEditor2Skin.html 파일이 존재하는 경로
 					sSkinURI:"./editor/SmartEditor2Skin.html",
 					
@@ -71,7 +75,7 @@ $(document).ready(function(){
 					}, 
 					fOnAppLoad:function(){						
 						//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
-						oEditors.getById["ir1"].exec("PASTE_HTML", [""]);
+						oEditors.getById["content"].exec("PASTE_HTML", [""]);
 					},
 					fCreator:"createSEditor2"
 				});
@@ -88,9 +92,6 @@ $(document).ready(function(){
 	</tr>
 </table>
 </form>
-
-
-
 </body>
 
 </html>

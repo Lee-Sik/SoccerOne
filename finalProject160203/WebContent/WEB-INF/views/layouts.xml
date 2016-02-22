@@ -192,8 +192,8 @@
 <definition name="commentupdate.tiles" template="/WEB-INF/views/bbs/commentupdate.jsp">
 </definition>
 
-<definition name="comunity.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/bbs/comunity.jsp" />
+<definition name="community.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/community.jsp" />
 </definition>
 
 <definition name="commentlist.tiles" template="/WEB-INF/views/bbs/commentlist.jsp">

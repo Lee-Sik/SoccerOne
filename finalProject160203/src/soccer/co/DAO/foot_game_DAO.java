@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import soccer.co.DTO.MATCHINGParam;
-import soccer.co.DTO.foot_comunity_DTO;
+import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
 
