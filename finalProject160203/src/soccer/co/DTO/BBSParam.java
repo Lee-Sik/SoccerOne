@@ -34,6 +34,7 @@ DROP SEQUENCE SEQ_BBS;
 
 */
 public class BBSParam implements Serializable{
+	private int gallery_no;
 	private int bbs_no;
 	private String topic;
 	private String user_email;
@@ -133,6 +134,20 @@ public class BBSParam implements Serializable{
 		this.del = del;
 	}
 
+	public BBSParam(int gallery_no, String user_email, String title, String content, String wdate, int good,
+			int readcount, String imageurl, int del) {
+		super();
+		this.gallery_no = gallery_no;
+		this.user_email = user_email;
+		this.title = title;
+		this.content = content;
+		this.wdate = wdate;
+		this.good = good;
+		this.readcount = readcount;
+		this.imageurl = imageurl;
+		this.del = del;
+	}
+
 	public BBSParam(int bbs_no, String user_email, String title, String content, String wdate, int del,
 			int readcount) {
 		super();
@@ -150,6 +165,14 @@ public class BBSParam implements Serializable{
 		this.user_email = user_email;
 		this.title = title;
 		this.content = content;
+	}
+	
+	public int getGallery_no() {
+		return gallery_no;
+	}
+
+	public void setGallery_no(int gallery_no) {
+		this.gallery_no = gallery_no;
 	}
 
 	public int getBbs_no() {

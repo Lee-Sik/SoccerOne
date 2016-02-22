@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <fmt:requestEncoding value="utf-8"/>
 
-<link href="CSS/communitytable.css" rel="stylesheet" >
+<link href="CSS/COMMUNITYtable.css" rel="stylesheet" >
 
 <body>
 <table class="list_table">

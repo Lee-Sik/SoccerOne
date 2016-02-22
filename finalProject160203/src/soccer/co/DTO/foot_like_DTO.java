@@ -12,15 +12,17 @@ create table foot_bbs_like(                    --친선경기 게시판
 */
 public class foot_like_DTO implements Serializable{
 	private int parent_bbs_no;
+	private int parent_gallery_no;
 	private String user_email;
 
 	public foot_like_DTO() {
 		
 	}
 
-	public foot_like_DTO(int parent_bbs_no, String user_email) {
+	public foot_like_DTO(int parent_bbs_no, int parent_gallery_no, String user_email) {
 		super();
 		this.parent_bbs_no = parent_bbs_no;
+		this.parent_gallery_no = parent_gallery_no;
 		this.user_email = user_email;
 	}
 
@@ -30,6 +32,14 @@ public class foot_like_DTO implements Serializable{
 
 	public void setParent_bbs_no(int parent_bbs_no) {
 		this.parent_bbs_no = parent_bbs_no;
+	}
+	
+	public int getParent_gallery_no() {
+		return parent_gallery_no;
+	}
+
+	public void setParent_gallery_no(int parent_gallery_no) {
+		this.parent_gallery_no = parent_gallery_no;
 	}
 
 	public String getUser_email() {

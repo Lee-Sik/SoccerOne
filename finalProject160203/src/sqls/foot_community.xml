@@ -12,10 +12,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				0,0,0,0)
 	</insert>
 	
+	<insert id="writeGallery" parameterType="soccer.co.DTO.foot_community_DTO">
+		INSERT INTO FOOT_GALLERY 
+		(GALLERY_NO, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, DEL, IMAGEURL, COMMENTCOUNT) 
+		VALUES(foot_gallery_seq.nextval,#{user_email},#{title},#{content},SYSDATE,
+				0,0,0,#{imageurl},0)
+	</insert>
+	
 	<insert id="writeComment" parameterType="soccer.co.DTO.foot_comment_DTO">
 		INSERT INTO FOOT_BBS_COMMENT
 		(COMMENT_NO, PARENT_BBS_NO, USER_EMAIL, CONTENT, WDATE, DEL) 
 		VALUES(foot_comment_seq.nextval,#{parent_bbs_no},#{user_email},#{content},SYSDATE,0)
+	</insert>
+	
+	<insert id="writeGalComment" parameterType="soccer.co.DTO.foot_comment_DTO">
+		INSERT INTO FOOT_GALLERY_COMMENT
+		(COMMENT_NO, PARENT_GALLERY_NO, USER_EMAIL, CONTENT, WDATE, DEL) 
+		VALUES(foot_gallery_comment_seq.nextval,#{parent_gallery_no},#{user_email},#{content},SYSDATE,0)
 	</insert>
 	
 	<update id="updateComment" parameterType="soccer.co.DTO.foot_comment_DTO">
@@ -96,6 +109,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</select>
 	
+	<select id="getGalleryPagingList" parameterType="soccer.co.DTO.BBSParam" resultType="soccer.co.DTO.foot_community_DTO">
+			SELECT GALLERY_NO, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, DEL, COMMENTCOUNT, IMAGEURL
+			FROM 	
+		( SELECT ROW_NUMBER() OVER (ORDER BY GALLERY_NO DESC) as rnum,
+		GALLERY_NO, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, DEL, COMMENTCOUNT, IMAGEURL
+		FROM FOOT_GALLERY
+	    WHERE 1 = 1 
+	    <if test="s_category != '' and s_category != null and s_keyword != '' and s_keyword != null">
+			<if test="s_category == 'title'"> AND TITLE like '%'||#{s_keyword}||'%'</if>	
+			<if test="s_category == 'contents'"> AND CONTENT like '%'||#{s_keyword}||'%'</if>	
+		</if>
+			 ) A
+			WHERE rnum between ${start} AND ${end}
+	</select>
+
+	<select id="getGalleryCount" parameterType="soccer.co.DTO.BBSParam" resultType="java.lang.Integer">
+	 
+			SELECT NVL(count(*),0) AS cnt
+			  FROM  FOOT_GALLERY  WHERE 1 = 1
+		
+		<if test="s_category != '' and s_category != null and s_keyword != '' and s_keyword != null">
+			<if test="s_category == 'title'"> AND TITLE like '%'||#{s_keyword}||'%'</if>	
+			<if test="s_category == 'contents'"> AND CONTENT like '%'||#{s_keyword}||'%'</if>	
+		</if>
+	</select>
+	
 	<select id="getBBS" parameterType="soccer.co.DTO.foot_community_DTO" resultType="soccer.co.DTO.foot_community_DTO">
 			SELECT U.USER_PROFILE, B.BBS_NO, B.TOPIC, B.USER_EMAIL, B.TITLE, B.CONTENT, B.WDATE, B.GOOD, B.READCOUNT, B.DEL, B.COMMENTCOUNT
 			FROM FOOT_BBS B, FOOT_USER U
@@ -103,10 +142,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			AND U.USER_EMAIL = B.USER_EMAIL
 	</select>
 	
+	<select id="getGallery" parameterType="soccer.co.DTO.foot_community_DTO" resultType="soccer.co.DTO.foot_community_DTO">
+			SELECT U.USER_PROFILE, G.GALLERY_NO, G.USER_EMAIL, G.TITLE, G.CONTENT, G.WDATE, G.GOOD, G.READCOUNT, G.DEL, G.IMAGEURL, G.COMMENTCOUNT
+			FROM FOOT_GALLERY G, FOOT_USER U
+			WHERE G.GALLERY_NO=#{gallery_no}
+			AND U.USER_EMAIL = G.USER_EMAIL
+	</select>
+	
 	<update id="incrementReadCount" parameterType="soccer.co.DTO.foot_community_DTO">
 		UPDATE FOOT_BBS SET
 		READCOUNT = READCOUNT+1
 		WHERE bbs_no=#{bbs_no}
+	</update>
+	
+	<update id="incrementGalReadCount" parameterType="soccer.co.DTO.foot_community_DTO">
+		UPDATE FOOT_GALLERY SET
+		READCOUNT = READCOUNT+1
+		WHERE gallery_no=#{gallery_no}
 	</update>
 	
 	<insert id="bbsLike" parameterType="soccer.co.DTO.foot_like_DTO">
@@ -172,5 +224,102 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DEL=#{del} 
 		WHERE bbs_no=#{bbs_no}
 	</update>
+	
+	<update id="updateGallery" parameterType="soccer.co.DTO.foot_community_DTO">
+		UPDATE FOOT_GALLERY SET 
+		TITLE=#{title}, CONTENT=#{content}, WDATE=SYSDATE 
+		WHERE gallery_no=#{gallery_no}
+	</update>
+	
+	<update id="delGallery" parameterType="soccer.co.DTO.foot_community_DTO">
+		UPDATE FOOT_GALLERY SET 
+		DEL=#{del} 
+		WHERE gallery_no=#{gallery_no}
+	</update>
+	
+	<insert id="galLike" parameterType="soccer.co.DTO.foot_like_DTO">
+		INSERT INTO FOOT_GALLERY_LIKE
+		(PARENT_GALLERY_NO, USER_EMAIL) 
+		VALUES(#{parent_gallery_no}, #{user_email})
+	</insert>
+	
+	<update id="galLikeCount" parameterType="soccer.co.DTO.foot_community_DTO">
+		UPDATE FOOT_GALLERY SET
+		GOOD = GOOD+1
+		WHERE GALLERY_NO=#{gallery_no}
+	</update>
+	
+	<delete id="galLikeDel" parameterType="soccer.co.DTO.foot_like_DTO">
+		DELETE FROM FOOT_GALLERY_LIKE
+		WHERE PARENT_GALLERY_NO = #{parent_gallery_no}
+		AND USER_EMAIL = #{user_email}
+	</delete>
+	
+	<update id="galLikeCountDel" parameterType="soccer.co.DTO.foot_community_DTO">
+		UPDATE FOOT_GALLERY SET
+		GOOD = GOOD-1
+		WHERE GALLERY_NO=#{gallery_no}
+	</update>
+	
+	<select id="getGalLike" parameterType="soccer.co.DTO.foot_like_DTO" resultType="soccer.co.DTO.foot_like_DTO">
+			SELECT *
+			FROM FOOT_GALLERY_LIKE
+			WHERE PARENT_GALLERY_NO=#{parent_gallery_no}
+			AND USER_EMAIL=#{user_email}
+	</select>
+	
+	
+	
+	
+	
+	<update id="incrementGalCommentCount" parameterType="soccer.co.DTO.foot_community_DTO">
+   	<![CDATA[
+ 		UPDATE FOOT_GALLERY SET
+		COMMENTCOUNT = COMMENTCOUNT+1
+		WHERE gallery_no=#{gallery_no}
+      ]]>
+   	</update>
+   	
+   	<update id="decrementGalCommentCount" parameterType="soccer.co.DTO.foot_community_DTO">
+   	<![CDATA[
+ 		UPDATE FOOT_GALLERY SET
+		COMMENTCOUNT = COMMENTCOUNT-1
+		WHERE gallery_no=#{gallery_no}
+      ]]>
+   	</update>
+   	
+   	<select id="getGalComment" parameterType="soccer.co.DTO.foot_comment_DTO" resultType="soccer.co.DTO.foot_comment_DTO">
+	<![CDATA[
+  			SELECT *
+  			FROM FOOT_GALLERY_COMMENT
+  			WHERE COMMENT_NO = #{comment_no}
+  		]]>
+	</select>
+   
+	<select id="getGalCommentList" parameterType="java.lang.Integer" resultType="soccer.co.DTO.foot_comment_DTO">
+	<![CDATA[
+  			SELECT U.USER_PROFILE, G.COMMENT_NO, G.PARENT_GALLERY_NO, G.USER_EMAIL, G.CONTENT, G.WDATE, G.DEL 
+  			FROM FOOT_GALLERY_COMMENT G, FOOT_USER U
+  			WHERE PARENT_GALLERY_NO = #{parent_gallery_no}
+  			AND G.USER_EMAIL = U.USER_EMAIL
+ 			ORDER BY COMMENT_NO ASC
+  		]]>
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
  </mapper>

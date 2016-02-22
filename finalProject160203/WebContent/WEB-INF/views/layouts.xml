@@ -217,6 +217,7 @@
 	<put-attribute name="main" value="/WEB-INF/views/site/address.jsp" />
 </definition>
 
+
 <definition name="teamdetail.tiles" template="/WEB-INF/views/team/teamdetail.jsp">
 </definition>
 <definition name="clubsearch_no.tiles" extends="login.tiles">
@@ -238,7 +239,17 @@
 <definition name="teamapplyno.tiles" template="/WEB-INF/views/team/teamapply/teamapplyno.jsp">
 </definition>
 
+<definition name="gallerylist.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerylist.jsp" />
+</definition>
 
+<definition name="gallerywrite.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerywrite.jsp" />
+</definition>
+
+<definition name="gallerydetail.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerydetail.jsp" />
+</definition>
 
 
 </tiles-definitions>

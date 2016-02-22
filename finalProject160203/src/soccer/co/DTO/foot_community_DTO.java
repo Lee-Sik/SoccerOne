@@ -29,6 +29,7 @@ DROP SEQUENCE foot_bbs_seq;
 
 */
 public class foot_community_DTO implements Serializable{
+	private int gallery_no;
 	private int bbs_no;
 	private String topic;
 	private String user_email;
@@ -77,6 +78,46 @@ public class foot_community_DTO implements Serializable{
 		this.del = del;
 		this.commentcount = commentcount;
 		this.user_profile = user_profile;
+	}
+
+	public foot_community_DTO(int gallery_no, String user_email, String title, String content, String wdate, int good,
+			int readcount, String imageurl, int del, int commentcount, String user_profile) {
+		super();
+		this.gallery_no = gallery_no;
+		this.user_email = user_email;
+		this.title = title;
+		this.content = content;
+		this.wdate = wdate;
+		this.good = good;
+		this.readcount = readcount;
+		this.imageurl = imageurl;
+		this.del = del;
+		this.commentcount = commentcount;
+		this.user_profile = user_profile;
+	}
+	
+	public foot_community_DTO(int gallery_no, String user_email, String title, String content, String wdate, int good,
+			int readcount, String imageurl, int del, int commentcount) {
+		super();
+		this.gallery_no = gallery_no;
+		this.user_email = user_email;
+		this.title = title;
+		this.content = content;
+		this.wdate = wdate;
+		this.good = good;
+		this.readcount = readcount;
+		this.imageurl = imageurl;
+		this.del = del;
+		this.commentcount = commentcount;
+
+	}
+
+	public int getGallery_no() {
+		return gallery_no;
+	}
+
+	public void setGallery_no(int gallery_no) {
+		this.gallery_no = gallery_no;
 	}
 
 	public int getBbs_no() {

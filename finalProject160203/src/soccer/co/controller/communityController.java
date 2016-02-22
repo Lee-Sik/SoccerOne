@@ -221,9 +221,6 @@ public class communityController {
 		
 		foot_like_DTO fdto = BBSService.getLike(flike);
 		
-		//System.out.println("parent_bbs_no = " + fdto.getParent_bbs_no());
-		//System.out.println("id = " + fdto.getUser_email());
-		
 		model.addAttribute("flike",fdto);
 		
 		int sn=param.getPageNumber();
@@ -376,6 +373,216 @@ public class communityController {
 //		
 //		return "bbslist.tiles";
 //	}
+	
+	// Gallery Write
+	@RequestMapping(value = "gallerywrite.do", method = {RequestMethod.GET, RequestMethod.POST})
+	public String gallerywrite(Model model) {
+		logger.info("Welcome MemberController gallerywrite! "+ new Date());
+		model.addAttribute("title", "짤방 글쓰기");
+		return "gallerywrite.tiles";
+	}
+	
+	// Gallery WriteAf
+	@RequestMapping(value = "gallerywriteAf.do", method = RequestMethod.POST)
+	public String gallerywriteAf(@RequestParam("file") MultipartFile file, 
+			foot_community_DTO bbs,Model model, String user_email, String title, String content) throws Exception {
+		logger.info("Welcome MemberController gallerywriteAf! "+ new Date());
+
+		String fileName = null;
+		File upload = null;
+		
+		if (!file.isEmpty()) {
+			try {
+				fileName = file.getOriginalFilename();
+				
+				upload = new File("//211.238.142.152/공유/ryu/" + fileName);
+				// 
+				byte[] bytes = file.getBytes();
+				BufferedOutputStream buffStream = new BufferedOutputStream(
+						new FileOutputStream(upload));
+
+				buffStream.write(bytes);
+				buffStream.close();
+				bbs.setImageurl(fileName);
+				
+				System.out.println("You have successfully uploaded " + fileName);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("empty!!!!!!!!");
+			bbs.setImageurl("");
+		}
+		
+		bbs.setUser_email(user_email);
+		bbs.setTitle(title);
+		bbs.setContent(content);
+		
+		BBSService.writeGallery(bbs);
+		
+		return "redirect:/gallerylist.do";
+	}
+	
+	// Gallery List
+		@RequestMapping(value = "gallerylist.do", method = {RequestMethod.GET, RequestMethod.POST})
+		public String gallerylist(BBSParam param,Model model) throws Exception {
+			logger.info("Welcome MemberController gallerylist! "+ new Date());
+			logger.info("Welcome MemberController param! "+ param);
+			int sn=param.getPageNumber();
+			int start=(sn)*param.getRecordCountPerPage()+1;
+			int end=(sn+1)*param.getRecordCountPerPage();
+			
+			param.setStart(start);
+			param.setEnd(end);
+			//logger.info("start number : "+sn);
+			//logger.info("start : "+start);
+			//logger.info("end : "+end);
+			
+			int totalRecordCount=BBSService.getGalleryCount(param);
+			List<foot_community_DTO> gallerylist=BBSService.getGalleryPagingList(param);
+			model.addAttribute("gallerylist", gallerylist);
+			
+			model.addAttribute("pageNumber", sn);
+			model.addAttribute("pageCountPerScreen", 10);
+			model.addAttribute("recordCountPerPage", param.getRecordCountPerPage());
+			model.addAttribute("totalRecordCount", totalRecordCount);
+			
+			model.addAttribute("s_category", param.getS_category());
+			model.addAttribute("s_keyword", param.getS_keyword());
+					
+			model.addAttribute("title", "짤방게시판");
+
+			return "gallerylist.tiles";
+		}
+	
+		// BBS Detail
+		@RequestMapping(value = "gallerydetail.do", method = {RequestMethod.GET,RequestMethod.POST})
+		public String gallerydetail(BBSParam param,foot_community_DTO bbs,Model model,HttpServletRequest request) throws Exception {
+			
+			int gallery_no = Integer.parseInt(request.getParameter("gallery_no"));
+			
+			//int parent_no = Integer.parseInt(request.getParameter("parent_no"));
+			
+			List<foot_comment_DTO> comdto  = BBSService.getGalCommentList(gallery_no);
+			
+			model.addAttribute("comlist",comdto);
+			
+			foot_community_DTO dto=BBSService.getGallery(bbs);
+			
+			BBSService.incrementGalReadCount(bbs);
+			model.addAttribute("gal",dto);
+			model.addAttribute("title", "글 상세보기");
+			
+			foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
+			
+			String user_email = fudto.getUser_email();
+			
+			System.out.println("gallery_no = " + gallery_no);
+			System.out.println("user_email = " + user_email);
+			
+			foot_like_DTO flike = new foot_like_DTO();
+			
+			flike.setParent_gallery_no(gallery_no);
+			flike.setUser_email(user_email);
+			
+			foot_like_DTO fdto = BBSService.getGalLike(flike);
+			
+			//System.out.println("parent_bbs_no = " + fdto.getParent_bbs_no());
+			//System.out.println("id = " + fdto.getUser_email());
+			
+			model.addAttribute("flike",fdto);
+			
+			int sn=param.getPageNumber();
+			int start=(sn)*param.getRecordCountPerPage()+1;
+			int end=(sn+1)*param.getRecordCountPerPage();
+			
+			param.setStart(start);
+			param.setEnd(end);
+			//logger.info("start number : "+sn);
+			//logger.info("start : "+start);
+			//logger.info("end : "+end);
+			
+			int totalRecordCount=BBSService.getGalleryCount(param);
+			List<foot_community_DTO> gallerylist=BBSService.getGalleryPagingList(param);
+			model.addAttribute("gallerylist", gallerylist);
+			model.addAttribute("doc_title", "BBS 리스트");
+			
+			model.addAttribute("pageNumber", sn);
+			model.addAttribute("pageCountPerScreen", 10);
+			model.addAttribute("recordCountPerPage", param.getRecordCountPerPage());
+			model.addAttribute("totalRecordCount", totalRecordCount);
+			
+			model.addAttribute("s_category", param.getS_category());
+			model.addAttribute("s_keyword", param.getS_keyword());
+			
+			
+			return "gallerydetail.tiles";
+		}
+	
+		// Gallery CommentAf
+		@RequestMapping(value = "galcommentAf.do", method = {RequestMethod.GET, RequestMethod.POST})
+		public String galcommentAf(int parent_no, foot_comment_DTO comdto, Model model) throws Exception {
+			logger.info("Welcome BBSController galcommentAf! "+ new Date());
+			
+			comdto.setParent_gallery_no(parent_no);
+			
+			foot_community_DTO bbs = new foot_community_DTO();
+			
+			bbs.setGallery_no(parent_no);
+			
+			BBSService.incrementGalCommentCount(bbs);
+			BBSService.writeGalComment(comdto);
+			
+			return  "redirect:/gallerydetail.do?gallery_no=" + parent_no;
+		}
+	
+		// Gallery Like
+		@RequestMapping(value = "gallike.do", method = {RequestMethod.GET, RequestMethod.POST})
+		public String gallike(int gallery_no, String user_email, foot_like_DTO flike, Model model) throws Exception {
+			logger.info("Welcome BBSController gallike! "+ new Date());
+			
+			flike.setParent_gallery_no(gallery_no);
+			flike.setUser_email(user_email);
+			BBSService.galLike(flike);
+			
+			BBSService.galLikeCount(gallery_no);
+			
+			
+			return  "redirect:/gallerydetail.do?gallery_no=" + gallery_no;
+		}
+		
+		// Gallery Like Del
+		@RequestMapping(value = "gallikedel.do", method = {RequestMethod.GET, RequestMethod.POST})
+		public String gallikedel(int gallery_no, String user_email, foot_like_DTO flike, Model model) throws Exception {
+			logger.info("Welcome BBSController gallikedel! "+ new Date());
+			
+			flike.setParent_gallery_no(gallery_no);
+			flike.setUser_email(user_email);
+			BBSService.galLikeDel(flike);
+			
+			BBSService.galLikeCountDel(gallery_no);
+			
+			
+			return  "redirect:/gallerydetail.do?gallery_no=" + gallery_no;
+		}
+		
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@RequestMapping(value = "bbsreply.do", method = RequestMethod.POST)
 	public String bbsreply(foot_community_DTO bbs,Model model) throws Exception {

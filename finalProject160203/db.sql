@@ -1,3 +1,25 @@
+create table foot_gallery(                    --친선경기 게시판 
+   gallery_no number primary key, --게시글 시퀀스
+   user_email varchar2(50) not null,    --작성자
+   title varchar2(200) not null,		--굴제목
+   content varchar2(4000) not null,		--글내용
+   wdate date not null,					--작성일
+   good number(8) not null,						--좋아요
+   readcount number(8) not null,					--조회수
+   imageurl varchar2(50) not null,  				--그림주소
+   del number(8) not null,
+   commentcount number(8) not null,
+  
+   CONSTRAINT FK_gallery FOREIGN KEY(user_email) REFERENCES foot_user(user_email)      
+);
+
+create sequence foot_gallery_seq
+start with 1 increment by 1;
+
+DROP TABLE foot_gallery CASCADE CONSTRAINT;
+
+DROP SEQUENCE foot_gallery_seq;
+
 
 SELECT U.USER_PROFILE, C.COMMENT_NO, C.PARENT_BBS_NO, C.USER_EMAIL, C.CONTENT, C.WDATE, C.DEL 
   			FROM FOOT_BBS_COMMENT C, FOOT_USER U
@@ -21,6 +43,14 @@ create table foot_bbs_like(                    --친선경기 게시판
    user_email varchar2(50) not null,    --작성자
    CONSTRAINT FK_parent_bbs_no FOREIGN KEY(parent_bbs_no) REFERENCES foot_bbs(bbs_no)      
 );
+
+create table foot_gallery_like(                    --친선경기 게시판 
+   parent_gallery_no number not null, --게시글 시퀀스
+   user_email varchar2(50) not null,    --작성자
+   CONSTRAINT FK_parent_gallery_no FOREIGN KEY(parent_gallery_no) REFERENCES foot_gallery(gallery_no)      
+);
+
+
 SELECT count(PARENT_BBS_NO)
 FROM FOOT_BBS_COMMENT
 WHERE PARENT_BBS_NO = 67
@@ -50,15 +80,18 @@ INSERT INTO FOOT_BBS_COMMENT
 		(COMMENT_NO, PARENT_BBS_NO, USER_EMAIL, CONTENT, WDATE, DEL) 
 		VALUES(foot_comment_seq.nextval,64,'4','dddd',SYSDATE,0)
 
-create table foot_bbs_comment(                    --친선경기 게시판 
+create table foot_gallery_comment(                    --친선경기 게시판 
    comment_no number primary key, --게시글 시퀀스
-   parent_bbs_no number not null, --게시글 시퀀스
+   parent_gallery_no number not null, --게시글 시퀀스
    user_email varchar2(50) not null,    --작성자
    content varchar2(4000) not null,		--글내용
    wdate date not null,					--작성일
    del number(8) not null,
-   CONSTRAINT FK_bbs_parent_bbs_no FOREIGN KEY(parent_bbs_no) REFERENCES foot_bbs(bbs_no)      
+   CONSTRAINT FK_bbs_parent_gallery_no FOREIGN KEY(parent_gallery_no) REFERENCES foot_gallery(gallery_no)      
 );
+
+create sequence foot_gallery_comment_seq
+start with 1 increment by 1;
 
 select * from FOOT_freegame
 
