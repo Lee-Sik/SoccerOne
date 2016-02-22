@@ -42,6 +42,7 @@ public class foot_user_DAO{
 
 	public foot_team_DTO loginteam(foot_user_DTO fudto) {
 		// TODO Auto-generated method stub
+		
 		foot_team_DTO ftdto = (foot_team_DTO) sqlse.selectOne(ns1+"loginteam", fudto);
 		
 		return ftdto;

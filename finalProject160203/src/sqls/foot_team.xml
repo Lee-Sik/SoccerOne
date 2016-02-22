@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    </select>
    
    <select id="loginteam" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.foot_team_DTO">
-  	 SELECT * FROM foot_team where team_managerid = #{user_email}
+  	 SELECT * FROM foot_team where team_name = #{user_team}
    </select>
    
     <select id="getGameRecord" parameterType="java.lang.String" resultType="soccer.co.DTO.foot_game_record">
@@ -43,6 +43,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    team_join=#{team.team_join},team_open=#{team.team_open},team_home=#{team.team_home},
    team_logo=#{team.team_logo} where team_name=#{originteamname}
    </update>
+   
+   <select id="allteam" resultType="soccer.co.DTO.foot_team_DTO">
+  	 SELECT * FROM foot_team
+   </select>
+   
+   <select id="recruitteam" resultType="soccer.co.DTO.foot_team_DTO">
+  	 SELECT * FROM foot_team where team_join=1
+   </select>
    
    
    

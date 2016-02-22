@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -288,6 +289,69 @@ public class clubController {
 		
 		return "redirect:club.do";
 	}
+
+	@RequestMapping(value = "clubsearch_yes.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String clubsearch_yes(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
+		logger.info("clubmyinform clubsearch_yes!");
+		List<foot_team_DTO> allteam = clubservice.allteam();
+		model.addAttribute("allteam", allteam);
+		return "clubsearch_yes.tiles";
+	}
+	@RequestMapping(value = "clubsearch_no.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String clubsearch_no(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
+		logger.info("clubmyinform clubsearch_no!");
+		model.addAttribute("list",clubservice.getGu());
+		List<foot_team_DTO> allteam = clubservice.allteam();
+		List<foot_team_DTO> recruitteam = clubservice.recruitteam();
+		model.addAttribute("allteam", allteam);
+		model.addAttribute("recruitteam", recruitteam);
+		
+		return "clubsearch_no.tiles";
+	}
 	
+	@RequestMapping(value = "teamdetail.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String teamdetail(foot_team_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
+		logger.info("teamdetail clubsearch_yes!");
+		
+		model.addAttribute("list",clubservice.getGu());
+		List<foot_team_DTO> allteam = clubservice.allteam();
+		List<foot_team_DTO> recruitteam = clubservice.recruitteam();
+		model.addAttribute("allteam", allteam);
+		model.addAttribute("recruitteam", recruitteam);
+		model.addAttribute("teamdetail", fudto.getTeam_name());
+		return "teamdetail.tiles";
+	}
+	
+	@RequestMapping(value = "clubsearch_no1.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String clubsearch_no1(foot_team_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
+		logger.info("clubsearch_no1 clubsearch_yes!");
+		
+		if(fudto.getTeam_name()==null || fudto.getTeam_name().equals("")){
+			fudto.setTeam_name("noname");
+		}
+		System.out.println(fudto.toString());
+		
+		model.addAttribute("list",clubservice.getGu());
+		List<foot_team_DTO> allteam = clubservice.allteam();
+		List<foot_team_DTO> recruitteam = clubservice.recruitteam();
+		model.addAttribute("allteam", allteam);
+		model.addAttribute("searchteam", fudto);
+		model.addAttribute("recruitteam", recruitteam);
+		model.addAttribute("teamdetail", fudto.getTeam_name());
+		return "clubsearch_no1.tiles";
+	}
+	
+	@RequestMapping(value = "teamapply.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String teamapply(foot_team_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
+		logger.info("teamapply clubsearch_yes!");
+		String re = null;
+		foot_team_DTO team=(foot_team_DTO)request.getSession().getAttribute("team");
+		if(team==null){
+			re = "teamapply.tiles";
+		}else{
+			re = "teamapplyno.tiles";
+		}
+		return re;
+	}
 	
 }

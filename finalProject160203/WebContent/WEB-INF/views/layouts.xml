@@ -2,6 +2,7 @@
 <!DOCTYPE tiles-definitions PUBLIC
 "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
 "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
 <tiles-definitions>
 
 <definition name="first.tiles" template="/WEB-INF/views/layouts-tiles-first.jsp">
@@ -22,6 +23,7 @@
 <definition name="team_club.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/clubView.jsp" />
 </definition>
+
 
 <definition name="join.tiles" template="/WEB-INF/views/join/join.jsp">
 </definition>
@@ -214,6 +216,29 @@
 <definition name="address.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/site/address.jsp" />
 </definition>
+
+<definition name="teamdetail.tiles" template="/WEB-INF/views/team/teamdetail.jsp">
+</definition>
+<definition name="clubsearch_no.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/clubsearch_no.jsp" />
+</definition>
+
+<definition name="clubsearch_no1.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/clubsearch_no1.jsp" />
+</definition>
+
+<definition name="clubsearch_yes.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/clubsearch_yes.jsp" />
+</definition>
+
+
+<definition name="teamapply.tiles" template="/WEB-INF/views/team/teamapply/teamapply.jsp">
+</definition>
+
+<definition name="teamapplyno.tiles" template="/WEB-INF/views/team/teamapply/teamapplyno.jsp">
+</definition>
+
+
 
 
 </tiles-definitions>

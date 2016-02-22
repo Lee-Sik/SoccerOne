@@ -59,4 +59,16 @@ public class foot_teamService_impl implements foot_teamService{
 		teamdao.userUpdate(tmpUserDTO);
 	}
 
+	@Override
+	public List<foot_team_DTO> allteam() {
+		// TODO Auto-generated method stub
+		return teamdao.allteam();
+	}
+
+	@Override
+	public List<foot_team_DTO> recruitteam() {
+		// TODO Auto-generated method stub
+		return teamdao.recruitteam();
+	}
+
 }

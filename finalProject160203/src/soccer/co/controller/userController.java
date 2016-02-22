@@ -46,7 +46,7 @@ public class userController {
 			login = fuservice.login(fudto);
 			
 			if(login.getUser_team()!=null){
-				team = fuservice.loginteam(fudto);
+				team = fuservice.loginteam(login);
 			}
 			
 			// login.toString();

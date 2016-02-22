@@ -93,5 +93,17 @@ public class foot_team_DAO {
 	public void userUpdate(foot_user_DTO tmpUserDTO) {
 		sql.update(ns1+"userUpdate", tmpUserDTO);		
 	}
+
+	public List<foot_team_DTO> allteam() {
+		// TODO Auto-generated method stub
+		List<foot_team_DTO> allteam = sql.selectList(ns+"allteam");
+		return allteam;
+	}
+
+	public List<foot_team_DTO> recruitteam() {
+		// TODO Auto-generated method stub
+		List<foot_team_DTO> recruitteam = sql.selectList(ns+"recruitteam");
+		return recruitteam;
+	}
 	
 }
