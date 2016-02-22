@@ -116,8 +116,7 @@ function sendNews(media) {
 <tr>
 	<td colspan="2" style="text-align: left;">
 	<div style="text-align: right;">조회수 ${bbs.readcount}&nbsp;&nbsp;추천수 ${bbs.good}&nbsp;</div><br><br>
-	${bbs.content}<br><br><br>
-	<a href="javascript:window.open('file://211.238.142.152/공유/ryu/${bbs.imageurl}', 'resizable=no, scrollbars=yes, status=no;')"><img src="file://211.238.142.152/공유/ryu/${bbs.imageurl}" width="50%;" alt="이미지없음"/></a>
+	${bbs.content}
 	<br><br><br><br>	
 	<div align="center">
 

@@ -54,55 +54,59 @@ public class comunityController {
 	}
 	
 	@RequestMapping(value = "bbswriteAf.do", method = RequestMethod.POST)
-	public String bbswriteAf(@RequestParam("file") MultipartFile file, 
-			foot_comunity_DTO bbs,Model model,String topic, String user_email, String title, String content) throws Exception {
+	public String bbswriteAf(foot_comunity_DTO bbs,Model model,String topic, String user_email, String title, String ir1) throws Exception {
 		logger.info("Welcome MemberController bbswriteAf! "+ new Date());
-
-		String fileName = null;
-		File upload = null;
-		
-		if (!file.isEmpty()) {
-			try {
-				fileName = file.getOriginalFilename();
-				
-				//upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
-				//upload = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160203/WebContent/image/" + fileName);
-				//upload = new File("C:/springstudy/finalProject160203/WebContent/image/" + fileName);
-//				upload = new File("file://211.238.142.152/share/siksama/" + fileName);
-				upload = new File("//211.238.142.152/공유/ryu/" + fileName);
-				// 
-				byte[] bytes = file.getBytes();
-				BufferedOutputStream buffStream = new BufferedOutputStream(
-						new FileOutputStream(upload));
-
-				buffStream.write(bytes);
-				buffStream.close();
-				bbs.setImageurl(fileName);
-				
-				System.out.println("You have successfully uploaded " + fileName);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else {
-			System.out.println("empty!!!!!!!!");
-			bbs.setImageurl("");
-		}
 		
 		bbs.setUser_email(user_email);
 		bbs.setTopic(topic);
 		bbs.setTitle(title);
-		bbs.setContent(content);
+		bbs.setContent(ir1);
 		
-//		try{
-//			clubservice.join(team);//팀생성 실패시 어떻게 할까?
-//			req.getSession().setAttribute("team",team);
-//		}catch(Exception e){
-//			e.printStackTrace();
-//		}
 		BBSService.writeBBS(bbs);
 		
 		return "redirect:/bbslist.do";
 	}
+	
+//	@RequestMapping(value = "bbswriteAf.do", method = RequestMethod.POST)
+//	public String bbswriteAf(@RequestParam("file") MultipartFile file, 
+//			foot_comunity_DTO bbs,Model model,String topic, String user_email, String title, String content) throws Exception {
+//		logger.info("Welcome MemberController bbswriteAf! "+ new Date());
+//
+//		String fileName = null;
+//		File upload = null;
+//		
+//		if (!file.isEmpty()) {
+//			try {
+//				fileName = file.getOriginalFilename();
+//				
+//				upload = new File("//211.238.142.152/공유/ryu/" + fileName);
+//				// 
+//				byte[] bytes = file.getBytes();
+//				BufferedOutputStream buffStream = new BufferedOutputStream(
+//						new FileOutputStream(upload));
+//
+//				buffStream.write(bytes);
+//				buffStream.close();
+//				bbs.setImageurl(fileName);
+//				
+//				System.out.println("You have successfully uploaded " + fileName);
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//		} else {
+//			System.out.println("empty!!!!!!!!");
+//			bbs.setImageurl("");
+//		}
+//		
+//		bbs.setUser_email(user_email);
+//		bbs.setTopic(topic);
+//		bbs.setTitle(title);
+//		bbs.setContent(content);
+//		
+//		BBSService.writeBBS(bbs);
+//		
+//		return "redirect:/bbslist.do";
+//	}
 	
 	@RequestMapping(value = "commentAf.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String commentAf(int parent_no, foot_comment_DTO comdto, Model model) throws Exception {

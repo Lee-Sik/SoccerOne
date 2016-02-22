@@ -7,9 +7,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="writeBBS" parameterType="soccer.co.DTO.foot_comunity_DTO">
 		INSERT INTO FOOT_BBS
-		(BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL, COMMENTCOUNT) 
+		(BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, DEL, COMMENTCOUNT) 
 		VALUES(foot_bbs_seq.nextval,#{topic},#{user_email},#{title},#{content},SYSDATE,
-				0,0,#{imageurl},0,0)
+				0,0,0,0)
 	</insert>
 	
 	<insert id="writeComment" parameterType="soccer.co.DTO.foot_comment_DTO">
@@ -71,10 +71,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<select id="getBBSPagingList" parameterType="soccer.co.DTO.BBSParam" resultType="soccer.co.DTO.foot_comunity_DTO">
-			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL, COMMENTCOUNT
+			SELECT BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, DEL, COMMENTCOUNT
 			FROM 	
 		( SELECT ROW_NUMBER() OVER (ORDER BY BBS_NO DESC) as rnum,
-		BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, IMAGEURL, DEL, COMMENTCOUNT 
+		BBS_NO, TOPIC, USER_EMAIL, TITLE, CONTENT, WDATE, GOOD, READCOUNT, DEL, COMMENTCOUNT 
 		FROM FOOT_BBS
 	    WHERE 1 = 1 
 	    <if test="s_category != '' and s_category != null and s_keyword != '' and s_keyword != null">
@@ -98,7 +98,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="getBBS" parameterType="soccer.co.DTO.foot_comunity_DTO" resultType="soccer.co.DTO.foot_comunity_DTO">
-			SELECT U.USER_PROFILE, B.BBS_NO, B.TOPIC, B.USER_EMAIL, B.TITLE, B.CONTENT, B.WDATE, B.GOOD, B.READCOUNT, B.IMAGEURL, B.DEL, B.COMMENTCOUNT
+			SELECT U.USER_PROFILE, B.BBS_NO, B.TOPIC, B.USER_EMAIL, B.TITLE, B.CONTENT, B.WDATE, B.GOOD, B.READCOUNT, B.DEL, B.COMMENTCOUNT
 			FROM FOOT_BBS B, FOOT_USER U
 			WHERE B.BBS_NO=#{bbs_no}
 			AND U.USER_EMAIL = B.USER_EMAIL

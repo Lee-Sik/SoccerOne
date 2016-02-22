@@ -174,7 +174,7 @@
 </definition>
 
 <definition name="bbswrite.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/bbs/bbswrite.jsp" />
+	<put-attribute name="main" value="/WEB-INF/views/bbs/write.jsp" />
 </definition>
 
 <definition name="bbslist.tiles" extends="login.tiles">
