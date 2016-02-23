@@ -138,6 +138,18 @@
 
 </definition>
 
+<definition name="ranking.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/ranking.jsp" />
+
+</definition>
+
+<definition name="rankingaf.tiles" extends="login.tiles">
+
+	<put-attribute name="main" value="/WEB-INF/views/kickoff/rankingaf.jsp" />
+
+</definition>
+
 <!-- booking -->
 
 <definition name="stadium_write.tiles" extends="login.tiles">

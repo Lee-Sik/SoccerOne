@@ -23,7 +23,7 @@
 						<li><a href='freems.do'>친선경기</a></li>
 					</ul></li>
 
-				<li><a href='./matching.do'>랭킹</a></li>
+				<li><a href='./ranking.do'>랭킹순위</a></li>
 			</ul></li>
 
 		

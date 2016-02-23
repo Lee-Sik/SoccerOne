@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import soccer.co.DTO.MATCHINGParam;
+import soccer.co.DTO.RANKParam;
 import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
@@ -85,7 +86,12 @@ public class foot_game_DAO{
 		return list;
 	}
 
-	
+	public List<RANKParam> getrankingList(RANKParam rank)throws Exception{
+		List<RANKParam> list=new ArrayList<RANKParam>();
+		list=(List<RANKParam>)
+				sqlse.selectList(ns+"getrankingList", rank);
+		return list;
+	}
 	
 
 

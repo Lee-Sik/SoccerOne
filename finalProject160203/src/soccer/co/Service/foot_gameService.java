@@ -3,6 +3,7 @@ package soccer.co.Service;
 import java.util.List;
 
 import soccer.co.DTO.MATCHINGParam;
+import soccer.co.DTO.RANKParam;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
 
@@ -21,5 +22,7 @@ public interface foot_gameService {
 	List<foot_game_DTO> getpublicgameList()throws Exception;
 	List<foot_game_DTO> getpmatchingsearchList(MATCHINGParam param)throws Exception;
 	List<foot_game_DTO> getfmatchingsearchList(MATCHINGParam param)throws Exception;
+	
+	List<RANKParam> getrankingList(RANKParam rank)throws Exception;
 	
 }

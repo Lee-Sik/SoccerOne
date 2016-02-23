@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import soccer.co.DAO.foot_game_DAO;
 import soccer.co.DTO.MATCHINGParam;
+import soccer.co.DTO.RANKParam;
 import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
@@ -80,6 +81,12 @@ public class foot_gameService_impl implements foot_gameService{
 	@Transactional(readOnly=true)
 	public List<foot_game_DTO> getfmatchingsearchList(MATCHINGParam param) throws Exception {
 		return fgdao.getfmatchingsearchList(param);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public List<RANKParam> getrankingList(RANKParam rank) throws Exception {
+		return fgdao.getrankingList(rank);
 	}
 	
 }

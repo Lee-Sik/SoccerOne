@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import soccer.co.DTO.MATCHINGParam;
+import soccer.co.DTO.RANKParam;
 import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
@@ -168,6 +169,34 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 		return "fmatchingdetail.tiles";
 	}
 	
+	// Ranking Main
+	@RequestMapping(value = "ranking.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String ranking( Model model) throws Exception {	
+		logger.info("Welcome gameController ranking! "+ new Date());
+
+		
+		model.addAttribute("title", "랭킹");
+
+		return "ranking.tiles";
+	}
+	
+	
+	@RequestMapping(value = "rankingAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String rankingAf(String team_location, RANKParam rank, Model model) throws Exception {	
+		logger.info("Welcome gameController rankingAf! "+ new Date());
+		
+		System.out.println("team_location = " + team_location);
+		
+		rank.setTeam_location(team_location);
+		
+		List<RANKParam> rankinglist=fgameservice.getrankingList(rank);
+		model.addAttribute("rankinglist", rankinglist);
+		
+		model.addAttribute("location", team_location);
+		model.addAttribute("title", "순위표");
+
+		return "rankingaf.tiles";
+	}
 	
 	
 }

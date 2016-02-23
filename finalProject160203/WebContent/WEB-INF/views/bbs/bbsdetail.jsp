@@ -358,7 +358,7 @@ $("#_btnUpdate").click(function() {
 </div>
 <form name="frmForm2" id="_frmForm" method="get" action="bbswrite.do">
 </form>
-
+<br><br>
 
 
 <script type="text/javascript">

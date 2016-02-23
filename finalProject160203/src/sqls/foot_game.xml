@@ -90,5 +90,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          and PAY BETWEEN #{pay1} and #{pay2}
    
    </select>
+   
+   <select id="getrankingList" parameterType="soccer.co.DTO.RANKParam" resultType="soccer.co.DTO.RANKParam">
+   		SELECT RANK() OVER(ORDER BY TEAM_POINT DESC) AS RANKING,
+		TEAM_LOCATION, TEAM_NAME, TEAM_POINT, TEAM_WIN, TEAM_LOSE
+		FROM FOOT_TEAM_LEAGUE
+		WHERE TEAM_LOCATION = #{team_location}
+		ORDER BY TEAM_POINT DESC
+   </select>
+   
+    <select id="getlocationrankingList" parameterType="soccer.co.DTO.RANKParam" resultType="soccer.co.DTO.RANKParam">
+   		SELECT RANK() OVER(ORDER BY TEAM_POINT DESC) AS RANKING,
+		TEAM_LOCATION, TEAM_NAME, TEAM_POINT, TEAM_WIN, TEAM_LOSE
+		FROM FOOT_TEAM_LEAGUE
+		WHERE TEAM_LOCATION = #{team_location}
+		ORDER BY TEAM_POINT DESC
+   </select>
+   
 
 </mapper>

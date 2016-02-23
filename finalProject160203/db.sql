@@ -1,3 +1,11 @@
+
+ALTER TABLE FOOT_TEAM_LEAGE
+ADD (CONSTRAINT fk_team_name_league) FOREIGN KEY (TEAM_NAME) REFERENCES FOOT_TEAM (TEAM_NAME);
+
+
+
+
+
 create table foot_gallery(                    --친선경기 게시판 
    gallery_no number primary key, --게시글 시퀀스
    user_email varchar2(50) not null,    --작성자

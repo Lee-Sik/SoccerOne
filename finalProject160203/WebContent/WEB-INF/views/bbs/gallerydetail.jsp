@@ -259,6 +259,8 @@ $("#_btnUpdate").click(function() {
 	</form>
 </div>
 
+
+
 <table class="list_table" style="width:85%;">
 
 <c:if test="${empty gallerylist}">
@@ -267,91 +269,65 @@ $("#_btnUpdate").click(function() {
 	</tr>
 </c:if>
 
-
 <tr>
 <c:forEach items="${gallerylist}" var="gal" varStatus="vs">
-	
-	
 	<c:if test="${gal.del == 0}">
 		<td style="text-align: center; width: 170px; height: 170px;" >
 		<div class="gallery_list">
-		<ul style="padding-left: 0px;">
-			<li class="gallery_img" style="list-style:none;">
-			<a href='gallerydetail.do?gallery_no=${gal.gallery_no}'><img src="file://211.238.142.152/공유/ryu/${gal.imageurl}" width="100px;" height="100px;" alt="이미지없음"/>
-			</a></li>
-			<li class="gallery_title" style="list-style:none;">
-			<a href='gallerydetail.do?gallery_no=${gal.gallery_no}'>${gal.title}
-			</a></li>
-			<li class="gallery_name" style="list-style:none;">
-			<span>${gal.user_email}</span><br>댓글 : [${gal.commentcount}] &nbsp; 추천수 : ${gal.good}	</li>
-		</ul>
+			<ul style="padding-left: 0px;">
+				<li class="gallery_img" style="list-style:none;">
+				<a href='gallerydetail.do?gallery_no=${gal.gallery_no}'><img src="file://211.238.142.152/공유/ryu/${gal.imageurl}" width="100px;" height="100px;" alt="이미지없음"/>
+				</a></li>
+				<li class="gallery_title" style="list-style:none;">
+				<a href='gallerydetail.do?gallery_no=${gal.gallery_no}'>${gal.title}
+				</a></li>
+				<li class="gallery_name" style="list-style:none;">
+				<span>${gal.user_email}</span><br>댓글 : [${gal.commentcount}] &nbsp; 추천수 : ${gal.good}	</li>
+			</ul>
         </div>
 		</td>
-		
-		<c:if test="${vs.count == 5 }">
-		<tr>
-		</c:if>
-		
-		<c:if test="${vs.count == 10 }">
-		</tr>
-		</c:if>
 	</c:if>
-</c:forEach>
+
+
+	<c:if test="${gal.del == 1}">
 	
-		
-		
-		
-		
-		
-		
-		
-<%-- 			<a href='gallerydetail.do?gallery_no=${gal.gallery_no}'> --%>
-<!-- 			<div class="gallary" style="width: 150px; height: 150px;"> -->
-<%-- 				<div><img src="file://211.238.142.152/공유/ryu/${gal.imageurl}" width="100px;" height="100px;" alt="이미지없음"/></div> --%>
-<%-- 				<div align="left">${gal.title}</div> --%>
-<%-- 				<div align="left">${gal.user_email}</div> --%>
-<!-- 			</div></a> -->
+			<td style="text-align: center; width: 170px; height: 170px;" >
+			<div class="gallery_list">
+			<ul style="padding-left: 0px;">
+				<li class="gallery_img" style="list-style:none; height: 100px; vertical-align: middle;">이 글은 삭제 되었습니다.</li>
+				<li class="gallery_title" style="list-style:none;">
+				${gal.title}
+				</li>
+				<li class="gallery_name" style="list-style:none;">
+				<span>${gal.user_email}</span><br>댓글 : [${gal.commentcount}] &nbsp; 추천수 : ${gal.good}	</li>
+			</ul>
+	        </div>
+			</td>
 
+	</c:if>	
 
-
-
-<!-- 	<tr class="_hover_tr"> -->
-<%-- 		<td>${vs.count}</td>  --%>
-<%-- 		<td style="text-align: left"><a href='gallerydetail.do?gallery_no=${gal.gallery_no}'>${gal.title}</a> --%>
-<!-- 		 &nbsp;&nbsp; -->
-<!-- 		 <a href="#"  -->
-<%-- 		 onclick="javascript:window.open('./commentlist.do?gallery_no=${gal.gallery_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">[${gal.commentcount}]</a> --%>
-<!-- 		</td> -->
-<%-- 		<td>${gal.user_email}</td> --%>
-<%-- 			<c:set var="rdate" value="${gal.wdate}"/> --%>
-<%-- 			<c:set var="len" value="${fn:length(wdate)}"/> --%>
-<%-- 		<td>${fn:substring(gal.wdate, 0, 10)}</td>   --%>
-<%-- 		<td>${gal.readcount}</td>  --%>
-<%-- 		<td>${gal.good}</td>  --%>
-<!-- 	</tr> -->
-
-
-<c:if test="${gal.del == 1}">
-	<tr class="_hover_tr">
-		<td>${vs.count}</td> 
-		<td></td>
-		<td style="text-align: left">이 글은 삭제 되었습니다.</td>
-		<td>${gal.user_email}</td> 
-		<td></td> 
-		<td></td> 
-		<td></td>
-	</tr>
-</c:if>	
-
+	<c:if test="${vs.count == 5 }">
+			</tr>
+			<tr>
+	</c:if>
+		
+	<c:if test="${vs.count == 10 }">
+		</tr>
+	</c:if>
+</c:forEach>	
+		
 
 </table>
+
+
+
+<!-- 페이징 처리 부분 -->
 
 <div id="buttons_wrap">
 	<span class="button blue">
 	<button type="button" id="_btnAdd">글쓰기</button></span>
 </div>
 <!-- <a href='bbswrite.do'>글쓰기</a> -->
-
 
 <div id="paging_wrap">
 <jsp:include page="/WEB-INF/views/common/paging.jsp" flush="false">
@@ -363,8 +339,7 @@ $("#_btnUpdate").click(function() {
 </div>
 <form name="frmForm2" id="_frmForm" method="get" action="bbswrite.do">
 </form>
-
-
+<br><br>
 
 <script type="text/javascript">
 $(document).ready(function() {	// 마우스에 따라서 컬러를 변경
