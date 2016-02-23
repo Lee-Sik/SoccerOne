@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import soccer.co.DTO.FOOT_USER_RECORD;
 import soccer.co.DTO.foot_cal_DTO;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
@@ -93,6 +93,21 @@ public class clubController {
 		
 		return teamMemberList;
 	}
+	
+	@RequestMapping(value = "getMyRecord.do", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public List<FOOT_USER_RECORD> getMyRecord(HttpServletRequest req,Model model){
+		logger.info("getMyRecord do!");
+		
+		HttpSession session=req.getSession();
+		foot_user_DTO user=(foot_user_DTO)session.getAttribute("login");
+		List<FOOT_USER_RECORD> userRecordList = clubservice.getMyRecord(user);
+		
+		return userRecordList;
+	}
+	
+	
+	
 	
 	@RequestMapping(value = "club.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String club(String cal,foot_cal_DTO cdto,foot_user_DTO fudto,Model model, HttpServletRequest req) throws Exception {	

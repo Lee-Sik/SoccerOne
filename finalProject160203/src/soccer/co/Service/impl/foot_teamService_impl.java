@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import soccer.co.DAO.foot_team_DAO;
+import soccer.co.DTO.FOOT_USER_RECORD;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
@@ -67,8 +68,12 @@ public class foot_teamService_impl implements foot_teamService{
 
 	@Override
 	public List<foot_team_DTO> recruitteam() {
-		// TODO Auto-generated method stub
 		return teamdao.recruitteam();
+	}
+
+	@Override
+	public List<FOOT_USER_RECORD> getMyRecord(foot_user_DTO user) {
+		return teamdao.getMyRecord(user);
 	}
 
 }

@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import soccer.co.DTO.FOOT_USER_RECORD;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
@@ -104,6 +105,11 @@ public class foot_team_DAO {
 		// TODO Auto-generated method stub
 		List<foot_team_DTO> recruitteam = sql.selectList(ns+"recruitteam");
 		return recruitteam;
+	}
+
+	public List<FOOT_USER_RECORD> getMyRecord(foot_user_DTO user) {
+		List<FOOT_USER_RECORD> list = sql.selectList(ns+"getMyRecord",user);
+		return list;
 	}
 	
 }

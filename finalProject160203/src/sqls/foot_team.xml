@@ -12,6 +12,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    							#{team_open},#{team_home},#{team_logo})
    </insert>
    
+   <select id="getMyRecord" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.FOOT_USER_RECORD">
+   	<![CDATA[
+ 		select * from 
+  	(select * from foot_user_record WHERE user_email=#{user_email} order by game_record_day DESC)
+  	 where ROWNUM <= 5
+     ]]>
+   </select>
+   
+   
    <select id="getGu" resultType="java.lang.String">
   	 SELECT GUGUN FROM FOOT_POST GROUP BY GUGUN
    </select>
