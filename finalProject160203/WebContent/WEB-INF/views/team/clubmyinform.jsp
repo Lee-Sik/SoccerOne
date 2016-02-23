@@ -197,6 +197,7 @@ $(document).ready(function(){
 		<tr>
 			<td colspan="2">
 				<div id="graph" class="aGraph" ></div>
+				<div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 			</td>
 		</tr>
 	</table>
@@ -219,7 +220,7 @@ $(function () {
             size: '80%'
         },
 
-        xAxis: {
+        xAxis: {// 육각형 꼭지점의 능력
             categories: ['Sales', 'Marketing', 'Development', 'Customer Support',
                     'Information Technology', 'Administration'],
             tickmarkPlacement: 'on',
@@ -239,12 +240,13 @@ $(function () {
             layout: 'vertical'
         },
 
-        series: [{
+        series: [{//비교 대상을 넣을 수 있는 배열
             name: 'Allocated Budget',
             data: [43000, 19000, 60000, 35000, 17000, 10000],
             pointPlacement: 'on'
         }, {
             name: 'Actual Spending',
+            //시계방향으로 돌아가면서 들어감
             data: [50000, 39000, 42000, 31000, 26000, 14000],
             pointPlacement: 'on'
         }]
@@ -256,8 +258,6 @@ $(function () {
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
-
-<div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
 
 </body>
 </html>

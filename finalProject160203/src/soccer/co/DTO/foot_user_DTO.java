@@ -57,6 +57,13 @@ public class foot_user_DTO {
 	int x;
 	int y;
 	
+	int attack;
+	int defender;
+	int physic;
+	int mind;
+	int stamina;
+
+	
 	public foot_user_DTO(){}
 	
 	public foot_user_DTO(String user_email, String user_pw){
@@ -154,6 +161,87 @@ public class foot_user_DTO {
 		this.user_goal = user_goal;
 		this.x = x;
 		this.y = y;
+	}
+
+	
+	
+	public int getAttack() {
+		return attack;
+	}
+
+	public void setAttack(int attack) {
+		this.attack = attack;
+	}
+
+	public int getDefender() {
+		return defender;
+	}
+
+	public void setDefender(int defender) {
+		this.defender = defender;
+	}
+
+	public int getPhysic() {
+		return physic;
+	}
+
+	public void setPhysic(int physic) {
+		this.physic = physic;
+	}
+
+	public int getMind() {
+		return mind;
+	}
+
+	public void setMind(int mind) {
+		this.mind = mind;
+	}
+
+	public int getStamina() {
+		return stamina;
+	}
+
+	public void setStamina(int stamina) {
+		this.stamina = stamina;
+	}
+
+	public foot_user_DTO(String user_email, String user_pw, String user_name,
+			String user_birth, int user_age, String user_phone, int user_high,
+			int user_weight, int user_foot, String user_position1,
+			String user_position2, String user_position3, String user_address,
+			String user_profile, String user_team, int user_helper,
+			int user_enabled, String user_speed, String user_attendrate,
+			String user_attendtime, String user_goal, int x, int y, int attack,
+			int defender, int physic, int mind, int stamina) {
+		super();
+		this.user_email = user_email;
+		this.user_pw = user_pw;
+		this.user_name = user_name;
+		this.user_birth = user_birth;
+		this.user_age = user_age;
+		this.user_phone = user_phone;
+		this.user_high = user_high;
+		this.user_weight = user_weight;
+		this.user_foot = user_foot;
+		this.user_position1 = user_position1;
+		this.user_position2 = user_position2;
+		this.user_position3 = user_position3;
+		this.user_address = user_address;
+		this.user_profile = user_profile;
+		this.user_team = user_team;
+		this.user_helper = user_helper;
+		this.user_enabled = user_enabled;
+		this.user_speed = user_speed;
+		this.user_attendrate = user_attendrate;
+		this.user_attendtime = user_attendtime;
+		this.user_goal = user_goal;
+		this.x = x;
+		this.y = y;
+		this.attack = attack;
+		this.defender = defender;
+		this.physic = physic;
+		this.mind = mind;
+		this.stamina = stamina;
 	}
 
 	public int getX() {
@@ -313,8 +401,9 @@ public class foot_user_DTO {
 				+ user_helper + ", user_enabled=" + user_enabled
 				+ ", user_speed=" + user_speed + ", user_attendrate="
 				+ user_attendrate + ", user_attendtime=" + user_attendtime
-				+ ", user_goal=" + user_goal + ", x=" + x + ", y=" + y + "]";
+				+ ", user_goal=" + user_goal + ", x=" + x + ", y=" + y
+				+ ", attack=" + attack + ", defender=" + defender + ", physic="
+				+ physic + ", mind=" + mind + ", stamina=" + stamina + "]";
 	}
-	
-	
+
 }
