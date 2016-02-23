@@ -3,6 +3,7 @@ package soccer.co.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,14 +18,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import soccer.co.DTO.foot_message_DTO;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
+import soccer.co.Service.foot_messageService;
 import soccer.co.Service.foot_userService;
 
 @Controller
 public class userController {
 	@Autowired
 	foot_userService fuservice;
+	@Autowired
+	foot_messageService messageservice;
 
 	private static final Logger logger = LoggerFactory.getLogger(userController.class);
 
@@ -44,6 +49,9 @@ public class userController {
 		foot_team_DTO team = null;
 		try {
 			login = fuservice.login(fudto);
+			ArrayList<foot_message_DTO> list = messageservice.messagecheck(login);
+			model.addAttribute("messagecheck", list);
+			
 			
 			if(login.getUser_team()!=null){
 				team = fuservice.loginteam(login);

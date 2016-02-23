@@ -329,7 +329,6 @@ public class clubController {
 		if(fudto.getTeam_name()==null || fudto.getTeam_name().equals("")){
 			fudto.setTeam_name("noname");
 		}
-		System.out.println(fudto.toString());
 		
 		model.addAttribute("list",clubservice.getGu());
 		List<foot_team_DTO> allteam = clubservice.allteam();
@@ -345,6 +344,7 @@ public class clubController {
 	public String teamapply(foot_team_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
 		logger.info("teamapply clubsearch_yes!");
 		String re = null;
+		model.addAttribute("teamapply", fudto);
 		foot_team_DTO team=(foot_team_DTO)request.getSession().getAttribute("team");
 		if(team==null){
 			re = "teamapply.tiles";
@@ -353,5 +353,12 @@ public class clubController {
 		}
 		return re;
 	}
-	
+	@RequestMapping(value = "teamapply1.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String teamapply1(foot_team_DTO fudto,String intromyself, HttpServletRequest request, Model model) throws Exception {	
+		logger.info("teamapply1 clubsearch_yes!");
+		System.out.println(intromyself+"dsdasds");
+		model.addAttribute("intromyself", intromyself);
+		
+		return "exit1.tiles";  
+	}	
 }

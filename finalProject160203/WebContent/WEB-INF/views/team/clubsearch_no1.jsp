@@ -45,7 +45,14 @@
   'width=400, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 					</td>
 					<td>${j.team_location1 }/${j.team_location2 }/${j.team_location3 }</td>
-					<td>${j.team_join }</td>
+					<td><c:if test="${j.team_join eq 0}">
+				<input type="button" value="팀지원하기" 
+					   onclick="javascript:window.open('teamapply.do?team_name=${j.team_name}&team_managerid=${j.team_managerid }','',
+					  'width=400, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+				</c:if>
+				<c:if test="${j.team_join eq 1}">
+				X
+				</c:if></td>
 				</tr>
 			</c:if>
 
@@ -58,7 +65,14 @@
   'width=400, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 					</td>
 					<td>${j.team_location1 }/${j.team_location2 }/${j.team_location3 }</td>
-					<td>${j.team_join }</td>
+					<td><c:if test="${j.team_join eq 0}">
+				<input type="button" value="팀지원하기" 
+					  onclick="javascript:window.open('teamapply.do?team_name=${j.team_name}&team_managerid=${j.team_managerid }','',
+					  'width=400, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+				</c:if>
+				<c:if test="${j.team_join eq 1}">
+				X
+				</c:if></td>
 				</tr>
 			</c:if>
 
@@ -72,7 +86,14 @@
   'width=400, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 					</td>
 					<td>${j.team_location1 }/${j.team_location2 }/${j.team_location3 }</td>
-					<td>${j.team_join }</td>
+					<td><c:if test="${j.team_join eq 0}">
+				<input type="button" value="팀지원하기" 
+					  onclick="javascript:window.open('teamapply.do?team_name=${j.team_name}&team_managerid=${j.team_managerid }','',
+					  'width=400, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+				</c:if>
+				<c:if test="${j.team_join eq 1}">
+				X
+				</c:if></td>
 				</tr>
 			</c:if>
 

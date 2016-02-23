@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <html>
 <head>
@@ -17,13 +18,28 @@ function popupOpen(){
 </script>
 
 <body>
-<p class="loginview">
-<img src="image/loginview.png" width="10%">${login.user_email }님이 접속하셨습니다.
-<br><br>
+<table>
+<tr>
+<td class="loginview" colspan="2"><img src="image/loginview.png" width="10%">${login.user_email }님이 접속하셨습니다.</td>
+</tr>
+<tr>
+<td style="background-image:url(image/message.png);background-repeat:no-repeat; width:60px;height: 60px;text-align: left;
+			color: white; font-size: 13pt;" >
 
-<input type="button" value="내정보" onclick="location.href='javascript:popupOpen()'">
-<input type="button" value="로그아웃" onclick="location.href='logout.do'">
-</p>
+<c:if test="${empty messagecheck }">
+<table style="width: 100%"><tr><td style="text-align: center">${fn:length(messagecheck) }</td></tr></table></td><td>
 
+도착한 쪽지가 없습니다.</td></c:if>
+<c:if test="${not empty messagecheck }">
+<table style="width: 100%"><tr><td style="text-align: center">${fn:length(messagecheck) }</td></tr></table></td> 
+<td>쪽지가 ${fn:length(messagecheck) }개 있습니다.</td></c:if>
+
+
+</tr>
+<tr>
+ <td colspan="2"><input type="button" value="내정보" onclick="location.href='javascript:popupOpen()'">
+<input type="button" value="로그아웃" onclick="location.href='logout.do'"></td>
+</tr>
+</table>
 </body>
 </html>

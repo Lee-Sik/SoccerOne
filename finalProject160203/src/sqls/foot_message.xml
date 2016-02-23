@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="foot_message">
+	<insert id="teamapplymeg" parameterType="soccer.co.DTO.foot_message_DTO">
+		insert into foot_message values(no_message.nextval,#{sender_user_email},#{message_type},
+									#{receiver_user_email},0,sysdate,#{message})
+	</insert>
+	<select id="messagecheck" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.foot_message_DTO">
+	select * from foot_message where receiver_user_email=#{user_email}
+	</select>
+</mapper>

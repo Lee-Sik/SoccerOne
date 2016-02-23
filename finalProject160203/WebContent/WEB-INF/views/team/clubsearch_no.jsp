@@ -52,7 +52,7 @@ function popupOpen(){
 				<td>
 				<c:if test="${j.team_join eq 0}">
 				<input type="button" value="팀지원하기" 
-					  onclick="javascript:window.open('teamapply.do','',
+					   onclick="javascript:window.open('teamapply.do?team_name=${j.team_name}&team_managerid=${j.team_managerid }','',
 					  'width=400, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 				</c:if>
 				<c:if test="${j.team_join eq 1}">
