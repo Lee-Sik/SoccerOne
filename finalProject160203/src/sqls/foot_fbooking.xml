@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fbooking"> 
+<insert id="fbookingWrite" parameterType="soccer.co.DTO.foot_fbooking_DTO">
+insert into foot_free_booking 
+(free_b_seq,user_email,user_name,free_b_addr,free_b_sendrecieve,free_b_location,free_b_title,free_b_content,free_b_date,free_b_hit,free_b_manager)
+values
+(free_booking_seq.nextval,#{user_email},${user_name},#{free_b_addr},#{free_b_sendrecieve},#{free_b_location},#{free_b_title},#{free_b_content},sysdate,0,#{free_b_manager})
+</insert>
+
+<select id="fbookingList" resultType="soccer.co.DTO.foot_fbooking_DTO">
+select free_b_seq,user_email,user_name,free_b_addr,free_b_sendrecieve,free_b_location,free_b_title,free_b_content,free_b_date,free_b_hit
+from foot_free_booking where free_b_manager = 1
+</select>
+
+<select id="fbookingManagerList" resultType="soccer.co.DTO.foot_fbooking_DTO">
+select free_b_seq,user_email,user_name,free_b_addr,free_b_sendrecieve,free_b_location,free_b_title,free_b_content,free_b_date,free_b_hit
+from foot_free_booking where free_b_manager = 2
+</select>
+
+<select id="getUserName" parameterType="String" resultType="String">
+	select user_name from foot_user where user_email = #{user_email}
+</select>
+
+</mapper>

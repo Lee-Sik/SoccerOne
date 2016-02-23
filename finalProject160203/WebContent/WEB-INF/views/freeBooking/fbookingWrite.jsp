@@ -1,6 +1,7 @@
 <%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,12 +9,22 @@
 <title>Insert title here</title>
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/se2/js/HuskyEZCreator.js" charset="utf-8"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script>
+<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
+<script type="text/javascript" src="se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script>
  
 <!-- Smart Editor -->
+<!-- Smart Editor -->
 
-
+<script>
+$(document).ready(function(){
+	$("#save").click(function(){		
+		alert("save click");
+		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
+		alert(document.getElementById("content").value);
+		$("#frm").submit();		
+	})
+})
+</script>
 
 </head>
 <body>
@@ -25,15 +36,21 @@
 <div class="hb_wrap news_view">
 	<div class="bbs_view dminhs">
 		<div class="bbs">
-			<form id="writeForm" method="post" action="/booking/board/exec/write" enctype="multipart/form-data">
-				<input type="hidden" name="board_idx" value="22">
-				<input type="hidden" id="editorAddImage" name="editorAddImage">
-				<input type="hidden" name="highlight" id="highlight" value="">
+			<form id="frm" action="fbookingWrite_ok.do" method="post" >
+				<input type="hidden" name="user_email" value="${login.user_email}">
 				<div class="writeList">
 					<ul class="bbs-wtinfo">
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">글제목</span>
-							<input type="text" class="title" name="title" maxlength="100" style="margin-left: -100px;"/>
+							<input type="text" class="title" name="free_b_title" maxlength="100" style="margin-left: -100px;"/>
+						</li>
+					</ul>
+					
+					<ul class="bbs-wtinfo">
+						<li class="title">
+							<span class="title" style="margin-left: 50px;">주소</span>
+							<input type="text" class="title" id="addr1" name="free_b_addr" maxlength="100" style="margin-left: -100px;"
+							onclick="javascript:window.open('./post.do','','location=0,status=0,scrollbars=1,width=530,height=330');" />
 						</li>
 					</ul>
 					
@@ -41,31 +58,64 @@
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">카테고리</span>
 							<div style="margin-left: -440px;">
-							<select name="category_second">
-								<option value="00">구장확보</option>
-								<option value="01">구장미확보</option>
+							<select name="free_b_sendrecieve">
+								<option value="">구 분</option>
+								<option value="양도">양도</option>
+								<option value="양수">양수</option>
 							</select>									
 							&nbsp;&nbsp;&nbsp;&nbsp;
-							<select name="category_second">
-								<option value="00">구장확보</option>
-								<option value="01">구장미확보</option>
+							<select name="free_b_location">
+								<option value="">지역구 선택</option>
+								<c:forEach var="dto" items="${post1}">
+								<option value="${dto.gugun}">${dto.gugun}</option>
+								</c:forEach>
 							</select>
 							</div>
 							
 						</li>
 					</ul>
-					
-				
+	
 					<div class="editer">
-						<textarea id="content" name="content"></textarea>
+						<textarea id="content" name="free_b_content" style="width: 700px;"></textarea>
 					</div>
-				
+					<script type="text/javascript">
+ 
+					var oEditors = [];										
+					$(function(){
+					nhn.husky.EZCreator.createInIFrame({
+						oAppRef: oEditors,
+						elPlaceHolder: "content",
+						//SmartEditor2Skin.html 파일이 존재하는 경로
+						sSkinURI:"./editor/SmartEditor2Skin.html",
+						
+						htParams:{
+							// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseToolbar:true,				
+							// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseVerticalResizer:true,		
+							// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+							bUseModeChanger:true,			
+							fOnBeforeUnload:function(){							
+							}
+						}, 
+						fOnAppLoad:function(){						
+							//기존 저장된 내용의 text 내용을 에디터상에 뿌려주고자 할때 사용
+							oEditors.getById["content"].exec("PASTE_HTML", [""]);
+						},
+						fCreator:"createSEditor2"
+					});
+					});	
+ 
+						</script>
+					
+					
 
 					
 				</div>
 								<div class="bbs-wt-bt">
 					<div class="bbs-btngr">
-						<a href="#none" class="bbs-wbbtn writeBtn">확인</a>
+						<!--  <input type="submit" class="bbs-wbbtn writeBtn" value="확인"> -->
+						<a href="#" class="bbs-wbbtn writeBtn" id="save" onclick="fOnAppLoad(this)">확인</a>
 						<a href="/booking/board/list?board_idx=22&page=" class="bbs-gbtn">목록</a>
 					</div>
 				</div>
@@ -77,40 +127,7 @@
 </body>
 
 
-<!-- Smart Editor -->
-<script type="text/javascript">
- 
-var oEditors = [];
-nhn.husky.EZCreator.createInIFrame({
-    oAppRef: oEditors,
-    elPlaceHolder: "content",
-    sSkinURI: "<%=request.getContextPath()%>/se2/SmartEditor2Skin.html",
-    fCreator: "createSEditor2"
-});
- 
-//‘저장’ 버튼을 누르는 등 저장을 위한 액션을 했을 때 submitContents가 호출된다고 가정한다.
-function submitContents(elClickedObj) {
-    // 에디터의 내용이 textarea에 적용된다.
-    oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", [ ]);
- 
-    // 에디터의 내용에 대한 값 검증은 이곳에서
-    // document.getElementById("textAreaContent").value를 이용해서 처리한다.
-  
-    try {
-        elClickedObj.form.submit();
-    } catch(e) {
-     
-    }
-}
- 
-// textArea에 이미지 첨부
-function pasteHTML(filepath){
-   <%--  var sHTML = '<img src="<%=request.getContextPath()%>/path에서 설정했던 경로/'+filepath+'">'; --%>
-    var sHTML = <%=request.getSession().getServletContext().getRealPath("/") + File.separator + "pds"%>
-    oEditors.getById["content"].exec("PASTE_HTML", [sHTML]);
-}
- 
-</script>
+
 
 
 
