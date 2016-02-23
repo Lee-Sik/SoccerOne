@@ -9,5 +9,9 @@
 <% 
 	response.sendRedirect("first.do");
 %>
+<<<<<<< .mine
+	
+=======
+>>>>>>> .r126
 </body>
 </html>

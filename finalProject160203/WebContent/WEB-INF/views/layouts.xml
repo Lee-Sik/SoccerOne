@@ -197,6 +197,9 @@
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingWrite.jsp"/>
 </definition>
 
+<definition name="fbookingDetail.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingDetail.jsp"/>
+</definition>
 
 <definition name="bbswrite.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/write.jsp" />

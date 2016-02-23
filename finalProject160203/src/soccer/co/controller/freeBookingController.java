@@ -1,6 +1,8 @@
 package soccer.co.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -65,7 +67,28 @@ public class freeBookingController {
 		return "redirect:/fbookingList.do";
 	}
 	
-	
+	@RequestMapping(value = "fbookingDetail.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String fbookingDetail(Model model,HttpServletRequest request) throws Exception {
+		
+		int free_b_seq = Integer.parseInt(request.getParameter("seq"));
+		
+		foot_fbooking_DTO dto = fservice.fbookingDetail(free_b_seq);
+		
+		Map<String, Object> map = new HashMap<String,Object>();
+		map.put("free_b_seq", free_b_seq);
+		
+		foot_fbooking_DTO preDTO = null; 
+		preDTO =(foot_fbooking_DTO)fservice.preTitle(map);
+		
+		foot_fbooking_DTO nextDTO = null; 
+		nextDTO = (foot_fbooking_DTO)fservice.nextTitle(map);
+		
+		model.addAttribute("preDTO", preDTO);
+		model.addAttribute("nextDTO", nextDTO);
+		model.addAttribute("fdto", dto);
+		
+		return "fbookingDetail.tiles";
+	}
 	
 	
 	

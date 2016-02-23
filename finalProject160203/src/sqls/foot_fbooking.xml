@@ -12,7 +12,7 @@ values
 
 <select id="fbookingList" resultType="soccer.co.DTO.foot_fbooking_DTO">
 select free_b_seq,user_email,user_name,free_b_addr,free_b_sendrecieve,free_b_location,free_b_title,free_b_content,free_b_date,free_b_hit
-from foot_free_booking where free_b_manager = 1
+from foot_free_booking where free_b_manager = 1 order by free_b_seq desc
 </select>
 
 <select id="fbookingManagerList" resultType="soccer.co.DTO.foot_fbooking_DTO">
@@ -23,5 +23,36 @@ from foot_free_booking where free_b_manager = 2
 <select id="getUserName" parameterType="String" resultType="String">
 	select user_name from foot_user where user_email = #{user_email}
 </select>
+
+<select id="fbookingDetail" parameterType="int" resultType="soccer.co.DTO.foot_fbooking_DTO">
+select * from foot_free_booking where free_b_seq = #{free_b_seq}
+</select>
+
+<select id="preTitle" parameterType="map" resultType="soccer.co.DTO.foot_fbooking_DTO">
+<![CDATA[
+select data.* from 
+(select free_b_seq,free_b_title,free_b_date from foot_free_booking where free_b_seq > #{free_b_seq} and free_b_manager = 1 order by free_b_seq asc) data 
+where rownum = 1
+]]>
+</select>
+
+<select id="nextTitle" parameterType="map" resultType="soccer.co.DTO.foot_fbooking_DTO">
+<![CDATA[
+select data.* from 
+(select free_b_seq,free_b_title,free_b_date from foot_free_booking where free_b_seq < #{free_b_seq} and free_b_manager = 1 order by free_b_seq desc) data 
+where rownum = 1
+]]>
+</select>
+
+
+
+
+
+
+
+
+
+
+
 
 </mapper>

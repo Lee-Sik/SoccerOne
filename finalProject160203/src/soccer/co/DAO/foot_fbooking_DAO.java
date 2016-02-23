@@ -1,6 +1,7 @@
 package soccer.co.DAO;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +38,35 @@ public class foot_fbooking_DAO {
 		
 		return name;
 	}
+	
+	public foot_fbooking_DTO fbookingDetail(int free_b_seq)throws Exception{
+		
+		foot_fbooking_DTO dto = (foot_fbooking_DTO)sqlsession.selectOne("fbooking.fbookingDetail", free_b_seq);
+		
+		return dto;
+	}
+	public foot_fbooking_DTO preTitle(Map<String, Object> map)throws Exception{
+		foot_fbooking_DTO dto = null;
+		
+		dto = (foot_fbooking_DTO)sqlsession.selectOne("fbooking.preTitle", map);
+		return dto;
+	}
+	public foot_fbooking_DTO nextTitle(Map<String, Object> map)throws Exception{
+		foot_fbooking_DTO dto = null;
+		
+		dto = (foot_fbooking_DTO)sqlsession.selectOne("fbooking.nextTitle", map);
+		return dto;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

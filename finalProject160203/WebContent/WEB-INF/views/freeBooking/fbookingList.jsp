@@ -152,7 +152,7 @@ $(function(){
 						<td>공지</td>
 						<td>
 							<div class="title " style="width:280px;overflow:hidden;">
-								<a href="/booking/board/view?board_idx=22&post_idx=38822&page=1&category=00" style="line-height:20px;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;max-width:260px;display:inline-block;overflow:hidden;padding: 0; float:left;">[알림] ${dto.free_b_title}</a>
+								<a href="./fbookingDetail.do?seq=${dto.free_b_seq}" style="line-height:20px;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;max-width:260px;display:inline-block;overflow:hidden;padding: 0; float:left;">[알림] ${dto.free_b_title}</a>
 								<span class="reply"  style=" float:left;padding-top:1px;">[1]</span>							</div>
 						</td>
 						<td>
@@ -167,12 +167,12 @@ $(function(){
 					
 					<c:forEach var="dto" items="${list}" varStatus="vs">
 					<tr>
-						<td>${dto.free_b_seq}</td>
+						<td>${vs.count}</td>
 						<td>${dto.free_b_location}</td>
 						<td>
 							<div class="title ">
-								<a href="/booking/board/view?board_idx=22&post_idx=69720&page=1&category=00&search_method=&search_word=" style="line-height:20px;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;max-width:270px;display:inline-block;overflow:hidden;padding: 0; float:left;">
-									[${dto.free_b_sendrecieve}] ${dto.free_b_title}							</a>
+								<a href="./fbookingDetail.do?seq=${dto.free_b_seq}" style="line-height:20px;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;max-width:270px;display:inline-block;overflow:hidden;padding: 0; float:left;">
+									[${dto.free_b_sendrecieve}] ${dto.free_b_title}			</a>
 																								<img src="//img.gameone.kr/board/ico_new.gif" alt="새글" style=" float:left; padding:6px 0 5px 0;" />							</div>
 						</td>
 						<td>

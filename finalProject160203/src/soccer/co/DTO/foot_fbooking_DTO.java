@@ -8,7 +8,7 @@ package soccer.co.DTO;
 	free_b_sendrecieve varchar2(30) not null,  --양도or양수 말머리
 	free_b_location varchar2(50) not null,	  --지역
 	free_b_title varchar2(100) not null,
-	free_b_content varchar2(4000) not null,         --내용
+	free_b_content clob not null,         --내용
 	free_b_date	varchar2(50) not null,		  --날짜
   free_b_hit number,
   free_b_manager number,

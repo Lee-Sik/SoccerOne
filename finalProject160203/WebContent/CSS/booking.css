@@ -130,7 +130,7 @@ div.wrap:after {
 	min-height: 600px !important;
 } /*header layout*/
 #Header {
-	background: #fff url('../../img.gameone.kr/community/bg_header.gif')
+	background: #fff url('http://img.gameone.kr/community/bg_header.gif')
 		left top repeat-x;
 	position: fixed;
 	width: 100%;
@@ -147,7 +147,7 @@ div.wrap:after {
 } /*header*/
 #Header h1 span.score {
 	color: #a4a5a6;
-	background: url('../../img.gameone.kr/community/ico_tscore.png') 10px
+	background: url('http://img.gameone.kr/community/ico_tscore.png') 10px
 		center no-repeat;
 	display: block;
 	line-height: 26px;
@@ -161,7 +161,7 @@ div.wrap:after {
 
 #Header h1 span.rank {
 	color: #a4a5a6;
-	background: url('../../img.gameone.kr/community/ico_trank.png') 10px
+	background: url('http://img.gameone.kr/community/ico_trank.png') 10px
 		center no-repeat;
 	display: block;
 	line-height: 26px;
@@ -179,7 +179,7 @@ div.wrap:after {
 	height: 49px;
 	text-indent: -1000px;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/community/ico_alam.png') 50% 50%
+	background: url('http://img.gameone.kr/community/ico_alam.png') 50% 50%
 		no-repeat;
 } /*헤더 -통합스코어보드*/
 #Header div.section_tscore {
@@ -207,7 +207,7 @@ div.wrap:after {
 	width: 315px;
 	height: 365px;
 	padding: 23px 5px 7px 5px;
-	background: url('../../img.gameone.kr/community/bg_tscore.png') left top
+	background: url('http://img.gameone.kr/community/bg_tscore.png') left top
 		no-repeat;
 	display: none;
 } /*div.section_tscore:hover div.score_box,*/
@@ -285,7 +285,7 @@ div.wrap:after {
 	letter-spacing: -.1em;
 	font-weight: 700;
 	padding-left: 10px;
-	background: url('../../img.gameone.kr/community/ico_bullet.gif') 2px 2px
+	background: url('http://img.gameone.kr/community/ico_bullet.gif') 2px 2px
 		no-repeat;
 	border-bottom: 1px dashed #cbcbcb;
 	padding-bottom: 7px;
@@ -366,7 +366,7 @@ div.wrap:after {
 	top: 6px;
 	width: 55px;
 	height: 32px;
-	background: #888 url('../../img.gameone.kr/community/bg_score.gif');
+	background: #888 url('http://img.gameone.kr/community/bg_score.gif');
 }
 
 #Header div.section_tscore div.score_box dl.result dt {
@@ -417,7 +417,7 @@ div.wrap:after {
 	width: 361px;
 	height: 454px;
 	padding: 23px 5px 7px 5px;
-	background: url('../../img.gameone.kr/community/bg_trank.png') left top
+	background: url('http://img.gameone.kr/community/bg_trank.png') left top
 		no-repeat;
 	display: none;
 } /*#Header div.section_trank:hover div.rank_box,*/
@@ -443,7 +443,7 @@ div.wrap:after {
 	width: 21px;
 	height: 21px;
 	float: left;
-	background: url('../../img.gameone.kr/community/ico_ball.gif') left top
+	background: url('http://img.gameone.kr/community/ico_ball.gif') left top
 		no-repeat;
 }
 
@@ -455,7 +455,7 @@ div.wrap:after {
 	margin-left: 3px;
 	border: 1px solid #c9c9c9;
 	padding-right: 18px;
-	background: url('../../img.gameone.kr/community/ico_comboarr.gif') right
+	background: url('http://img.gameone.kr/community/ico_comboarr.gif') right
 		top no-repeat;
 	line-height: 21px;
 	font-weight: normal;
@@ -2398,7 +2398,7 @@ ul.pagination {
 	.pagination .previous {
 	text-indent: -9999px;
 	padding: 5px 0 7px;
-	background-image: url("../../img.gameone.kr/community/pagination.png");
+	background-image: url("http://img.gameone.kr/community/pagination.png");
 	background-repeat: no-repeat;
 	background-position: -1px -31px;
 }
@@ -4628,7 +4628,7 @@ ul.pagination {
 	height: 36px;
 	border-bottom: 1px solid #c9c9c9;
 	background: #f4f4f4
-		url('../../img.gameone.kr/community/cycle-next-out.gif') no-repeat 50%
+		url('http://img.gameone.kr/community/cycle-next-out.gif') no-repeat 50%
 		55%;
 	cursor: pointer;
 }
@@ -4637,7 +4637,7 @@ ul.pagination {
 	right: auto;
 	left: -1px;
 	background-image:
-		url('../../img.gameone.kr/community/cycle-prev-out.gif');
+		url('http://img.gameone.kr/community/cycle-prev-out.gif');
 	width: 21px;
 }
 
@@ -5107,7 +5107,7 @@ ul.pagination {
 	float: left;
 	width: 16px;
 	height: 15px;
-	background: url('../../img.gameone.kr/community/small_arr_btn.gif')
+	background: url('http://img.gameone.kr/community/small_arr_btn.gif')
 		no-repeat 0 50%;
 	cursor: pointer;
 }
@@ -5323,7 +5323,7 @@ div.bbs .bbs-gbtn {
 	width: 65px;
 	height: 35px;
 	float: left;
-	background: url('../../img.gameone.kr/board/bg_gbtn.gif') left top
+	background: url('http://img.gameone.kr/board/bg_gbtn.gif') left top
 		no-repeat;
 	text-align: center;
 	color: #5c5f73;
@@ -6579,22 +6579,22 @@ div.bbs div.bbs-vw-hd a.btn {
 
 div.bbs div.bbs-vw-hd a.prev {
 	left: 0;
-	background: url('../../img.gameone.kr/board/btn_prev.gif') left center
+	background: url('http://img.gameone.kr/board/btn_prev.gif') left center
 		no-repeat;
 }
 
 div.bbs div.bbs-vw-hd a.prev:hover {
-	background-image: url('../../img.gameone.kr/board/btn_prevOn.gif');
+	background-image: url('http://img.gameone.kr/board/btn_prevOn.gif');
 }
 
 div.bbs div.bbs-vw-hd a.next {
 	right: 0;
-	background: url('../../img.gameone.kr/board/btn_next.gif') right center
+	background: url('http://img.gameone.kr/board/btn_next.gif') right center
 		no-repeat;
 }
 
 div.bbs div.bbs-vw-hd a.next:hover {
-	background-image: url('../../img.gameone.kr/board/btn_nextOn.gif');
+	background-image: url('http://img.gameone.kr/board/btn_nextOn.gif');
 }
 
 div.bbs div.bbs-vw-hd div.bbs-arc-info {
@@ -7269,7 +7269,7 @@ div.bbs div.bbs-vw-bt ul.bbs-prnx li span.prev {
 	left: 10px;
 	top: 11px;
 	padding: 0 10px;
-	background: url('../../img.gameone.kr/board/ico_prev.png') left 2px
+	background: url('http://img.gameone.kr/board/ico_prev.png') left 2px
 		no-repeat;
 	font-weight: bold;
 	color: #4d4d4d;
@@ -7283,7 +7283,7 @@ div.bbs div.bbs-vw-bt ul.bbs-prnx li span.next {
 	left: 10px;
 	top: 11px;
 	padding: 0 10px;
-	background: url('../../img.gameone.kr/board/ico_next.png') right 2px
+	background: url('http://img.gameone.kr/board/ico_next.png') right 2px
 		no-repeat;
 	font-weight: bold;
 	color: #4d4d4d;
@@ -9874,7 +9874,7 @@ div.bbs ul.bbs-hotbooking {
 
 div.bbs ul.bbs-hotbooking {
 	border-top: 3px solid #43474e;
-	background: url('../../img.gameone.kr/board/bg_hotbooking.gif') -50px
+	background: url('http://img.gameone.kr/board/bg_hotbooking.gif') -50px
 		top repeat-y;
 }
 
@@ -9941,7 +9941,7 @@ div.bbs div.hot_booking_info div.oneball_cur dt {
 	float: left;
 	color: #444;
 	padding-left: 24px;
-	background: url('../../img.gameone.kr/board/ico_pball.png') left center
+	background: url('http://img.gameone.kr/board/ico_pball.png') left center
 		no-repeat;
 	line-height: 21px;;
 }
@@ -9967,7 +9967,7 @@ div.bbs div.hot_booking_info div.oneball_cur a.btn_re {
 	cursor: pointer;
 	text-indent: -9999px;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/board/btn_re.gif') left top
+	background: url('http://img.gameone.kr/board/btn_re.gif') left top
 		no-repeat;
 }
 
@@ -10008,7 +10008,7 @@ div.bbs div.hot_booking_info div.oneball_period a {
 	color: #a3acc5;
 	padding-left: 5px;
 	margin-left: 10px;
-	background: url('../../img.gameone.kr/board/barr2.gif') left center
+	background: url('http://img.gameone.kr/board/barr2.gif') left center
 		no-repeat;
 }
 
@@ -10040,7 +10040,7 @@ div.bbs ul.bbs-hotbooking .plusbtn {
 	width: 87px;
 	height: 25px;
 	display: inline-block;
-	background: url('../../img.gameone.kr/board/bg_plusbtn.gif') left top
+	background: url('http://img.gameone.kr/board/bg_plusbtn.gif') left top
 		no-repeat;
 	line-height: 25px;
 	vertical-align: middle;
@@ -10062,7 +10062,7 @@ div.bbs ul.bbs-hotbooking span.checkbox {
 	height: 20px;
 	vertical-align: middle;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/board/input_checkbox.gif') left
+	background: url('http://img.gameone.kr/board/input_checkbox.gif') left
 		top no-repeat;
 	position: relative;
 	margin-right: 3px;
@@ -10101,7 +10101,7 @@ div.bbs ul.bbs-hotbooking div.bbs-combo2 strong.selected {
 	display: block;
 	margin: 5px 5px 4px 5px;
 	padding-right: 21px;
-	background: url('../../img.gameone.kr/board/combo_arr.gif') right center
+	background: url('http://img.gameone.kr/board/combo_arr.gif') right center
 		no-repeat;
 	line-height: 21px;
 	white-space: nowrap;
@@ -10188,7 +10188,7 @@ div.bbs ul.bbs-hotbooking div.hot_booking_img span.image, div.bbs ul.bbs-hotbook
 	height: 25px;
 	color: #666;
 	border: 1px solid #acafb6;
-	background: #fff url('../../img.gameone.kr/board/bg_grad25.gif') left
+	background: #fff url('http://img.gameone.kr/board/bg_grad25.gif') left
 		bottom repeat-x;
 	font-weight: bold;
 	text-align: center;
@@ -10237,11 +10237,11 @@ div.bbs div.bbs-poll-ip .bbs-btn-image {
 	font-family: 'nanum';
 	font-style: normal;
 	font-weight: normal;
-	src: url('../../img.gameone.kr/font/nanum.eot');
-	src: local('?'), url('../../img.gameone.kr/font/nanum.eot')
+	src: url('http://img.gameone.kr/font/nanum.eot');
+	src: local('?'), url('http://img.gameone.kr/font/nanum.eot')
 		format('embedded-opentype'),
-		url('../../img.gameone.kr/font/nanum.woff') format('woff'),
-		url('../../img.gameone.kr/font/nanum.ttf') format('truetype');
+		url('http://img.gameone.kr/font/nanum.woff') format('woff'),
+		url('http://img.gameone.kr/font/nanum.ttf') format('truetype');
 } /*부킹 공통*/
 div.booking_wrap h4.booking {
 	font-weight: bold;
@@ -10277,7 +10277,7 @@ div.booking_wrap span.checkbox {
 	height: 20px;
 	vertical-align: middle;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/booking/input_checkbox.gif') left
+	background: url('http://img.gameone.kr/booking/input_checkbox.gif') left
 		top no-repeat;
 	position: relative;
 	margin-right: 3px;
@@ -10331,7 +10331,7 @@ div.booking_wrap div.book_top ul.navi a {
 div.booking_wrap div.book_top ul.navi li {
 	float: left;
 	padding-left: 21px;
-	background: url('../../img.gameone.kr/booking/arr_navi.gif') 9px 7px
+	background: url('http://img.gameone.kr/booking/arr_navi.gif') 9px 7px
 		no-repeat;
 	white-space: nowrap;
 }
@@ -10372,7 +10372,7 @@ div.booking_wrap div.tab_area ul.tab li a {
 	line-height: 36px;
 	height: 34px;
 	text-align: center;
-	background: #ededed url('../../img.gameone.kr/booking/bg_grad36.gif')
+	background: #ededed url('http://img.gameone.kr/booking/bg_grad36.gif')
 		left top repeat-x;
 	border-bottom: 1px solid #b6b5bd;
 	border-left: 1px solid #b6b5bd;
@@ -10423,7 +10423,7 @@ div.booking_wrap div.calendar div.c_top div.c_btn a {
 	height: 13px;
 	overflow: hidden;
 	text-indent: -1000px;
-	background: url('../../img.gameone.kr/booking/btn_cal.gif') no-repeat;
+	background: url('http://img.gameone.kr/booking/btn_cal.gif') no-repeat;
 }
 
 div.booking_wrap div.calendar div.c_top div.c_btn a.prev_m {
@@ -10508,7 +10508,7 @@ div.booking_wrap div.calendar div.c_body .n, div.booking_wrap div.calendar div.c
 } /*강조박스*/
 div.booking_wrap div.em_box {
 	padding: 4px;
-	background: #aca40b url('../../img.gameone.kr/booking/bg_embox.gif');
+	background: #aca40b url('http://img.gameone.kr/booking/bg_embox.gif');
 	margin-top: 30px;
 	border-bottom: 3px solid #f4f5f8;
 }
@@ -10552,7 +10552,7 @@ div.booking_wrap .bbtn {
 	line-height: 35px;
 	color: #fff;
 	text-align: center;
-	background: #5c5f73 url('../../img.gameone.kr/booking/bg_bbtn.gif')
+	background: #5c5f73 url('http://img.gameone.kr/booking/bg_bbtn.gif')
 		center top no-repeat;
 	display: inline-block;
 	font-weight: bold;
@@ -10564,7 +10564,7 @@ div.booking_wrap .sbbtn {
 	line-height: 35px;
 	color: #fff;
 	text-align: center;
-	background: #a3acc5 url('../../img.gameone.kr/booking/bg_sbbtn.gif')
+	background: #a3acc5 url('http://img.gameone.kr/booking/bg_sbbtn.gif')
 		center top no-repeat;
 	display: inline-block;
 	font-weight: bold;
@@ -10574,7 +10574,7 @@ div.booking_wrap .plusbtn {
 	width: 87px;
 	height: 25px;
 	display: inline-block;
-	background: url('../../img.gameone.kr/booking/bg_plusbtn.gif') left top
+	background: url('http://img.gameone.kr/booking/bg_plusbtn.gif') left top
 		no-repeat;
 	line-height: 27px;
 	vertical-align: middle;
@@ -10587,14 +10587,14 @@ div.booking_wrap .plusbtn {
 div.booking_wrap .plusbtn.short {
 	width: 77px;
 	background-image:
-		url('../../img.gameone.kr/booking/bg_plusbtn_short.gif')
+		url('http://img.gameone.kr/booking/bg_plusbtn_short.gif')
 }
 
 div.booking_wrap .plusbtn.purple {
 	height: 21px;
 	line-height: 23px;
 	background-image:
-		url('../../img.gameone.kr/booking/bg_plusbtn_purple.gif');
+		url('http://img.gameone.kr/booking/bg_plusbtn_purple.gif');
 }
 
 div.booking_wrap .simbtn {
@@ -10638,7 +10638,7 @@ div.booking_wrap div.game_booking a.more {
 	right: 0;
 	top: 13px;
 	padding-right: 7px;
-	background: url('../../img.gameone.kr/booking/barr.gif') right center
+	background: url('http://img.gameone.kr/booking/barr.gif') right center
 		no-repeat;
 	line-height: 13px;
 	font-size: 11px;
@@ -10735,7 +10735,7 @@ div.booking_wrap div.book_search div.select_day .btn_prev {
 	width: 14px;
 	height: 20px;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/booking/btn_arr.gif') left top
+	background: url('http://img.gameone.kr/booking/btn_arr.gif') left top
 		no-repeat;
 }
 
@@ -10748,7 +10748,7 @@ div.booking_wrap div.book_search div.select_day .btn_next {
 	width: 14px;
 	height: 20px;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/booking/btn_arr.gif') -14px top
+	background: url('http://img.gameone.kr/booking/btn_arr.gif') -14px top
 		no-repeat;
 }
 
@@ -10766,7 +10766,7 @@ div.booking_wrap div.book_search div.select_day div.sel_day .btn {
 	width: 18px;
 	height: 18px;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/booking/btn_darr.gif') left top
+	background: url('http://img.gameone.kr/booking/btn_darr.gif') left top
 		no-repeat;
 	cursor: pointer;
 }
@@ -10844,7 +10844,7 @@ div.booking_wrap div.search_wr a.btn_search {
 	cursor: pointer;
 	text-indent: -9999px;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/community/search_bg.gif') 100% 50%
+	background: url('http://img.gameone.kr/community/search_bg.gif') 100% 50%
 		no-repeat;
 }
 
@@ -10857,7 +10857,7 @@ div.booking_wrap div.search_wr a.btn_re {
 	cursor: pointer;
 	text-indent: -9999px;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/booking/btn_re.gif') left top
+	background: url('http://img.gameone.kr/booking/btn_re.gif') left top
 		no-repeat;
 } /*콤보박스*/
 div.booking_wrap div.combobox {
@@ -10881,7 +10881,7 @@ div.booking_wrap div.combobox strong.selected {
 	display: block;
 	margin: 5px 5px 4px 5px;
 	padding-right: 21px;
-	background: url('../../img.gameone.kr/booking/combo_arr2.gif') right
+	background: url('http://img.gameone.kr/booking/combo_arr2.gif') right
 		center no-repeat;
 	line-height: 21px;
 	white-space: nowrap;
@@ -10963,7 +10963,7 @@ div.booking_wrap div.combobox.stadium {
 	width: 315px;
 	margin-left: 10px;
 	border-right-width: 0;
-	background: #fff url('../../img.gameone.kr/booking/bar2.gif') right
+	background: #fff url('http://img.gameone.kr/booking/bar2.gif') right
 		center no-repeat;
 }
 
@@ -11068,7 +11068,7 @@ div.booking_wrap table.list_table td.status span {
 div.booking_wrap table.list_table td.status span.none {
 	border-color: #aeb1bc;
 	border-width: 1px 0 0 1px;
-	background: #f0f0f0 url('../../img.gameone.kr/booking/bg_obilique2.gif')
+	background: #f0f0f0 url('http://img.gameone.kr/booking/bg_obilique2.gif')
 		repeat;
 	height: 21px;
 	width: 36px;
@@ -11098,7 +11098,7 @@ div.booking_wrap table.list_table a.btn {
 	font-size: 11px;
 	text-align: center;
 	color: #5c5c5c;
-	background: url('../../img.gameone.kr/booking/btn_view.gif') center top
+	background: url('http://img.gameone.kr/booking/btn_view.gif') center top
 		no-repeat;
 }
 
@@ -11114,7 +11114,7 @@ div.booking_wrap div.no_content p.ico {
 	width: 260px;
 	padding-left: 35px;
 	margin: 0 auto;
-	background: url('../../img.gameone.kr/booking/ico_bwarn.png') left
+	background: url('http://img.gameone.kr/booking/ico_bwarn.png') left
 		center no-repeat;
 	text-align: left;
 	white-space: nowrap;
@@ -11213,7 +11213,7 @@ div.booking_wrap div.mercenary_list ul.list_body div.list_h .view {
 	margin-left: 7px;
 	height: 22px;
 	margin-top: 9px;
-	background: url('../../img.gameone.kr/booking/btn_view2.gif') center top
+	background: url('http://img.gameone.kr/booking/btn_view2.gif') center top
 		no-repeat;
 	cursor: pointer;
 	text-indent: -1000px;
@@ -11226,7 +11226,7 @@ div.booking_wrap div.mercenary_list ul.list_body div.list_h .close {
 	overflow: hidden;
 	height: 22px;
 	margin-top: 9px;
-	background: url('../../img.gameone.kr/booking/btn_view2.gif') center
+	background: url('http://img.gameone.kr/booking/btn_view2.gif') center
 		-22px no-repeat;
 	cursor: pointer;
 	text-indent: -1000px;
@@ -11267,7 +11267,7 @@ div.booking_wrap div.mercenary_box dl.summary {
 
 div.booking_wrap div.mercenary_box dl.summary dt {
 	float: left;
-	background: url('../../img.gameone.kr/booking/ico_yellow.png') left top
+	background: url('http://img.gameone.kr/booking/ico_yellow.png') left top
 		no-repeat;
 	padding-left: 20px;
 }
@@ -11285,7 +11285,7 @@ div.booking_wrap div.mercenary_box dl.summary dd {
 	font-weight: bold;
 	margin-left: 7px;
 	padding-left: 7px;
-	background: url('../../img.gameone.kr/booking/ico_colon.gif') left
+	background: url('http://img.gameone.kr/booking/ico_colon.gif') left
 		center no-repeat;
 	padding-right: 20px;
 }
@@ -11300,7 +11300,7 @@ div.booking_wrap div.mercenary_box table caption {
 	text-align: left;
 	font-weight: bold;
 	padding-left: 20px;
-	background: url('../../img.gameone.kr/booking/ico_yellow.png') left top
+	background: url('http://img.gameone.kr/booking/ico_yellow.png') left top
 		no-repeat;
 	line-height: 20px;
 	height: 20px;
@@ -11385,7 +11385,7 @@ div.booking_wrap div.mercenary_box table.cur_table span.status {
 	border-width: 1px 0 0 1px;
 	width: 53px;
 	height: 21px;
-	background: #d2d5db url('../../img.gameone.kr/booking/bg_obilique3.gif')
+	background: #d2d5db url('http://img.gameone.kr/booking/bg_obilique3.gif')
 		repeat;
 	line-height: 20px;
 } /*부킹현황테이블*/
@@ -11452,7 +11452,7 @@ div.booking_wrap div.mercenary_box div.delete_info {
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background: url('../../img.gameone.kr/booking/bg_trans.png');
+	background: url('http://img.gameone.kr/booking/bg_trans.png');
 	text-align: center;
 }
 
@@ -11519,7 +11519,7 @@ div.booking_wrap div.book_write div.mercenary_box table span.status {
 	border: 1px solid #a4a9b6;
 	border-width: 1px 0 0 1px;
 	line-height: 20px;
-	background: #dcdfe3 url('../../img.gameone.kr/booking/bg_obilique3.gif')
+	background: #dcdfe3 url('http://img.gameone.kr/booking/bg_obilique3.gif')
 		repeat;
 	text-align: center;
 } /*관리리스트(관리자)*/
@@ -11600,7 +11600,7 @@ div.booking_wrap div.book_write {
 
 div.booking_wrap ul.input_list {
 	border-top: 3px solid #43474e;
-	background: url('../../img.gameone.kr/booking/bg_formlist.gif') left top
+	background: url('http://img.gameone.kr/booking/bg_formlist.gif') left top
 		repeat-y;
 }
 
@@ -11711,7 +11711,7 @@ div.booking_wrap ul.input_list span.btn_date {
 	width: 25px;
 	height: 25px;
 	vertical-align: middle;
-	background: url('../../img.gameone.kr/booking/ico_cal.gif') left top
+	background: url('http://img.gameone.kr/booking/ico_cal.gif') left top
 		no-repeat;
 	cursor: pointer;
 	margin-left: 3px;
@@ -11748,7 +11748,7 @@ div.booking_wrap ul.input_list div.textwr textarea.row6 {
 
 div.booking_wrap ul.input_list>li>ul.option_list li {
 	padding-left: 10px;
-	background: url('../../img.gameone.kr/booking/bullet.gif') left center
+	background: url('http://img.gameone.kr/booking/bullet.gif') left center
 		no-repeat;
 	white-space: none;
 }
@@ -11787,7 +11787,7 @@ div.booking_wrap ul.input_list div.notice dl.left {
 div.booking_wrap ul.input_list div.notice dl.left dt {
 	padding-right: 5px;
 	margin-right: 5px;
-	background: url('../../img.gameone.kr/booking/ico_colon.gif') right
+	background: url('http://img.gameone.kr/booking/ico_colon.gif') right
 		center no-repeat;
 }
 
@@ -11795,14 +11795,14 @@ div.booking_wrap ul.input_list div.notice dl.right dd {
 	float: left;
 	padding-left: 5px;
 	margin-left: 5px;
-	background: url('../../img.gameone.kr/booking/ico_colon.gif') left
+	background: url('http://img.gameone.kr/booking/ico_colon.gif') left
 		center no-repeat
 }
 
 div.booking_wrap ul.input_list div.notice dl.right dt {
 	padding-left: 7px;
 	margin-left: 7px;
-	background: url('../../img.gameone.kr/booking/bar.gif') left center
+	background: url('http://img.gameone.kr/booking/bar.gif') left center
 		no-repeat;
 }
 
@@ -11825,7 +11825,7 @@ div.booking_wrap ul.input_list div.notice ul.info {
 div.booking_wrap ul.input_list div.notice ul.info li {
 	line-height: 18px;
 	padding-left: 7px;
-	background: url('../../img.gameone.kr/booking/ico_dash.gif') left center
+	background: url('http://img.gameone.kr/booking/ico_dash.gif') left center
 		no-repeat;
 }
 
@@ -11855,7 +11855,7 @@ div.booking_wrap div.warning h6 {
 	padding-left: 20px;
 	line-height: 20px;
 	margin-left: 20px;
-	background: url('../../img.gameone.kr/booking/ico_warn.png') left 2px
+	background: url('http://img.gameone.kr/booking/ico_warn.png') left 2px
 		no-repeat;
 }
 
@@ -11936,7 +11936,7 @@ div.booking_wrap ul.input_list ul.inner_list.bar>li {
 	display: inline;
 	padding-left: 10px;
 	padding-right: 10px;
-	background: url('../../img.gameone.kr/booking/bar2.gif') left center
+	background: url('http://img.gameone.kr/booking/bar2.gif') left center
 		no-repeat;
 }
 
@@ -11980,7 +11980,7 @@ div.booking_wrap ul.input_list ul.inner_list div.file_wr span.btn_img {
 	height: 21px;
 	overflow: hidden;
 	text-indent: -1000px;
-	background: url('../../img.gameone.kr/booking/btn_img.gif') left top
+	background: url('http://img.gameone.kr/booking/btn_img.gif') left top
 		no-repeat;
 	float: left;
 }
@@ -11998,7 +11998,7 @@ div.booking_wrap ul.input_list ul.inner_list div.file_wr input[type=file]
 div.booking_wrap ul.input_list ul.inner_list div.file_wr .del {
 	width: 14px;
 	height: 21px;
-	background: url('../../img.gameone.kr/booking/btn_imgdel.gif') left top
+	background: url('http://img.gameone.kr/booking/btn_imgdel.gif') left top
 		no-repeat;
 	overflow: hidden;
 	float: left;
@@ -12035,7 +12035,7 @@ div.booking_wrap ul.input_list div.inc_map:after {
 div.booking_wrap ul.input_list div.inc_map dl.stadium_map {
 	width: 235px;
 	height: 140px;
-	background: url('../../img.gameone.kr/booking/map.png') left top
+	background: url('http://img.gameone.kr/booking/map.png') left top
 		no-repeat;
 	position: relative;
 	float: left;
@@ -12075,7 +12075,7 @@ div.booking_wrap ul.input_list div.inc_map ul.option_list {
 
 div.booking_wrap ul.input_list div.inc_map ul.option_list li {
 	padding-left: 10px;
-	background: url('../../img.gameone.kr/booking/bullet.gif') left center
+	background: url('http://img.gameone.kr/booking/bullet.gif') left center
 		no-repeat;
 	white-space: none;
 }
@@ -12136,7 +12136,7 @@ div.booking_wrap div.book_view div.share_box ul.share_nav li span {
 	display: block;
 	width: 39px;
 	height: 39px;
-	background: url('../../img.gameone.kr/booking/news_btn_group.png')
+	background: url('http://img.gameone.kr/booking/news_btn_group.png')
 		no-repeat;
 	text-indent: -1000px;
 	overflow: hidden;
@@ -12238,7 +12238,7 @@ div.booking_wrap div.hot_booking_info div.oneball_cur dt {
 	float: left;
 	color: #444;
 	padding-left: 24px;
-	background: url('../../img.gameone.kr/booking/ico_ball.png') left center
+	background: url('http://img.gameone.kr/booking/ico_ball.png') left center
 		no-repeat;
 	line-height: 21px;;
 }
@@ -12264,7 +12264,7 @@ div.booking_wrap div.hot_booking_info div.oneball_cur a.btn_re {
 	cursor: pointer;
 	text-indent: -9999px;
 	overflow: hidden;
-	background: url('../../img.gameone.kr/booking/btn_re_purple.gif') left
+	background: url('http://img.gameone.kr/booking/btn_re_purple.gif') left
 		top no-repeat;
 }
 
@@ -12306,7 +12306,7 @@ div.booking_wrap div.hot_booking_info div.oneball_period a {
 	color: #a3acc5;
 	padding-left: 5px;
 	margin-left: 10px;
-	background: url('../../img.gameone.kr/booking/barr2.gif') left center
+	background: url('http://img.gameone.kr/booking/barr2.gif') left center
 		no-repeat;
 }
 
@@ -12336,7 +12336,7 @@ div.booking_wrap div.hot_booking_info div.oneball_charge p {
 #stadiumSearchBox {
 	padding-top: 18px;
 	width: 448px;
-	background: url('../../img.gameone.kr/booking/box_top.gif') left top
+	background: url('http://img.gameone.kr/booking/box_top.gif') left top
 		no-repeat;
 	position: absolute;
 	z-index: 3;
@@ -12350,13 +12350,13 @@ div.booking_wrap div.hot_booking_info div.oneball_charge p {
 }
 
 #stadiumSearchBox div.section {
-	background: #dedee1 url('../../img.gameone.kr/booking/bg_box.gif') left
+	background: #dedee1 url('http://img.gameone.kr/booking/bg_box.gif') left
 		top repeat-y;
 	padding: 0 35px 22px 35px;
 }
 
 #stadiumSearchBox div.close {
-	background: url('../../img.gameone.kr/booking/box_bot.gif') left top
+	background: url('http://img.gameone.kr/booking/box_bot.gif') left top
 		no-repeat;
 	height: 9px;
 	position: relative;
@@ -12368,7 +12368,7 @@ div.booking_wrap div.hot_booking_info div.oneball_charge p {
 	bottom: 3px;
 	width: 41px;
 	height: 41px;
-	background: url('../../img.gameone.kr/booking/box_x.gif') left top
+	background: url('http://img.gameone.kr/booking/box_x.gif') left top
 		no-repeat;
 	overflow: hidden;
 	text-indent: -1000px;
@@ -12379,7 +12379,7 @@ div.booking_wrap div.hot_booking_info div.oneball_charge p {
 	padding-left: 30px;
 	padding-top: 17px;
 	height: 26px;
-	background: url('../../img.gameone.kr/booking/ico_zoom.png') left center
+	background: url('http://img.gameone.kr/booking/ico_zoom.png') left center
 		no-repeat;
 	font-weight: bold;
 	color: #666;
@@ -12538,7 +12538,7 @@ div.bookinglayer h3 {
 	float: left;
 	padding-left: 25px;
 	padding-right: 10px;
-	background: url('../../img.gameone.kr/booking/bar3.gif') right center
+	background: url('http://img.gameone.kr/booking/bar3.gif') right center
 		no-repeat;
 	font-size: 12px;
 }
@@ -12547,7 +12547,7 @@ div.booking_wrap div.bookinglayer h4 {
 	float: left;
 	padding: 0;
 	margin-left: 10px;
-	background: url('../../img.gameone.kr/booking/ico_white_ball.gif') left
+	background: url('http://img.gameone.kr/booking/ico_white_ball.gif') left
 		center no-repeat;
 	padding-left: 20px;
 	color: #fff;
@@ -12614,7 +12614,7 @@ div.bookinglayer dl.user_tel dd span.sms {
 	text-indent: -1000px;
 	width: 39px;
 	height: 39px;
-	background: url('../../img.gameone.kr/booking/ico_sms.gif') center
+	background: url('http://img.gameone.kr/booking/ico_sms.gif') center
 		center no-repeat;
 	margin: 0 3px;
 }
@@ -12649,7 +12649,7 @@ div.bookinglayer dl.user_tel div.combobox {
 
 div.bookinglayer dl.user_tel div.combobox strong.selected {
 	margin: 4px 7px 4px 0;
-	background: url('../../img.gameone.kr/booking/combo_arr.gif') right
+	background: url('http://img.gameone.kr/booking/combo_arr.gif') right
 		center no-repeat;
 	font-weight: bold;
 	font-size: 14px;
@@ -12679,7 +12679,7 @@ div.bookinglayer dl.user_tel.manage dd span.msg {
 	text-indent: -1000px;
 	width: 39px;
 	height: 39px;
-	background: url('../../img.gameone.kr/booking/ico_msg.gif') center
+	background: url('http://img.gameone.kr/booking/ico_msg.gif') center
 		center no-repeat;
 	margin: 0 3px;
 }
@@ -12729,7 +12729,7 @@ div.bookinglayer ul.notice li {
 	line-height: 17px;
 	padding-left: 10px;
 	color: #888;
-	background: url('../../img.gameone.kr/booking/ico_dash.gif') left center
+	background: url('http://img.gameone.kr/booking/ico_dash.gif') left center
 		no-repeat;
 }
 
@@ -12845,7 +12845,7 @@ div.booking_wrap table.game_table div.combowr .btn_ok {
 	display: block;
 	overflow: hidden;
 	text-indent: -1000px;
-	background: url('../../img.gameone.kr/booking/btn_ok.gif') left top
+	background: url('http://img.gameone.kr/booking/btn_ok.gif') left top
 		no-repeat;
 } /*뷰페이지*/
 div.booking_wrap div.book_view span.booking {
@@ -12901,7 +12901,7 @@ div.booking_wrap div.book_view table.game_table td.status span {
 div.booking_wrap div.book_view table.game_table td.status span.none {
 	border-color: #aeb1bc;
 	border-width: 1px 0 0 1px;
-	background: #f0f0f0 url('../../img.gameone.kr/booking/bg_obilique2.gif')
+	background: #f0f0f0 url('http://img.gameone.kr/booking/bg_obilique2.gif')
 		repeat;
 	height: 21px;
 	width: 36px;
@@ -12978,7 +12978,7 @@ div.booking_wrap div.book_view table.game_table caption dl dl dt, div.booking_wr
 
 div.booking_wrap div.book_view table.game_table caption dl dl dt {
 	padding-left: 10px;
-	background: url('../../img.gameone.kr/booking/bar2.gif') left center
+	background: url('http://img.gameone.kr/booking/bar2.gif') left center
 		no-repeat;
 }
 
@@ -14847,7 +14847,7 @@ body .ui-tooltip {
 	float: left;
 	width: 13px;
 	height: 13px;
-	background: url('../../img.gameone.kr/booking/btn_cal.gif') left top
+	background: url('http://img.gameone.kr/booking/btn_cal.gif') left top
 		no-repeat;
 	overflow: hidden;
 	text-indent: -1000px;
@@ -14859,7 +14859,7 @@ body .ui-tooltip {
 	float: right;
 	width: 13px;
 	height: 13px;
-	background: url('../../img.gameone.kr/booking/btn_cal.gif') -13px top
+	background: url('http://img.gameone.kr/booking/btn_cal.gif') -13px top
 		no-repeat;
 	overflow: hidden;
 	text-indent: -1000px;

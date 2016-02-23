@@ -1,6 +1,7 @@
 package soccer.co.Service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,27 @@ public class foot_fbookingService_Impl implements foot_fbookingService{
 	public List<foot_fbooking_DTO> fbookingManagerList() throws Exception {
 		
 		return dao.fbookingManagerList();
+	}
+
+
+	@Override
+	public foot_fbooking_DTO fbookingDetail(int free_b_seq) throws Exception {
+		
+		return dao.fbookingDetail(free_b_seq);
+	}
+
+
+	@Override
+	public foot_fbooking_DTO preTitle(Map<String, Object> map) throws Exception {
+		
+		return dao.preTitle(map);
+	}
+
+
+	@Override
+	public foot_fbooking_DTO nextTitle(Map<String, Object> map) throws Exception {
+		
+		return dao.nextTitle(map);
 	}
 
 }

@@ -9,8 +9,7 @@
 <title>Insert title here</title>
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="se2/js/HuskyEZCreator.js" charset="utf-8"></script>
-<script type="text/javascript" src="se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script>
+<script type="text/javascript" src="./editor/js/HuskyEZCreator.js" charset="utf-8"></script>
  
 <!-- Smart Editor -->
 <!-- Smart Editor -->
