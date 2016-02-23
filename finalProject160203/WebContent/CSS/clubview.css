@@ -75,7 +75,7 @@
 }
 .member_position{
 	font-size:13px;
-	text-align:initial;
+	text-align:left;
 	padding:0px 0px 0px 2px ;
 }
 .member_pic{
@@ -88,8 +88,8 @@
 }
 .member_name{
 	font-weight:bold;
-	text-align:end;
-	margin: -6px 0px 18px;
+	text-align:right;
+	margin: -6px 0px 19px;
 
 
 }
