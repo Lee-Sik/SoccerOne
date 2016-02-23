@@ -55,13 +55,14 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     		  $(newDiv).attr('ondrop', 'drop3(event,this)');
     		  $(newDiv).attr('ondragover', 'allowDrop3(event)');
     		  
-    		  newDiv.innerHTML = '<div class="member_position">'+kk[i].user_position1+'</div>'
-    				+'<div class="member_pic">'
+    		  newDiv.innerHTML = 
+    				'<div class="member_pic">'
     					+'<p>'
-    						+'<img align="middle" src="image/'+kk[i].user_profile+'" '+'id="'+kk[i].user_profile+'-img" '+'style="width: 70px; height: 50px; margin: auto;">'
+    						+'<img align="middle" src="image/'+kk[i].user_profile+'" '+'id="'+kk[i].user_profile+'-img" '+'style="width: 64px; height: 46px; margin: auto;">'
     					+'</p>'
     				+'</div>'
-    				+'<div class="member_name">'+kk[i].user_name+'</div>';
+    				+'<div class="member_position">'+kk[i].user_position1+'</div>'
+    				+'<div class="member_name" style="font-size: 11px;">'+kk[i].user_name+'</div>';
     				
     		  if(kk[i].x == 0 && kk[i].y == 0){//if x,y 좌표가 null이면 basket에 추가 하고,
   
@@ -396,7 +397,10 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 </tr>
 
 <tr>
-	<td colspan="2" style="font-size: 20px;"><b>${team.team_intro}</b></td>
+	<td colspan="2" style="font-size: 18px;"><b>${team.team_intro}</b>
+	<br><br>
+	클럽장 : ${team.team_managerid}
+	</td>
 </tr>
 </table>
 <br><br>
