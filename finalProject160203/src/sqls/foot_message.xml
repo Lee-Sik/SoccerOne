@@ -4,11 +4,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="foot_message">
-	<insert id="teamapplymeg" parameterType="soccer.co.DTO.foot_message_DTO">
+	<insert id="message" parameterType="soccer.co.DTO.foot_message_DTO">
 		insert into foot_message values(no_message.nextval,#{sender_user_email},#{message_type},
-									#{receiver_user_email},0,sysdate,#{message})
+									#{receiver_user_email},0,sysdate,#{message},0,0,0)
 	</insert>
 	<select id="messagecheck" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.foot_message_DTO">
 	select * from foot_message where receiver_user_email=#{user_email}
+	</select>
+	
+	<select id="messagecheck1" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.foot_message_DTO">
+	select * from foot_message where receiver_user_email=#{user_email} and message_read=0
+	</select>
+	
+	<select id="messagedetail" parameterType="soccer.co.DTO.foot_message_DTO" resultType="soccer.co.DTO.foot_message_DTO">
+	select * from foot_message where no=#{no}
+	</select>
+	
+	<update id="messageread" parameterType="soccer.co.DTO.foot_message_DTO">
+	update foot_message set message_read=1 where no=#{no}
+	</update>
+	
+	<update id="teamapply" parameterType="soccer.co.DTO.foot_message_DTO">
+	update foot_message set teamapplymegre=1 where no=#{no} 
+	</update>
+	
+	<select id="messagesendlist" parameterType="soccer.co.DTO.foot_message_DTO" resultType="soccer.co.DTO.foot_message_DTO">
+	select * from foot_message where sender_user_email=#{sender_user_email}
 	</select>
 </mapper>

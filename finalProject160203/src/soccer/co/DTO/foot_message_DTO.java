@@ -38,27 +38,11 @@ public class foot_message_DTO {
 	private int message_read;
 	private Date wdate;
 	private String message;
+	private int teamapplymegre;
+	private int mercenaryre;
+	private int matchingre;
 	
 	public foot_message_DTO(){}
-
-	public foot_message_DTO(int no, String sender_user_email, String message_type, String receiver_user_email,
-			int message_read, Date wdate, String message) {
-		super();
-		this.no = no;
-		this.sender_user_email = sender_user_email;
-		this.message_type = message_type;
-		this.receiver_user_email = receiver_user_email;
-		this.message_read = message_read;
-		this.wdate = wdate;
-		this.message = message;
-	}
-
-	@Override
-	public String toString() {
-		return "foot_message_DTO [no=" + no + ", sender_user_email=" + sender_user_email + ", message_type="
-				+ message_type + ", receiver_user_email=" + receiver_user_email + ", message_read=" + message_read
-				+ ", wdate=" + wdate + ", message=" + message + "]";
-	}
 
 	public int getNo() {
 		return no;
@@ -115,10 +99,53 @@ public class foot_message_DTO {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
-	
-	
-	
-	
+
+	public int getTeamapplymegre() {
+		return teamapplymegre;
+	}
+
+	public void setTeamapplymegre(int teamapplymegre) {
+		this.teamapplymegre = teamapplymegre;
+	}
+
+	public int getMercenaryre() {
+		return mercenaryre;
+	}
+
+	public void setMercenaryre(int mercenaryre) {
+		this.mercenaryre = mercenaryre;
+	}
+
+	public int getMatchingre() {
+		return matchingre;
+	}
+
+	public void setMatchingre(int matchingre) {
+		this.matchingre = matchingre;
+	}
+
+	public foot_message_DTO(int no, String sender_user_email, String message_type, String receiver_user_email,
+			int message_read, Date wdate, String message, int teamapplymegre, int mercenaryre, int matchingre) {
+		super();
+		this.no = no;
+		this.sender_user_email = sender_user_email;
+		this.message_type = message_type;
+		this.receiver_user_email = receiver_user_email;
+		this.message_read = message_read;
+		this.wdate = wdate;
+		this.message = message;
+		this.teamapplymegre = teamapplymegre;
+		this.mercenaryre = mercenaryre;
+		this.matchingre = matchingre;
+	}
+
+	@Override
+	public String toString() {
+		return "foot_message_DTO [no=" + no + ", sender_user_email=" + sender_user_email + ", message_type="
+				+ message_type + ", receiver_user_email=" + receiver_user_email + ", message_read=" + message_read
+				+ ", wdate=" + wdate + ", message=" + message + ", teamapplymegre=" + teamapplymegre + ", mercenaryre="
+				+ mercenaryre + ", matchingre=" + matchingre + "]";
+	}
+
 	
 }

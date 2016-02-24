@@ -17,9 +17,9 @@ public class foot_messageService_impl implements foot_messageService{
 	foot_message_DAO fmdao;
 	
 	@Override
-	public boolean teamapplymeg(foot_message_DTO fmdto) {
+	public boolean message(foot_message_DTO fmdto) {
 		// TODO Auto-generated method stub
-		return fmdao.teamapplymeg(fmdto);
+		return fmdao.message(fmdto);
 	}
 
 	@Override
@@ -27,5 +27,43 @@ public class foot_messageService_impl implements foot_messageService{
 		// TODO Auto-generated method stub
 		return  fmdao.messagecheck(fudto);
 	}
+
+	@Override
+	public foot_message_DTO messagedetail(foot_message_DTO fmdto) {
+		// TODO Auto-generated method stub
+		return fmdao.messagedetail(fmdto);
+	}
+
+	@Override
+	public boolean join(foot_user_DTO fudto) {
+		// TODO Auto-generated method stub
+		return fmdao.join(fudto);
+	}
+
+	@Override
+	public boolean messageread(foot_message_DTO fmdto) {
+		// TODO Auto-generated method stub
+		return fmdao.messageread(fmdto);
+	}
+
+	@Override
+	public ArrayList<foot_message_DTO> messagecheck1(foot_user_DTO login) {
+		// TODO Auto-generated method stub
+		return fmdao.messagecheck1(login);
+	}
+
+	@Override
+	public boolean teamapply(foot_message_DTO fmdto) {
+		// TODO Auto-generated method stub
+		return fmdao.teamapply(fmdto);
+	}
+
+	@Override
+	public ArrayList<foot_message_DTO> messagesendlist(foot_message_DTO fmdto) {
+		// TODO Auto-generated method stub
+		return fmdao.messagesendlist(fmdto);
+	}
+
+
 
 }

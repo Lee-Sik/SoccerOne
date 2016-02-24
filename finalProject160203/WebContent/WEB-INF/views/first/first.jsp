@@ -88,12 +88,6 @@ function popupOpen(){
 </script>
 
 
-<c:if test="${loginfalse eq 1 }">
-<script type="text/javascript">
-alert("아이디나 비밀번호가 틀렸습니다. 다시 로그인하세요.");
-</script>
-</c:if>
-
 <c:if test="${not empty login }">
 <script type="text/javascript">
 location.href="login1.do";
@@ -106,7 +100,6 @@ location.href="login1.do";
 </div>
 <div class="first2">
 <form action="login.do" method="post">
-<input type="hidden" name="loginok" value="0">
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <table >

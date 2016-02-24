@@ -12,6 +12,11 @@
 	<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
 </definition>
 
+<definition name="notlogin.tiles" template="/WEB-INF/views/login/notlogin.jsp">
+</definition>
+
+
+
 <definition name="refirst.tiles" extends="login.tiles">
 	<put-attribute name="first" value="/WEB-INF/views/bbslist/refirst.jsp" />
 </definition>
@@ -26,6 +31,24 @@
 
 
 <definition name="join.tiles" template="/WEB-INF/views/join/join.jsp">
+</definition>
+
+<definition name="messagedetail.tiles" template="/WEB-INF/views/message/messagedetail.jsp">
+</definition>
+
+<definition name="messagedetail1.tiles" template="/WEB-INF/views/message/messagedetail1.jsp">
+</definition>
+
+<definition name="messageanswer.tiles" template="/WEB-INF/views/message/messageanswer.jsp">
+</definition>
+
+<definition name="messagesend.tiles" template="/WEB-INF/views/message/messagesend.jsp">
+</definition>
+
+<definition name="messagesendlist.tiles" template="/WEB-INF/views/message/messagesendlist.jsp">
+</definition>
+
+<definition name="messagesendlist1.tiles" template="/WEB-INF/views/message/messagesendlist1.jsp">
 </definition>
 
 <definition name="myinform.tiles" template="/WEB-INF/views/login/myinform.jsp">

@@ -26,8 +26,8 @@ function popupOpen(){
 				<c:forEach items="${list}" var="vo">
 					<option>${vo}</option>
 				</c:forEach>
-			</select> <br> 팀원 모집여부 : <input type="radio" name="team_join" value="0">모집거부
-			<input type="radio" name="team_join" value="1">모집중 <br>
+			</select> <br> 팀원 모집여부 : <input type="radio" name="team_join" value="0" checked="checked">모집중
+			<input type="radio" name="team_join" value="1">모집거부 <br>
 			<input type="submit" value="검색">
 		</p>
 	</form>

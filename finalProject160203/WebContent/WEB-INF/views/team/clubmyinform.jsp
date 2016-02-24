@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE>
 <html>
 <head>
@@ -10,43 +10,43 @@
  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <title>Insert title here</title>
 <style>
-			/* tell the SVG path to be a thin blue line without any area fill */
-			path {
-				stroke: steelblue;
-				stroke-width: 1;
-				fill: none;
-			}
-			
-			.axis {
-			  shape-rendering: crispEdges;
-			}
-			.x.axis line {
-			  stroke: lightgrey;
-			}
-			.x.axis .minor {
-			  stroke-opacity: .5;
-			}
-			.x.axis path {
-			  display: none;
-			}
-			.y.axis line, .y.axis path {
-			  fill: none;
-			  stroke: #000;
-			}
-		</style>
+         /* tell the SVG path to be a thin blue line without any area fill */
+         path {
+            stroke: steelblue;
+            stroke-width: 1;
+            fill: none;
+         }
+         
+         .axis {
+           shape-rendering: crispEdges;
+         }
+         .x.axis line {
+           stroke: lightgrey;
+         }
+         .x.axis .minor {
+           stroke-opacity: .5;
+         }
+         .x.axis path {
+           display: none;
+         }
+         .y.axis line, .y.axis path {
+           fill: none;
+           stroke: #000;
+         }
+      </style>
 <!-- <style> -->
 <!-- /* table.qwe { */ -->
-<!-- /* 	font-size: 12pt; */ -->
-<!-- /* 	font-family: -윤고딕310; */ -->
-<!-- /* 	border-collapse: collapse; */ -->
+<!-- /*    font-size: 12pt; */ -->
+<!-- /*    font-family: -윤고딕310; */ -->
+<!-- /*    border-collapse: collapse; */ -->
 <!-- /* } */ -->
 
 <!-- /* td { */ -->
-<!-- /* 	text-align: center; */ -->
+<!-- /*    text-align: center; */ -->
 <!-- /* } */ -->
 
 <!-- /* table, tr, td { */ -->
-<!-- /* 	border: 1px solid lightgray; */ -->
+<!-- /*    border: 1px solid lightgray; */ -->
 <!-- /* } */ -->
 <!-- </style> -->
 </head>
@@ -56,6 +56,8 @@ shotpass=[];
 goal=[];
 play_time=[];
 game_record_day=[];
+
+myTeamMember=[];
 
 $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오는 ajax
     url: "getMyRecord.do",
@@ -72,7 +74,7 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
            game_record_day.push(data[i].game_record_day);// kk에 json 객체 담기 
        }
        
-    	//--------------line 그래프-----------------------------------
+       //--------------line 그래프-----------------------------------
        /* implementation heavily influenced by http://bl.ocks.org/1166403 */
        // define dimensions of graph
        var m = [80, 80, 80, 80]; // margins
@@ -85,142 +87,154 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
        var x = d3.scale.linear().domain([0, longpass.length]).range([0, w]);
        // Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
        var y = d3.scale.linear().domain([0, 100]).range([h, 0]);
-       	// automatically determining max range can work something like this
-       	// var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
+          // automatically determining max range can work something like this
+          // var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
        // create a line function that can convert data[] into x and y points
        var line = d3.svg.line()
-       	// assign the X function to plot our line as we wish
-       	.x(function(d,i) { 
-       		return x(i); 
-       	})
-       	.y(function(d) { 
-       		return y(d); 
-       	})
-       	// Add an SVG element with the desired dimensions and margin.
-       	var graph = d3.select("#graph").append("svg:svg")
-       	      .attr("width", w + m[1] + m[3])
-       	      .attr("height", h + m[0] + m[2])
-       	    .append("svg:g")
-       	      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
-       	// create yAxis
-       	var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
-       	// Add the x-axis.
-       	graph.append("svg:g")
-       	      .attr("class", "x axis")
-       	      .attr("transform", "translate(0," + h + ")")
-       	      .call(xAxis);
-       	// create left yAxis
-       	var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
-       	// Add the y-axis to the left
-       	graph.append("svg:g")
-       	      .attr("class", "y axis")
-       	      .attr("transform", "translate(-25,0)")
-       	      .call(yAxisLeft);
-       	
-       		// Add the line by appending an svg:path element with the data line we created above
-       	// do this AFTER the axes above so that the line is above the tick-lines
-       		graph.append("svg:path").attr("d", line(longpass));
-       	//------------------------------------------------------------------------
+          // assign the X function to plot our line as we wish
+          .x(function(d,i) { 
+             return x(i); 
+          })
+          .y(function(d) { 
+             return y(d); 
+          })
+          // Add an SVG element with the desired dimensions and margin.
+          var graph = d3.select("#graph").append("svg:svg")
+                .attr("width", w + m[1] + m[3])
+                .attr("height", h + m[0] + m[2])
+              .append("svg:g")
+                .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+          // create yAxis
+          var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+          // Add the x-axis.
+          graph.append("svg:g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + h + ")")
+                .call(xAxis);
+          // create left yAxis
+          var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
+          // Add the y-axis to the left
+          graph.append("svg:g")
+                .attr("class", "y axis")
+                .attr("transform", "translate(-25,0)")
+                .call(yAxisLeft);
+          
+             // Add the line by appending an svg:path element with the data line we created above
+          // do this AFTER the axes above so that the line is above the tick-lines
+             graph.append("svg:path").attr("d", line(longpass));
+          //------------------------------------------------------------------------
     }
 });
+
+$.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오는 ajax
+    url: "getTeamMember.do",
+    dataType: 'JSON',
+    jsonpCallback: 'callback',
+    type: 'get',
+    success: function (data) {
+       
+        for(var i=0;i<data.length;i++){
+           myTeamMember.push(data[i]);// kk에 json 객체 담기 
+           // alert(data[i]);
+         }
+    }
+});
+
+
 $(document).ready(function(){
 
-	
+   
 });
 </script>
 
 <body>
 
-	<table class="list_table" style="width: 85%">
+   <table class="list_table" style="width: 85%">
 
 
-		<tr>
-			<td width="300"><img alt="" src="image/${login.user_profile }"
-				style="width: 100%; margin: auto; padding: 0;"></td>
+      <tr>
+         <td width="300"><img alt="" src="image/${login.user_profile }"
+            style="width: 100%; margin: auto; padding: 0;"></td>
 
-			<td>
-				<table style="width: 100%" class="qwe">
-					<tr>
-						<th colspan="2">클럽과 나의
-							연결고리</th>
-					</tr>
-					<tr>
-						<td>이름</td>
-						<td>${login.user_name }</td>
-					</tr>
-					<tr>
-						<td>생일</td>
-						<td>${login.user_birth }</td>
-					</tr>
-					<tr>
-						<td>나이</td>
-						<td>${login.user_age }</td>
-					</tr>
-					<tr>
-						<td>키</td>
-						<td>${login.user_high }</td>
-					</tr>
-					<tr>
-						<td>몸무게</td>
-						<td>${login.user_weight }</td>
-					</tr>
-					<tr>
-						<td>포지션1</td>
-						<td>${login.user_position1 }</td>
-					</tr>
-					<tr>
-						<td>포지션2</td>
-						<td>${login.user_position2 }</td>
-					</tr>
-					<tr>
-						<td>포지션3</td>
-						<td>${login.user_position3 }</td>
-					</tr>
-					<tr>
-						<td>스피드</td>
-						<td>${login.user_speed}</td>
-					</tr>
-					<tr>
-						<td>참석률</td>
-						<td>${login.user_attendrate }</td>
-					</tr>
-					<tr>
-						<td>출장시간</td>
-						<td>${login.user_attendtime }</td>
-					</tr>
-					<tr>
-						<td>득점률</td>
-						<td>${login.user_goal }</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<div id="graph" class="aGraph" ></div>
-				<div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
-			</td>
-		</tr>
-	</table>
-	   <script type="text/javascript">
+         <td>
+            <table style="width: 100%" class="qwe">
+               <tr>
+                  <th colspan="2">클럽과 나의
+                     연결고리</th>
+               </tr>
+               <tr>
+                  <td>이름</td>
+                  <td>${login.user_name }</td>
+               </tr>
+               <tr>
+                  <td>생일</td>
+                  <td>${login.user_birth }</td>
+               </tr>
+               <tr>
+                  <td>나이</td>
+                  <td>${login.user_age }</td>
+               </tr>
+               <tr>
+                  <td>키</td>
+                  <td>${login.user_high }</td>
+               </tr>
+               <tr>
+                  <td>몸무게</td>
+                  <td>${login.user_weight }</td>
+               </tr>
+               <tr>
+                  <td>포지션1</td>
+                  <td>${login.user_position1 }</td>
+               </tr>
+               <tr>
+                  <td>포지션2</td>
+                  <td>${login.user_position2 }</td>
+               </tr>
+               <tr>
+                  <td>포지션3</td>
+                  <td>${login.user_position3 }</td>
+               </tr>
+               <tr>
+                  <td>스피드</td>
+                  <td>${login.user_speed}</td>
+               </tr>
+               <tr>
+                  <td>참석률</td>
+                  <td>${login.user_attendrate }</td>
+               </tr>
+               <tr>
+                  <td>출장시간</td>
+                  <td>${login.user_attendtime }</td>
+               </tr>
+               <tr>
+                  <td>득점률</td>
+                  <td>${login.user_goal }</td>
+               </tr>
+            </table>
+         </td>
+      </tr>
+      <tr>
+         <td colspan="2">
+            <div id="graph" class="aGraph" ></div>
+            <div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+         </td>
+      </tr>
+   </table>
+      <script type="text/javascript">
 $(function () {
 
     $('#container').highcharts({
-
         chart: {
             polar: true,
             type: 'line'
         },
-
         title: {
             text: 'Budget vs spending',
             x: -80
         },
-
         pane: {
             size: '80%'
         },
-
         xAxis: {// 육각형 꼭지점의 능력
             categories: ['Sales', 'Marketing', 'Development', 'Customer Support',
                     'Information Technology', 'Administration'],

@@ -41,7 +41,7 @@ public class userController {
 	}
 
 	@RequestMapping(value = "login.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String login(foot_user_DTO fudto, int loginok, HttpServletRequest request, Model model) {
+	public String login(foot_user_DTO fudto,HttpServletRequest request, Model model) {
 		String login1 = "login.tiles";
 		int loginfalse = 0;
 		logger.info("Welcome HelloMemberController login! " + new Date());
@@ -50,7 +50,9 @@ public class userController {
 		try {
 			login = fuservice.login(fudto);
 			ArrayList<foot_message_DTO> list = messageservice.messagecheck(login);
+			ArrayList<foot_message_DTO> list1 = messageservice.messagecheck1(login);
 			model.addAttribute("messagecheck", list);
+			model.addAttribute("messagecheck1", list1);
 			
 			
 			if(login.getUser_team()!=null){
@@ -61,9 +63,8 @@ public class userController {
 			request.getSession().setAttribute("loginfalse", loginfalse);
 		} catch (Exception e) {
 			e.printStackTrace();
-			loginfalse = 1;
-			request.getSession().setAttribute("loginfalse", loginfalse);
-			login1 = "first.tiles";
+			
+			login1 = "notlogin.tiles";
 		}
 		
 		request.getSession().setAttribute("team", team);
