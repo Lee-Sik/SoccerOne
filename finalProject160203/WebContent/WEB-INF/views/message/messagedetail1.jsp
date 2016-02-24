@@ -34,6 +34,9 @@ function func1(){
 <c:if test="${messagedetail1.message_type eq 'teamapplymeg'}">
 <td>팀가입신청</td>
 </c:if>
+<c:if test="${messagedetail1.message_type eq 'message'}">
+<td>팀가입신청</td>
+</c:if>
 </tr>
 
 
