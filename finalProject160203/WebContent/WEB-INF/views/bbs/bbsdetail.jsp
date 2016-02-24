@@ -242,9 +242,16 @@ $("#_btnUpdate").click(function() {
 </table>
 </form>
 
+<!--  
 <br>
 <a href="http://sports.news.naver.com/videoCenter/index.nhn?uCategory=wfootball&category=champs&id=176972">
 <img src="./image/bbs_video.png"/></a>
+<br>
+-->
+
+<br>
+<a href="http://sports.news.naver.com/videoCenter/index.nhn?uCategory=wfootball&category=champs&id=178017">
+<img src="./image/bbs_video3.png"/></a>
 <br>
 
 
