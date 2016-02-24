@@ -5,14 +5,8 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<style type="text/css">
-th{
-	text-align: center
-}
-table{
-	font-family: -윤고딕310;
-}
-</style>
+<link href="CSS/MSGtable.css" rel="stylesheet" >
+<link href="CSS/main.css" rel="stylesheet" >
 <head>
 <script>
 function func1(){
@@ -23,7 +17,6 @@ function func1(){
 
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
 <form action="messageanswer1.do" method="post">
@@ -48,11 +41,11 @@ function func1(){
 <td><textarea rows="20" cols="5" name="message"></textarea> </td>
 </tr>
 <tr>
-<th colspan="2">
+<td colspan="4">
 <input type="submit" value="보내기">
 <input type="button" value="목록" onclick="location.href='messagedetail.do'">
 <input type="button" value="닫기" onclick="func1()">
-</th>
+</td>
 </tr>
 </table>
 </form>
