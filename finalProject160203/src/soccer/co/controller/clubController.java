@@ -25,9 +25,11 @@ import org.springframework.web.multipart.MultipartFile;
 import soccer.co.DTO.FOOT_USER_RECORD;
 import soccer.co.DTO.foot_cal_DTO;
 import soccer.co.DTO.foot_game_record;
+import soccer.co.DTO.foot_message_DTO;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_teamcal_DTO;
 import soccer.co.DTO.foot_user_DTO;
+import soccer.co.Service.foot_messageService;
 import soccer.co.Service.foot_teamCalendarService;
 import soccer.co.Service.foot_teamService;
 import soccer.co.Service.foot_userService;
@@ -41,7 +43,8 @@ public class clubController {
     foot_teamService clubservice;
 	@Autowired
     foot_userService userservice;
-	
+	@Autowired
+	foot_messageService messageservice;
 	private static final Logger logger = LoggerFactory.getLogger(clubController.class);
 	
 	@RequestMapping(value = "team_create.do", method = {RequestMethod.GET,RequestMethod.POST})	
@@ -122,6 +125,13 @@ public class clubController {
 		 *  5.팀_맴버 테이블 가져오기
 		 * 
 		 * */
+		
+		foot_user_DTO login = (foot_user_DTO) req.getSession().getAttribute("login");
+		ArrayList<foot_message_DTO> list = messageservice.messagecheck(login);
+		ArrayList<foot_message_DTO> list1 = messageservice.messagecheck1(login);
+		model.addAttribute("messagecheck", list);
+		model.addAttribute("messagecheck1", list1);
+		
 		foot_team_DTO team=(foot_team_DTO)session.getAttribute("team");
 		
 		if(team !=null){

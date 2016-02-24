@@ -57,7 +57,7 @@ function func1(){
 	
 	<tr>
 		<td colspan="2">
-		<input type="button" value="목록" onclick="location.href='messagedetail.do'">
+		<input type="button" value="목록" onclick="location.href='messagesendlist.do?sender_user_email=${login.user_email}'">
 		<input type="button" value="닫기" onclick="func1()">
 		</td>
 	</tr>

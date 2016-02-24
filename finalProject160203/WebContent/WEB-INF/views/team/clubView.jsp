@@ -365,7 +365,7 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
                                      'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 
 					<img src="image/pen.gif">
-			</a> <c:forEach var="j" items="${getmycal }" end="0">
+			</a> <c:forEach var="j" items="${getmycal }" >
 					<c:if test="${i eq j.getRdate().substring(6, 8)}">
 
 						<a

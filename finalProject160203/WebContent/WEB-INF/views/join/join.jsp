@@ -113,7 +113,6 @@ function function1(val){
 	var pw = document.getElementsByName('user_pw');
 	var pw1 = document.getElementsByName('user_pw1');
 	var name = document.getElementsByName('user_name');
-	var age = document.getElementsByName('user_age');
 	
 	if(pw[0].value.length<=5||pw[0].value.length>=10){
 		alert("비밀번호는 6자리부터 9자리까지만 입력하셔야합니다.");
@@ -126,7 +125,8 @@ function function1(val){
 	else if(name[0].value.length<=1||name[0].value.length>=6){
 		alert("이름은 2자리부터 5자리까지 입력하셔야합니다.");
 		name[0].focus();
-	} else{
+	} 
+	else{
 		var helper = document.f.user_helper.value;
 		var user_helper = document.f.user_helper;
 		if(helper=="on"){

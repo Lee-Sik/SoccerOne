@@ -25,20 +25,20 @@ function func1(){
 <col width="80%">
 <tr>
 <th>쪽지종류</th>
-<td><input type="text" value="message" name="message_type"></td>
+<td style="text-align: left;"><input type="text" value="message" name="message_type" readonly="readonly"></td>
 </tr>
 
 <tr>
 <th>보내는 사람</th>
-<td><input type="hidden" value="${message.sender_user_email }" name="sender_user_email">${message.sender_user_email }</td>
+<td style="text-align: left;"><input type="hidden" value="${message.sender_user_email }" name="sender_user_email">${message.sender_user_email }</td>
 </tr>
 <tr>
 <th>받는 사람</th>
-<td><input type="hidden" value="${message.receiver_user_email }" name="receiver_user_email">${message.receiver_user_email }</td>
+<td style="text-align: left;"><input type="hidden" value="${message.receiver_user_email }" name="receiver_user_email">${message.receiver_user_email }</td>
 </tr>
 <tr>
 <th>내용</th>
-<td><textarea rows="20" cols="5" name="message"></textarea> </td>
+<td style="text-align: left;"><textarea rows="5" cols="70" name="message"></textarea> </td>
 </tr>
 <tr>
 <td colspan="4">
