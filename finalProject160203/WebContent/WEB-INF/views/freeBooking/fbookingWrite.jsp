@@ -36,19 +36,19 @@ $(document).ready(function(){
 	<div class="bbs_view dminhs">
 		<div class="bbs">
 			<form id="frm" action="fbookingWrite_ok.do" method="post" >
-				<input type="hidden" name="user_email" value="${login.user_email}">
+				
 				<div class="writeList">
 					<ul class="bbs-wtinfo">
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">글제목</span>
-							<input type="text" class="title" name="free_b_title" maxlength="100" style="margin-left: -100px;"/>
+							<input type="text" class="title" name="free_b_title" value="${fdto.free_b_title}" maxlength="100" style="margin-left: -100px;"/>
 						</li>
 					</ul>
 					
 					<ul class="bbs-wtinfo">
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">주소</span>
-							<input type="text" class="title" id="addr1" name="free_b_addr" maxlength="100" style="margin-left: -100px;"
+							<input type="text" class="title" id="addr1" name="free_b_addr" value="${fdto.free_b_addr}" maxlength="100" style="margin-left: -100px;"
 							onclick="javascript:window.open('./post.do','','location=0,status=0,scrollbars=1,width=530,height=330');" />
 						</li>
 					</ul>
@@ -75,7 +75,7 @@ $(document).ready(function(){
 					</ul>
 	
 					<div class="editer">
-						<textarea id="content" name="free_b_content" style="width: 700px;"></textarea>
+						<textarea id="content" name="free_b_content" style="width: 700px;">${fdto.free_b_content}</textarea>
 					</div>
 					<script type="text/javascript">
  
@@ -105,11 +105,12 @@ $(document).ready(function(){
 					});
 					});	
  
-						</script>
-					
-					
-
-					
+				</script>
+				<input type="hidden" name="user_email" value="${login.user_email}">	
+				<input type="hidden" name="mode" value="${mode}">
+				<c:if test="${not empty fdto}">
+				<input type="hidden" name="free_b_seq" value="${fdto.free_b_seq}">	
+				</c:if>
 				</div>
 								<div class="bbs-wt-bt">
 					<div class="bbs-btngr">

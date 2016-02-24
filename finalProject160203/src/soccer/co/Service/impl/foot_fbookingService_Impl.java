@@ -25,9 +25,9 @@ public class foot_fbookingService_Impl implements foot_fbookingService{
 
 
 	@Override
-	public List<foot_fbooking_DTO> fbookingList() throws Exception {
+	public List<foot_fbooking_DTO> fbookingList(foot_fbooking_DTO dto) throws Exception {
 	
-		return dao.fbookingList();
+		return dao.fbookingList(dto);
 	}
 
 
@@ -63,6 +63,27 @@ public class foot_fbookingService_Impl implements foot_fbookingService{
 	public foot_fbooking_DTO nextTitle(Map<String, Object> map) throws Exception {
 		
 		return dao.nextTitle(map);
+	}
+
+
+	@Override
+	public boolean hitCount(int free_b_seq) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.hitCount(free_b_seq);
+	}
+
+
+	@Override
+	public boolean fbookingUpdate(foot_fbooking_DTO dto) throws Exception {
+		
+		return dao.fbookingUpdate(dto);
+	}
+
+
+	@Override
+	public boolean fbookingDelete(int free_b_seq) throws Exception {
+		
+		return dao.fbookingDelete(free_b_seq);
 	}
 
 }

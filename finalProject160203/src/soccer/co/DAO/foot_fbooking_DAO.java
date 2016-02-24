@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import oracle.net.aso.d;
 import soccer.co.DTO.foot_fbooking_DTO;
 
 @Repository
@@ -21,8 +22,8 @@ public class foot_fbooking_DAO {
 		return true;
 	}
 	
-	public List<foot_fbooking_DTO> fbookingList()throws Exception{
-		List<foot_fbooking_DTO> list = sqlsession.selectList("fbooking.fbookingList");
+	public List<foot_fbooking_DTO> fbookingList(foot_fbooking_DTO dto)throws Exception{
+		List<foot_fbooking_DTO> list = sqlsession.selectList("fbooking.fbookingList", dto);
 		
 		return list;
 	}
@@ -58,8 +59,20 @@ public class foot_fbooking_DAO {
 		return dto;
 	}
 	
+	public boolean hitCount(int free_b_seq)throws Exception{
+		sqlsession.update("fbooking.hitCount", free_b_seq);
+		return true;
+	}
 	
+	public boolean fbookingUpdate(foot_fbooking_DTO dto)throws Exception{
+		sqlsession.update("fbooking.fbookingUpdate", dto);
+		return true;
+	}
 	
+	public boolean fbookingDelete(int free_b_seq)throws Exception{
+		sqlsession.delete("fbooking.fbookingDelete", free_b_seq);
+		return true;
+	}
 	
 	
 	

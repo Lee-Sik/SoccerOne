@@ -7,6 +7,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+	function delete1(seq) {
+		if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+			location.href="./fbookingDelete.do?seq=" + seq;
+		}else{   //취소
+		    return;
+		}
+	}
+</script>
+
 </head>
 <body>
 
@@ -62,8 +73,8 @@
 				<div class="bbs-btngr">
 					<a href="./fbookingWrite.do" class="bbs-wbbtn">글쓰기</a>
 					<c:if test="${login.user_email == fdto.user_email}">
-					<a href="/booking/board/edit?board_idx=22&post_idx=70462&page=1&category=01" class="bbs-gbtn">수정</a>					<!-- <a href="#" class="bbs-gbtn sh-mv">이동</a> -->
-					<a href="#none" class="bbs-gbtn delPost">삭제</a>
+					<a href="./fbookingWrite.do?seq=${fdto.free_b_seq}&mode=update" class="bbs-gbtn">수정</a>					<!-- <a href="#" class="bbs-gbtn sh-mv">이동</a> -->
+					<a href="#" class="bbs-gbtn delPost" onclick="delete1('${fdto.free_b_seq}')">삭제</a>
 					</c:if>	
 					<!-- <a href="#" class="bbs-gbtn">답글</a> -->
 										<!-- <a href="#" class="bbs-gbtn sh-mv">이동</a> -->

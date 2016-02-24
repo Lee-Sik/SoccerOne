@@ -13,7 +13,8 @@
 
 $(function(){
 	
-	$("#search_subject").val($("#cl").html());
+	
+	$("#search_subject").val("free_b_title");
 	
 	$("#cl").click(function(){
 		$("#cl1").toggle();
@@ -24,14 +25,18 @@ $(function(){
 		$("#cl").html($(this).html());
 		$("#cl1").toggle();
 		$("#cl2").toggle();
-		$("#search_subject").val($("#cl").html());
+		$("#search_subject").val("free_b_title");
 	});
 	$("#cl2").click(function(){
 		
 		$("#cl").html($(this).html());
 		$("#cl1").toggle();
 		$("#cl2").toggle();
-		$("#search_subject").val($("#cl").html());
+		$("#search_subject").val("user_name");
+	});
+	$("#search").click(function(){
+		
+		$("#postSearchForm").submit();	
 	});
 	
 	
@@ -43,79 +48,98 @@ $(function(){
 <body>
 
 <div class="hb_wrap booking_wrap"><div class="navi" style="margin-top: -40px;">
-	<h2 style="font-size:27px;font-family: 'nanumgothic','nanum','dotum';color:#40434A;">게임부킹</h2>
+	<h2 style="font-size:27px;font-family: 'nanumgothic','nanum','dotum';color:#40434A;">자유대관</h2>
 	
 </div>
 <div class="hb_wrap news_view">
 	<div class="bbs_view dminhs">
 		<div class="bbs">
-						<div class="bbs-tab-area" style="position: relative;">
+			<div class="bbs-tab-area" style="position: relative;">
 				<ul style="width:100%">
-										<li class="on" style="width:5.55556%">
-						<a href="/booking/board/list/?board_idx=22&category=00">전체</a>
+					<li class="on" style="width:5.55556%">
+					<a href="./fbookingList.do">전체</a>
 					</li>
-															<li class="" style="width:5.55556%">
-						<a href="/booking/board/list/?board_idx=22&category=01">서울</a>
+					
+					<li class="" style="width:5.55556%">
+					<a href="/booking/board/list/?board_idx=22&category=01">서울</a>
 					</li>
-										<li class="" style="width:5.55556%">
-						<a href="/booking/board/list/?board_idx=22&category=02">인천</a>
+					
+					<li class="" style="width:5.55556%">
+					<a href="/booking/board/list/?board_idx=22&category=02">인천</a>
 					</li>
-										<li class="" style="width:5.55556%">
-						<a href="/booking/board/list/?board_idx=22&category=03">대전</a>
+					
+					<li class="" style="width:5.55556%">
+					<a href="/booking/board/list/?board_idx=22&category=03">대전</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=04">광주</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=05">대구</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=06">부산</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=07">울산</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=08">경기</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=09">강원</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=10">충북</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=11">충남</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=12">전북</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=13">전남</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=14">경북</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=15">경남</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=16">제주</a>
 					</li>
-										<li class="" style="width:5.55556%">
+					
+					<li class="" style="width:5.55556%">
 						<a href="/booking/board/list/?board_idx=22&category=17">세종</a>
 					</li>
-									</ul>
+				
+				</ul>
 			</div>
 						<div class="bbs-list-top">
-				<div class="bbs-tbtn" style="margin-top: 20px;"><a href="./fbookingWrite.do" class="bbs-wbbtn">글쓰기</a></div>
-				<form method="get" id="postSearchForm" action="/booking/board/list/">
+				<div class="bbs-tbtn" style="margin-top: 20px;"><a href="./fbookingWrite.do?mode=write" class="bbs-wbbtn">글쓰기</a></div>
+				<form method="post" id="postSearchForm" action="./fbookingList.do">
 					<input type="hidden" name="board_idx" value="22">
 					<input type="hidden" name="category" value="00">
+					
 					<div class="bbs-sch">
 						<div class="bbs-combo">
 							<dl class="bbs-cb">
-								<dt id="cl">제목</dt>
+								<dt id="cl" >제목</dt>
 								<dd id="cl1" style="display: none;">제목</dd>
 								<dd id="cl2" style="display: none;">작성자</dd>
 								
@@ -127,9 +151,9 @@ $(function(){
 							</select>
 							
 						</div>
-						<input type="hidden" name="search_subject" id="search_subject">
-						<input type="text" name="search_word" value="" />
-						<a href="#none" class="bbs-btn-sch postSearchBtn">검색</a>
+						<input type="hidden" name="searchKey" id="search_subject">
+						<input type="text" name="searchValue" value="" />
+						<a href="#none" class="bbs-btn-sch postSearchBtn" id="search">검색</a>
 					</div>
 				</form>
 			</div>

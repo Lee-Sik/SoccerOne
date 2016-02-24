@@ -29,6 +29,9 @@ public class foot_fbooking_DTO {
 	private int free_b_hit;
 	private int free_b_manager;
 	
+	private String searchKey;
+	private String searchValue;
+	
 	public String getUser_name() {
 		return user_name;
 	}
@@ -94,6 +97,18 @@ public class foot_fbooking_DTO {
 	}
 	public void setFree_b_manager(int free_b_manager) {
 		this.free_b_manager = free_b_manager;
+	}
+	public String getSearchKey() {
+		return searchKey;
+	}
+	public void setSearchKey(String searchKey) {
+		this.searchKey = searchKey;
+	}
+	public String getSearchValue() {
+		return searchValue;
+	}
+	public void setSearchValue(String searchValue) {
+		this.searchValue = searchValue;
 	}
 	
 	

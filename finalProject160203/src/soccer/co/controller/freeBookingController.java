@@ -28,19 +28,39 @@ public class freeBookingController {
 	@Autowired
 	private foot_fbookingService fservice;
 	
-	@RequestMapping(value = "fbookingList.do", method = RequestMethod.GET)	
-	public String fbookingList(Model model) throws Exception {	
+	@RequestMapping(value = "fbookingList.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String fbookingList(Model model,foot_fbooking_DTO dto) throws Exception {	
 		
-		List<foot_fbooking_DTO> list = fservice.fbookingList();
+		System.out.println("key : " + dto.getSearchKey());
+		System.out.println("value : " + dto.getSearchValue());
+		
+		List<foot_fbooking_DTO> list = fservice.fbookingList(dto);
 		List<foot_fbooking_DTO> mlist = fservice.fbookingManagerList();
+		List<postDTO> post1 = service.post_gugun();
 		
 		model.addAttribute("list", list);
 		model.addAttribute("mlist", mlist);
+		model.addAttribute("post1", post1);
 		
 		return "fbookingList.tiles";
 	}
 	@RequestMapping(value = "fbookingWrite.do", method = RequestMethod.GET)	
 	public String fbookingWrite(Model model,HttpServletRequest request) throws Exception {	
+		
+		
+		String mode = request.getParameter("mode");
+		
+		if(!(mode==null || mode.equals(""))){
+			
+		if(mode=="update" || mode.equals("update")){
+			int free_b_seq = Integer.parseInt(request.getParameter("seq"));
+			foot_fbooking_DTO dto = fservice.fbookingDetail(free_b_seq);
+			model.addAttribute("mode", mode);
+			model.addAttribute("fdto", dto);
+		}else{
+			model.addAttribute("mode", "write");
+		}
+		}
 		
 		String context = request.getContextPath();
 		
@@ -53,6 +73,8 @@ public class freeBookingController {
 	@RequestMapping(value = "fbookingWrite_ok.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String fbookingWrite_ok(Model model,HttpServletRequest request,foot_fbooking_DTO dto) throws Exception {
 		
+		String mode = request.getParameter("mode");
+		
 		dto.setUser_name(fservice.getUserName(dto.getUser_email()));
 		
 		if(dto.getUser_email()=="h" || dto.getUser_email().equals("h")){
@@ -61,8 +83,13 @@ public class freeBookingController {
 			dto.setFree_b_manager(1);
 		}
 		
+		if(mode=="update" || mode.equals("update")){
+			fservice.fbookingUpdate(dto);
+		}else{
+			fservice.fbookingWrite(dto);
+		}
 		
-		fservice.fbookingWrite(dto);
+		
 		
 		return "redirect:/fbookingList.do";
 	}
@@ -71,6 +98,8 @@ public class freeBookingController {
 	public String fbookingDetail(Model model,HttpServletRequest request) throws Exception {
 		
 		int free_b_seq = Integer.parseInt(request.getParameter("seq"));
+		
+		fservice.hitCount(free_b_seq);
 		
 		foot_fbooking_DTO dto = fservice.fbookingDetail(free_b_seq);
 		
@@ -90,6 +119,13 @@ public class freeBookingController {
 		return "fbookingDetail.tiles";
 	}
 	
+	@RequestMapping(value = "fbookingDelete.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String fbookingDelete(Model model,HttpServletRequest request) throws Exception {
+		int free_b_seq = Integer.parseInt(request.getParameter("seq"));
+		
+		fservice.fbookingDelete(free_b_seq);
+		return "redirect:/fbookingList.do";
+	}
 	
 	
 	
