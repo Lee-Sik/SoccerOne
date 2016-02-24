@@ -45,8 +45,7 @@ function popupMessage(){
 <td><a href="" onclick="popupMessage()">
 새로운 쪽지가 ${fn:length(messagecheck1) }개 있습니다.</a></td></c:if>
 <td>
-<input type="button" value="message" onclick="javascript:window.open('messagedetail.do?receiver_user_email=${login.user_email}','',
-'width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+<input type="button" value="message" onclick="popupMessage()">
 </td>
 
 
