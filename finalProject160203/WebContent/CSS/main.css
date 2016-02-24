@@ -1,6 +1,11 @@
 @CHARSET "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
+	A:link {text-decoration:none; color:#333333}
+	A:visited {text-decoration:none; color:#333333}
+	A:active {text-decoration:none; color:#333333}
+	A:hover {text-decoration:underline; color:#333333}
+	
 body{
 	text-align:center;
 	font-size:12px;

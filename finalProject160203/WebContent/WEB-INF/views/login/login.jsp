@@ -37,16 +37,17 @@ function popupMessage(){
 <c:if test="${empty messagecheck }">
 <table style="width: 100%"><tr><td style="text-align: center">${fn:length(messagecheck) }</td></tr></table></td><td>
 <a href="" onclick="popupMessage()">
-도착한 쪽지가 없습니다.</a></td></c:if>
+도착한 쪽지가 없습니다. 
+<img src="./image/not_message.png"/></a></td></c:if>
 <c:if test="${not empty messagecheck }">
 
 
 <table style="width: 100%"><tr><td style="text-align: center">${fn:length(messagecheck1) }</td></tr></table></td> 
 <td><a href="" onclick="popupMessage()">
-새로운 쪽지가 ${fn:length(messagecheck1) }개 있습니다.</a></td></c:if>
-<td>
-<input type="button" value="message" onclick="popupMessage()">
-</td>
+새로운 쪽지가 ${fn:length(messagecheck1)}개 있습니다.<img src="./image/ok_message.png"/></a></td></c:if>
+<!-- <td> -->
+<!-- <input type="button" value="message" onclick="popupMessage()"> -->
+<!-- </td> -->
 
 
 </tr>
