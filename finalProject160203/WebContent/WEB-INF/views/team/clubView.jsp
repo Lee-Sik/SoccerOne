@@ -368,8 +368,7 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 			</a> <c:forEach var="j" items="${getmycal }" >
 					<c:if test="${i eq j.getRdate().substring(6, 8)}">
 
-						<a
-							href="javascript:window.open('caldetail.do?rdate=${j.getRdate() }&team_name=${j.getTeam_name()}','',
+						<a href="javascript:window.open('caldetail.do?rdate=${j.getRdate() }&team_name=${j.getTeam_name()}','',
                                      'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 							<img src='image/on.png'>
 						</a>

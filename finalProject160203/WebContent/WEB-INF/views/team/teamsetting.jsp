@@ -181,17 +181,40 @@
 						</a> </td>
 					</c:if>
 				</tr>
+				
 				<tr>
 					<th>팀원 구인 유무</th>
-					<td style="text-align: center"><input id="cmn-toggle-1"
+					
+					<td style="text-align: center">
+					<c:if test="${team.team_join == 0}">
+					<input id="cmn-toggle-1"
 						class="cmn-toggle cmn-toggle-round" name="team_join"
-						type="checkbox"> <label for="cmn-toggle-1"></label></td>
+						type="checkbox"><label for="cmn-toggle-1"></label>
+					</c:if>
+					
+					<c:if test="${team.team_join == 1}">
+					<input id="cmn-toggle-1"
+					class="cmn-toggle cmn-toggle-round" name="team_join"
+					type="checkbox" checked="checked"><label for="cmn-toggle-1"></label>	
+					</c:if>
+					</td>
 				</tr>
+				
 				<tr>
 					<th>팀 정보 공개 유무</th>
-					<td style="text-align: center"><input id="cmn-toggle-2"
+					<td style="text-align: center">
+					<c:if test="${team.team_open == 0}">
+					<input id="cmn-toggle-2"
 						class="cmn-toggle cmn-toggle-round" name="team_open"
-						type="checkbox"> <label for="cmn-toggle-2"></label></td>
+						type="checkbox"> <label for="cmn-toggle-2"></label>
+					</c:if>
+					
+					<c:if test="${team.team_open == 1}">
+					<input id="cmn-toggle-2"
+					class="cmn-toggle cmn-toggle-round" name="team_open"
+					type="checkbox" checked="checked"><label for="cmn-toggle-2"></label>
+					</c:if>
+					</td>
 				</tr>
 
 			</table>

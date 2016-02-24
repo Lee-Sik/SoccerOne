@@ -3,7 +3,7 @@ ALTER TABLE FOOT_TEAM_LEAGE
 ADD (CONSTRAINT fk_team_name_league) FOREIGN KEY (TEAM_NAME) REFERENCES FOOT_TEAM (TEAM_NAME);
 
 
-
+select * from FOOT_TEAMCAL
 
 
 create table foot_gallery(                    --친선경기 게시판 
