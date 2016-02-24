@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://mbostock.github.com/d3/d3.v2.js"></script>
+<link href="CSS/clubview.css" rel="stylesheet" type="text/css">
 
  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <title>Insert title here</title>
@@ -33,21 +34,21 @@
 			  stroke: #000;
 			}
 		</style>
-<style>
-table.qwe {
-	font-size: 12pt;
-	font-family: -윤고딕310;
-	border-collapse: collapse;
-}
+<!-- <style> -->
+<!-- /* table.qwe { */ -->
+<!-- /* 	font-size: 12pt; */ -->
+<!-- /* 	font-family: -윤고딕310; */ -->
+<!-- /* 	border-collapse: collapse; */ -->
+<!-- /* } */ -->
 
-td {
-	text-align: center;
-}
+<!-- /* td { */ -->
+<!-- /* 	text-align: center; */ -->
+<!-- /* } */ -->
 
-table, tr, td {
-	border: 1px solid lightgray;
-}
-</style>
+<!-- /* table, tr, td { */ -->
+<!-- /* 	border: 1px solid lightgray; */ -->
+<!-- /* } */ -->
+<!-- </style> -->
 </head>
 <script>
 longpass=[];
@@ -130,7 +131,7 @@ $(document).ready(function(){
 
 <body>
 
-	<table style="width: 100%">
+	<table class="list_table" style="width: 85%">
 
 
 		<tr>
@@ -140,7 +141,7 @@ $(document).ready(function(){
 			<td>
 				<table style="width: 100%" class="qwe">
 					<tr>
-						<th colspan="2" style="background-color: lightgray;">클럽과 나의
+						<th colspan="2">클럽과 나의
 							연결고리</th>
 					</tr>
 					<tr>

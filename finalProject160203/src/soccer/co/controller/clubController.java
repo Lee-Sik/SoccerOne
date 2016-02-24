@@ -232,7 +232,7 @@ public class clubController {
 	public String clubmyinform(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {	
 		logger.info("clubmyinform join!");
 		
-		
+		model.addAttribute("title", "내 정보");
 		return "clubmyinform.tiles";
 	}
 	
@@ -243,6 +243,7 @@ public class clubController {
 		foot_team_DTO team=(foot_team_DTO)session.getAttribute("team");
 		List<foot_user_DTO> teamMemberList = clubservice.getTeamMember(team.getTeam_name());
 		model.addAttribute("getteammember", teamMemberList);
+		model.addAttribute("title", "클럽 설정");
 		return "teamsetting.tiles";
 	}
 	
