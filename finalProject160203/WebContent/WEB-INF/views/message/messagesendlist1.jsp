@@ -56,11 +56,10 @@ function func1(){
 	</tr>
 	
 	<tr>
-		<th colspan="2">
-		
+		<td colspan="2">
 		<input type="button" value="목록" onclick="location.href='messagedetail.do'">
 		<input type="button" value="닫기" onclick="func1()">
-		</th>
+		</td>
 	</tr>
 </table>
 

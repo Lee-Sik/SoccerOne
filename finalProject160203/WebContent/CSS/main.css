@@ -26,6 +26,9 @@ body{
 #header img{
 	max-width:394px;
 }
+#header a{
+	text-decoration: none;
+}
 #menu{
 	text-align: center;
 	width:100%;
