@@ -35,7 +35,7 @@ function func1(){
 <td>팀가입신청</td>
 </c:if>
 <c:if test="${messagedetail1.message_type eq 'message'}">
-<td>팀가입신청</td>
+<td>메세지</td>
 </c:if>
 </tr>
 
