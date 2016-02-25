@@ -140,11 +140,6 @@ public class clubController {
 		 * */
 		
 		foot_user_DTO login = (foot_user_DTO) req.getSession().getAttribute("login");
-		ArrayList<foot_message_DTO> list = messageservice.messagecheck(login);
-		ArrayList<foot_message_DTO> list1 = messageservice.messagecheck1(login);
-		model.addAttribute("messagecheck", list);
-		model.addAttribute("messagecheck1", list1);
-		
 		foot_team_DTO team=(foot_team_DTO)session.getAttribute("team");
 		
 		if(team !=null){

@@ -18,25 +18,24 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     jsonpCallback: 'callback',
     type: 'get',
     success: function (data) {
+    	
     	messagecheck  =data[1];
 		messagecheck1 =data[3];
 		
     	var table = document.createElement("div");// 1.노드를 생성한다.
     	
-    	
     	var td = document.createElement("td");
 		if(messagecheck==0){
 			table.innerHTML ='<div style="text-align: center"><span class="messagecheck" style="text-align: center"></span></div>';
 		
-		td.innerHTML='<a href="" onclick="popupMessage()"> 도착한 쪽지가 없습니다. <imgsrc="./image/not_message.png" /></a>';
+		td.innerHTML='<a href="" onclick="popupMessage()"> 도착한 쪽지가 없습니다.</a>';
 		
 		}else{
 			table.innerHTML ='<div style="text-align: center"><span class="messagecheck1" style="text-align: center"></span></div>';
 			
 		td.innerHTML='<a href="" onclick="popupMessage()"> 새로운 쪽지가'
-		+		'<span class="messagecheck1" ></span>개 있습니다.<imgsrc="./image/ok_message.png" />'
+		+		'<span class="messagecheck1" ></span>개 있습니다.'
 		+'</a>';
-		
 		}
    	 
 		document.getElementById('loginBasket1').appendChild(td);
