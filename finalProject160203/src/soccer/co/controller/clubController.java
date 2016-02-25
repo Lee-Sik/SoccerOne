@@ -104,12 +104,26 @@ public class clubController {
 		HttpSession session=req.getSession();
 		foot_user_DTO user=(foot_user_DTO)session.getAttribute("login");
 		List<FOOT_USER_RECORD> userRecordList = clubservice.getMyRecord(user);
-		//System.out.println(userRecordList.get(0).toString());
+		
 		return userRecordList;
 	}
 	
-	
-	
+	@RequestMapping(value = "getMyMessage.do", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public List getMyMessage(HttpServletRequest req,Model model){
+		logger.info("getMyMessage do!");
+		
+		HttpSession session=req.getSession();
+		foot_user_DTO login = (foot_user_DTO) req.getSession().getAttribute("login");
+		ArrayList<foot_message_DTO> list = messageservice.messagecheck(login);
+		ArrayList<foot_message_DTO> list1 = messageservice.messagecheck1(login);
+		
+		ArrayList MyMessage = new ArrayList();
+		MyMessage.add(list.size());
+		MyMessage.add(list1.size());
+		
+		return MyMessage;
+	}
 	
 	@RequestMapping(value = "club.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String club(String cal,foot_cal_DTO cdto,foot_user_DTO fudto,Model model, HttpServletRequest req) throws Exception {	
