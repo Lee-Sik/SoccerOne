@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_message_DTO;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
+import soccer.co.Service.foot_communityService;
 import soccer.co.Service.foot_messageService;
 import soccer.co.Service.foot_userService;
 
@@ -30,6 +33,8 @@ public class userController {
 	foot_userService fuservice;
 	@Autowired
 	foot_messageService messageservice;
+	@Autowired
+	private foot_communityService BBSService;//IoC
 
 	private static final Logger logger = LoggerFactory.getLogger(userController.class);
 
@@ -73,8 +78,11 @@ public class userController {
 	}
 
 	@RequestMapping(value = "login1.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String login1(Model model) {
+	public String login1(Model model) throws Exception{
 		logger.info("Welcome HelloMemberController login1! " + new Date());
+		
+		List<foot_community_DTO> bbslist=BBSService.getBBSList();
+		model.addAttribute("bbslist", bbslist);
 
 		return "login.tiles";
 	}
