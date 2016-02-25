@@ -9853,8 +9853,8 @@ div.bbs div.bbs-tab-area ul li a {
 }
 
 div.bbs div.bbs-tab-area ul li:first-child {
-	width: 7.2%; !
-	width: 60px;
+/* 	width: 7.2%; ! */
+/* 	width: 60px; */
 }
 
 div.bbs div.bbs-tab-area ul li:first-child a {
@@ -10379,8 +10379,8 @@ div.booking_wrap div.tab_area ul.tab li a {
 }
 
 div.booking_wrap div.tab_area ul.tab li:first-child {
-	width: 7.2%; !
-	width: 58px;
+/* 	width: 7.2%; ! */
+/* 	width: 58px; */
 }
 
 div.booking_wrap div.tab_area ul.tab li:first-child a {
@@ -10680,7 +10680,7 @@ div.booking_wrap div.game_booking ul.game_booking a:hover span.area {
 } /*부킹인포(캘린더,부킹최근글리스트)*/
 div.booking_wrap div.schedule_info {
 	border: 1px solid #b6b5bd;
-	padding: 25px 9px;
+	padding: 5px 9px;
 	border-top: 0;
 	margin-top: -1px;
 	background: #fff;
@@ -10695,7 +10695,7 @@ div.booking_wrap div.schedule_info:after {
 
 div.booking_wrap div.schedule_info div.calendar {
 	float: left;
-	margin-right: 9px;
+	margin-left: 20px;
 }
 
 div.booking_wrap div.schedule_info div.game_booking {
