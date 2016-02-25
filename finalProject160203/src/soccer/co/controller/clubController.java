@@ -74,7 +74,7 @@ public class clubController {
 			m.get("user_position1").toString(),m.get("user_position2").toString(), 
 			m.get("user_position3").toString(), m.get("user_address").toString(), 
 			m.get("user_profile").toString(), m.get("user_team").toString(),
-			(int)m.get("user_helper"), (int)m.get("user_enabled"), m.get("user_speed").toString(), 
+			(int)m.get("user_helper"), (int)m.get("user_enabled"),(int)m.get("user_speed"), 
 			m.get("user_attendrate").toString(), m.get("user_attendtime").toString(), m.get("user_goal").toString(), 
 			(int)m.get("x"), (int)m.get("y"));
 			//System.out.println(tmpUserDTO.toString());
@@ -93,7 +93,6 @@ public class clubController {
 		HttpSession session=req.getSession();
 		foot_team_DTO team=(foot_team_DTO)session.getAttribute("team");
 		List<foot_user_DTO> teamMemberList = clubservice.getTeamMember(team.getTeam_name());
-		
 		return teamMemberList;
 	}
 	
@@ -105,7 +104,7 @@ public class clubController {
 		HttpSession session=req.getSession();
 		foot_user_DTO user=(foot_user_DTO)session.getAttribute("login");
 		List<FOOT_USER_RECORD> userRecordList = clubservice.getMyRecord(user);
-		
+		//System.out.println(userRecordList.get(0).toString());
 		return userRecordList;
 	}
 	
@@ -311,7 +310,6 @@ public class clubController {
 		fudto.setUser_name(originteamname);
 		System.out.println(team1.toString());
 		clubservice.modifyteam(team1,fudto,originteamname);
-		
 		
 		return "redirect:club.do";
 	}

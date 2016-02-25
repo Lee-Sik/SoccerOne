@@ -49,7 +49,7 @@ public class foot_user_DTO {
 	private int user_enabled;
 	
 	
-	private String user_speed;
+	private int user_speed;
 	private String user_attendrate;
 	private String user_attendtime;
 	private String user_goal;
@@ -103,7 +103,7 @@ public class foot_user_DTO {
 	public foot_user_DTO(String user_email, String user_pw, String user_name, String user_birth, int user_age,
 			String user_phone, int user_high, int user_weight, int user_foot, String user_position1,
 			String user_position2, String user_position3, String user_address, String user_profile, String user_team,
-			int user_helper, int user_enabled, String user_speed, String user_attendrate, String user_attendtime,
+			int user_helper, int user_enabled, int user_speed, String user_attendrate, String user_attendtime,
 			String user_goal) {
 		super();
 		this.user_email = user_email;
@@ -135,7 +135,7 @@ public class foot_user_DTO {
 			int user_weight, int user_foot, String user_position1,
 			String user_position2, String user_position3, String user_address,
 			String user_profile, String user_team, int user_helper,
-			int user_enabled, String user_speed, String user_attendrate,
+			int user_enabled, int user_speed, String user_attendrate,
 			String user_attendtime, String user_goal, int x, int y) {
 		super();
 		this.user_email = user_email;
@@ -210,7 +210,7 @@ public class foot_user_DTO {
 			int user_weight, int user_foot, String user_position1,
 			String user_position2, String user_position3, String user_address,
 			String user_profile, String user_team, int user_helper,
-			int user_enabled, String user_speed, String user_attendrate,
+			int user_enabled, int user_speed, String user_attendrate,
 			String user_attendtime, String user_goal, int x, int y, int attack,
 			int defender, int physic, int mind, int stamina) {
 		super();
@@ -362,10 +362,10 @@ public class foot_user_DTO {
 	public void setUser_enabled(int user_enabled) {
 		this.user_enabled = user_enabled;
 	}
-	public String getUser_speed() {
+	public int getUser_speed() {
 		return user_speed;
 	}
-	public void setUser_speed(String user_speed) {
+	public void setUser_speed(int user_speed) {
 		this.user_speed = user_speed;
 	}
 	public String getUser_attendrate() {

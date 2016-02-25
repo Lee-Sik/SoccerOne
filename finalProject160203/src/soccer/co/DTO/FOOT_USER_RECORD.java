@@ -7,7 +7,8 @@ public class FOOT_USER_RECORD {
 	int longpass;
 	int shotpass;
 	int goal;
-	int playtime;
+	int play_time;
+	
 	Date game_record_day;
 	
 	public FOOT_USER_RECORD() {
@@ -15,13 +16,13 @@ public class FOOT_USER_RECORD {
 	}
 
 	public FOOT_USER_RECORD(String user_email, int longpass, int shotpass,
-			int goal, int playtime, Date game_record_day) {
+			int goal, int play_time, Date game_record_day) {
 		super();
 		this.user_email = user_email;
 		this.longpass = longpass;
 		this.shotpass = shotpass;
 		this.goal = goal;
-		this.playtime = playtime;
+		this.play_time = play_time;
 		this.game_record_day = game_record_day;
 	}
 
@@ -57,12 +58,14 @@ public class FOOT_USER_RECORD {
 		this.goal = goal;
 	}
 
-	public int getPlaytime() {
-		return playtime;
+	
+
+	public int getPlay_time() {
+		return play_time;
 	}
 
-	public void setPlaytime(int playtime) {
-		this.playtime = playtime;
+	public void setPlay_time(int play_time) {
+		this.play_time = play_time;
 	}
 
 	public Date getGame_record_day() {
@@ -77,8 +80,9 @@ public class FOOT_USER_RECORD {
 	public String toString() {
 		return "FOOT_USER_RECORD [user_email=" + user_email + ", longpass="
 				+ longpass + ", shotpass=" + shotpass + ", goal=" + goal
-				+ ", playtime=" + playtime + ", game_record_day="
+				+ ", play_time=" + play_time + ", game_record_day="
 				+ game_record_day + "]";
 	}
+
 	
 }

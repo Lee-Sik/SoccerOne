@@ -243,6 +243,7 @@ input.cmn-toggle-round + label {
   -o-border-radius: 60px;
   border-radius: 60px;
 }
+
 input.cmn-toggle-round + label:before, input.cmn-toggle-round + label:after {
   display: block;
   position: absolute;

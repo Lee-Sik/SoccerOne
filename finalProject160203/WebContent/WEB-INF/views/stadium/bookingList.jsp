@@ -74,7 +74,7 @@ $(document).ready(function () {
 			<li class=""><a href="./bookingList.do?mode=area&area=중구">중 구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=구로구">구로구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=강서구">강서구</a></li>
-			<li class="" style="width: 60px;"><a href="./bookingList.do?mode=area&area=동작구">동작구</a></li>
+			<li class="" style="width: 75px;"><a href="./bookingList.do?mode=area&area=동작구">동작구</a></li>
 			<!-- <li class="" style="padding-left: 10.5px;"></li> -->
 			<li class=""><a href="./bookingList.do?mode=area&area=관악구">관악구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=노원구">노원구</a></li>
@@ -98,13 +98,13 @@ $(document).ready(function () {
 	 <div class="schedule_info">
 		<div class="calendar">
 	<form name="f1" action="">	
-	<div id="testDatepicker" style="margin-top: -10px;">
+	<div id="testDatepicker" style="margin-top: -10px; margin-left: -20px;">
 		<input type="hidden" name="booking_day" id="testDatepicker">
 	</div>
 	</form>
 		</div>
 	 
-		<div class="game_booking" style="margin-left: 225px; margin-top: -215px; width: 70%;">
+		<div class="game_booking" style="margin-left: 270px; margin-top: -215px; width: 70%;">
 			<h4>게임부킹</h4>
 			<a href="/booking/board/list?board_idx=22" class="more">게임부킹 더보기</a>
 			<ul class="game_booking" style="margin-top: -18px;">

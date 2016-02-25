@@ -5,50 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="http://mbostock.github.com/d3/d3.v2.js"></script>
+
+
 <link href="CSS/clubview.css" rel="stylesheet" type="text/css">
 
  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <title>Insert title here</title>
-<style>
-         /* tell the SVG path to be a thin blue line without any area fill */
-         path {
-            stroke: steelblue;
-            stroke-width: 1;
-            fill: none;
-         }
-         
-         .axis {
-           shape-rendering: crispEdges;
-         }
-         .x.axis line {
-           stroke: lightgrey;
-         }
-         .x.axis .minor {
-           stroke-opacity: .5;
-         }
-         .x.axis path {
-           display: none;
-         }
-         .y.axis line, .y.axis path {
-           fill: none;
-           stroke: #000;
-         }
-      </style>
-<!-- <style> -->
-<!-- /* table.qwe { */ -->
-<!-- /*    font-size: 12pt; */ -->
-<!-- /*    font-family: -윤고딕310; */ -->
-<!-- /*    border-collapse: collapse; */ -->
-<!-- /* } */ -->
 
-<!-- /* td { */ -->
-<!-- /*    text-align: center; */ -->
-<!-- /* } */ -->
-
-<!-- /* table, tr, td { */ -->
-<!-- /*    border: 1px solid lightgray; */ -->
-<!-- /* } */ -->
-<!-- </style> -->
 </head>
 <script>
 longpass=[];
@@ -65,64 +28,138 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     jsonpCallback: 'callback',
     type: 'get',
     success: function (data) {
-       
+       console.log(data);
        for(var i=0;i<data.length;i++){
-           longpass.push(data[i].longpass);// kk에 json 객체 담기 
-           shotpass.push(data[i].shotpass);// kk에 json 객체 담기 
-           goal.push(data[i].goal);// kk에 json 객체 담기 
-           play_time.push(data[i].play_time);// kk에 json 객체 담기 
-           game_record_day.push(data[i].game_record_day);// kk에 json 객체 담기 
+    	  
+           longpass.push(data[i].longpass);              // 긴 패스 성공률 
+           shotpass.push(data[i].shotpass);              // 짧은 패스 성공률 
+           goal.push(data[i].goal);						 // 득점
+           play_time.push(data[i].play_time);			 // 출장 시간 
+           game_record_day.push(data[i].game_record_day);//경기 날짜
        }
-       
-       //--------------line 그래프-----------------------------------
-       /* implementation heavily influenced by http://bl.ocks.org/1166403 */
-       // define dimensions of graph
-       var m = [80, 80, 80, 80]; // margins
-       var w = 400 - m[1] - m[3]; // width
-       var h = 400 - m[0] - m[2]; // height
-
-       // create a simple data array that we'll plot with a line (this array represents only the Y values, X will just be the index location)
-       var data = [3, 6, 2, 7, 5, 2, 0, 3, 8, 9, 2, 5, 9, 3, 6, 3, 6, 2, 7, 5, 2, 1, 3, 8, 9, 2, 5, 9, 2, 7];
-       // X scale will fit all values from data[] within pixels 0-w
-       var x = d3.scale.linear().domain([0, longpass.length]).range([0, w]);
-       // Y scale will fit values from 0-10 within pixels h-0 (Note the inverted domain for the y-scale: bigger is up!)
-       var y = d3.scale.linear().domain([0, 100]).range([h, 0]);
-          // automatically determining max range can work something like this
-          // var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
-       // create a line function that can convert data[] into x and y points
-       var line = d3.svg.line()
-          // assign the X function to plot our line as we wish
-          .x(function(d,i) { 
-             return x(i); 
-          })
-          .y(function(d) { 
-             return y(d); 
-          })
-          // Add an SVG element with the desired dimensions and margin.
-          var graph = d3.select("#graph").append("svg:svg")
-                .attr("width", w + m[1] + m[3])
-                .attr("height", h + m[0] + m[2])
-              .append("svg:g")
-                .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
-          // create yAxis
-          var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
-          // Add the x-axis.
-          graph.append("svg:g")
-                .attr("class", "x axis")
-                .attr("transform", "translate(0," + h + ")")
-                .call(xAxis);
-          // create left yAxis
-          var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
-          // Add the y-axis to the left
-          graph.append("svg:g")
-                .attr("class", "y axis")
-                .attr("transform", "translate(-25,0)")
-                .call(yAxisLeft);
-          
-             // Add the line by appending an svg:path element with the data line we created above
-          // do this AFTER the axes above so that the line is above the tick-lines
-             graph.append("svg:path").attr("d", line(longpass));
-          //------------------------------------------------------------------------
+       //-----------------------
+ $(function () {
+    		
+    $('#passGraph').highcharts({
+        title: {
+            text: '패스 성공률',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '나의 최근 5경기 패스 성공률',
+            x: -20
+        },
+        xAxis: {
+            categories: game_record_day
+        },
+        yAxis: {
+            title: {
+                text: '패스 성공률(100%)'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: '%',
+            shared: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'Long Pass',
+            data: longpass
+        }, {
+            name: 'Short Pass',
+            data: shotpass
+        }]
+    });
+    		//------------------------
+    	    $('#goalGraph').highcharts({
+    	        title: {
+    	            text: '득점',
+    	            x: -20 //center
+    	        },
+    	        subtitle: {
+    	            text: '나의 최근 5경기 득점',
+    	            x: -20
+    	        },
+    	        xAxis: {
+    	            categories: game_record_day
+    	        },
+    	        yAxis: {
+    	            title: {
+    	                text: '패스 성공률(100%)'
+    	            },
+    	            plotLines: [{
+    	                value: 0,
+    	                width: 1,
+    	                color: '#808080'
+    	            }]
+    	        },
+    	        tooltip: {
+    	            valueSuffix: 'Goal',
+    	            shared: true
+    	        },
+    	        legend: {
+    	            layout: 'vertical',
+    	            align: 'right',
+    	            verticalAlign: 'middle',
+    	            borderWidth: 0
+    	        },
+    	        series: [{
+    	            name: 'Goal',
+    	            data: goal
+    	        }]
+    	    });
+    		
+    	    $('#playTimeGraph').highcharts({
+    	        title: {
+    	            text: '출장 시간',
+    	            x: -20 //center
+    	        },
+    	        subtitle: {
+    	            text: '나의 최근 5경기 시간',
+    	            x: -20
+    	        },
+    	        xAxis: {
+    	            categories: game_record_day
+    	        },
+    	        yAxis: {
+    	            title: {
+    	                text: '출장 시간'
+    	            },
+    	            plotLines: [{
+    	                value: 0,
+    	                width: 1,
+    	                color: '#808080'
+    	            }]
+    	        },
+    	        tooltip: {
+    	            valueSuffix: 'Time',
+    	            shared: true
+    	        },
+    	        legend: {
+    	            layout: 'vertical',
+    	            align: 'right',
+    	            verticalAlign: 'middle',
+    	            borderWidth: 0
+    	        },
+    	        series: [{
+    	            name: '출장 시간',
+    	            data: play_time
+    	        }]
+    	    });
+    		
+});
+       //-----------------------
+      
     }
 });
 
@@ -132,19 +169,69 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     jsonpCallback: 'callback',
     type: 'get',
     success: function (data) {
-       
+    	
         for(var i=0;i<data.length;i++){
-           myTeamMember.push(data[i]);// kk에 json 객체 담기 
-           // alert(data[i]);
-         }
+        	
+        	var tmp = {
+        		    name: data[i].user_name,
+        		    data:[data[i].attack,data[i].defender,data[i].user_speed,data[i].physic,data[i].mind,data[i].stamina],
+        		    pointPlacement: 'on'
+        		    	
+        		};
+        	
+           myTeamMember.push(tmp);// kk에 json 객체 담기 
+           
+        }
+           
+           $(function () {
+
+        	    $('#container').highcharts({
+        	        chart: {
+        	            polar: true,
+        	            type: 'line'
+        	        },
+        	        title: {
+        	            text: '능력치',
+        	            x: -80
+        	        },
+        	        pane: {
+        	            size: '80%'
+        	        },
+        	        xAxis: {// 육각형 꼭지점의 능력
+        	            categories: ['공격', '수비', '스피드', '몸 싸움',
+        	                    '맨탈', '체력'],
+        	            tickmarkPlacement: 'on',
+        	            lineWidth: 0
+        	        },
+
+        	        yAxis: {
+        	            gridLineInterpolation: 'polygon',
+        	            lineWidth: 0,
+        	            min: 0,
+        	            max:100
+        	        },
+
+        	        legend: {
+        	            align: 'right',
+        	            verticalAlign: 'top',
+        	            y: 70,
+        	            layout: 'vertical',
+        	           
+        	        },
+
+        	        series: myTeamMember
+
+        	    });
+        	});
+         
     }
 });
 
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
    
-});
+// });
 </script>
 
 <body>
@@ -215,61 +302,16 @@ $(document).ready(function(){
       </tr>
       <tr>
          <td colspan="2">
-            <div id="graph" class="aGraph" ></div>
+            
             <div id="container" style="min-width: 400px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+        	<div id="passGraph" class="Graph" ></div>
+        	<div id="goalGraph" class="Graph" ></div>
+        	<div id="playTimeGraph" class="Graph" ></div>
+        	
          </td>
       </tr>
    </table>
-      <script type="text/javascript">
-$(function () {
-
-    $('#container').highcharts({
-        chart: {
-            polar: true,
-            type: 'line'
-        },
-        title: {
-            text: 'Budget vs spending',
-            x: -80
-        },
-        pane: {
-            size: '80%'
-        },
-        xAxis: {// 육각형 꼭지점의 능력
-            categories: ['Sales', 'Marketing', 'Development', 'Customer Support',
-                    'Information Technology', 'Administration'],
-            tickmarkPlacement: 'on',
-            lineWidth: 0
-        },
-
-        yAxis: {
-            gridLineInterpolation: 'polygon',
-            lineWidth: 0,
-            min: 0
-        },
-
-        legend: {
-            align: 'right',
-            verticalAlign: 'top',
-            y: 70,
-            layout: 'vertical'
-        },
-
-        series: [{//비교 대상을 넣을 수 있는 배열
-            name: 'Allocated Budget',
-            data: [43000, 19000, 60000, 35000, 17000, 10000],
-            pointPlacement: 'on'
-        }, {
-            name: 'Actual Spending',
-            //시계방향으로 돌아가면서 들어감
-            data: [50000, 39000, 42000, 31000, 26000, 14000],
-            pointPlacement: 'on'
-        }]
-
-    });
-});
-      </script>
-
+   
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>

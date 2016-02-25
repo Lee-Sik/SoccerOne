@@ -84,10 +84,14 @@ public class foot_team_DAO {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("originteamname", originteamname);
 		map.put("team", team);
+		System.out.println(originteamname.toString());
+		System.out.println(team.toString());
+		
 		
 		sql.update(ns+"modifyteam", map);
 		
 		sql.update(ns1+"modifyteam1",fudto);
+		
 		return true;
 	}
 
