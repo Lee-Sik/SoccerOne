@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="foot_message">
 	<insert id="message" parameterType="soccer.co.DTO.foot_message_DTO">
 		insert into foot_message values(no_message.nextval,#{sender_user_email},#{message_type},
-									#{receiver_user_email},0,sysdate,#{message},0,0,0)
+									#{receiver_user_email},0,sysdate,#{message},#{teamapplymegre},#{mercenaryre},#{matchingre})
 	</insert>
 	<select id="messagecheck" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.foot_message_DTO">
 	select * from foot_message where receiver_user_email=#{user_email}
@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<update id="teamapply" parameterType="soccer.co.DTO.foot_message_DTO">
-	update foot_message set teamapplymegre=1 where no=#{no} 
+	update foot_message set teamapplymegre=0 where no=#{no} 
 	</update>
 	
 	<select id="messagesendlist" parameterType="soccer.co.DTO.foot_message_DTO" resultType="soccer.co.DTO.foot_message_DTO">

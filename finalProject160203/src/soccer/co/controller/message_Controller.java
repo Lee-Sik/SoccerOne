@@ -40,6 +40,9 @@ public class message_Controller {
 	@RequestMapping(value = "teamapplymeg.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String teamapplymeg(foot_message_DTO fmdto, HttpServletRequest request, Model model) throws Exception {	
 		logger.info("Welcome message_Controller teamapplymeg! "+ new Date());
+		fmdto.setMercenaryre(0);
+		fmdto.setTeamapplymegre(1);
+		fmdto.setMatchingre(0);
 		messageservice.message(fmdto);
 		
 		return "exit1.tiles";
@@ -75,11 +78,13 @@ public class message_Controller {
 		fmdto1.setReceiver_user_email(fmdto.getSender_user_email());
 		fmdto1.setMessage_type("teamapplymeg");
 		fmdto1.setMessage("팀 가입에 승인 되었습니다. 환영합니다.");
-		if(fmdto.getMessage_type().equals("teamapplymeg")){
-			messageservice.teamapply(fmdto);
-		}
 		
+		fmdto.setMercenaryre(0);
+		fmdto.setTeamapplymegre(0);
+		fmdto.setMatchingre(0);
+		messageservice.teamapply(fmdto);
 		messageservice.message(fmdto1);
+		
 		
 		foot_user_DTO fudto = new foot_user_DTO();
 		foot_user_DTO fudto1 = (foot_user_DTO) request.getSession().getAttribute("login");
@@ -99,9 +104,10 @@ public class message_Controller {
 		fmdto1.setReceiver_user_email(fmdto.getSender_user_email());
 		fmdto1.setMessage_type("teamapplymeg");
 		fmdto1.setMessage("팀 가입에 거절 되었습니다. 죄송합니다.");
-		if(fmdto.getMessage_type().equals("teamapplymeg")){
-			messageservice.teamapply(fmdto);
-		}
+		messageservice.teamapply(fmdto);
+		fmdto.setMercenaryre(0);
+		fmdto.setTeamapplymegre(0);
+		fmdto.setMatchingre(0);
 		messageservice.message(fmdto1);
 		return "redirect:messagedetail.do";
 	}
@@ -118,6 +124,9 @@ public class message_Controller {
 		@RequestMapping(value = "messageanswer1.do", method = {RequestMethod.GET,RequestMethod.POST})	
 		public String messageanswer1(foot_message_DTO fmdto, HttpServletRequest request, Model model) throws Exception {	
 			logger.info("Welcome message_Controller messageanswer1! "+ new Date());
+			fmdto.setMercenaryre(0);
+			fmdto.setTeamapplymegre(0);
+			fmdto.setMatchingre(0);
 			messageservice.message(fmdto);
 			return "redirect:messagedetail.do";
 		}
@@ -131,7 +140,9 @@ public class message_Controller {
 		@RequestMapping(value = "messagesend1.do", method = {RequestMethod.GET,RequestMethod.POST})	
 		public String messagesend1(foot_message_DTO fmdto,HttpServletRequest request, Model model) throws Exception {	
 			logger.info("Welcome message_Controller messagesend! "+ new Date());
-			
+			fmdto.setMercenaryre(0);
+			fmdto.setTeamapplymegre(0);
+			fmdto.setMatchingre(0);
 			messageservice.message(fmdto);
 			return "redirect:messagedetail.do";
 		}

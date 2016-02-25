@@ -46,7 +46,7 @@ function func1(){
 		<th>내용</th>
 		<td>${messagedetail1.message }</td>
 	</tr>
-<c:if test="${messagedetail1.teamapplymegre eq '0' }">
+<c:if test="${messagedetail1.teamapplymegre eq '1' }">
 	<tr>
 		<th colspan="2">
 		<input type="button" value="승인" onclick="location.href='teamapplyallow.do?message_type=${messagedetail1.message_type}&no=${messagedetail1.no }&sender_user_email=${messagedetail1.sender_user_email}&receiver_user_email=${messagedetail1.receiver_user_email}'">
