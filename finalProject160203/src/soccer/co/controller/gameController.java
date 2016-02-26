@@ -174,7 +174,6 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	public String ranking( Model model) throws Exception {	
 		logger.info("Welcome gameController ranking! "+ new Date());
 
-		
 		model.addAttribute("title", "랭킹");
 
 		return "ranking.tiles";

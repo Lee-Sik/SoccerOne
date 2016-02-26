@@ -14,7 +14,7 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="CSS/script.js"></script>
-<title>홈페이지</title>
+<title>사커원에 오신걸 환영합니다.!!!</title>
 
 </head>
 <body>
