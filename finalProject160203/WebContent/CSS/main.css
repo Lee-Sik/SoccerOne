@@ -79,13 +79,13 @@ body{
    height:600px;
 }
 .loginview{
-   font-family: -윤고딕310;
-   font-size: 10pt;
+   font-family: Montserrat, sans-serif;
+
    text-align: center;
 }
 .myinform{
-   font-size: 12pt;
-   font-family: -윤고딕310;
+
+   font-family: Montserrat, sans-serif;
    border-collapse: collapse;
    
 }

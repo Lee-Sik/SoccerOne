@@ -82,7 +82,8 @@ public class userController {
 	@RequestMapping(value = "login1.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login1(Model model) throws Exception{
 		logger.info("Welcome HelloMemberController login1! " + new Date());
-	
+		List<foot_community_DTO> bbslist=BBSService.getBBSList();
+		model.addAttribute("bbslist", bbslist);
 		return "login.tiles";
 	}
 
