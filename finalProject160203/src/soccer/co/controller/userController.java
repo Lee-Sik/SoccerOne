@@ -46,7 +46,7 @@ public class userController {
 	}
 
 	@RequestMapping(value = "login.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String login(foot_user_DTO fudto,HttpServletRequest request, Model model) {
+	public String login(foot_user_DTO fudto,HttpServletRequest request, Model model) throws Exception {
 		String login1 = "login.tiles";
 		int loginfalse = 0;
 		logger.info("Welcome HelloMemberController login! " + new Date());
@@ -71,6 +71,8 @@ public class userController {
 			
 			login1 = "notlogin.tiles";
 		}
+		List<foot_community_DTO> bbslist=BBSService.getBBSList();
+		model.addAttribute("bbslist", bbslist);
 		
 		request.getSession().setAttribute("team", team);
 		request.getSession().setAttribute("login", login);
@@ -80,10 +82,7 @@ public class userController {
 	@RequestMapping(value = "login1.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login1(Model model) throws Exception{
 		logger.info("Welcome HelloMemberController login1! " + new Date());
-		
-		List<foot_community_DTO> bbslist=BBSService.getBBSList();
-		model.addAttribute("bbslist", bbslist);
-
+	
 		return "login.tiles";
 	}
 

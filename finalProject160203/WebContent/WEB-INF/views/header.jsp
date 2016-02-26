@@ -5,7 +5,7 @@
 
 
 
-<a href="login1.do">
+<a href="login.do">
 <img src="image/title.png" style="size: 100%">
 </a>
 <a href="#" onclick="window.external.AddFavorite('http://' + location.hostname,'사커원');">
