@@ -39,6 +39,9 @@
 <definition name="messagedetail1.tiles" template="/WEB-INF/views/message/messagedetail1.jsp">
 </definition>
 
+<definition name="rankapply.tiles" template="/WEB-INF/views/kickoff/rankapply.jsp">
+</definition>
+
 <definition name="messageanswer.tiles" template="/WEB-INF/views/message/messageanswer.jsp">
 </definition>
 

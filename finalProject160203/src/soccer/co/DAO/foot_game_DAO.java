@@ -92,6 +92,12 @@ public class foot_game_DAO{
 				sqlse.selectList(ns+"getrankingList", rank);
 		return list;
 	}
+
+	public boolean statechange(foot_game_DTO fgdto) {
+		// TODO Auto-generated method stub
+		sqlse.update(ns+"statechange", fgdto);
+		return false;
+	}
 	
 
 

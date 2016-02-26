@@ -28,6 +28,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	update foot_message set teamapplymegre=0 where no=#{no} 
 	</update>
 	
+	<update id="matching" parameterType="soccer.co.DTO.foot_message_DTO">
+	update foot_message set matchingre=0 where no=#{no} 
+	</update>
+	
 	<select id="messagesendlist" parameterType="soccer.co.DTO.foot_message_DTO" resultType="soccer.co.DTO.foot_message_DTO">
 	select * from foot_message where sender_user_email=#{sender_user_email}
 	</select>

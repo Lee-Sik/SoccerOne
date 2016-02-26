@@ -28,6 +28,9 @@ function func1(){
 		<c:if test="${messagesendlist1.message_type eq 'teamapplymeg'}">
 		<td>팀가입신청</td>
 		</c:if>
+		<c:if test="${messagesendlist1.message_type eq 'matching'}">
+	<td>경기신청</td>
+	</c:if>
 		<c:if test="${messagesendlist1.message_type eq 'message'}">
 		<td>메세지</td>
 		</c:if>

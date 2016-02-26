@@ -29,6 +29,9 @@ function func1(){
 		<c:if test="${messagedetail1.message_type eq 'teamapplymeg'}">
 		<td>팀가입신청</td>
 		</c:if>
+		<c:if test="${messagedetail1.message_type eq 'matching'}">
+	<td>경기신청</td>
+	</c:if>
 		<c:if test="${messagedetail1.message_type eq 'message'}">
 		<td>메세지</td>
 		</c:if>
@@ -51,6 +54,15 @@ function func1(){
 		<th colspan="2">
 		<input type="button" value="승인" onclick="location.href='teamapplyallow.do?message_type=${messagedetail1.message_type}&no=${messagedetail1.no }&sender_user_email=${messagedetail1.sender_user_email}&receiver_user_email=${messagedetail1.receiver_user_email}'">
 		<input type="button" value="거부" onclick="location.href='teamapplyrefuse.do?message_type=${messagedetail1.message_type}&no=${messagedetail1.no }&sender_user_email=${messagedetail1.sender_user_email}&receiver_user_email=${messagedetail1.receiver_user_email}'">
+		
+		</th>
+	</tr>
+</c:if>
+<c:if test="${messagedetail1.matchingre != '0' }">
+	<tr>
+		<th colspan="2">
+		<input type="button" value="승인" onclick="location.href='matchingallow.do?matchingre=${messagedetail1.matchingre }&message_type=${messagedetail1.message_type}&no=${messagedetail1.no }&sender_user_email=${messagedetail1.sender_user_email}&receiver_user_email=${messagedetail1.receiver_user_email}'">
+		<input type="button" value="거부" onclick="location.href='matchingrefuse.do?matchingre=${messagedetail1.matchingre }&message_type=${messagedetail1.message_type}&no=${messagedetail1.no }&sender_user_email=${messagedetail1.sender_user_email}&receiver_user_email=${messagedetail1.receiver_user_email}'">
 		
 		</th>
 	</tr>

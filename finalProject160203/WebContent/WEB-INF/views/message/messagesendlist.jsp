@@ -48,6 +48,10 @@ function func1(){
 		<td>가입신청</td>
 		</c:if>
 		
+		<c:if test="${j.message_type eq 'matching'}">
+	<td>경기신청</td>
+	</c:if>
+		
 		<c:if test="${j.message_type eq 'message'}">
 		<td>쪽지</td>
 		</c:if>

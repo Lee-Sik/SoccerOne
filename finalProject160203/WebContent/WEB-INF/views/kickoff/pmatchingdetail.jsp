@@ -57,6 +57,17 @@
 		</c:if>
 </tr>
 
+<tr>
+
+<td>
+<c:if test="${login.user_email != pmd.team_managerid}"> 
+	<input type="button" value="경기신청" onclick="javascript:window.open('rankapply.do?game_no=${pmd.game_no}','',
+                                     'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+</c:if>
+</td>
+
+</tr>
+
 
 
 <%-- 

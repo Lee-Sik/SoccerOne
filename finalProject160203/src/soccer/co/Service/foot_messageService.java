@@ -24,6 +24,9 @@ public interface foot_messageService {
 
 	public ArrayList<foot_message_DTO> messagesendlist(foot_message_DTO fmdto);
 
+	public boolean matching(foot_message_DTO fmdto);
+
+
 
 
 }

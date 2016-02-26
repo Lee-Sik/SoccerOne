@@ -21,10 +21,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.sun.org.apache.regexp.internal.recompile;
 
 import soccer.co.DTO.foot_community_DTO;
+import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_message_DTO;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
-
+import soccer.co.Service.foot_gameService;
 import soccer.co.Service.foot_messageService;
 import soccer.co.Service.foot_userService;
 
@@ -34,6 +35,8 @@ public class message_Controller {
 	foot_userService userservice;
 	@Autowired
 	foot_messageService messageservice;
+	@Autowired
+	foot_gameService fgameservice;
 	
 	private static final Logger logger = LoggerFactory.getLogger(message_Controller.class);
 	
@@ -116,8 +119,8 @@ public class message_Controller {
 	public String messageanswer(foot_message_DTO fmdto, HttpServletRequest request, Model model) throws Exception {	
 		logger.info("Welcome message_Controller messageanswer! "+ new Date());
 		foot_message_DTO fmdto1 = new foot_message_DTO();
-		fmdto1.setSender_user_email(fmdto.getReceiver_user_email());
-		fmdto1.setReceiver_user_email(fmdto.getSender_user_email());
+		fmdto1.setSender_user_email(fmdto.getSender_user_email());
+		fmdto1.setReceiver_user_email(fmdto.getReceiver_user_email());
 		model.addAttribute("message", fmdto1);
 		return "messageanswer.tiles";
 	}
@@ -162,5 +165,49 @@ public class message_Controller {
 			foot_message_DTO fmdto1= messageservice.messagedetail(fmdto);
 			model.addAttribute("messagesendlist1", fmdto1);
 			return "messagesendlist1.tiles";
+		}
+		
+		@RequestMapping(value = "messagerankapply.do", method = {RequestMethod.GET,RequestMethod.POST})	
+		public String messagerankapply(foot_message_DTO fmdto,foot_game_DTO fgdto,HttpServletRequest request, Model model) throws Exception {	
+			logger.info("Welcome message_Controller messagerankapply! "+ new Date());
+			foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
+			
+			fmdto.setSender_user_email(fudto.getUser_email());
+			fmdto.setMessage_type("matching");
+			String message = fudto.getUser_team()+"의 팀에서"+ fgdto.getGame_date() +" 날짜의 게임을 신청하였습니다.";
+			fmdto.setMessage(message );
+			fmdto.setMercenaryre(0);
+			fmdto.setTeamapplymegre(0);
+			fmdto.setMatchingre(fgdto.getGame_no());
+			messageservice.message(fmdto);
+			
+			return "exit1.tiles";
+			
+		}
+		
+		
+		@RequestMapping(value = "matchingallow.do", method = {RequestMethod.GET,RequestMethod.POST})	
+		public String matchingallow(foot_message_DTO fmdto, HttpServletRequest request, Model model) throws Exception {	
+			logger.info("Welcome message_Controller matchingallow! "+ new Date());
+			foot_message_DTO fmdto1 = new foot_message_DTO();
+			fmdto1.setSender_user_email(fmdto.getReceiver_user_email());
+			fmdto1.setReceiver_user_email(fmdto.getSender_user_email());
+			fmdto1.setMessage_type("matching");
+			fmdto1.setMessage("경기 신청에 상대편이 응했습니다. 즐거운 게임 합시다.");
+			fmdto1.setMercenaryre(0);
+			fmdto1.setTeamapplymegre(0);
+			fmdto1.setMatchingre(0);
+			
+			
+			int matching = fmdto.getMatchingre();
+			System.out.println(matching);
+			foot_game_DTO fgdto = new foot_game_DTO();
+			fgdto.setGame_no(matching);
+			fgameservice.statechange(fgdto);
+			
+			messageservice.matching(fmdto);
+			messageservice.message(fmdto1);
+			
+			return "redirect:messagedetail.do";
 		}
 }

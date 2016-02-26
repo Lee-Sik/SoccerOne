@@ -66,6 +66,13 @@ public class foot_message_DAO {
 		return list;
 	}
 
+	public boolean matching(foot_message_DTO fmdto) {
+		// TODO Auto-generated method stub
+		sql.update(ns+"matching", fmdto);
+		
+		return false;
+	}
+
 	
 
 }

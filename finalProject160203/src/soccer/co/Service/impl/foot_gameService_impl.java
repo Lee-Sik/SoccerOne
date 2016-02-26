@@ -88,5 +88,11 @@ public class foot_gameService_impl implements foot_gameService{
 	public List<RANKParam> getrankingList(RANKParam rank) throws Exception {
 		return fgdao.getrankingList(rank);
 	}
+
+	@Override
+	public boolean statechange(foot_game_DTO fgdto) {
+		// TODO Auto-generated method stub
+		return fgdao.statechange(fgdto);
+	}
 	
 }

@@ -196,6 +196,16 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 
 		return "rankingaf.tiles";
 	}
-	
+	@RequestMapping(value = "rankapply.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String rankapply(foot_game_DTO fgdto, Model model) throws Exception {	
+		logger.info("Welcome gameController rankapply! "+ new Date());
+		
+		foot_game_DTO fgd = fgameservice.getPublicgamedetail(fgdto);
+
+		model.addAttribute("pmd",fgd);
+		model.addAttribute("title", "랭킹전 상세보기");
+		
+		return "rankapply.tiles";
+	}
 	
 }

@@ -64,6 +64,12 @@ public class foot_messageService_impl implements foot_messageService{
 		return fmdao.messagesendlist(fmdto);
 	}
 
+	@Override
+	public boolean matching(foot_message_DTO fmdto) {
+		// TODO Auto-generated method stub
+		return fmdao.matching(fmdto);
+	}
+
 
 
 }

@@ -3,9 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 
 <!DOCTYPE html>
 <html>
@@ -19,8 +17,9 @@
 <script src="http://maps.google.com/maps/api/js"></script>
 <%
    foot_team_DTO myteam = (foot_team_DTO)session.getAttribute("team");
-                 
+   
 %>
+
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=b96f6f78cb32a760eab6750a6cdc3266&libraries=services"></script>
 
@@ -365,15 +364,19 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
                                      'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 
 					<img src="image/pen.gif">
-			</a> <c:forEach var="j" items="${getmycal }" >
+			</a> <c:forEach var="j" items="${getmycal }"  varStatus="status">
 					<c:if test="${i eq j.getRdate().substring(6, 8)}">
-
-						<a href="javascript:window.open('caldetail.do?rdate=${j.getRdate() }&team_name=${j.getTeam_name()}','',
+							<c:set var="k" value="true"></c:set>
+						<c:set var="t" value="${j.getRdate() }"></c:set>
+					</c:if>
+				</c:forEach>
+				<c:if test="${k eq true}">
+						<a href="javascript:window.open('caldetail.do?rdate=${t }&team_name=${login.user_team}','',
                                      'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 							<img src='image/on.png'>
 						</a>
+						<c:set var="k" value="false"></c:set>
 					</c:if>
-				</c:forEach>
 			</td>
 			<c:if test="${(i+cdto.dayOfWeek-1)%7==0}">
 	</tr>
@@ -438,104 +441,9 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 
 	</c:if>
 </table>
+
 				
-				
-<!-- 	<table> -->
-<!-- 		<tr> -->
-<%-- 			<td align="center" width="400px;"><img alt="팀로고" src="image/${team.team_logo} " --%>
-<!-- 				style="width: 300px;"></td> -->
-<!-- 			<td> -->
-<!-- 				-------------------------------- 달력 ---------------------------------------- -->
-<!-- 				<div align="center"> -->
 
-<!-- 					<table class="calcla"> -->
-<!-- 						<tr class="date"> -->
-<!-- 							<td colspan="7"><a -->
-<%-- 								href="club.do?cal=sleft&year=${cdto.year}&month=${cdto.month}&user_address=${login.user_address}&user_team=${login.user_team}"><img --%>
-<%-- 									src="image/left.png"></a> ${cdto.year}년 ${cdto.month}월 <a --%>
-<%-- 								href="club.do?cal=sright&year=${cdto.year}&month=${cdto.month}&user_address=${login.user_address}&user_team=${login.user_team}"><img --%>
-<!-- 									src="image/right.png"></a></td> -->
-<!-- 						</tr> -->
-<!-- 						<tr class="date"> -->
-<!-- 							<td>일</td> -->
-<!-- 							<td>월</td> -->
-<!-- 							<td>화</td> -->
-<!-- 							<td>수</td> -->
-<!-- 							<td>목</td> -->
-<!-- 							<td>금</td> -->
-<!-- 							<td>토</td> -->
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<%-- 							<c:forEach begin="1" end="${cdto.dayOfWeek-1}" step="1"> --%>
-<!-- 								<td>&nbsp;</td> -->
-<%-- 							</c:forEach> --%>
-<%-- 							<c:forEach var="i" step="1" begin="1" end="${cdto.lastday}"> --%>
-<%-- 								<td height="50" width="50" align="left" valign="top">${i } --%>
-<!-- 									<a -->
-<%-- 									href="javascript:window.open('writecal.do?year=${cdto.year}&month=${cdto.month}&day=${i }','', --%>
-<%--                                           'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');"> --%>
-
-<!-- 										<img src="image/pen.gif"> -->
-<%-- 								</a> <c:forEach var="j" items="${getmycal }" end="0"> --%>
-<%-- 										<c:if test="${i eq j.getRdate().substring(6, 8)}"> --%>
-
-<!-- 											<a -->
-<%-- 												href="javascript:window.open('caldetail.do?rdate=${j.getRdate() }&team_name=${j.getTeam_name()}','', --%>
-<%--                                           'width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');"> --%>
-<!-- 												<img src='image/on.png'> -->
-<!-- 											</a> -->
-<%-- 										</c:if> --%>
-<%-- 									</c:forEach> --%>
-<!-- 								</td> -->
-<%-- 								<c:if test="${(i+cdto.dayOfWeek-1)%7==0}"> --%>
-<!-- 						</tr> -->
-<!-- 						<tr> -->
-<%-- 							</c:if> --%>
-<%-- 							</c:forEach> --%>
-<%-- 							<c:forEach var="i" begin="1" step="1" --%>
-<%-- 								end="${(7-(cdto.dayOfWeek +cdto.lastday-1)%7)%7}"> --%>
-<!-- 								<td>&nbsp;</td> -->
-<%-- 							</c:forEach> --%>
-<!-- 						</tr> -->
-<!-- 					</table> -->
-<!-- 				</div> -->
-<!-- 			</td> -->
-			<!---------------------------------- 달력 ------------------------------------------>
-<!-- 		</tr> -->
-<!-- 		<tr> -->
-<%-- 			<td>팀 소개 내용 ${team.team_intro}</td> --%>
-<!-- 			<td> -->
-<!-- 				<table class="qwe"> -->
-<%-- 					<col width="20%"> --%>
-<%-- 					<col width="25%"> --%>
-<%-- 					<col width="30%"> --%>
-<%-- 					<col width="25%"> --%>
-					
-<!-- 					<tr> -->
-<!-- 						<td>날짜</td> -->
-<!-- 						<td>제목</td> -->
-<!-- 						<td>내용</td> -->
-<!-- 						<td>위치</td> -->
-<!-- 					</tr> -->
-<%-- 					<c:forEach var="i" items="${ getmycal}" end="4"> --%>
-
-<!-- 						<tr> -->
-<%-- 							<td>${i.rdate }</td> --%>
-<%-- 							<td>${i.textname }</td> --%>
-<!-- 							<td><a href="" -->
-<%-- 								onclick="javascript:window.open('caldetail1.do?no=${i.no }','', --%>
-<%--                          'width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">${i.text }</a></td> --%>
-<%-- 							<td>${i.location }</td> --%>
-<!-- 						</tr> -->
-<%-- 					</c:forEach> --%>
-<%-- 					<c:if test="${empty getmycal }"> --%>
-
-<!-- 						<tr> -->
-<!-- 							<td colspan="4">이번달의 일정이 없습니다.</td> -->
-<!-- 						</tr> -->
-
-<%-- 					</c:if> --%>
-<!-- 				</table> -->
 			</td>
 		</tr>
 
