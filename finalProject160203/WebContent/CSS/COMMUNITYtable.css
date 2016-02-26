@@ -1,8 +1,8 @@
 @CHARSET "UTF-8";
-	A:link {text-decoration:none; color:#333333}
-	A:visited {text-decoration:none; color:#333333}
-	A:active {text-decoration:none; color:#333333}
-	A:hover {text-decoration:underline; color:#333333}
+	.list_table A:link {text-decoration:none; color:#333333}
+	.list_table A:visited {text-decoration:none; color:#333333}
+	.list_table A:active {text-decoration:none; color:#333333}
+	.list_table A:hover {text-decoration:underline; color:#333333}
 		
 	.list_table { width:50%; border-bottom:1px solid #EFEFEF; border-right:1px solid #EFEFEF; border-collapse:collapse; margin-left:auto; margin-right:auto; clear:both; }
 	.list_table td,.list_table th { text-align:center; border-top:1px solid #EFEFEF; border-left:1px solid #EFEFEF; padding:0.3em; }

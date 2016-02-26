@@ -7,9 +7,9 @@
 <link href="CSS/COMMUNITYtable.css" rel="stylesheet" >
 <style>
 body{
-	background-image: url('./image/main_bg.jpg');
-	background-repeat: no-repeat;
-	background-position: left;
+   background-image: url('./image/main_bg.jpg');
+   background-repeat: no-repeat;
+   background-position: left;
 }
 </style>
 
@@ -23,25 +23,25 @@ body{
 </colgroup>
 
 <tr>
-	<td colspan="3" style="text-align: left; font-weight: bold">축덕 포럼 게시글</td>
+   <td colspan="3" style="text-align: left; font-weight: bold">축덕 포럼 게시글</td>
 </tr>
 
 <tr>
-		<th>제목</th> <th>작성자</th>  <th>작성일</th>
+      <th>제목</th> <th>작성자</th>  <th>작성일</th>
 </tr>
 
 <c:if test="${not empty bbslist}">
 
-	<c:forEach items="${bbslist}" var="bbslist" varStatus="vs" begin="1" end="5">
-		<tr>		
-				<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
-				<td>${bbslist.user_email}</td> 
-				<c:set var="rdate" value="${bbslist.wdate}"/>
-				<c:set var="len" value="${fn:length(wdate)}"/>
-		
-				<td>${fn:substring(bbslist.wdate, 0, 10)}</td>   
-		</tr>
-	</c:forEach>
+   <c:forEach items="${bbslist}" var="bbslist" varStatus="vs" begin="1" end="5">
+      <tr>      
+            <td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
+            <td>${bbslist.user_email}</td> 
+            <c:set var="rdate" value="${bbslist.wdate}"/>
+            <c:set var="len" value="${fn:length(wdate)}"/>
+      
+            <td>${fn:substring(bbslist.wdate, 0, 10)}</td>   
+      </tr>
+   </c:forEach>
 
 </c:if>
 

@@ -69,7 +69,7 @@
 	       <li><a href='./address.do'>연락처</a></li>
 	   </ul>
 	</li>
-
+</ul>
 
 
 </div>
