@@ -57,8 +57,10 @@ $(document).ready(function () {
 			<!-- 콘텐츠 -->			
 				<div class="hb_wrap booking_wrap">
 
+<div class="book_list_top" style="width: 95%; margin-left: 30px;">
 
 <div class="book_list_top" style="width: 90%; margin-left: 30px;">
+
 	<div class="tab_area">
 		<ul class="tab">
 			<li class=""><a href="./bookingList.do">전체</a></li>
@@ -74,12 +76,13 @@ $(document).ready(function () {
 			<li class=""><a href="./bookingList.do?mode=area&area=중구">중 구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=구로구">구로구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=강서구">강서구</a></li>
+			<li class="" style="width: 7.8%"><a href="./bookingList.do?mode=area&area=동작구">동작구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=동작구">동작구</a></li>
 			<!-- <li class="" style="padding-left: 10.5px;"></li> -->
 			<li class=""><a href="./bookingList.do?mode=area&area=관악구">관악구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=노원구">노원구</a></li>
-			<li class=""><a href="./bookingList.do?mode=area&area=송파구">송파구</a></li>
-			
+			<li class="" style="width: 7.7%"><a href="./bookingList.do?mode=area&area=송파구">송파구</a></li>
+			<li class=""><a href="./bookingList.do?mode=area&area=송파구">송파구</a></li>	
 			<li class=""><a href="./bookingList.do?mode=area&area=은평구">은평구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=양천구">양천구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=강남구">강남구</a></li>
@@ -88,9 +91,7 @@ $(document).ready(function () {
 			<li class=""><a href="./bookingList.do?mode=area&area=용산구">용산구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=강동구">강동구</a></li>			
 			<li class=""><a href="./bookingList.do?mode=area&area=서초구">서초구</a></li>
-			<li class=""><a href="./bookingList.do?mode=area&area=광진구">광진구</a></li>
-			
-			
+			<li class=""><a href="./bookingList.do?mode=area&area=광진구">광진구</a></li>						
 		</ul>
 		<br><br>
 	</div> <!-- tab_area -->
@@ -104,6 +105,9 @@ $(document).ready(function () {
 	</form>
 		</div>
 	 
+		<div class="game_booking" style="margin-left: 250px; margin-top: -215px; width: 70%;">
+			<h4>자유대관</h4>
+			<a href="./fbookingList.do" class="more">자유대관 더보기</a>
 		<div class="game_booking" style="margin-left: 240px; margin-top: -195px; width: 70%;">
 			<h4>게임부킹</h4>
 			<a href="/booking/board/list?board_idx=22" class="more">게임부킹 더보기</a>
@@ -146,7 +150,7 @@ $(document).ready(function () {
 		
 		<div class="btn_group w720">
 		
-			<div class="right" style="padding-top: 20px; padding-right: 50px;">
+			<div class="right" style="padding-top: 20px; padding-right: 50px; margin-right: -100px;">
 				<a href="stadiumList.do?user_email=${login.user_email}" class="bbtn">그라운드 부킹등록</a>
 			</div>
 		</div>
@@ -156,7 +160,7 @@ $(document).ready(function () {
 <form action="" id="_frmFormSearch" name="frmForm1" method="post">
 
 <h4 class="booking">부킹 정보</h4>
-	<div class="book_list stadium_list">
+	<div class="book_list stadium_list" style="width: 95%; margin-left: 100px;">
 		<table class="list_table" summary="부킹정보">
 			<colgroup>
 				<col span="1" width="70" />

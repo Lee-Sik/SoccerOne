@@ -190,7 +190,7 @@ $(function(){
 <body>
 <div class="hb_wrap booking_wrap" style="margin-top: -20px;">
 
-<div class="book_view" style="width: 83%; margin-left: 30px;">
+<div class="book_view" style="width: 95%; margin-left: 30px;">
 	<h4>축구장 부킹신청</h4>
 	<div class="share_box">
 		<ul class="share_nav">
@@ -522,11 +522,11 @@ $(function(){
 	</ul>
 	<ul class="img_list" style="width: 98%;">
 
-		<li style="width: 750px; height: 360px; " ><img id="img" src="file://211.238.142.152/공유/ryu/<c:out value='${sdto.stadium_img1}'/>" style="width: 730px; height: 350px;"/></a></li>
-		<li style="margin-top: 20px;"><img id="img1" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img1}'/>" /></a></li>		
-		<li style="margin-top: 20px;"><img id="img2" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img2}'/>" /></a></li>		
-		<li style="margin-top: 20px;"><img id="img3" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img3}'/>" /></a></li>			
-		<li style="margin-top: 20px;"><img id="img4" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img4}'/>" /></a></li>
+		<li style="width: 85%; height: 360px; margin-left: 8%; " ><img id="img" src="file://211.238.142.152/공유/ryu/<c:out value='${sdto.stadium_img1}'/>" style="width: 730px; height: 350px;"/></a></li>
+		<li style="margin-top: 20px; margin-left: 1%;"><img id="img1" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img1}'/>" /></a></li>		
+		<li style="margin-top: 20px; margin-left: 6%;"><img id="img2" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img2}'/>" /></a></li>		
+		<li style="margin-top: 20px; margin-left: 6%;"><img id="img3" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img3}'/>" /></a></li>			
+		<li style="margin-top: 20px;margin-left: 1%;"><img id="img4" src="file://211.238.142.152/공유/ryu/<c:url value='${sdto.stadium_img4}'/>" /></a></li>
 		
 		<!-- <li style="width: 750px; height: 360px;" ><a href="http://file.clubone.kr/community/booking/old/b503e120e6eb4ef0.jpg" target="_blank"><img src="http://file.clubone.kr/community/booking/old/b503e120e6eb4ef0.jpg" style="width: 730px; height: 350px;"/></a></li>
 		<li style="margin-top: 20px;"><a href="http://file.clubone.kr/community/booking/old/b503e120e6eb4ef0.jpg" target="_blank"><img src="http://file.clubone.kr/community/booking/old/b503e120e6eb4ef0.jpg" /></a></li>		

@@ -14,7 +14,7 @@
 $(function(){
 	
 	
-	$("#search_subject").val("free_b_title");
+	$("#search_subject").val("fa_man_title");
 	
 	$("#cl").click(function(){
 		$("#cl1").toggle();
@@ -25,7 +25,7 @@ $(function(){
 		$("#cl").html($(this).html());
 		$("#cl1").toggle();
 		$("#cl2").toggle();
-		$("#search_subject").val("free_b_title");
+		$("#search_subject").val("fa_man_title");
 	});
 	$("#cl2").click(function(){
 		
@@ -48,7 +48,7 @@ $(function(){
 <body>
 
 <div class="hb_wrap booking_wrap"><div class="navi" style="margin-top: -40px;">
-	<h2 style="font-size:27px;font-family: 'nanumgothic','nanum','dotum';color:#40434A; margin-top: -1px;">자유대관</h2>
+	<h2 style="font-size:27px;font-family: 'nanumgothic','nanum','dotum';color:#40434A; margin-top: -1px;">자유계약</h2>
 	
 </div>
 <div class="hb_wrap news_view">
@@ -57,7 +57,7 @@ $(function(){
 			<div class="bbs-tab-area" style="position: relative;">
 				<ul style="width:100%; margin-top: -10px;">
 					<li class="on" style="width:7.695%">
-					<a href="./fbookingList.do">전체</a>
+					<a href="./faManList.do">전체</a>
 					</li>
 					
 					<c:forEach var="dto" items="${post1}">
@@ -71,7 +71,7 @@ $(function(){
 					
 						<c:otherwise>
 						<li class="" style="width:7.695%">
-						<a href="./fbookingList.do?free_b_location=${dto.gugun}">${dto.gugun}</a>
+						<a href="./faManList.do?fa_man_location=${dto.gugun}">${dto.gugun}</a>
 						</li>
 						</c:otherwise>
 					</c:choose>
@@ -82,8 +82,8 @@ $(function(){
 				</ul>
 			</div>
 						<div class="bbs-list-top">
-				<div class="bbs-tbtn" style="margin-top: 30px;"><a href="./fbookingWrite.do?mode=write" class="bbs-wbbtn">글쓰기</a></div>
-				<form method="post" id="postSearchForm" action="./fbookingList.do">
+				<div class="bbs-tbtn" style="margin-top: 30px;"><a href="./faManWrite.do?mode=write" class="bbs-wbbtn">글쓰기</a></div>
+				<form method="post" id="postSearchForm" action="./faManList.do">
 					<input type="hidden" name="board_idx" value="22">
 					<input type="hidden" name="category" value="00">
 					
@@ -127,7 +127,7 @@ $(function(){
 						<td>공지</td>
 						<td>
 							<div class="title " style="width:280px;overflow:hidden;">
-								<a href="./fbookingDetail.do?seq=${dto.free_b_seq}" style="line-height:20px;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;max-width:260px;display:inline-block;overflow:hidden;padding: 0; float:left;">[알림] ${dto.free_b_title}</a>
+								<a href="./faManDetail.do?seq=${dto.fa_man_seq}" style="line-height:20px;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;max-width:260px;display:inline-block;overflow:hidden;padding: 0; float:left;">[알림] ${dto.fa_man_title}</a>
 								<span class="reply"  style=" float:left;padding-top:1px;">[1]</span>							</div>
 						</td>
 						<td>
@@ -135,19 +135,19 @@ $(function(){
 								<img src='//img.gameone.kr/community/label_01.png' alt="레벨이미지" />
 								${dto.user_name}															</div>
 						</td>
-						<td>${dto.free_b_date}</td>
-						<td>${dto.free_b_hit}</td>
+						<td>${dto.fa_man_date}</td>
+						<td>${dto.fa_man_hit}</td>
 					</tr>
 					</c:forEach>
 					
 					<c:forEach var="dto" items="${list}" varStatus="vs">
 					<tr>
 						<td>${vs.count}</td>
-						<td>${dto.free_b_location}</td>
+						<td>${dto.fa_man_location}</td>
 						<td>
 							<div class="title ">
-								<a href="./fbookingDetail.do?seq=${dto.free_b_seq}" style="line-height:20px;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;max-width:270px;display:inline-block;overflow:hidden;padding: 0; float:left;">
-									[${dto.free_b_sendrecieve}] ${dto.free_b_title}			</a>
+								<a href="./faManDetail.do?seq=${dto.fa_man_seq}" style="line-height:20px;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;max-width:270px;display:inline-block;overflow:hidden;padding: 0; float:left;">
+									[${dto.fa_man_type}] ${dto.fa_man_title}			</a>
 																								<img src="//img.gameone.kr/board/ico_new.gif" alt="새글" style=" float:left; padding:6px 0 5px 0;" />							</div>
 						</td>
 						<td>
@@ -155,8 +155,8 @@ $(function(){
 								<img src='//img.gameone.kr/community/label_01.png' alt="레벨이미지" />
 								${dto.user_name}															</div>
 						</td>
-						<td>${dto.free_b_date}</td>
-						<td>${dto.free_b_hit}</td>
+						<td>${dto.fa_man_date}</td>
+						<td>${dto.fa_man_hit}</td>
 					</tr>
 					</c:forEach>
 									</tbody>
@@ -164,7 +164,7 @@ $(function(){
 			
 			<div class="bbs-list-bt">
 				<div class="bbs-btngr" style="margin-top: 10px;">
-					<a href="./fbookingWrite.do" class="bbs-wbbtn">글쓰기</a>
+					<a href="./faManWrite.do" class="bbs-wbbtn">글쓰기</a>
 				</div>
 			</div>
 		</div>

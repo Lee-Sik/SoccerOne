@@ -33,6 +33,7 @@ public class freeBookingController {
 		
 		System.out.println("key : " + dto.getSearchKey());
 		System.out.println("value : " + dto.getSearchValue());
+		System.out.println("location : " + dto.getFree_b_location());
 		
 		List<foot_fbooking_DTO> list = fservice.fbookingList(dto);
 		List<foot_fbooking_DTO> mlist = fservice.fbookingManagerList();

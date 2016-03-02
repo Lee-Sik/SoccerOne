@@ -227,6 +227,19 @@
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingDetail.jsp"/>
 </definition>
 
+<!-- faMan -->
+<definition name="faManList.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/faMan/faManList.jsp"/>
+</definition>
+
+<definition name="faManWrite.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/faMan/faManWrite.jsp"/>
+</definition>
+
+<definition name="faManDetail.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/faMan/faManDetail.jsp"/>
+</definition>
+
 <definition name="bbswrite.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/write.jsp" />
 </definition>

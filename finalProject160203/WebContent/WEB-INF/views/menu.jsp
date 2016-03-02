@@ -31,7 +31,7 @@
       <ul>
          <li><a href='bookingList.do'>공식대관</a></li>
          <li><a href='fbookingList.do'>자유대관</a></li>
-         <li><a href='#'>자유계약선수</a></li>
+         <li><a href='faManList.do'>자유계약선수</a></li>
       </ul>
    </li>
    <li class='active'><a
