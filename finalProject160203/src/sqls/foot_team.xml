@@ -25,6 +25,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	 SELECT GUGUN FROM FOOT_POST GROUP BY GUGUN
    </select>
    
+     <select id="getAllTeamLeague" resultType="soccer.co.DTO.RANKParam">
+  	SELECT * from FOOT_TEAM_LEAGUE ORDER BY team_point DESC,TEAM_WIN DESC,TEAM_LOSE ASC
+   </select>
+   
    
    <select id="notteamGu" parameterType="java.lang.String" resultType="soccer.co.DTO.foot_team_DTO">
   	 SELECT * FROM foot_team where team_location1=#{add1} or team_location2=#{add1} or team_location3=#{add1} and team_join=1

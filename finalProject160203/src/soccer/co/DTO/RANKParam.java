@@ -92,7 +92,14 @@ public class RANKParam implements Serializable{
 	public void setTeam_league_season(int team_league_season) {
 		this.team_league_season = team_league_season;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "RANKParam [ranking=" + ranking + ", team_location="
+				+ team_location + ", team_name=" + team_name + ", team_point="
+				+ team_point + ", team_win=" + team_win + ", team_lose="
+				+ team_lose + ", team_league_season=" + team_league_season
+				+ "]";
+	}
 
 }

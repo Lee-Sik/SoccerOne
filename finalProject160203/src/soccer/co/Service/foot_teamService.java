@@ -3,6 +3,7 @@ package soccer.co.Service;
 import java.util.List;
 
 import soccer.co.DTO.FOOT_USER_RECORD;
+import soccer.co.DTO.RANKParam;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
@@ -30,4 +31,6 @@ public interface foot_teamService {
 	public List<foot_team_DTO> recruitteam();
 
 	public List<FOOT_USER_RECORD> getMyRecord(foot_user_DTO user);
+
+	public List<RANKParam> getAllTeamLeague();
 }
