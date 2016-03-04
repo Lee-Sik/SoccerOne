@@ -19,8 +19,9 @@
 
   <!-- CSS concatenated and minified via ant build script-->
   <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
-  <link rel="stylesheet" href="CSS//reset.css">
-  <link rel="stylesheet" href="CSS//style.css">
+  <link rel="stylesheet" href="CSS/reset.css">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/bootstrap.min.css">
   <link href="CSS/KICKOFF.css" rel="stylesheet" >
   <!-- end CSS-->
 
@@ -57,9 +58,7 @@
     <header>
     	<h1>서울시 구별 리그 데이터 분석</h1>
     	</br></br>
-    	<!--
-    	<p>[자료 출처] (1) <a href="https://www.facebook.com/OKFNKorea" target="_blank">Open Data Day in Korea</a>, (2) <a href="https://docs.google.com/spreadsheet/pub?key=0AoGswzvw-8nLdHhKSTJHSDQydFhFMXhrRzlpSTlCX3c" target="_blank">복지팀(독거노인2010) 데이터</a>, (3) <a href="http://linkit.kr/demos/solitude/data/solitude.csv" target="_blank">차트용으로 수정한 데이터</a></p>
-    	-->
+
     </header>
     <div id="main" role="main">
     	<div class="main_header">
