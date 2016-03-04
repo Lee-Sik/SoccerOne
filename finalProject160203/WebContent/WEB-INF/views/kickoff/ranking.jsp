@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
   <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/style.css">
-  <link rel="stylesheet" href="CSS/bootstrap.min.css">
+<!--   <link rel="stylesheet" href="CSS/bootstrap.min.css"> -->
   <link href="CSS/KICKOFF.css" rel="stylesheet" >
   <!-- end CSS-->
 
@@ -63,10 +63,12 @@
     <div id="main" role="main">
     	<div class="main_header">
     		<div id="view_selection" class="btn-group">
-	        <a href="#" id="all" class="btn active">서울시 리그 인구수 구별 분포</a>
-          <a href="#" id="district" class="btn">서울시 리그 인구수 구별 순위</a>
+<!-- 	        <a href="#" id="all" class="btn active">서울시 리그 인구수 구별 분포</a> -->
+<!--             <a href="#" id="district" class="btn">서울시 리그 인구수 구별 순위</a> -->
+			<button id="all" class="btn active">서울시 리그 인구수 구별 분포</button>
+         	<button id="district" class="btn">서울시 리그 인구수 구별 순위</button>
 	      </div>
-	      
+	      <br><br>
 	      <div class="legend">
 	      	<ul>
 	      		<li><span class="color blue"></span> 중위 리그</li>
@@ -489,7 +491,7 @@
     		return;
     	}
     	
-      $('#view_selection a').on('click', function(e) {
+      $('#view_selection button').on('click', function(e) {
       	e.preventDefault();
       	
         var view_type = $(this).attr('id');

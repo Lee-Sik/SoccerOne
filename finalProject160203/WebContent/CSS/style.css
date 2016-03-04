@@ -24,7 +24,7 @@ h1 {
 }
 
 .legend {
-	position: absolute;
+/* 	position: absolute; */
 	top: 0;
 	right: 0;
 }
@@ -69,7 +69,7 @@ h1 {
 }
 
 #vis.bg {
-	background-image: url('../../image/bg_seoul.png');
+	background-image: url('../image/bg_seoul.png');
 }
 
 .no-svg #vis {
