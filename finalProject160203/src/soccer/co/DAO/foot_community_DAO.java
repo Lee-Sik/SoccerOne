@@ -28,6 +28,11 @@ public class foot_community_DAO {
 		return true;
 	}
 	
+	public boolean writeSellbuy(foot_community_DTO bbs) throws Exception{
+		sqlSession.insert(ns+"writeSellbuy",bbs);
+		return true;
+	}
+	
 	public boolean writeComment(foot_comment_DTO comdto) throws Exception{
 		sqlSession.insert(ns+"writeComment",comdto);
 		
@@ -36,6 +41,11 @@ public class foot_community_DAO {
 	
 	public boolean writeGalComment(foot_comment_DTO comdto) throws Exception{
 		sqlSession.insert(ns+"writeGalComment",comdto);
+		return true;
+	}
+	
+	public boolean writeSellbuyComment(foot_comment_DTO comdto) throws Exception{
+		sqlSession.insert(ns+"writeSellbuyComment",comdto);
 		return true;
 	}
 	
@@ -59,6 +69,13 @@ public class foot_community_DAO {
 				sqlSession.selectList(ns+"getGalCommentList", parent_gallery_no);
 		return list;
 	}
+	
+	public List<foot_comment_DTO> getSellbuyCommentList(int parent_sellbuy_no)throws Exception{
+		List<foot_comment_DTO> list=new ArrayList<foot_comment_DTO>();
+		list=(List<foot_comment_DTO>)
+				sqlSession.selectList(ns+"getSellbuyCommentList", parent_sellbuy_no);
+		return list;
+	}
 
 	public foot_like_DTO getLike(foot_like_DTO flike)throws Exception{
 		foot_like_DTO fdto=null;
@@ -74,12 +91,20 @@ public class foot_community_DAO {
 		return fdto;
 	}
 	
+	public foot_like_DTO getSellbuyLike(foot_like_DTO flike)throws Exception{
+		foot_like_DTO fdto=null;
+		fdto=(foot_like_DTO)
+				sqlSession.selectOne(ns+"getSellbuyLike",flike);
+		return fdto;
+	}
+	
 	public List<foot_community_DTO> getBBSPagingList(BBSParam param)throws Exception{
 		List<foot_community_DTO> list=new ArrayList<foot_community_DTO>();
 		list=(List<foot_community_DTO>)
 				sqlSession.selectList(ns+"getBBSPagingList",param);
 		return list;
 	}	
+	
 	public int getBBSCount(BBSParam param) throws Exception{
 		int num=0;
 		num=(Integer)sqlSession.selectOne(ns+"getBBSCount",param);
@@ -92,9 +117,23 @@ public class foot_community_DAO {
 				sqlSession.selectList(ns+"getGalleryPagingList",param);
 		return list;
 	}	
+	
 	public int getGalleryCount(BBSParam param) throws Exception{
 		int num=0;
 		num=(Integer)sqlSession.selectOne(ns+"getGalleryCount",param);
+		return num;
+	}
+	
+	public List<foot_community_DTO> getSellbuyPagingList(BBSParam param)throws Exception{
+		List<foot_community_DTO> list=new ArrayList<foot_community_DTO>();
+		list=(List<foot_community_DTO>)
+				sqlSession.selectList(ns+"getSellbuyPagingList",param);
+		return list;
+	}	
+	
+	public int getSellbuyCount(BBSParam param) throws Exception{
+		int num=0;
+		num=(Integer)sqlSession.selectOne(ns+"getSellbuyCount",param);
 		return num;
 	}
 	
@@ -112,6 +151,13 @@ public class foot_community_DAO {
 		return com;
 	}
 	
+	public foot_comment_DTO getSellbuyComment(foot_comment_DTO comdto)throws Exception{
+		foot_comment_DTO com=null;
+		com=(foot_comment_DTO)
+				sqlSession.selectOne(ns+"getSellbuyComment",comdto);
+		return com;
+	}
+	
 	public foot_community_DTO getBBS(foot_community_DTO dto)throws Exception{
 		foot_community_DTO bbs=null;
 		bbs=(foot_community_DTO)
@@ -126,6 +172,13 @@ public class foot_community_DAO {
 		return gal;
 	}
 	
+	public foot_community_DTO getSellbuy(foot_community_DTO dto)throws Exception{
+		foot_community_DTO gal=null;
+		gal=(foot_community_DTO)
+				sqlSession.selectOne(ns+"getSellbuy",dto);
+		return gal;
+	}
+	
 	public boolean incrementReadCount(foot_community_DTO bbs)throws Exception{
 		sqlSession.update(ns+"incrementReadCount",bbs);
 		return true;
@@ -133,6 +186,11 @@ public class foot_community_DAO {
 	
 	public boolean incrementGalReadCount(foot_community_DTO bbs)throws Exception{
 		sqlSession.update(ns+"incrementGalReadCount",bbs);
+		return true;
+	}
+	
+	public boolean incrementSellbuyReadCount(foot_community_DTO bbs)throws Exception{
+		sqlSession.update(ns+"incrementSellbuyReadCount",bbs);
 		return true;
 	}
 	
@@ -146,6 +204,11 @@ public class foot_community_DAO {
 		return true;
 	}
 	
+	public boolean incrementSellbuyCommentCount(foot_community_DTO bbs)throws Exception{
+		sqlSession.update(ns+"incrementSellbuyCommentCount",bbs);
+		return true;
+	}
+	
 	public boolean bbsLike(foot_like_DTO flike)throws Exception{
 		sqlSession.insert(ns+"bbsLike",flike);
 		return true;
@@ -153,6 +216,11 @@ public class foot_community_DAO {
 	
 	public boolean galLike(foot_like_DTO flike)throws Exception{
 		sqlSession.insert(ns+"galLike",flike);
+		return true;
+	}
+	
+	public boolean sellbuyLike(foot_like_DTO flike)throws Exception{
+		sqlSession.insert(ns+"sellbuyLike",flike);
 		return true;
 	}
 	
@@ -166,6 +234,11 @@ public class foot_community_DAO {
 		return true;
 	}
 	
+	public boolean sellbuyLikeCount(int sellbuy_no)throws Exception{
+		sqlSession.update(ns+"sellbuyLikeCount",sellbuy_no);
+		return true;
+	}
+	
 	public boolean bbsLikeDel(foot_like_DTO flike)throws Exception{
 		sqlSession.delete(ns+"bbsLikeDel",flike);
 		return true;
@@ -173,6 +246,11 @@ public class foot_community_DAO {
 	
 	public boolean galLikeDel(foot_like_DTO flike)throws Exception{
 		sqlSession.delete(ns+"galLikeDel",flike);
+		return true;
+	}
+	
+	public boolean sellbuyLikeDel(foot_like_DTO flike)throws Exception{
+		sqlSession.delete(ns+"sellbuyLikeDel",flike);
 		return true;
 	}
 	
@@ -186,6 +264,11 @@ public class foot_community_DAO {
 		return true;
 	}
 	
+	public boolean sellbuyLikeCountDel(int sellbuy_no)throws Exception{
+		sqlSession.update(ns+"sellbuyLikeCountDel",sellbuy_no);
+		return true;
+	}
+	
 	public boolean bbsLikeReadCount(foot_community_DTO bbs)throws Exception{
 		sqlSession.update(ns+"bbsLikeReadCount",bbs);
 		return true;
@@ -193,6 +276,11 @@ public class foot_community_DAO {
 	
 	public boolean galLikeReadCount(foot_community_DTO bbs)throws Exception{
 		sqlSession.update(ns+"galLikeReadCount",bbs);
+		return true;
+	}
+	
+	public boolean sellbuyLikeReadCount(foot_community_DTO bbs)throws Exception{
+		sqlSession.update(ns+"SellbuyLikeReadCount",bbs);
 		return true;
 	}
 	
@@ -216,6 +304,11 @@ public class foot_community_DAO {
 		return true;
 	}
 	
+	public boolean updateSellbuy(foot_community_DTO bbs)throws Exception{
+		sqlSession.update(ns+"updateSellbuy",bbs);
+		return true;
+	}
+	
 	public boolean delBBS(foot_community_DTO bbs)throws Exception{		
 		sqlSession.update(ns+"delBBS", bbs);
 		return true;
@@ -223,6 +316,11 @@ public class foot_community_DAO {
 	
 	public boolean delGallery(foot_community_DTO bbs)throws Exception{		
 		sqlSession.update(ns+"delGallery", bbs);
+		return true;
+	}
+	
+	public boolean delSellbuy(foot_community_DTO bbs)throws Exception{		
+		sqlSession.update(ns+"delSellbuy", bbs);
 		return true;
 	}
 	
@@ -236,6 +334,11 @@ public class foot_community_DAO {
 		return true;
 	}
 	
+	public boolean delSellbuyComment(foot_comment_DTO comdto)throws Exception{
+		sqlSession.delete(ns+"delSellbuyComment",comdto);
+		return true;
+	}
+	
 	public boolean decrementCommentCount(foot_community_DTO bbs)throws Exception{		
 		sqlSession.update(ns+"decrementCommentCount", bbs);
 		return true;
@@ -246,6 +349,11 @@ public class foot_community_DAO {
 		return true;
 	}
 	
+	public boolean decrementSellbuyCommentCount(foot_community_DTO bbs)throws Exception{		
+		sqlSession.update(ns+"decrementSellbuyCommentCount", bbs);
+		return true;
+	}
+	
 	public boolean updateComment(foot_comment_DTO comdto)throws Exception{
 		sqlSession.update(ns+"updateComment",comdto);
 		return true;
@@ -253,6 +361,11 @@ public class foot_community_DAO {
 	
 	public boolean updateGalComment(foot_comment_DTO comdto)throws Exception{
 		sqlSession.update(ns+"updateGalComment",comdto);
+		return true;
+	}
+	
+	public boolean updateSellbuyComment(foot_comment_DTO comdto)throws Exception{
+		sqlSession.update(ns+"updateSellbuyComment",comdto);
 		return true;
 	}
 	

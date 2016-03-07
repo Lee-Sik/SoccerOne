@@ -1,9 +1,20 @@
+create table foot_sellbuy(                    --중고장터 게시판 
+   sellbuy_no number primary key, --게시글 시퀀스
+   topic varchar2(50) not null,  
+   user_email varchar2(50) not null,    --작성자
+   title varchar2(200) not null,		--굴제목
+   content varchar2(4000) not null,		--글내용
+   wdate date not null,					--작성일
+   good number(8) not null,						--좋아요
+   readcount number(8) not null,					--조회수
+   del number(8) not null,
+   commentcount number(8) not null,
+  
+   CONSTRAINT FK_sellbuy FOREIGN KEY(user_email) REFERENCES foot_user(user_email)      
+);
 
-ALTER TABLE FOOT_TEAM_LEAGE
-ADD (CONSTRAINT fk_team_name_league) FOREIGN KEY (TEAM_NAME) REFERENCES FOOT_TEAM (TEAM_NAME);
-
-
-select * from FOOT_TEAMCAL
+create sequence foot_sellbuy_seq
+start with 1 increment by 1;
 
 
 create table foot_gallery(                    --친선경기 게시판 
@@ -21,6 +32,7 @@ create table foot_gallery(                    --친선경기 게시판
    CONSTRAINT FK_gallery FOREIGN KEY(user_email) REFERENCES foot_user(user_email)      
 );
 
+
 create sequence foot_gallery_seq
 start with 1 increment by 1;
 
@@ -28,23 +40,6 @@ DROP TABLE foot_gallery CASCADE CONSTRAINT;
 
 DROP SEQUENCE foot_gallery_seq;
 
-
-SELECT U.USER_PROFILE, C.COMMENT_NO, C.PARENT_BBS_NO, C.USER_EMAIL, C.CONTENT, C.WDATE, C.DEL 
-  			FROM FOOT_BBS_COMMENT C, FOOT_USER U
-  			WHERE PARENT_BBS_NO = 84
-  			AND C.USER_EMAIL = U.USER_EMAIL
- 			ORDER BY COMMENT_NO ASC
-
-
-		SELECT U.USER_PROFILE B.BBS_NO, B.TOPIC, B.USER_EMAIL, B.TITLE, B.CONTENT, B.WDATE, B.GOOD, B.READCOUNT, B.IMAGEURL, B.DEL, B.COMMENTCOUNT
-			FROM FOOT_BBS B, FOOT_USER U
-			WHERE B.BBS_NO = 79
-			AND U.USER_EMAIL = B.USER_EMAIL
-
-
-select *  from FOOT_USER
-
-select *  from FOOT_BBS
 
 create table foot_bbs_like(                    --친선경기 게시판 
    parent_bbs_no number not null, --게시글 시퀀스
@@ -58,16 +53,13 @@ create table foot_gallery_like(                    --친선경기 게시판
    CONSTRAINT FK_parent_gallery_no FOREIGN KEY(parent_gallery_no) REFERENCES foot_gallery(gallery_no)      
 );
 
+create table foot_sellbuy_like(                    --친선경기 게시판 
+   parent_sellbuy_no number not null, --게시글 시퀀스
+   user_email varchar2(50) not null,    --작성자
+   CONSTRAINT FK_parent_sellbuy_no FOREIGN KEY(parent_sellbuy_no) REFERENCES foot_sellbuy(sellbuy_no)      
+);
 
-SELECT count(PARENT_BBS_NO)
-FROM FOOT_BBS_COMMENT
-WHERE PARENT_BBS_NO = 67
 
-
-SELECT T.TEAM_MANAGERID, F.GAME_NO, F.TEAM_NAME, F.GAME_LOCATION, F.GAME_DATE, F.GROUND, F.PAY, F.GAME_STATE
-FROM FOOT_PUBLICGAME F, FOOT_TEAM T
-WHERE F.GAME_NO=48
-AND F.TEAM_NAME = T.TEAM_NAME;
 
 
 select * from foot_team
@@ -97,9 +89,22 @@ create table foot_gallery_comment(                    --친선경기 게시판
    del number(8) not null,
    CONSTRAINT FK_bbs_parent_gallery_no FOREIGN KEY(parent_gallery_no) REFERENCES foot_gallery(gallery_no)      
 );
-
 create sequence foot_gallery_comment_seq
 start with 1 increment by 1;
+
+
+create table foot_sellbuy_comment(                    --친선경기 게시판 
+   comment_no number primary key, --게시글 시퀀스
+   parent_sellbuy_no number not null, --게시글 시퀀스
+   user_email varchar2(50) not null,    --작성자
+   content varchar2(4000) not null,		--글내용
+   wdate date not null,					--작성일
+   del number(8) not null,
+   CONSTRAINT FK_bbs_parent_sellbuy_no FOREIGN KEY(parent_sellbuy_no) REFERENCES foot_sellbuy(sellbuy_no)      
+);
+create sequence foot_sellbuy_comment_seq
+start with 1 increment by 1;
+
 
 select * from FOOT_freegame
 
@@ -135,36 +140,6 @@ INSERT INTO foot_game_record
 
 SELECT * from foot_publicgame 
 where game_no = (select MAX(game_no) from FOOT_PUBLICGAME)
-
-        
-
-
-select * from foot_freegame 
-         and GAME_DATE = '2016-02-13'  
-
-            and GROUND is not null
-         
-         and GAME_STATE = 0
-         and PAY BETWEEN 10000 and 150000
-
-
-this.game_no = game_no;
-		this.game_date = game_date;
-		this.score = score;
-		this.win_team = win_team;
-		this.lose_team = lose_team;
-		this.maching_state = maching_state;
-		this.win_goal_player = win_goal_player;
-		this.lose_goal_player = lose_goal_player;
-		this.home_local = home_local;
-		this.away_local = away_local;
-		this.win_team_logo = win_team_logo;
-		this.lose_team_logo = lose_team_logo;
-
-
-		INSERT INTO foot_game_record
-		VALUES(#{game_no},#{game_date},null, null, null,0,
-		null,null,null,null,null,null)
 
 
 

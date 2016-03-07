@@ -109,75 +109,53 @@
 
 </definition>
 
-
+<!-- kickoff -->
 <definition name="kickoff.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/kickoff.jsp" />
-
 </definition>
 
 <definition name="matching.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/matching.jsp" />
-
 </definition>
 
 <definition name="pmatchingsearch.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/pmatchingsearch.jsp" />
-
 </definition>
 
 <definition name="fmatchingsearch.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/fmatchingsearch.jsp" />
-
 </definition>
 
 <definition name="pmatchingdetail.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/pmatchingdetail.jsp" />
-
 </definition>
 
 <definition name="fmatchingdetail.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/fmatchingdetail.jsp" />
-
 </definition>
 
 <definition name="fmatchingsearch.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/fmatchingsearch.jsp" />
-
 </definition>
 
 <definition name="publicgame.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/publicgame.jsp" />
-
 </definition>
 
 <definition name="freegame.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/freegame.jsp" />
-
 </definition>
 
 <definition name="ranking.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/ranking.jsp" />
-
 </definition>
 
 <definition name="rankingaf.tiles" extends="login.tiles">
-
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/rankingaf.jsp" />
-
 </definition>
+<!-- kickoff -->
 
 <!-- booking -->
-
 <definition name="stadium_write.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/stadium_write.jsp" />
 </definition>
@@ -212,7 +190,7 @@
 <definition name="bookingDetail.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/bookingDetail.jsp"/>
 </definition>
-
+<!-- booking -->
 
 <!-- freebooking -->
 <definition name="fbookingList.tiles" extends="login.tiles">
@@ -226,6 +204,7 @@
 <definition name="fbookingDetail.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingDetail.jsp"/>
 </definition>
+<!-- freebooking -->
 
 <!-- faMan -->
 <definition name="faManList.tiles" extends="login.tiles">
@@ -239,13 +218,20 @@
 <definition name="faManDetail.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/faMan/faManDetail.jsp"/>
 </definition>
+<!-- faMan -->
 
-<definition name="bbswrite.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/bbs/write.jsp" />
+<!-- Community -->
+
+<definition name="community.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/community.jsp" />
 </definition>
 
 <definition name="bbslist.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/bbslist.jsp" />
+</definition>
+
+<definition name="bbswrite.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/write.jsp" />
 </definition>
 
 <definition name="bbsdetail.tiles" extends="login.tiles">
@@ -256,15 +242,46 @@
 	<put-attribute name="main" value="/WEB-INF/views/bbs/bbsupdate.jsp" />
 </definition>
 
-<definition name="commentupdate.tiles" template="/WEB-INF/views/bbs/commentupdate.jsp">
+<definition name="gallerylist.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerylist.jsp" />
 </definition>
 
-<definition name="community.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/bbs/community.jsp" />
+<definition name="gallerywrite.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerywrite.jsp" />
+</definition>
+
+<definition name="gallerydetail.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerydetail.jsp" />
+</definition>
+
+<definition name="galleryupdate.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/galleryupdate.jsp" />
+</definition>
+
+<definition name="sellbuylist.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/sellbuylist.jsp" />
+</definition>
+
+<definition name="sellbuywrite.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/sbwrite.jsp" />
+</definition>
+
+<definition name="sellbuydetail.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/sellbuydetail.jsp" />
+</definition>
+
+<definition name="sellbuyupdate.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/bbs/sellbuyupdate.jsp" />
 </definition>
 
 <definition name="commentlist.tiles" template="/WEB-INF/views/bbs/commentlist.jsp">
 </definition>
+
+<definition name="commentupdate.tiles" template="/WEB-INF/views/bbs/commentupdate.jsp">
+</definition>
+<!-- Community -->
+
+
 
 <definition name="clubmyinform.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/clubmyinform.jsp" />
@@ -304,21 +321,7 @@
 <definition name="teamapplyno.tiles" template="/WEB-INF/views/team/teamapply/teamapplyno.jsp">
 </definition>
 
-<definition name="gallerylist.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerylist.jsp" />
-</definition>
 
-<definition name="gallerywrite.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerywrite.jsp" />
-</definition>
-
-<definition name="gallerydetail.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerydetail.jsp" />
-</definition>
-
-<definition name="galleryupdate.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/bbs/galleryupdate.jsp" />
-</definition>
 
 
 </tiles-definitions>

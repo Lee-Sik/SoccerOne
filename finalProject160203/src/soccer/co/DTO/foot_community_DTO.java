@@ -31,6 +31,7 @@ DROP SEQUENCE foot_bbs_seq;
 public class foot_community_DTO implements Serializable{
 	private int gallery_no;
 	private int bbs_no;
+	private int sellbuy_no;
 	private String topic;
 	private String user_email;
 	private String title;
@@ -47,10 +48,11 @@ public class foot_community_DTO implements Serializable{
 		
 	}
 	
-	public foot_community_DTO(int bbs_no, String topic, String user_email, String title, String content, String wdate,
+	public foot_community_DTO(int bbs_no, int sellbuy_no, String topic, String user_email, String title, String content, String wdate,
 			int good, int readcount, String imageurl, int del, int commentcount) {
 		super();
 		this.bbs_no = bbs_no;
+		this.bbs_no = sellbuy_no;
 		this.topic = topic;
 		this.user_email = user_email;
 		this.title = title;
@@ -63,10 +65,11 @@ public class foot_community_DTO implements Serializable{
 		this.commentcount = commentcount;
 	}
 	
-	public foot_community_DTO(int bbs_no, String topic, String user_email, String title, String content, String wdate,
+	public foot_community_DTO(int bbs_no, int sellbuy_no, String topic, String user_email, String title, String content, String wdate,
 			int good, int readcount, String imageurl, int del, int commentcount, String user_profile) {
 		super();
 		this.bbs_no = bbs_no;
+		this.bbs_no = sellbuy_no;
 		this.topic = topic;
 		this.user_email = user_email;
 		this.title = title;
@@ -110,6 +113,16 @@ public class foot_community_DTO implements Serializable{
 		this.del = del;
 		this.commentcount = commentcount;
 
+	}
+	
+
+	
+	public int getSellbuy_no() {
+		return sellbuy_no;
+	}
+
+	public void setSellbuy_no(int sellbuy_no) {
+		this.sellbuy_no = sellbuy_no;
 	}
 
 	public int getGallery_no() {

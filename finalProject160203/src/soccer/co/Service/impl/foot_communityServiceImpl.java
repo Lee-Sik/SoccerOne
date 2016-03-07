@@ -34,6 +34,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	
 	@Override
 	@Transactional
+	public boolean writeSellbuy(foot_community_DTO bbs) throws Exception {
+		return BBSDao.writeSellbuy(bbs);
+	}
+	
+	@Override
+	@Transactional
 	public boolean writeComment(foot_comment_DTO comdto) throws Exception {
 		return BBSDao.writeComment(comdto);
 	}
@@ -42,6 +48,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	@Transactional
 	public boolean writeGalComment(foot_comment_DTO comdto) throws Exception {
 		return BBSDao.writeGalComment(comdto);
+	}
+	
+	@Override
+	@Transactional
+	public boolean writeSellbuyComment(foot_comment_DTO comdto) throws Exception {
+		return BBSDao.writeSellbuyComment(comdto);
 	}
 	
 	@Override
@@ -54,6 +66,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	@Transactional(readOnly=true)
 	public List<foot_comment_DTO> getGalCommentList(int parent_gallery_no) throws Exception {
 		return BBSDao.getGalCommentList(parent_gallery_no);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public List<foot_comment_DTO> getSellbuyCommentList(int parent_sellbuy_no) throws Exception {
+		return BBSDao.getSellbuyCommentList(parent_sellbuy_no);
 	}
 	
 	@Override
@@ -92,6 +110,20 @@ public class foot_communityServiceImpl implements foot_communityService {
 	
 	@Override
 	@Transactional(readOnly=true)
+	public List<foot_community_DTO> getSellbuyPagingList(BBSParam param)
+			throws Exception {
+		
+		return BBSDao.getSellbuyPagingList(param);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public int getSellbuyCount(BBSParam param) throws Exception {
+		return BBSDao.getSellbuyCount(param);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
 	public foot_like_DTO getLike(foot_like_DTO flike) throws Exception {
 		foot_like_DTO fail=  BBSDao.getLike(flike);
 		foot_like_DTO init=  new foot_like_DTO();
@@ -103,6 +135,15 @@ public class foot_communityServiceImpl implements foot_communityService {
 	@Transactional(readOnly=true)
 	public foot_like_DTO getGalLike(foot_like_DTO flike) throws Exception {
 		foot_like_DTO fail=  BBSDao.getGalLike(flike);
+		foot_like_DTO init=  new foot_like_DTO();
+		
+		return fail == null? init: fail;
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public foot_like_DTO getSellbuyLike(foot_like_DTO flike) throws Exception {
+		foot_like_DTO fail=  BBSDao.getSellbuyLike(flike);
 		foot_like_DTO init=  new foot_like_DTO();
 		
 		return fail == null? init: fail;
@@ -122,6 +163,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	
 	@Override
 	@Transactional(readOnly=true)
+	public foot_community_DTO getSellbuy(foot_community_DTO dto) throws Exception {
+		return BBSDao.getSellbuy(dto);
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
 	public foot_comment_DTO getComment(foot_comment_DTO comdto) throws Exception {
 		return BBSDao.getComment(comdto);
 	}
@@ -133,6 +180,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	}
 	
 	@Override
+	@Transactional(readOnly=true)
+	public foot_comment_DTO getSellbuyComment(foot_comment_DTO comdto) throws Exception {
+		return BBSDao.getSellbuyComment(comdto);
+	}
+	
+	@Override
 	public boolean replyBBS(foot_community_DTO bbs) throws Exception {
 		BBSDao.replyBBSUpdate(bbs);
 		BBSDao.replyBBSInsert(bbs);
@@ -141,26 +194,32 @@ public class foot_communityServiceImpl implements foot_communityService {
 
 	@Override
 	public boolean incrementReadCount(foot_community_DTO bbs) throws Exception {
-		
 		return BBSDao.incrementReadCount(bbs);
 	}
 	
 	@Override
 	public boolean incrementGalReadCount(foot_community_DTO bbs) throws Exception {
-		
 		return BBSDao.incrementGalReadCount(bbs);
 	}
 	
 	@Override
-	public boolean incrementCommentCount(foot_community_DTO bbs) throws Exception {
-		
+	public boolean incrementSellbuyReadCount(foot_community_DTO bbs) throws Exception {
+		return BBSDao.incrementSellbuyReadCount(bbs);
+	}
+	
+	@Override
+	public boolean incrementCommentCount(foot_community_DTO bbs) throws Exception {	
 		return BBSDao.incrementCommentCount(bbs);
 	}
 	
 	@Override
-	public boolean incrementGalCommentCount(foot_community_DTO bbs) throws Exception {
-		
+	public boolean incrementGalCommentCount(foot_community_DTO bbs) throws Exception {	
 		return BBSDao.incrementGalCommentCount(bbs);
+	}
+	
+	@Override
+	public boolean incrementSellbuyCommentCount(foot_community_DTO bbs) throws Exception {	
+		return BBSDao.incrementSellbuyCommentCount(bbs);
 	}
 	
 	@Override
@@ -176,6 +235,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	}
 	
 	@Override
+	public boolean sellbuyLike(foot_like_DTO flike) throws Exception {
+		
+		return BBSDao.sellbuyLike(flike);
+	}
+	
+	@Override
 	public boolean bbsLikeCount(int bbs_no) throws Exception {
 		
 		return BBSDao.bbsLikeCount(bbs_no);
@@ -185,6 +250,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	public boolean galLikeCount(int gallery_no) throws Exception {
 		
 		return BBSDao.galLikeCount(gallery_no);
+	}
+	
+	@Override
+	public boolean sellbuyLikeCount(int sellbuy_no) throws Exception {
+		
+		return BBSDao.sellbuyLikeCount(sellbuy_no);
 	}
 	
 	@Override
@@ -200,6 +271,11 @@ public class foot_communityServiceImpl implements foot_communityService {
 	}
 	
 	@Override
+	public boolean sellbuyLikeDel(foot_like_DTO flike) throws Exception {
+		return BBSDao.sellbuyLikeDel(flike);
+	}
+	
+	@Override
 	public boolean bbsLikeCountDel(int bbs_no) throws Exception {
 		
 		return BBSDao.bbsLikeCountDel(bbs_no);
@@ -209,6 +285,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	public boolean galLikeCountDel(int gallery_no) throws Exception {
 		
 		return BBSDao.galLikeCountDel(gallery_no);
+	}
+	
+	@Override
+	public boolean sellbuyLikeCountDel(int sellbuy_no) throws Exception {
+		
+		return BBSDao.sellbuyLikeCountDel(sellbuy_no);
 	}
 
 	@Override
@@ -221,6 +303,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	public boolean updateGallery(foot_community_DTO bbs) throws Exception {
 		
 		return BBSDao.updateGallery(bbs);		
+	}
+	
+	@Override
+	public boolean updateSellbuy(foot_community_DTO bbs) throws Exception {
+		
+		return BBSDao.updateSellbuy(bbs);		
 	}
 
 	@Override
@@ -244,6 +332,16 @@ public class foot_communityServiceImpl implements foot_communityService {
 	}
 	
 	@Override
+	public boolean delSellbuy(foot_community_DTO bbs) throws Exception {
+		
+		System.out.println("bbs.getDel = " + bbs.getDel());
+		bbs.setDel(1);
+		System.out.println("bbs.getDel = " + bbs.getDel());
+		
+		return BBSDao.delSellbuy(bbs);		
+	}
+	
+	@Override
 	public boolean delComment(foot_comment_DTO comdto) throws Exception {
 		
 		return BBSDao.delComment(comdto);
@@ -253,6 +351,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	public boolean delGalComment(foot_comment_DTO comdto) throws Exception {
 		
 		return BBSDao.delGalComment(comdto);
+	}
+	
+	@Override
+	public boolean delSellbuyComment(foot_comment_DTO comdto) throws Exception {
+		
+		return BBSDao.delSellbuyComment(comdto);
 	}
 	
 	@Override
@@ -268,6 +372,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	}
 	
 	@Override
+	public boolean decrementSellbuyCommentCount(foot_community_DTO bbs) throws Exception {
+		
+		return BBSDao.decrementSellbuyCommentCount(bbs);		
+	}
+	
+	@Override
 	public boolean updateComment(foot_comment_DTO comdto) throws Exception {
 		
 		return BBSDao.updateComment(comdto);		
@@ -277,6 +387,12 @@ public class foot_communityServiceImpl implements foot_communityService {
 	public boolean updateGalComment(foot_comment_DTO comdto) throws Exception {
 		
 		return BBSDao.updateGalComment(comdto);		
+	}
+	
+	@Override
+	public boolean updateSellbuyComment(foot_comment_DTO comdto) throws Exception {
+		
+		return BBSDao.updateSellbuyComment(comdto);		
 	}
 	
 	

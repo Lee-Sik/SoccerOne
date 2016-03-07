@@ -27,6 +27,7 @@ public class foot_comment_DTO implements Serializable{
 	private int comment_no;
 	private int parent_gallery_no;
 	private int parent_bbs_no;
+	private int parent_sellbuy_no;
 	private String user_email;
 	private String content;
 	private String wdate; //to_date 2015-07-23	
@@ -37,24 +38,26 @@ public class foot_comment_DTO implements Serializable{
 		
 	}
 
-	public foot_comment_DTO(int comment_no, int parent_bbs_no, int parent_gallery_no, String user_email, String content, String wdate,
+	public foot_comment_DTO(int comment_no, int parent_bbs_no, int parent_gallery_no, int parent_sellbuy_no, String user_email, String content, String wdate,
 			int del) {
 		super();
 		this.comment_no = comment_no;
 		this.parent_bbs_no = parent_bbs_no;
 		this.parent_gallery_no = parent_gallery_no;
+		this.parent_sellbuy_no = parent_sellbuy_no;
 		this.user_email = user_email;
 		this.content = content;
 		this.wdate = wdate;
 		this.del = del;
 	}
 	
-	public foot_comment_DTO(int comment_no, int parent_bbs_no, int parent_gallery_no, String user_email, String content, String wdate,
+	public foot_comment_DTO(int comment_no, int parent_bbs_no, int parent_gallery_no, int parent_sellbuy_no, String user_email, String content, String wdate,
 			int del, String user_profile) {
 		super();
 		this.comment_no = comment_no;
 		this.parent_bbs_no = parent_bbs_no;
 		this.parent_gallery_no = parent_gallery_no;
+		this.parent_sellbuy_no = parent_sellbuy_no;
 		this.user_email = user_email;
 		this.content = content;
 		this.wdate = wdate;
@@ -85,6 +88,14 @@ public class foot_comment_DTO implements Serializable{
 
 	public void setParent_gallery_no(int parent_gallery_no) {
 		this.parent_gallery_no = parent_gallery_no;
+	}
+	
+	public int getParent_sellbuy_no() {
+		return parent_sellbuy_no;
+	}
+
+	public void setParent_sellbuy_no(int parent_sellbuy_no) {
+		this.parent_sellbuy_no = parent_sellbuy_no;
 	}
 
 	public String getUser_email() {

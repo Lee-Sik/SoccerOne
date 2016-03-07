@@ -58,7 +58,7 @@
       <ul>
          <li><a href='./bbslist.do'>축덕포럼</a></li>
          <li><a href='./gallerylist.do'>짤방게시판</a></li>
-         <li><a href='#'>중고장터</a></li>
+         <li><a href='./sellbuylist.do'>중고장터</a></li>
       </ul>
    </li>
   
