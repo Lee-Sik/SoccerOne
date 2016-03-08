@@ -1,5 +1,7 @@
 package soccer.co.DAO;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -54,6 +56,9 @@ public class foot_user_DAO{
 		sqlse.update(ns+"modify", fudto1);
 		return false;
 	}
-
+	public List<foot_user_DTO> userList()throws Exception{
+		List<foot_user_DTO> list = sqlse.selectList(ns+"userList");
+		return list;
+	}
 
 }

@@ -39,15 +39,20 @@ import soccer.co.DTO.foot_fbooking_DTO;
 import soccer.co.DTO.foot_sbookingReserve_DTO;
 import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_stadium_DTO;
+import soccer.co.DTO.foot_user_DTO;
 import soccer.co.DTO.postDTO;
 import soccer.co.Service.foot_fbookingService;
 import soccer.co.Service.foot_stadiumService;
+import soccer.co.Service.foot_userService;
 
 @Controller
 public class stadiumController {
 	
 	@Autowired
 	private foot_stadiumService service;
+	
+	@Autowired
+	private foot_userService uservice;
 	
 	@Autowired
 	private foot_fbookingService fservice;
@@ -84,10 +89,11 @@ public class stadiumController {
 	     String result = Integer.toString(a) + Integer.toString(b) + Integer.toString(c) + Integer.toString(d)
 	     + Integer.toString(e)+ Integer.toString(f);
 	     
+	     List<foot_user_DTO> ulist = uservice.userList();
+	     
 	     model.addAttribute("result", result);
-	     
-	     
-		
+	     model.addAttribute("ulist", ulist);
+	     		
 		return "stadium_write.tiles";
 	}
 	@RequestMapping(value = "bookingList.do", method = {RequestMethod.GET,RequestMethod.POST})	
@@ -159,10 +165,10 @@ public class stadiumController {
 
 		// 메일 내용
 		String recipient = request.getParameter("receive");
-		String subject = "지메일을 사용한 발송 테스트입니다.";
+		String subject = "안녕하세요. 싸커원 이메일 인증번호 전송문입니다.";
 		String result = request.getParameter("result");
 		System.out.println("result" + result);
-		String body = "인증번호 : 123456"; // properties 설정
+		String body = "인증번호 : " + result; // properties 설정
 		
 		Properties props = new Properties();
 		props.put("mail.smtps.auth", "true"); // 메일 세션

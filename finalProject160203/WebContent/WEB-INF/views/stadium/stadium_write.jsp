@@ -15,6 +15,8 @@ var num;
 
 $(document).ready(function() {
 	
+	var count = 0;
+	
 	$("#submitBt").click(function() {
 		
 		if($("#stadium_name").val() == ''){
@@ -46,7 +48,11 @@ $(document).ready(function() {
 			alert("구장연락처를 입력해주세요.");
 			$("#stadium_phone").focus();
 			return;
-		}		
+		}
+		if(count==0){
+			alert("이메일을 인증해주세요.");
+			return;
+		}
 		alert("구장등록을 완료하였습니다.");
 		
 		$("#f1").submit();
@@ -58,8 +64,8 @@ $(document).ready(function() {
 			alert("이메일을 입력해주세요.");
 			return;
 		}
-		<c:forEach var="dto" items="${lists}" >
-		if($("#email").val() == "${dto.email}" ){
+		<c:forEach var="dto" items="${ulist}" >
+		if($("#email").val() == "${dto.user_email}" ){
 			alert("중복된 이메일 입니다.");
 			$("#email").val().focus();
 			return;
@@ -90,6 +96,18 @@ $(document).ready(function() {
 			}
 	  	});
 
+	});
+	
+	$("#btnresult").click(function() {
+		
+		var email_num = "${result}";
+		alert(email_num);
+		if($("#eresult").val()==email_num){
+			alert("인증완료");
+			count = 1;
+		}else{
+			alert("인증이 안됨.");
+		}
 	});
 
 });
@@ -186,6 +204,20 @@ td.td2 {
                                         	<c:if test="${mode == 'update'}">
                                         	<input type="hidden" name="stadium_seq" value="${dto.stadium_seq}">
                                         	</c:if>
+                                        </li>
+                                         <li>
+                                            <span class="title">이메일 인증</span>
+                                            <div class="textwr" style="margin-left: -1.2%;">
+                                               	<input type="text" size="" name="email" id="email" value="" style="width: 200px; height: 20px;"/>
+												<input type="button" name="btnPnumber" value="메일인증요청" id="btnPnumber" style="cursor:pointer;"/>
+                                            </div>
+                                        </li>
+                                         <li>
+                                            <span class="title">이메일 인증</span>
+                                            <div class="textwr" style="margin-left: -1.2%;">
+                                              <input type="text" name="eresult" id="eresult" size="" value="" style="width: 200px; height: 20px;"/>
+											  <input type="button" name="btnresult" value="확인" id="btnresult" style="cursor:pointer;"/>
+                                            </div>
                                         </li>
                                         
                                     </ul>

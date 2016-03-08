@@ -1,5 +1,7 @@
 package soccer.co.Service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +43,12 @@ public class foot_userService_impl implements foot_userService{
 	public boolean modify(foot_user_DTO fudto1) {
 		// TODO Auto-generated method stub
 		return fudao.modify(fudto1);
+	}
+
+	@Override
+	public List<foot_user_DTO> userList() throws Exception {
+		
+		return fudao.userList();
 	}
 	
 }
