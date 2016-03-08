@@ -92,9 +92,14 @@ public class foot_stadiumService_impl implements foot_stadiumService{
 	}
 
 	@Override
-	public int getbookingCount() throws Exception {
+	public int getbookingCount(foot_sbooking_DTO dto) throws Exception {
 	
-		return dao.getbookingCount();
+		return dao.getbookingCount(dto);
+	}
+
+	@Override
+	public boolean stadiumUpdate(foot_stadium_DTO dto) throws Exception {
+		return dao.stadiumUpdate(dto);
 	}
 
 

@@ -11,8 +11,12 @@ values
 </insert>
 
 <select id="fbookingList" resultType="soccer.co.DTO.foot_fbooking_DTO" parameterType="soccer.co.DTO.foot_fbooking_DTO">
-select free_b_seq,user_email,user_name,free_b_addr,free_b_sendrecieve,free_b_location,free_b_title,free_b_content,free_b_date,free_b_hit
-from foot_free_booking where free_b_manager = 1 
+select free_b_seq,user_email,user_name,free_b_addr,free_b_sendrecieve,
+free_b_location,free_b_title,free_b_content,free_b_date,free_b_hit
+from 
+(select row_number() over (order by free_b_seq desc) as rnum, free_b_seq,user_email,user_name,
+free_b_addr,free_b_sendrecieve,free_b_location,free_b_title,free_b_content,free_b_date,free_b_hit
+from foot_free_booking where free_b_manager = 1
  <choose>
  <when test="searchValue != '' or searchValue != null">
  	   <if test="searchKey == 'free_b_title'"> and free_b_title like '%'||#{searchValue}||'%'</if>   
@@ -22,7 +26,28 @@ from foot_free_booking where free_b_manager = 1
  <if test="free_b_location != '' and free_b_location != null">
   and free_b_location = #{free_b_location}
  </if>
-order by free_b_seq desc
+ <if test="free_b_sendrecieve != '' and free_b_sendrecieve != null">
+  and free_b_sendrecieve = #{free_b_sendrecieve}
+ </if>
+ order by free_b_seq desc 
+) a where rnum between ${start} AND ${end}
+
+</select>
+
+<select id="getfbookingCount" parameterType="soccer.co.DTO.foot_fbooking_DTO" resultType="java.lang.Integer">
+SELECT NVL(count(*),0) AS cnt FROM  foot_free_booking  WHERE 1 = 1
+<choose>
+	<when test="searchValue != '' or searchValue != null">
+		<if test="searchKey == 'free_b_title'"> and free_b_title like '%'||#{searchValue}||'%'</if>   
+		<if test="searchKey == 'user_name'"> and user_name like '%'||#{searchValue}||'%'</if> 
+	</when> 
+</choose>
+<if test="free_b_location != '' and free_b_location != null">
+  and free_b_location = #{free_b_location}
+</if>
+ <if test="free_b_sendrecieve != '' and free_b_sendrecieve != null">
+  and free_b_sendrecieve = #{free_b_sendrecieve}
+ </if>
 </select>
 
 <select id="fbookingManagerList" resultType="soccer.co.DTO.foot_fbooking_DTO">
@@ -67,7 +92,13 @@ where free_b_seq = #{free_b_seq}
 delete from foot_free_booking where free_b_seq=#{free_b_seq}
 </delete>
 
-
+<select id="miniList" resultType="soccer.co.DTO.foot_fbooking_DTO">
+select * from
+(select row_number() over (order by free_b_seq desc) as rnum, free_b_seq,user_email,user_name,
+free_b_addr,free_b_sendrecieve,free_b_location,free_b_title,free_b_content,free_b_date,free_b_hit
+from foot_free_booking where free_b_manager = 1 order by free_b_seq desc 
+) a where rnum between 1 AND 5
+</select>
 
 
 

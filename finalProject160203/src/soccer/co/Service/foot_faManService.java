@@ -16,5 +16,6 @@ public interface foot_faManService {
 	public foot_faMan_DTO nextTitle(Map<String, Object> map)throws Exception;
 	public boolean faManUpdate(foot_faMan_DTO dto)throws Exception;
 	public boolean faManDelete(int fa_man_seq)throws Exception;
+	public int getfaManCount(foot_faMan_DTO dto)throws Exception;
 	
 }

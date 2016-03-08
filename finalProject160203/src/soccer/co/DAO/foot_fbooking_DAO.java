@@ -74,9 +74,18 @@ public class foot_fbooking_DAO {
 		return true;
 	}
 	
+	public int getfbookingCount(foot_fbooking_DTO dto)throws Exception{
+		int num = 0;
+		num = (int)sqlsession.selectOne("fbooking.getfbookingCount", dto);
+		
+		return num;
+	}
 	
-	
-	
+	public List<foot_fbooking_DTO> miniList()throws Exception{
+		
+		List<foot_fbooking_DTO> list = (List<foot_fbooking_DTO>)sqlsession.selectList("fbooking.miniList");
+		return list;
+	}
 	
 	
 	

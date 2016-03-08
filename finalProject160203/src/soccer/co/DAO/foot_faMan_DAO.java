@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import soccer.co.DTO.foot_faMan_DTO;
+import soccer.co.DTO.foot_fbooking_DTO;
 
 @Repository
 public class foot_faMan_DAO {
@@ -64,7 +65,12 @@ public class foot_faMan_DAO {
 		return true;
 	}
 	
-	
+	public int getfaManCount(foot_faMan_DTO dto)throws Exception{
+		int num = 0;
+		num = (int)sqlsession.selectOne("faMan.getfaManCount", dto);
+		
+		return num;
+	}
 	
 	
 }

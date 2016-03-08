@@ -123,12 +123,15 @@ public class foot_stadium_DAO {
 			return rentalswitch;
 	}
 	
-	public int getbookingCount()throws Exception{
+	public int getbookingCount(foot_sbooking_DTO dto)throws Exception{
 		int num = 0;
-		num = (int)sqlsession.selectOne("stadium.getbookingCount");
+		num = (int)sqlsession.selectOne("stadium.getbookingCount", dto);
 		
-		return num;
-		
+		return num;	
+	}
+	public boolean stadiumUpdate(foot_stadium_DTO dto)throws Exception{
+		sqlsession.update("stadium.stadiumUpdate", dto);
+		return true;
 	}
 	
 	

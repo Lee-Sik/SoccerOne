@@ -15,7 +15,11 @@ select * from foot_fa_man where fa_man_manager = 2
 </select>
 
 <select id="faManList" resultType="soccer.co.DTO.foot_faMan_DTO" parameterType="soccer.co.DTO.foot_faMan_DTO">
-select * from foot_fa_man where fa_man_manager = 1 
+select * 
+from 
+(select row_number() over (order by fa_man_seq desc) as rnum,fa_man_seq,user_email,user_name,
+fa_man_type,fa_man_location,fa_man_title,fa_man_content,fa_man_date,fa_man_hit
+from foot_fa_man where fa_man_manager = 1
  <choose>
  <when test="searchValue != '' or searchValue != null">
  	   <if test="searchKey == 'fa_man_title'"> and fa_man_title like '%'||#{searchValue}||'%'</if>   
@@ -25,7 +29,27 @@ select * from foot_fa_man where fa_man_manager = 1
  <if test="fa_man_location != '' and fa_man_location != null">
   and fa_man_location = #{fa_man_location}
  </if>
+ <if test="fa_man_type != '' and fa_man_type != null">
+  and fa_man_type = #{fa_man_type}
+ </if>
 order by fa_man_seq desc
+) a where rnum between ${start} AND ${end}
+</select>
+
+<select id="getfaManCount" parameterType="soccer.co.DTO.foot_faMan_DTO" resultType="java.lang.Integer">
+SELECT NVL(count(*),0) AS cnt FROM  foot_fa_man WHERE 1 = 1
+ <choose>
+ <when test="searchValue != '' or searchValue != null">
+ 	   <if test="searchKey == 'fa_man_title'"> and fa_man_title like '%'||#{searchValue}||'%'</if>   
+       <if test="searchKey == 'user_name'"> and user_name like '%'||#{searchValue}||'%'</if> 
+ </when> 
+ </choose>
+ <if test="fa_man_location != '' and fa_man_location != null">
+  and fa_man_location = #{fa_man_location}
+ </if>
+ <if test="fa_man_type != '' and fa_man_type != null">
+  and fa_man_type = #{fa_man_type}
+ </if>
 </select>
 
 <update id="hitCount" parameterType="int">

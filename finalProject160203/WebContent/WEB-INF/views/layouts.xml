@@ -192,6 +192,9 @@
 </definition>
 <!-- booking -->
 
+<definition name="stadiumUpdate.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/stadium/stadiumUpdate.jsp" />
+</definition>
 <!-- freebooking -->
 <definition name="fbookingList.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingList.jsp"/>

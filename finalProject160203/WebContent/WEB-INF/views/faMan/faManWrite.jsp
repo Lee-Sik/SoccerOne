@@ -17,9 +17,30 @@
 <script>
 $(document).ready(function(){
 	$("#save").click(function(){		
-		alert("save click");
 		oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", []);
-		alert(document.getElementById("content").value);
+		if($("#fa_man_title").val() == ''){
+			alert("글제목을 입력해주세요.");
+			$("#fa_man_title").focus();
+			return;
+		}
+	
+		if($("#fa_man_type option:selected").val() == ''){
+			alert("용병모집/용병등록 여부를 선택해주세요.");
+			$("#fa_man_type").focus();
+			return;
+		}
+		if($("#fa_man_location option:selected").val() == ''){
+			alert("지역구를 선택해주세요.");
+			$("#fa_man_location").focus();
+			return;
+		}
+		if($("#content").val() == ''){
+			alert("내용을 입력해주세요.");
+			$("#content").focus();
+			return;
+		}
+		alert("완료하였습니다.");
+		
 		$("#frm").submit();		
 	})
 })
@@ -28,8 +49,7 @@ $(document).ready(function(){
 </head>
 <body>
 
-<div class="hb_wrap booking_wrap"><div class="navi">
-	<h2 style="font-size:27px;font-family: 'nanumgothic','nanum','dotum';color:#40434A;">게임부킹</h2>
+<div class="hb_wrap booking_wrap" style="margin-top: -10%;"><div class="navi">
 	
 </div>
 <div class="hb_wrap news_view">
@@ -41,7 +61,7 @@ $(document).ready(function(){
 					<ul class="bbs-wtinfo">
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">글제목</span>
-							<input type="text" class="title" name="fa_man_title" value="${fdto.fa_man_title}" maxlength="100" style="margin-left: -100px;"/>
+							<input type="text" class="title" id="fa_man_title" name="fa_man_title" value="${fdto.fa_man_title}" maxlength="100" style="margin-left: -100px;"/>
 						</li>
 					</ul>
 							
@@ -49,13 +69,13 @@ $(document).ready(function(){
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">카테고리</span>
 							<div style="margin-left: -440px;">
-							<select name="fa_man_type">
+							<select name="fa_man_type" id="fa_man_type">
 								<option value="">구 분</option>
 								<option value="용병모집">용병모집</option>
 								<option value="용병등록">용병등록</option>
 							</select>									
 							&nbsp;&nbsp;&nbsp;&nbsp;
-							<select name="fa_man_location">
+							<select name="fa_man_location" id="fa_man_location">
 								<option value="">지역구 선택</option>
 								<c:forEach var="dto" items="${post1}">
 								<option value="${dto.gugun}">${dto.gugun}</option>
@@ -66,8 +86,8 @@ $(document).ready(function(){
 						</li>
 					</ul>
 	
-					<div class="editer">
-						<textarea id="content" name="fa_man_content" style="width: 700px;">${fdto.fa_man_content}</textarea>
+					<div class="editer" style="margin-left: 5.5%;">
+						<textarea id="content" name="fa_man_content" style="width: 50%;">${fdto.fa_man_content}</textarea>
 					</div>
 					<script type="text/javascript">
  

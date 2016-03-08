@@ -60,6 +60,7 @@ public class userController {
 			model.addAttribute("messagecheck1", list1);
 			
 			
+			
 			if(login.getUser_team()!=null){
 				team = fuservice.loginteam(login);
 			}
@@ -72,6 +73,7 @@ public class userController {
 			login1 = "notlogin.tiles";
 		}
 		List<foot_community_DTO> bbslist=BBSService.getBBSList();
+		
 		model.addAttribute("bbslist", bbslist);
 		
 		request.getSession().setAttribute("team", team);

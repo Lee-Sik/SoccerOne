@@ -35,10 +35,12 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 import soccer.co.DTO.ZipcodeDTO;
+import soccer.co.DTO.foot_fbooking_DTO;
 import soccer.co.DTO.foot_sbookingReserve_DTO;
 import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_stadium_DTO;
 import soccer.co.DTO.postDTO;
+import soccer.co.Service.foot_fbookingService;
 import soccer.co.Service.foot_stadiumService;
 
 @Controller
@@ -47,8 +49,30 @@ public class stadiumController {
 	@Autowired
 	private foot_stadiumService service;
 	
+	@Autowired
+	private foot_fbookingService fservice;
+	
 	@RequestMapping(value = "stadium_write.do", method = RequestMethod.GET)	
-	public String stadium_write(Model model) {		
+	public String stadium_write(Model model,HttpServletRequest request) throws Exception {		
+			
+		String mode = request.getParameter("mode");
+		
+		if (!(mode==null || mode.equals(""))) {
+			if(mode == "update" || mode.equals("update")){
+				int stadium_seq = Integer.parseInt(request.getParameter("seq"));
+				foot_stadium_DTO dto = service.stadiumDetail(stadium_seq);
+				model.addAttribute("mode", mode);
+				model.addAttribute("dto", dto);
+				model.addAttribute("title", "구장수정");
+			}else{
+				model.addAttribute("mode", "write");
+				model.addAttribute("title", "구장등록");
+			}
+			
+		}else{
+			model.addAttribute("mode", "write");
+			model.addAttribute("title", "구장등록");
+		}
 		
 		 int a = (int) (Math.random()*10);
 	     int b = (int) (Math.random()*10);
@@ -61,7 +85,8 @@ public class stadiumController {
 	     + Integer.toString(e)+ Integer.toString(f);
 	     
 	     model.addAttribute("result", result);
-	     model.addAttribute("title", "공식대관");
+	     
+	     
 		
 		return "stadium_write.tiles";
 	}
@@ -92,15 +117,19 @@ public class stadiumController {
 		dto.setStart(start);
 		dto.setEnd(end);
 		
-		int totalRecordCount=service.getbookingCount();
+		int totalRecordCount=service.getbookingCount(dto);
 		
 		List<foot_sbooking_DTO> blist = service.bookingList(dto);
+		
+		List<foot_fbooking_DTO> flist = fservice.miniList();
 		
 		model.addAttribute("pageNumber", sn);
 		model.addAttribute("pageCountPerScreen", 10);
 		model.addAttribute("recordCountPerPage", dto.getRecordCountPerPage());
 		model.addAttribute("totalRecordCount", totalRecordCount);
 		model.addAttribute("blist", blist);
+		model.addAttribute("flist", flist);
+		model.addAttribute("title", "공식대관");
 		
 		return "bookingList.tiles";
 	}
@@ -214,7 +243,7 @@ public class stadiumController {
 			@RequestParam("stadium_img44") MultipartFile file4,
 			foot_stadium_DTO dto,Model model,HttpServletRequest request) throws Exception {
 
-		
+		 String mode = request.getParameter("mode");
 		/*String root = request.getServletContext().getRealPath("/"); //여기까지가 study/
 	      //실제 주소
 	      String path = root + File.separator + "stadiumImg";*/
@@ -291,7 +320,20 @@ public class stadiumController {
 	      }
 	         
 	      try{
-	          service.stadiumWrite(dto);
+	    	 
+	    	  System.out.println("mode212313 : " + mode);
+	    	  if (!(mode==null || mode.equals(""))) {
+	    		  System.out.println("gggg");
+	  			if(mode == "update" || mode.equals("update")){
+	  				System.out.println("gggg2");
+	  				service.stadiumUpdate(dto);
+	  			}else{
+	  				 System.out.println("hhhhh");
+	 	  			service.stadiumWrite(dto);
+	  			}
+	  			
+	  		  }
+	          
 	         
 	      }catch(Exception e){
 	         e.printStackTrace();
@@ -309,6 +351,7 @@ public class stadiumController {
 		
 		model.addAttribute("user_email", user_email);
 		model.addAttribute("slist", slist);
+		model.addAttribute("title", "구장관리");
 		
 		return "stadiumList.tiles";
 	}
@@ -424,6 +467,7 @@ public class stadiumController {
 		model.addAttribute("game7", game7);
 		model.addAttribute("sdto", sdto);
 		model.addAttribute("bdto", bdto);
+		model.addAttribute("title", "구장대관");
 		
 		return "bookingDetail.tiles";
 		
@@ -447,7 +491,12 @@ public class stadiumController {
 		return "redirect:/bookingDetail.do?booking_seq=" + Integer.toString(dto.getBooking_seq()) + "&stadium_seq=" + stadium_seq;
 	}
 	
-	
+	@RequestMapping(value = "stadiumUpdate.do", method = {RequestMethod.GET,RequestMethod.POST})	
+	public String stadiumUpdate(Model model,HttpServletRequest request) throws Exception {
+		
+		
+		return "stadiumUpdate.tiles";
+	}
 	
 	
 	

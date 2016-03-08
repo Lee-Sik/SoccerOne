@@ -16,6 +16,20 @@
 		    return;
 		}
 	}
+	
+	function write1() {
+		
+		var email = "${login.user_email}";
+		
+		if(email==null || email==""){
+			alert("로그인 해주십시오.");
+			location.href = "./first.do";
+		}else{
+			location.href = "./fbookingWrite.do?mode=write";
+		}
+	}
+
+	
 </script>
 
 </head>
@@ -71,7 +85,7 @@
 
 <div class="bbs-vw-bt">
 				<div class="bbs-btngr">
-					<a href="./fbookingWrite.do" class="bbs-wbbtn">글쓰기</a>
+					<a href="#" class="bbs-wbbtn" onclick="write1();">글쓰기</a>
 					<c:if test="${login.user_email == fdto.user_email}">
 					<a href="./fbookingWrite.do?seq=${fdto.free_b_seq}&mode=update" class="bbs-gbtn">수정</a>					<!-- <a href="#" class="bbs-gbtn sh-mv">이동</a> -->
 					<a href="#" class="bbs-gbtn delPost" onclick="delete1('${fdto.free_b_seq}')">삭제</a>

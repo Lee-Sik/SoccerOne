@@ -73,10 +73,19 @@ from foot_booking b, foot_stadium s where b.stadium_seq = s.stadium_seq
 	select rental_switch from foot_booking_reserve where booking_seq = #{booking_seq} and gametime = #{gametime} 
 </select>
 
-<select id="getbookingCount" resultType="java.lang.Integer">
-	select nvl(count(*),0) as cnt from foot_booking
+<select id="getbookingCount" resultType="java.lang.Integer" parameterType="soccer.co.DTO.foot_sbooking_DTO">
+	select nvl(count(*),0) as cnt from foot_booking where 1=1
+	 <if test="mode != '' or mode != null">
+         <if test="mode == 'day'"> and booking_day = #{booking_day}</if>   
+         <if test="mode == 'area'"> and booking_area = #{booking_area}</if>   
+ </if>
 </select>
 
+<update id="stadiumUpdate" parameterType="soccer.co.DTO.foot_stadium_DTO">
+	update foot_stadium set
+	stadium_name=#{stadium_name},addr=#{addr},stadium_phone=#{stadium_phone},s_content=#{s_content},findway=#{findway},stadium_img1=#{stadium_img1},stadium_img2=#{stadium_img2},stadium_img3=#{stadium_img3},stadium_img4=#{stadium_img4} 
+	where stadium_seq=#{stadium_seq}
+</update>
 
 
 

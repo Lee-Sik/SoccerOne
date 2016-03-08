@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href="CSS/booking.css" rel="stylesheet" type="text/css" />
 <!-- <link rel="stylesheet" href="CSS/styles.css"> -->
 <!-- <SCRIPT LANGUAGE="JavaScript" SRC="https://www.ionnuri.org/ks20/js/jquery/jquery.js"></SCRIPT> -->
 <script type="text/javascript">
@@ -13,6 +14,43 @@
 var num;
 
 $(document).ready(function() {
+	
+	$("#submitBt").click(function() {
+		
+		if($("#stadium_name").val() == ''){
+			alert("구장명을 입력해주세요.");
+			$("#stadium_name").focus();
+			return;
+		}
+		if($("#addr1").val() == ''){
+			alert("구장주소를 입력해주세요.");
+			$("#addr1").focus();
+			return;
+		}
+		if($("#s_content").val() == ''){
+			alert("축구장사용 참고내용을 입력해주세요.");
+			$("#s_content").focus();
+			return;
+		}
+		if($("#findway").val() == ''){
+			alert("찾아오는방법을 입력해주세요.");
+			$("#findway").focus();
+			return;
+		}
+		if($("#simg4").val() == ''){
+			alert("구장사진은  4개 전부 넣어주어야 합니다.");
+			$("#simg4").focus();
+			return;
+		}
+		if($("#stadium_phone").val() == ''){
+			alert("구장연락처를 입력해주세요.");
+			$("#stadium_phone").focus();
+			return;
+		}		
+		alert("구장등록을 완료하였습니다.");
+		
+		$("#f1").submit();
+	});
 	
 	$("#btnPnumber").click(function() {
 		
@@ -27,6 +65,8 @@ $(document).ready(function() {
 			return;
 		}
 		</c:forEach>
+		
+		
 
 		$("#emailFrame").fadeIn(350);
 		$("#btnPnumber").attr("disabled",true);
@@ -75,60 +115,91 @@ td.td2 {
 
 
 
-<form action="stadium_write_ok.do" method="post" enctype="multipart/form-data">
-<table class="list_table" style="width:70%;">
+<form action="stadium_write_ok.do" method="post" enctype="multipart/form-data" id="f1" name="f1">
 
-<colgroup>
-	<col style="width:30%;" />
-	<col style="width:70%;" />
-</colgroup>
-<tbody>
-<tr>
-	<td class="td1">등록자</td><td class="td2"> <input type="text" name="user_email" value="${login.user_email}" readonly="readonly"/> </td>
-</tr>	
-<tr>
-	<td class="td1">구장명</td><td class="td2"> <input type="text" name="stadium_name"/> </td>
-</tr>
-<tr>
-	<td class="td1">구장주소</td><td class="td2"> 
-	
-	<a href="#" onclick="javascript:window.open('./zipsearch.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
-	<img src="image/wofun.png"></a> 
-	<br>
-	<input type="text" name="addr1" id="addr1" size="50"> <br> 
-	<input type="text" name="addr2" value="상세주소">
-	
-  	
-	</td>
-</tr>
-<tr>
-	<td class="td1">야구장 참고내용</td><td class="td2"> <textarea rows="5" cols="50" name="s_content"></textarea> </td>
-</tr>
-<tr>
-	<td class="td1">찾아오는 방법</td><td class="td2"> <textarea rows="5" cols="50" name="findway"></textarea> </td>
-</tr>
-<tr>
-	<td class="td1">구장사진</td><td class="td2">
-	야구장 사진 1 <input type="file" name="stadium_img11"> <br>
-	야구장 사진 2 <input type="file" name="stadium_img22"> <br>
-	야구장 사진 3 <input type="file" name="stadium_img33"> <br>
-	야구장 사진 4 <input type="file" name="stadium_img44"> <br>
-	  
-	 </td>
-</tr>
-<tr>
-	<td class="td1">구장연락처</td><td class="td2"> <input type="text" name="stadium_phone"> </td>
-</tr>
-<tr>
-	<td class="td1">이메일 인증</td><td class="td2"> 
-	<input type="text" size="" name="email" id="email" value="" style="width: 200px; height: 20px;"/>
-	<input type="button" name="btnPnumber" value="메일인증요청" id="btnPnumber" style="cursor:pointer;"/>
-	</td>
-</tr>
+				<div class="hb_wrap booking_wrap">
+							
+							<div class="book_write" style="width: 95%; margin-top: -3%;">
+					
 
-</tbody>	
-</table>
-<input type="submit" value="등록">
+                                    <ul class="input_list">
+                                    	<li>
+                                            <span class="title">등록자</span>
+                                            <input type="text" class="title" id="user_email" name="user_email" value="${login.user_email}" vname="등록자" required="required" readonly="readonly" style="margin-left: -70%;"/>
+                                        </li>
+                                        <li>
+                                            <span class="title">구장명</span>
+                                            <input type="text" class="title" id="stadium_name" name="stadium_name" value="${dto.stadium_name}" vname="구장명" required="required" style="margin-left: -70%;"/>
+                                        </li>
+                                        <li><span class="title">구장주소</span>
+                                            <a href="#" class="plusbtn" id="postBtn" style="margin-left: -87%;" onclick="javascript:window.open('./zipsearch.do','','location=0,status=0,scrollbars=1,width=530,height=330');">우편번호검색</a><br />                           
+                                            <input type="text" readonly name="addr1" id="addr1"  value="${dto.addr}" class="zip" vname="주소" style="margin-left: -24%;" size="50"/> 
+                                            <input type="text" name="addr2" value="상세주소" class="zip" vname="주소추가" required="required"/>
+                                        </li>
+                                        
+                                        <li>
+                                            <span class="title">축구장사용 참고내용</span>
+                                            <div class="textwr" style="margin-left: -1.2%;">
+                                                <textarea class="row5" name="s_content" id="s_content" vname="야구장사용 참고내용" required="required">${dto.s_content}</textarea>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="title">찾아오는 방법</span>
+                                            <div class="textwr" style="margin-left: -1.2%;">
+                                                <textarea class="row6" name="findway" id="findway" vname="찾아오는 방법" required="required" >${dto.findway}</textarea>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span class="title">구장사진</span>
+                                            <ul class="inner_list">
+                                                <li>
+                                                    <span class="title" style="margin-left: -1.2%;">축구장 사진 1</span> 
+                                                    <div class="file_wr"><input type="text" id="simg1" name="simg1" readonly value="${dto.stadium_img1}"/> 
+                                                    <span class="btn_img">이미지첨부</span>
+                                                    <input type="file" name="stadium_img11" class="groundimg" onchange="document.getElementById('simg1').value=this.value;"/>
+                                                    <a href="#" class="del wdel" target_input="groundimg2">삭제</a></div>   
+                                                </li>
+                                                <li>
+                                                    <span class="title" style="margin-left: -1.2%;">축구장 사진 2</span> 
+                                                    <div class="file_wr"><input type="text" id="simg2" name="simg2" readonly value="${dto.stadium_img2}"/> 
+                                                    <span class="btn_img">이미지첨부</span>
+                                                    <input type="file" name="stadium_img22" class="groundimg" onchange="document.getElementById('simg2').value=this.value;"/>
+                                                    <a href="#" class="del wdel" target_input="groundimg2">삭제</a></div>                                                </li>
+                                                <li>
+                                                    <span class="title" style="margin-left: -1.2%;">축구장 사진 3</span> 
+                                                    <div class="file_wr"><input type="text" id="simg3" name="simg3" readonly value="${dto.stadium_img3}"/> 
+                                                    <span class="btn_img">이미지첨부</span>
+                                                    <input type="file" name="stadium_img33" class="groundimg" onchange="document.getElementById('simg3').value=this.value;"/>
+                                                    <a href="#" class="del wdel" target_input="groundimg2">삭제</a></div>   
+                                                <li>
+                                                    <span class="title" style="margin-left: -1.2%;">축구장 사진 4</span> 
+                                                    <div class="file_wr"><input type="text" id="simg4" name="simg4" readonly value="${dto.stadium_img4}"/> 
+                                                    <span class="btn_img">이미지첨부</span>
+                                                    <input type="file" name="stadium_img44" class="groundimg" onchange="document.getElementById('simg4').value=this.value;"/>
+                                                    <a href="#" class="del wdel" target_input="groundimg2">삭제</a></div>   
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="title">구장연락처</span>
+                                            <input type="text" class="tel" name="stadium_phone" id="stadium_phone" value="${dto.stadium_phone}" vname="구장연락처" required="required" style="margin-left: -55%;"/>
+                                        	<input type="hidden" name="mode" value="${mode}">
+                                        	<c:if test="${mode == 'update'}">
+                                        	<input type="hidden" name="stadium_seq" value="${dto.stadium_seq}">
+                                        	</c:if>
+                                        </li>
+                                        
+                                    </ul>
+
+
+                               
+								<div class="btn_group">
+									<div class="right">
+										<a href="#" class="bbtn" id="submitBt" onclick="">구장정보 등록하기</a>${mode}
+										<a href="/booking/stadium/manage" class="sbbtn">목록보기</a>
+									</div>
+								</div>
+							</div>
+				</div>
 </form>
 
 

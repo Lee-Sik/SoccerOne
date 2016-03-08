@@ -122,9 +122,6 @@ $(function(){
 		$("#gametime").val($st);
 		$("#time").html($time);
 		$(".bookinglayer").css("display", "block");
-		
-		
-		
 	});
 	$("#closesimbtn").click(function(){
 		$(".bookinglayer").fadeOut(); 
@@ -248,7 +245,7 @@ $(function(){
 				</table>
 
 				<dl class="user_tel">
-					<dt><img src="http://file.clubone.kr/player/member_default.jpg"  width="30" height="30"/>${login.user_email }</dt>
+					<dt><img src="http://file.clubone.kr/player/member_default.jpg"  width="30" height="30"/>${login.user_name}</dt>
 					<dd><div class="combobox">
 						<strong class="selected">010</strong>
 						<ul class="combo">
@@ -286,7 +283,7 @@ $(function(){
 		</form>
 	</div>
 	
-	<table class="game_table" border="1">
+	<table class="game_table">
 		<colgroup>
 			<col span="1" width="83" />
 			<col span="1" width="145" />

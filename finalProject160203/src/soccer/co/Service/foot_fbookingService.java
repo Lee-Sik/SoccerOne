@@ -3,6 +3,8 @@ package soccer.co.Service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.catalina.tribes.transport.RxTaskPool;
+
 import soccer.co.DTO.foot_fbooking_DTO;
 
 public interface foot_fbookingService {
@@ -17,5 +19,7 @@ public interface foot_fbookingService {
 	public boolean hitCount(int free_b_seq)throws Exception;
 	public boolean fbookingUpdate(foot_fbooking_DTO dto)throws Exception;
 	public boolean fbookingDelete(int free_b_seq)throws Exception;
+	public int getfbookingCount(foot_fbooking_DTO dto)throws Exception;
+	public List<foot_fbooking_DTO> miniList()throws Exception;
 	
 }

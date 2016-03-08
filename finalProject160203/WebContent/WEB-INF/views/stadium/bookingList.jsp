@@ -27,7 +27,19 @@ $(document).ready(function () {
     	});
 });   */
 
+ function ground() {
 	
+	var email = "${login.user_email}";
+	
+	if(email==null || email==""){
+		alert("로그인 해주십시오.");
+		location.href = "./first.do";
+	}else{
+		location.href = "stadiumList.do?user_email=" + email;
+	}
+		
+	
+ }	
 	
  $(function() {
     $( "#testDatepicker" ).datepicker({
@@ -108,32 +120,13 @@ $(document).ready(function () {
 			<h4>자유대관</h4>
 			<a href="./fbookingList.do" class="more">자유대관 더보기</a>
 			<ul class="game_booking" style="margin-top: -18px;">
-
-							<li><a href="/booking/board/view?board_idx=22&post_idx=66487">
-					<span class="area">서울, 경기</span>
-					<strong>[구장확보]</strong>
-					 토요일  2월6일 / 15시30분~18시경기 4부팀초청					</a>
+			<c:forEach var="dto" items="${flist}">		
+				<li><a href="./fbookingDetail.do?seq=${dto.free_b_seq}">
+					<span class="area">${dto.free_b_location}</span>
+					<strong>[${dto.free_b_sendrecieve}]</strong>
+					 ${dto.free_b_title}					</a>
 				</li>
-			 				<li><a href="/booking/board/view?board_idx=22&post_idx=66486">
-					<span class="area">서울, 경기</span>
-					<strong>[구장확보]</strong>
-					일요일  2월7일 / 9시30분~11시30분경기 4부루키팀초청					</a>
-				</li>
-			 				<li><a href="/booking/board/view?board_idx=22&post_idx=66482">
-					<span class="area">서울, 경기</span>
-					<strong>[구장확보]</strong>
-					2월14일2시경기 재미있게하실팀모십니다.					</a>
-				</li>
-			 				<li><a href="/booking/board/view?board_idx=22&post_idx=66479">
-					<span class="area">서울, 인천</span>
-					<strong>[구장확보]</strong>
-					&lt;&lt;2월 대여현황&gt;&gt; 상대팀 초청 및 구장대여 합니...					</a>
-				</li>
-			 				<li><a href="/booking/board/view?board_idx=22&post_idx=66478">
-					<span class="area">경기</span>
-					<strong>[구장확보]</strong>
-					◆[설연휴 할인-준준베이스볼 평일 및 주말 대관진행중] ...					</a>
-				</li>
+			</c:forEach> 	
 			 
 			</ul>
 		</div> <!-- game_booking -->
@@ -147,7 +140,7 @@ $(document).ready(function () {
 		<div class="btn_group w720">
 		
 			<div class="right" style="padding-top: 20px; padding-right: 50px; margin-right: -100px;">
-				<a href="stadiumList.do?user_email=${login.user_email}" class="bbtn">그라운드 부킹등록</a>
+				<a href="#" class="bbtn" onclick="ground();">그라운드 부킹등록</a>
 			</div>
 		</div>
 </div>

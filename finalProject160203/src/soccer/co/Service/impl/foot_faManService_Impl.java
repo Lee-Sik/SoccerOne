@@ -79,4 +79,11 @@ public class foot_faManService_Impl implements foot_faManService{
 		return dao.faManDelete(fa_man_seq);
 	}
 
+
+	@Override
+	public int getfaManCount(foot_faMan_DTO dto) throws Exception {
+		
+		return dao.getfaManCount(dto);
+	}
+
 }

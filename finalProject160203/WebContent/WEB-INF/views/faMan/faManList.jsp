@@ -38,17 +38,45 @@ $(function(){
 		
 		$("#postSearchForm").submit();	
 	});
+	$("#a1").click(function(){
+		$("#a2").toggle();
+		$("#a3").toggle();
+	});
+	$("#a2").click(function(){
+		
+		$("#a1").html($(this).html());
+		$("#a2").toggle();
+		$("#a3").toggle();
+		
+	});
+	$("#a3").click(function(){
+		
+		$("#a1").html($(this).html());
+		$("#a2").toggle();
+		$("#a3").toggle();
 	
+	});
 	
 });
+
+function write1() {
+	
+	var email = "${login.user_email}";
+	
+	if(email==null || email==""){
+		alert("로그인 해주십시오.");
+		location.href = "./first.do";
+	}else{
+		location.href = "./faManWrite.do?mode=write";
+	}
+}
 
 </script>
 
 </head>
 <body>
 
-<div class="hb_wrap booking_wrap"><div class="navi" style="margin-top: -40px;">
-	<h2 style="font-size:27px;font-family: 'nanumgothic','nanum','dotum';color:#40434A; margin-top: -1px;">자유계약</h2>
+<div class="hb_wrap booking_wrap"><div class="navi" style="margin-top: -80px;">
 	
 </div>
 <div class="hb_wrap news_view">
@@ -82,12 +110,22 @@ $(function(){
 				</ul>
 			</div>
 						<div class="bbs-list-top">
-				<div class="bbs-tbtn" style="margin-top: 30px;"><a href="./faManWrite.do?mode=write" class="bbs-wbbtn">글쓰기</a></div>
+				<div class="bbs-tbtn" style="margin-top: 30px;"><a href="#" class="bbs-wbbtn" onclick="write1();">글쓰기</a></div>
 				<form method="post" id="postSearchForm" action="./faManList.do">
 					<input type="hidden" name="board_idx" value="22">
 					<input type="hidden" name="category" value="00">
 					
 					<div class="bbs-sch">
+					
+						<div class="bbs-combo" style="margin-left: -35%;">
+							<dl class="bbs-cb">
+								<dt id="a1" >구 분</dt>
+								<dd id="a2" style="display: none;" onclick="location.href='./faManList.do?fa_man_type=용병모집'">용병모집</dd>
+								<dd id="a3" style="display: none;" onclick="location.href='./faManList.do?fa_man_type=용병등록'">용병등록</dd>
+								
+							</dl>
+						</div>
+					
 						<div class="bbs-combo">
 							<dl class="bbs-cb">
 								<dt id="cl" >제목</dt>
@@ -108,6 +146,7 @@ $(function(){
 					</div>
 				</form>
 			</div>
+			<form action="" id="_frmFormSearch" name="frmForm1" method="post">
 			<table class="bbs-list" summary="구분 제목별 게시글을 나타낸 표">
 				<thead>
 					<tr>
@@ -139,7 +178,11 @@ $(function(){
 						<td>${dto.fa_man_hit}</td>
 					</tr>
 					</c:forEach>
-					
+					<c:if test="${empty list}">
+					<tr>
+					<td colspan="6">작성된 글이 없습니다.</td>
+					</tr>
+					</c:if>
 					<c:forEach var="dto" items="${list}" varStatus="vs">
 					<tr>
 						<td>${vs.count}</td>
@@ -162,9 +205,27 @@ $(function(){
 									</tbody>
 			</table>
 			
+<div id="paging_wrap">
+<input type="hidden" name="pageNumber" id="_pageNumber" value="${(empty pageNumber)?0:pageNumber}"/>						
+<input type="hidden" name="recordCountPerPage" id="_recordCountPerPage" value="${(empty recordCountPerPage)?10:recordCountPerPage}"/>
+<jsp:include page="/WEB-INF/views/common/paging.jsp" flush="false">
+	<jsp:param value="${pageNumber}" name="pageNumber"/>
+	<jsp:param value="${pageCountPerScreen}" name="pageCountPerScreen"/>
+	<jsp:param value="${recordCountPerPage}" name="recordCountPerPage"/>
+	<jsp:param value="${totalRecordCount}" name="totalRecordCount"/>							
+</jsp:include>				
+</div>
+		
+<script type="text/javascript">
+function goPage(pageNumber) {	
+	$("#_pageNumber").val(pageNumber) ;
+	$("#_frmFormSearch").attr("target","_self").attr("action","fbookingList.do").submit();
+}
+</script>
+</form>			
 			<div class="bbs-list-bt">
 				<div class="bbs-btngr" style="margin-top: 10px;">
-					<a href="./faManWrite.do" class="bbs-wbbtn">글쓰기</a>
+					<a href="#" class="bbs-wbbtn" onclick="write1();">글쓰기</a>
 				</div>
 			</div>
 		</div>

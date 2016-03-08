@@ -32,6 +32,15 @@ public class faManController {
 	@RequestMapping(value = "faManList.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String faManList(Model model,foot_faMan_DTO dto) throws Exception {
 		
+		int sn=dto.getPageNumber();
+		int start=(sn)*dto.getRecordCountPerPage()+1;
+		int end=(sn+1)*dto.getRecordCountPerPage();
+		
+		dto.setStart(start);
+		dto.setEnd(end);
+		
+		int totalRecordCount= faservice.getfaManCount(dto);
+		
 		List<postDTO> post1 = service.post_gugun();
 		List<foot_faMan_DTO> mlist = faservice.faManManagerList();
 		List<foot_faMan_DTO> list = faservice.faManList(dto);
@@ -39,6 +48,12 @@ public class faManController {
 		model.addAttribute("post1", post1);
 		model.addAttribute("mlist", mlist);
 		model.addAttribute("list", list);
+		model.addAttribute("pageNumber", sn);
+		model.addAttribute("pageCountPerScreen", 10);
+		model.addAttribute("recordCountPerPage", dto.getRecordCountPerPage());
+		model.addAttribute("totalRecordCount", totalRecordCount);
+		model.addAttribute("title", "자유계약");
+		
 		return "faManList.tiles";
 	}
 	@RequestMapping(value = "faManWrite.do", method = {RequestMethod.GET,RequestMethod.POST})	
@@ -66,7 +81,7 @@ public class faManController {
 		
 		model.addAttribute("con", context);
 		model.addAttribute("post1", post1);
-		
+		model.addAttribute("title", "자유계약");
 		
 		return "faManWrite.tiles";
 	}
@@ -112,7 +127,7 @@ public class faManController {
 		model.addAttribute("preDTO", preDTO);
 		model.addAttribute("nextDTO", nextDTO);
 		model.addAttribute("fdto", dto);
-
+		model.addAttribute("title", "자유계약");
 		
 		return "faManDetail.tiles";
 	}

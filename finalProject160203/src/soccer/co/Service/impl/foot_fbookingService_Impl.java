@@ -86,4 +86,18 @@ public class foot_fbookingService_Impl implements foot_fbookingService{
 		return dao.fbookingDelete(free_b_seq);
 	}
 
+
+	@Override
+	public int getfbookingCount(foot_fbooking_DTO dto) throws Exception {
+		
+		return dao.getfbookingCount(dto);
+	}
+
+
+	@Override
+	public List<foot_fbooking_DTO> miniList() throws Exception {
+	
+		return dao.miniList();
+	}
+
 }

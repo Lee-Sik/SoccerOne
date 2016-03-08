@@ -31,9 +31,19 @@ public class freeBookingController {
 	@RequestMapping(value = "fbookingList.do", method = {RequestMethod.GET,RequestMethod.POST})	
 	public String fbookingList(Model model,foot_fbooking_DTO dto) throws Exception {	
 		
-		System.out.println("key : " + dto.getSearchKey());
-		System.out.println("value : " + dto.getSearchValue());
-		System.out.println("location : " + dto.getFree_b_location());
+		System.out.println("dasda : " + dto.getFree_b_sendrecieve());
+		
+		int sn=dto.getPageNumber();
+		int start=(sn)*dto.getRecordCountPerPage()+1;
+		int end=(sn+1)*dto.getRecordCountPerPage();
+		
+		dto.setStart(start);
+		dto.setEnd(end);
+		//logger.info("start number : "+sn);
+		//logger.info("start : "+start);
+		//logger.info("end : "+end);
+		
+	    int totalRecordCount=fservice.getfbookingCount(dto);
 		
 		List<foot_fbooking_DTO> list = fservice.fbookingList(dto);
 		List<foot_fbooking_DTO> mlist = fservice.fbookingManagerList();
@@ -42,6 +52,11 @@ public class freeBookingController {
 		model.addAttribute("list", list);
 		model.addAttribute("mlist", mlist);
 		model.addAttribute("post1", post1);
+		model.addAttribute("pageNumber", sn);
+		model.addAttribute("pageCountPerScreen", 10);
+		model.addAttribute("recordCountPerPage", dto.getRecordCountPerPage());
+		model.addAttribute("totalRecordCount", totalRecordCount);
+		model.addAttribute("title", "자유대관");
 		
 		return "fbookingList.tiles";
 	}
@@ -69,6 +84,7 @@ public class freeBookingController {
 		
 		model.addAttribute("con", context);
 		model.addAttribute("post1", post1);
+		model.addAttribute("title", "자유대관");
 		return "fbookingWrite.tiles";
 	}
 	@RequestMapping(value = "fbookingWrite_ok.do", method = {RequestMethod.GET,RequestMethod.POST})	
@@ -116,6 +132,7 @@ public class freeBookingController {
 		model.addAttribute("preDTO", preDTO);
 		model.addAttribute("nextDTO", nextDTO);
 		model.addAttribute("fdto", dto);
+		model.addAttribute("title", "자유대관");
 		
 		return "fbookingDetail.tiles";
 	}
