@@ -97,8 +97,8 @@ public class foot_gameService_impl implements foot_gameService{
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<foot_game_DTO> adminMainList() throws Exception {
-		return fgdao.adminMainList();
+	public List<foot_game_DTO> adminMainList(foot_game_DTO fgdto) throws Exception {
+		return fgdao.adminMainList(fgdto);
 	}
 	
 	

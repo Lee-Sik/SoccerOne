@@ -99,10 +99,10 @@ public class foot_game_DAO{
 		return false;
 	}
 	
-	public List<foot_game_DTO> adminMainList()throws Exception{
+	public List<foot_game_DTO> adminMainList(foot_game_DTO fgdto)throws Exception{
 		List<foot_game_DTO> list=new ArrayList<foot_game_DTO>();
 		list=(List<foot_game_DTO>)
-				sqlse.selectList(ns+"adminMainList");
+				sqlse.selectList(ns+"adminMainList", fgdto);
 		return list;
 	}
 

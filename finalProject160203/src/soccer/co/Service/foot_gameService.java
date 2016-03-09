@@ -26,6 +26,6 @@ public interface foot_gameService {
 	List<RANKParam> getrankingList(RANKParam rank)throws Exception;
 	public boolean statechange(foot_game_DTO fgdto);
 	
-	List<foot_game_DTO> adminMainList()throws Exception;
+	List<foot_game_DTO> adminMainList(foot_game_DTO fgdto)throws Exception;
 	
 }

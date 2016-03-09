@@ -6,11 +6,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 
-<!-- <link rel="stylesheet" type="text/css" media="all" href="booking/ie11.css" />
-<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
-<script type="text/javascript" src="booking/json"></script> -->
-<link href="CSS/booking.css" rel="stylesheet" type="text/css" />
-<!-- <link href="CSS/BBStable.css" rel="stylesheet" type="text/css" /> -->
+<link href="CSS/admincal.css" rel="stylesheet" type="text/css" />
+<link href="CSS/Admintable.css" rel="stylesheet" type="text/css" />
 <!-- // jQuery UI CSS파일  -->
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 <!-- // jQuery 기본 js파일 -->
@@ -25,7 +22,7 @@ $(function() {
     		
     		 var v = $( "#testDatepicker" ).val();
     		 		 
-    		 location.href="./bookingList.do?day=" + v + "&mode=day";
+    		 location.href="./adminmain.do?day=" + v;
     	 }  
     	
     	
@@ -42,10 +39,10 @@ $(function() {
 
 <body>
 
-<table style="width: 85%;">
+<table style="width: 80%; margin-left: auto; margin-right: auto;">
 
 <tr>
-	<td>
+	<td class="cal">
 		<div class="calendar">
 			<form name="f1" action="">	
 			<div id="testDatepicker" style="margin-top: -10px; margin-left: -20px;">
@@ -55,7 +52,7 @@ $(function() {
 		</div>
 	</td>
 	<td>
-		<table>
+		<table class="list_table" >
 			<tr>
 			<th>경기일자</th> <th>홈 팀</th> <th>상대 팀</th> <th>입력 상태</th>
 			<c:forEach items="${adminrecordlist}" var="reclist" varStatus="vs">

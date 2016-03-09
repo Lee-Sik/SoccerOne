@@ -67,7 +67,7 @@
 				<li><a href='./address.do'>연락처</a></li>
 			</ul></li>
 		<c:if test="${ login.user_email == 'admin'}">
-			<li class='active'><a href='./adminMain.do'>관리자 페이지</a>
+			<li class='active'><a href='./adminmain.do'>관리자 페이지</a>
 				<ul>
 					<li><a href='./adminInsertGame.do'>경기기록 입력</a></li>
 				</ul>

@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.omg.PortableInterceptor.USER_EXCEPTION;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import soccer.co.DTO.foot_game_DTO;
-import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
 import soccer.co.Service.foot_gameService;
-import soccer.co.Service.foot_teamCalendarService;
 import soccer.co.Service.foot_teamService;
 
 @Controller
@@ -35,44 +32,45 @@ public class adminController {
 	private static final Logger logger = LoggerFactory
 			.getLogger(adminController.class);
 	
-	@RequestMapping(value = "adminMain.do", method = { RequestMethod.GET,RequestMethod.POST })
-	public String adminMain(Model model)throws Exception{
-
+	@RequestMapping(value = "adminmain.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String adminMain(foot_game_DTO fgdto, HttpServletRequest request, Model model)throws Exception{
 		
-		List<foot_game_DTO> adminrecordlist = fgameservice.adminMainList();
+		String day = request.getParameter("day");
 		
-		for(foot_game_DTO tmp: adminrecordlist){
-			System.out.println(tmp.toString());
+		System.out.println("day = " + day);
+		if(!(day==null || day.equals(null))){
 			
+			String date = day.substring(6, 10) +'-'+ day.substring(0, 2) +'-'+ day.substring(3, 5);
+			
+			System.out.println("date = " + date);
+			fgdto.setGame_date(date);
+			List<foot_game_DTO> adminrecordlist = fgameservice.adminMainList(fgdto);
+			model.addAttribute("adminrecordlist", adminrecordlist);	
+			
+			return "redirect:/adminmain.do?day=" + day;
 			
 		}
 		
-		
-		System.out.println(adminrecordlist.toString());
-		
-		model.addAttribute("adminrecordlist", adminrecordlist);
-		
+		if(day==null || day.equals(null)){
+			
+			fgdto.setGame_date("");
+			List<foot_game_DTO> adminrecordlist = fgameservice.adminMainList(fgdto);
+			model.addAttribute("adminrecordlist", adminrecordlist);
+			
+		}return "adminmain.tiles";
+
+}
 	
-		
-//		HttpSession hs=request.getSession();
-//		foot_user_DTO user = (foot_user_DTO) hs.getAttribute("login");
-//		if(user==null || !user.getUser_email().equals("admin")){
-//			System.out.println("no Admin");
-//			 return "redirect:/noAdmin.do";
-//		}
-//		if(winTeam != null){
-//			System.out.println(winTeam.toString());
-//			model.addAttribute("winTeam");
-//		}
-//		if(loseTeam != null){
-//			System.out.println(loseTeam.toString());
-//		}
-		
-		
-		
-		return "adminMain.tiles";
-		
-	}
+	
+	
+	
+//	@RequestMapping(value = "recordCallist.do", method = { RequestMethod.GET,RequestMethod.POST })
+//	public String recordcallist(foot_game_DTO fgdto, HttpServletRequest request, Model model) throws Exception{
+//				
+//		
+//		
+//		return  "redirect:/adminMain.do?day=" + day;
+//	}
 	
 	@RequestMapping(value = "adminInsertGame.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String adminInsertGame(foot_team_DTO winTeam,foot_team_DTO loseTeam,HttpServletRequest request, Model model){
