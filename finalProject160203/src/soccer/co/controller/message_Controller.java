@@ -200,10 +200,35 @@ public class message_Controller {
 			
 			
 			int matching = fmdto.getMatchingre();
-			System.out.println(matching);
 			foot_game_DTO fgdto = new foot_game_DTO();
 			fgdto.setGame_no(matching);
+			fgdto.setTeam_name1(fmdto.getSender_user_email());
 			fgameservice.statechange(fgdto);
+			
+			messageservice.matching(fmdto);
+			messageservice.message(fmdto1);
+			
+			return "redirect:messagedetail.do";
+		}
+		
+		
+		@RequestMapping(value = "matchingrefuse.do", method = {RequestMethod.GET,RequestMethod.POST})	
+		public String matchingrefuse(foot_message_DTO fmdto, HttpServletRequest request, Model model) throws Exception {	
+			logger.info("Welcome message_Controller matchingrefuse! "+ new Date());
+			foot_message_DTO fmdto1 = new foot_message_DTO();
+			fmdto1.setSender_user_email(fmdto.getReceiver_user_email());
+			fmdto1.setReceiver_user_email(fmdto.getSender_user_email());
+			fmdto1.setMessage_type("matching");
+			fmdto1.setMessage("경기 신청에 상대편이 요청에 거절했습니다. 다른 팀에 시도해 보세요.");
+			fmdto1.setMercenaryre(0);
+			fmdto1.setTeamapplymegre(0);
+			fmdto1.setMatchingre(0);
+			
+			
+			int matching = fmdto.getMatchingre();
+			foot_game_DTO fgdto = new foot_game_DTO();
+			fgdto.setGame_no(matching);
+			fgdto.setTeam_name1("null");
 			
 			messageservice.matching(fmdto);
 			messageservice.message(fmdto1);

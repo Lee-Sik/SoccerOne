@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{user_email},#{user_pw},#{user_name},#{user_birth},#{user_age},
 		#{user_phone},#{user_high},#{user_weight},#{user_foot},
 		#{user_position1},#{user_position2},#{user_position3},#{user_address},
-		#{user_profile},null,#{user_helper},#{user_enabled},'미기입','미기입','미기입','미기입',null,null,0,0,0,0,0)
+		#{user_profile},null,#{user_helper},#{user_enabled},'미기입','미기입','미기입',null,null,0,0,0,0,0,0)
 	</insert>
 
 	<update id="teamjoin_userupdate" parameterType="soccer.co.DTO.foot_team_DTO">

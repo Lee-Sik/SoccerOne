@@ -7,6 +7,7 @@ public class foot_game_DTO {
 	private String team_managerid;
 	private int game_no;
 	private String team_name;
+	private String team_name1;
 	private String game_location;
 	private String game_content;
 	private String game_date;
@@ -138,11 +139,35 @@ public class foot_game_DTO {
 		this.game_state = game_state;
 	}
 
+	public String getTeam_name1() {
+		return team_name1;
+	}
+
+	public void setTeam_name1(String team_name1) {
+		this.team_name1 = team_name1;
+	}
+
 	@Override
 	public String toString() {
 		return "foot_game_DTO [team_managerid=" + team_managerid + ", game_no=" + game_no + ", team_name=" + team_name
-				+ ", game_location=" + game_location + ", game_content=" + game_content + ", game_date=" + game_date
-				+ ", ground=" + ground + ", pay=" + pay + ", game_state=" + game_state + "]";
+				+ ", team_name1=" + team_name1 + ", game_location=" + game_location + ", game_content=" + game_content
+				+ ", game_date=" + game_date + ", ground=" + ground + ", pay=" + pay + ", game_state=" + game_state
+				+ "]";
+	}
+
+	public foot_game_DTO(String team_managerid, int game_no, String team_name, String team_name1, String game_location,
+			String game_content, String game_date, String ground, int pay, int game_state) {
+		super();
+		this.team_managerid = team_managerid;
+		this.game_no = game_no;
+		this.team_name = team_name;
+		this.team_name1 = team_name1;
+		this.game_location = game_location;
+		this.game_content = game_content;
+		this.game_date = game_date;
+		this.ground = ground;
+		this.pay = pay;
+		this.game_state = game_state;
 	}
 
 

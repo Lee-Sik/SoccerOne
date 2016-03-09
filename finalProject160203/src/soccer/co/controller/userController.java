@@ -100,12 +100,13 @@ public class userController {
 	public String join1(@RequestParam("file") MultipartFile file, foot_user_DTO fudto, String user_email1,
 			String user_email2, HttpServletRequest request, Model model) throws Exception {
 		logger.info("Welcome HelloMemberController join1! " + new Date());
+		
+		
 		String user_email = user_email1 + "@" + user_email2;
 		fudto.setUser_email(user_email);
-		
+		System.out.println(fudto.toString());
 		String fileName = null;
 		File upload = null;
-
 		if (!file.isEmpty()) {
 			try {
 

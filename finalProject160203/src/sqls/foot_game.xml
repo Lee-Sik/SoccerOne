@@ -115,7 +115,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
    
    <update id="statechange" parameterType="soccer.co.DTO.foot_game_DTO">
-   update foot_publicgame set game_state=1 where game_no=#{game_no}
+   update foot_publicgame set game_state=1, team_name1=#{team_name1} where game_no=#{game_no}
    </update>
    
 
