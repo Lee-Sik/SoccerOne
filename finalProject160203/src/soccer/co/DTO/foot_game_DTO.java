@@ -4,6 +4,7 @@ package soccer.co.DTO;
  */
 public class foot_game_DTO {
 	
+	private int rnum;
 	private String team_managerid;
 	private int game_no;
 	private String team_name;
@@ -16,7 +17,7 @@ public class foot_game_DTO {
 	private int game_state;
 	
 	public foot_game_DTO(){}
-
+	
 	public foot_game_DTO(String team_managerid, int game_no, String team_id, String game_location, String game_date, String ground,
 			int pay, int game_state) { //공식 경기
 		super();
@@ -66,6 +67,42 @@ public class foot_game_DTO {
 		this.pay = pay;
 	}
 	
+	public foot_game_DTO(String team_managerid, int game_no, String team_name, String team_name1, String game_location,
+			String game_content, String game_date, String ground, int pay, int game_state) {
+		super();
+		this.team_managerid = team_managerid;
+		this.game_no = game_no;
+		this.team_name = team_name;
+		this.team_name1 = team_name1;
+		this.game_location = game_location;
+		this.game_content = game_content;
+		this.game_date = game_date;
+		this.ground = ground;
+		this.pay = pay;
+		this.game_state = game_state;
+	}
+	
+	public foot_game_DTO(int rnum, int game_no, String team_name, String team_name1, String game_location,
+			String game_date, String ground, int pay, int game_state) {
+		super();
+		this.rnum = rnum;
+		this.game_no = game_no;
+		this.team_name = team_name;
+		this.team_name1 = team_name1;
+		this.game_location = game_location;
+		this.game_date = game_date;
+		this.ground = ground;
+		this.pay = pay;
+		this.game_state = game_state;
+	}
+
+	public int getRnum() {
+		return rnum;
+	}
+
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
+	}
 
 	public String getTeam_managerid() {
 		return team_managerid;
@@ -149,28 +186,17 @@ public class foot_game_DTO {
 
 	@Override
 	public String toString() {
-		return "foot_game_DTO [team_managerid=" + team_managerid + ", game_no=" + game_no + ", team_name=" + team_name
-				+ ", team_name1=" + team_name1 + ", game_location=" + game_location + ", game_content=" + game_content
-				+ ", game_date=" + game_date + ", ground=" + ground + ", pay=" + pay + ", game_state=" + game_state
-				+ "]";
+		return "foot_game_DTO [rnum=" + rnum + ", team_managerid=" + team_managerid + ", game_no=" + game_no
+				+ ", team_name=" + team_name + ", team_name1=" + team_name1 + ", game_location=" + game_location
+				+ ", game_content=" + game_content + ", game_date=" + game_date + ", ground=" + ground + ", pay=" + pay
+				+ ", game_state=" + game_state + "]";
 	}
 
-	public foot_game_DTO(String team_managerid, int game_no, String team_name, String team_name1, String game_location,
-			String game_content, String game_date, String ground, int pay, int game_state) {
-		super();
-		this.team_managerid = team_managerid;
-		this.game_no = game_no;
-		this.team_name = team_name;
-		this.team_name1 = team_name1;
-		this.game_location = game_location;
-		this.game_content = game_content;
-		this.game_date = game_date;
-		this.ground = ground;
-		this.pay = pay;
-		this.game_state = game_state;
-	}
+	
 
+	
 
+	
 	
 	
 

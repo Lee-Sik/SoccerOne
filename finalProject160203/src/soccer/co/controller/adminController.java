@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import soccer.co.DTO.foot_game_DTO;
+import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
+import soccer.co.Service.foot_gameService;
 import soccer.co.Service.foot_teamCalendarService;
 import soccer.co.Service.foot_teamService;
 
@@ -26,9 +29,50 @@ public class adminController {
 	
 	@Autowired
 	foot_teamService clubservice;
+	@Autowired
+	foot_gameService fgameservice;
 	
 	private static final Logger logger = LoggerFactory
 			.getLogger(adminController.class);
+	
+	@RequestMapping(value = "adminMain.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String adminMain(Model model)throws Exception{
+
+		
+		List<foot_game_DTO> adminrecordlist = fgameservice.adminMainList();
+		
+		for(foot_game_DTO tmp: adminrecordlist){
+			System.out.println(tmp.toString());
+			
+			
+		}
+		
+		
+		System.out.println(adminrecordlist.toString());
+		
+		model.addAttribute("adminrecordlist", adminrecordlist);
+		
+	
+		
+//		HttpSession hs=request.getSession();
+//		foot_user_DTO user = (foot_user_DTO) hs.getAttribute("login");
+//		if(user==null || !user.getUser_email().equals("admin")){
+//			System.out.println("no Admin");
+//			 return "redirect:/noAdmin.do";
+//		}
+//		if(winTeam != null){
+//			System.out.println(winTeam.toString());
+//			model.addAttribute("winTeam");
+//		}
+//		if(loseTeam != null){
+//			System.out.println(loseTeam.toString());
+//		}
+		
+		
+		
+		return "adminMain.tiles";
+		
+	}
 	
 	@RequestMapping(value = "adminInsertGame.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String adminInsertGame(foot_team_DTO winTeam,foot_team_DTO loseTeam,HttpServletRequest request, Model model){

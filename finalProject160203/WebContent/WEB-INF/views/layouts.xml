@@ -21,9 +21,12 @@
 <definition name="notlogin.tiles" template="/WEB-INF/views/login/notlogin.jsp">
 </definition>
 
+<definition name="adminMain.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/admin/adminmain.jsp" />
+</definition>
 
 <definition name="adminInsertGame.tiles" extends="login.tiles">
-<put-attribute name="main" value="/WEB-INF/views/admin/insert.jsp" />
+	<put-attribute name="main" value="/WEB-INF/views/admin/insert.jsp" />
 </definition>
 
 <definition name="refirst.tiles" extends="login.tiles">

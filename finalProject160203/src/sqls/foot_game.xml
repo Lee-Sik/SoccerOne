@@ -5,6 +5,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="foot_game">
 
+	<select id="adminMainList" resultType="soccer.co.DTO.foot_game_DTO">
+<!-- 		SELECT * FROM  -->
+<!-- 		(SELECT row_number() over (order by GAME_DATE desc) as rnum, -->
+<!-- 		GAME_NO, GAME_DATE, SCORE, WIN_TEAM, LOSE_TEAM, MATCHING_STATE, WIN_GOAL_PLAYER, -->
+<!-- 		LOSE_GOAL_PLAYER, HOME_LOCAL, AWAY_LOCAL, WIN_TEAM_LOGO, LOSE_TEAM_LOGO -->
+<!-- 		FROM FOOT_GAME_RECORD -->
+<!-- 		WHERE MATCHING_STATE = 0 -->
+<!-- 		ORDER BY GAME_DATE DESC) A WHERE -->
+<!-- 		rnum between 1 AND 5 -->
+
+
+		SELECT * FROM (SELECT row_number() over (order by GAME_DATE DESC) as RNUM,
+		GAME_NO, TEAM_NAME, TEAM_NAME1, GAME_LOCATION, GAME_DATE, GROUND, PAY, GAME_STATE
+		FROM FOOT_PUBLICGAME
+		WHERE GAME_STATE = 1 AND TEAM_NAME1 IS NOT NULL
+		ORDER BY GAME_DATE DESC) A WHERE
+		RNUM between 1 AND 5
+	</select>
+	
+
    <insert id="freegame" parameterType="soccer.co.DTO.foot_game_DTO">
       INSERT INTO foot_freegame
       VALUES(foot_freegame_seq.nextval,#{team_name},#{game_content},#{game_date}

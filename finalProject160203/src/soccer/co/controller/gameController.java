@@ -48,7 +48,7 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 		List<String[]> dataAll = new ArrayList<String[]>();
 
 		File file = new File(
-				"C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160222/WebContent/data/test2.csv");
+				"C:/springstudy/finalProject160203/WebContent/data/test2.csv");
 		CSVReader reader = new CSVReader(new FileReader(file));
 		// UTF-8
 		// CSVReader reader = new CSVReader(new InputStreamReader(new

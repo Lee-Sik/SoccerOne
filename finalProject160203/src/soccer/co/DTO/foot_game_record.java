@@ -7,7 +7,7 @@ package soccer.co.DTO;
  score varchar2(50) ;   	     // 1,2  왼이 이긴팀 점수, 오른쪽이 진팀점수  
  win_team varchar2(20) ;		   //승리팀
  lose_team varchar2(20) ;		   //패팀
- maching_state number ;		     //성사여부 최근 경기를 보여줄때 성사 여부에 따라 보여준다. '
+ matching_state number ;		     //성사여부 최근 경기를 보여줄때 성사 여부에 따라 보여준다. '
  win_goal_player varchar2(50),	       //승리팀 골잡이 user_id,
  lose_goal_player varchar2(50),	       //패팀 골잡이   user_id, 
  home_local varchar2(50) ;		 //홈팀 지역
@@ -19,13 +19,14 @@ package soccer.co.DTO;
  );
  */
 public class foot_game_record {
-
+	
+	int rnum;
 	int game_no; // 경기 시퀀스 번호 publicgame의 game_no와 forgin
 	String game_date; // 경기 날짜
 	String score; // 1,2 왼이 이긴팀 점수, 오른쪽이 진팀점수
 	String win_team; // 승리팀
 	String lose_team; // 패팀
-	int maching_state; // 성사여부 최근 경기를 보여줄때 성사 여부에 따라 보여준다. 1==성사 , 0은 no 성사'
+	int matching_state; // 성사여부 최근 경기를 보여줄때 성사 여부에 따라 보여준다. 1==성사 , 0은 no 성사'
 	String win_goal_player; // 승리팀 골잡이 user_id,
 	String lose_goal_player; // 패팀 골잡이 user_id,
 	String home_local; // 홈팀 지역
@@ -39,7 +40,7 @@ public class foot_game_record {
 
 	
 	public foot_game_record(int game_no, String game_date, String score,
-			String win_team, String lose_team, int maching_state,
+			String win_team, String lose_team, int matching_state,
 			String win_goal_player, String lose_goal_player, String home_local,
 			String away_local, String win_team_logo, String lose_team_logo) {
 		super();
@@ -48,13 +49,42 @@ public class foot_game_record {
 		this.score = score;
 		this.win_team = win_team;
 		this.lose_team = lose_team;
-		this.maching_state = maching_state;
+		this.matching_state = matching_state;
 		this.win_goal_player = win_goal_player;
 		this.lose_goal_player = lose_goal_player;
 		this.home_local = home_local;
 		this.away_local = away_local;
 		this.win_team_logo = win_team_logo;
 		this.lose_team_logo = lose_team_logo;
+	}
+
+	public foot_game_record(int rnum, int game_no, String game_date, String score, String win_team, String lose_team,
+			int matching_state, String win_goal_player, String lose_goal_player, String home_local, String away_local,
+			String win_team_logo, String lose_team_logo) {
+		super();
+		this.rnum = rnum;
+		this.game_no = game_no;
+		this.game_date = game_date;
+		this.score = score;
+		this.win_team = win_team;
+		this.lose_team = lose_team;
+		this.matching_state = matching_state;
+		this.win_goal_player = win_goal_player;
+		this.lose_goal_player = lose_goal_player;
+		this.home_local = home_local;
+		this.away_local = away_local;
+		this.win_team_logo = win_team_logo;
+		this.lose_team_logo = lose_team_logo;
+	}
+
+
+	public int getRnum() {
+		return rnum;
+	}
+
+
+	public void setRnum(int rnum) {
+		this.rnum = rnum;
 	}
 
 
@@ -118,12 +148,12 @@ public class foot_game_record {
 		this.lose_team = lose_team;
 	}
 
-	public int getMaching_state() {
-		return maching_state;
+	public int getMatching_state() {
+		return matching_state;
 	}
 
-	public void setMaching_state(int maching_state) {
-		this.maching_state = maching_state;
+	public void setMatching_state(int matching_state) {
+		this.matching_state = matching_state;
 	}
 
 	public String getWin_goal_player() {
@@ -162,8 +192,8 @@ public class foot_game_record {
 	public String toString() {
 		return "foot_game_record [game_no=" + game_no + ", game_date="
 				+ game_date + ", score=" + score + ", win_team=" + win_team
-				+ ", lose_team=" + lose_team + ", maching_state="
-				+ maching_state + ", win_goal_player=" + win_goal_player
+				+ ", lose_team=" + lose_team + ", matching_state="
+				+ matching_state + ", win_goal_player=" + win_goal_player
 				+ ", lose_goal_player=" + lose_goal_player + ", home_local="
 				+ home_local + ", away_local=" + away_local + "]";
 	}

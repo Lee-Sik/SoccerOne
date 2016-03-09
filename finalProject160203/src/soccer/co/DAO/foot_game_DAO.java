@@ -99,6 +99,12 @@ public class foot_game_DAO{
 		return false;
 	}
 	
+	public List<foot_game_DTO> adminMainList()throws Exception{
+		List<foot_game_DTO> list=new ArrayList<foot_game_DTO>();
+		list=(List<foot_game_DTO>)
+				sqlse.selectList(ns+"adminMainList");
+		return list;
+	}
 
 
 }

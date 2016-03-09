@@ -262,7 +262,7 @@ create table foot_game_record(--공식 경기만 기록하는 테이블
    score varchar2(50) not null,   	     -- 1,2  왼이 이긴팀 점수, 오른쪽이 진팀점수  
    win_team varchar2(20) not null,		   --승리팀
    lose_team varchar2(20) not null,		   --패팀
-   maching_state number not null,		     --성사여부 최근 경기를 보여줄때 성사 여부에 따라 보여준다. '
+   matching_state number not null,		     --성사여부 최근 경기를 보여줄때 성사 여부에 따라 보여준다. '
    win_goal_player varchar2(50),	       --승리팀 골잡이 user_id,
    lose_goal_player varchar2(50),	       --패팀 골잡이   user_id, 
    home_local varchar2(50) not null,		 --홈팀 지역

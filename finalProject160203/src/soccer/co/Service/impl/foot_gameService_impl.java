@@ -95,4 +95,11 @@ public class foot_gameService_impl implements foot_gameService{
 		return fgdao.statechange(fgdto);
 	}
 	
+	@Override
+	@Transactional(readOnly=true)
+	public List<foot_game_DTO> adminMainList() throws Exception {
+		return fgdao.adminMainList();
+	}
+	
+	
 }
