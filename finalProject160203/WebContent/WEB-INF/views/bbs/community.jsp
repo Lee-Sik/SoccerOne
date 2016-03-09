@@ -15,7 +15,9 @@
 </colgroup>
 
 <tr>
-	<td colspan="3" style="text-align: center; font-weight: bold">최근 국내축구 게시글</td>
+	<td colspan="3" style="text-align: center; font-weight: bold">
+	<img src="./image/bbs_korea.jpg"/>
+	최근 국내축구 게시글</td>
 </tr>
 
 <tr>
@@ -26,7 +28,7 @@
 
 	<c:forEach items="${bbslist}" var="bbslist" varStatus="vs">
 		<tr>		
-			<c:if test="${bbslist.topic == 'korea'}">
+			<c:if test="${bbslist.topic == '국내축구'}">
 				<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
 				<td>${bbslist.user_email}</td> 
 				<c:set var="rdate" value="${bbslist.wdate}"/>
@@ -50,7 +52,9 @@
 <col style="width:80px;" />
 </colgroup>
 <tr>
-	<td colspan="3" style="text-align: center; font-weight: bold">최근 해외축구 게시글</td>
+	<td colspan="3" style="text-align: center; font-weight: bold">
+	<img src="./image/bbs_europe.jpg"/>
+	최근 해외축구 게시글</td>
 </tr>
 
 <tr>
@@ -60,7 +64,7 @@
 <c:if test="${not empty bbslist}">
 
 	<c:forEach items="${bbslist}" var="bbslist" varStatus="vs">
-	<c:if test="${bbslist.topic == 'europe'}">
+	<c:if test="${bbslist.topic == '해외축구'}">
 	 
 		<tr>		
 				<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>

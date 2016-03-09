@@ -33,7 +33,7 @@
 
 <colgroup>
 	<col style="width:5%;"/>
-	<col style="width:10%;"/>
+	<col style="width:15%;"/>
 	<col style="width:auto;"/>
 	<col style="width:20%;"/>
 	<col style="width:13%;"/>
@@ -57,7 +57,14 @@
 <c:if test="${bbs.del == 0}">
 	<tr class="_hover_tr">
 		<td>${vs.count}</td> 
-		<td>${bbs.topic}</td>
+		<td>
+		<c:if test="${bbs.topic == '국내축구' }">
+		<img src="./image/bbs_korea.jpg"/></c:if>
+		<c:if test="${bbs.topic == '해외축구' }">
+		<img src="./image/bbs_europe.jpg"/></c:if>
+		<c:if test="${bbs.topic == '노닥거리' }">
+		<img src="./image/bbs_free.jpg"/></c:if>
+		${bbs.topic}</td>
 		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'>${bbs.title}</a>
 		 &nbsp;&nbsp;
 		 <a href="#" 

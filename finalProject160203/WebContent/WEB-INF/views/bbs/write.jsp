@@ -40,8 +40,9 @@ $(document).ready(function(){
 		<td style="text-align: left">
 			<select id="topic" name="topic">
 				<option value="" selected="selected">선택</option>
-				<option value="korea">국내축구</option>
-				<option value="europe">해외축구</option>		
+				<option value="국내축구">국내축구</option>
+				<option value="해외축구">해외축구</option>	
+				<option value="노닥거리">노닥거리</option>		
 			</select>
 		</td>
 	</tr>

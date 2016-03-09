@@ -11,19 +11,19 @@
 
 		<li class='active'><a href='./kickoff.do'>킥오프</a>
 			<ul>
-				<li><a href='#'>매칭 등록</a>
+				<li><a href='#'>경기 등록</a>
 					<ul>
 						<li><a href='publicgame.do'>랭킹전</a></li>
 						<li><a href='freegame.do'>친선경기</a></li>
 					</ul></li>
 
-				<li><a href='#'>매칭 검색</a>
+				<li><a href='#'>경기 검색</a>
 					<ul>
 						<li><a href='publicms.do'>랭킹전</a></li>
 						<li><a href='freems.do'>친선경기</a></li>
 					</ul></li>
 
-				<li><a href='./ranking.do'>랭킹순위</a></li>
+				<li><a href='./ranking.do'>리그 랭킹</a></li>
 			</ul></li>
 
 		
