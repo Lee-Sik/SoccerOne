@@ -58,13 +58,15 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 	}
 	
 	@RequestMapping(value = "pmatchingsearchAf.do", method = {RequestMethod.GET,RequestMethod.POST})	
-	public String pmatchingsearchAf(MATCHINGParam param,Model model) throws Exception {	
+	public String pmatchingsearchAf(MATCHINGParam param, Model model) throws Exception {	
 		logger.info("Welcome gameController pmatchingsearchAf! "+ new Date());
 		
 		List<foot_game_DTO> pmatchingsearchlist = fgameservice.getpmatchingsearchList(param);
+		
 		for(foot_game_DTO dto: pmatchingsearchlist){
 			System.out.println(dto.toString());
 		}
+		
 		model.addAttribute("pmatchingsearchlist", pmatchingsearchlist);
 		
 		model.addAttribute("title", "랭킹전 검색 결과");

@@ -59,11 +59,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    
          select * from foot_publicgame 
          where GAME_LOCATION = #{game_location}
-         and GAME_DATE = #{game_date}  
-         
+        
+	     <if test = "game_date != ''">
+	      	and GAME_DATE = #{game_date}  
+	     </if>
+       
          <if test = "suBground == 'null'">
             and GROUND = null
          </if>
+        
          <if test = "suBground != 'null'">
             and GROUND is not null
          </if>
@@ -76,8 +80,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    <select id="getfmatchingsearchList" parameterType="soccer.co.DTO.MATCHINGParam"
       resultType="soccer.co.DTO.foot_game_DTO">
    
-         select * from foot_freegame 
-         where GAME_DATE = #{game_date}  
+         SELECT * FROM FOOT_FREEGAME 
+         WHERE GAME_STATE = 0
+         
+         <if test="game_date != ''">
+	      	and GAME_DATE = #{game_date}  
+	     </if>
          
          <if test = "suBground == 'null'">
             and GROUND = null
@@ -85,8 +93,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          <if test = "suBground != 'null'">
             and GROUND is not null
          </if>
-         
-         and GAME_STATE = 0
          and PAY BETWEEN #{pay1} and #{pay2}
    
    </select>

@@ -110,9 +110,9 @@ $(function() {
 
 $("#_btnSearch").click(function() {
 
-	if(document.ms.game_date.value == ""){
-		alert("날짜를 입력해주세요");
-	}
+// 	if(document.ms.game_date.value == ""){
+// 		alert("날짜를 입력해주세요");
+// 	}
 	
 	$("#_frmFormSearch").attr({ "target":"_self", "action":"fmatchingsearchAf.do" }).submit();
 });

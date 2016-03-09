@@ -13,8 +13,6 @@ public class MATCHINGParam implements Serializable{
 	
 	public MATCHINGParam(){}
 	
-	
-	
 	public MATCHINGParam(String game_location, String game_date, String suBground, int game_state, int pay1, int pay2) {
 		super();
 		this.game_location = game_location;
