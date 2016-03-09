@@ -120,5 +120,9 @@ public class foot_team_DAO {
 	public List<RANKParam> getAllTeamLeague() {
 		return sql.selectList(ns+"getAllTeamLeague");
 	}
+
+	public List<foot_team_DTO> searchTeam(String query) {
+		return sql.selectList(ns+"searchTeam",query);
+	}
 	
 }

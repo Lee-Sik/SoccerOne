@@ -82,4 +82,10 @@ public class foot_teamService_impl implements foot_teamService{
 		return teamdao.getAllTeamLeague();
 	}
 
+	@Override
+	public List<foot_team_DTO> searchTeam(String query) {
+		
+		return teamdao.searchTeam(query);
+	}
+
 }

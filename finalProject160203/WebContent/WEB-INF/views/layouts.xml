@@ -12,10 +12,19 @@
 	<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
 </definition>
 
+<definition name="noAdmin.tiles" template="/WEB-INF/views/admin/noAdmin.jsp">
+</definition>
+
+<definition name="adminSearch.tiles" template="/WEB-INF/views/admin/search.jsp">
+</definition>
+
 <definition name="notlogin.tiles" template="/WEB-INF/views/login/notlogin.jsp">
 </definition>
 
 
+<definition name="adminInsertGame.tiles" extends="login.tiles">
+<put-attribute name="main" value="/WEB-INF/views/admin/insert.jsp" />
+</definition>
 
 <definition name="refirst.tiles" extends="login.tiles">
 	<put-attribute name="first" value="/WEB-INF/views/bbslist/refirst.jsp" />

@@ -33,4 +33,6 @@ public interface foot_teamService {
 	public List<FOOT_USER_RECORD> getMyRecord(foot_user_DTO user);
 
 	public List<RANKParam> getAllTeamLeague();
+
+	public List<foot_team_DTO> searchTeam(String query);
 }

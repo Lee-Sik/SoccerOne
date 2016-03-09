@@ -25,6 +25,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   	 SELECT GUGUN FROM FOOT_POST GROUP BY GUGUN
    </select>
    
+   <select id="searchTeam" parameterType="java.lang.String" resultType="soccer.co.DTO.foot_team_DTO">
+  	   <![CDATA[
+  	   SELECT * FROM foot_team  WHERE TEAM_NAME LIKE '%' || #{name} || '%' 
+  	   ]]>
+   </select>
+   
+   
+   
      <select id="getAllTeamLeague" resultType="soccer.co.DTO.RANKParam">
   	SELECT * from FOOT_TEAM_LEAGUE ORDER BY team_point DESC,TEAM_WIN DESC,TEAM_LOSE ASC
    </select>

@@ -1,5 +1,8 @@
 package soccer.co.controller;
 
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,18 +14,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import au.com.bytecode.opencsv.CSVReader;
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
+import sist.co.help.CSVWrite;
 import soccer.co.DTO.MATCHINGParam;
 import soccer.co.DTO.RANKParam;
 import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_game_DTO;
 import soccer.co.DTO.foot_game_record;
 import soccer.co.Service.foot_gameService;
+import soccer.co.Service.foot_teamService;
 
 @Controller
 public class gameController {
 	@Autowired
 	foot_gameService fgameservice;
+	@Autowired
+	foot_teamService clubservice;
 	
 private static final Logger logger = LoggerFactory.getLogger(gameController.class);
 	
@@ -35,6 +43,306 @@ private static final Logger logger = LoggerFactory.getLogger(gameController.clas
 		
 		List<foot_game_DTO> publicgamelist=fgameservice.getpublicgameList();
 		model.addAttribute("publicgamelist", publicgamelist);
+		
+/////////읽기///////////////
+		List<String[]> dataAll = new ArrayList<String[]>();
+
+		File file = new File(
+				"C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160222/WebContent/data/test2.csv");
+		CSVReader reader = new CSVReader(new FileReader(file));
+		// UTF-8
+		// CSVReader reader = new CSVReader(new InputStreamReader(new
+		// FileInputStream(filename), "UTF-8"), ",", '"', 1);
+		String[] str;
+		while ((str = reader.readNext()) != null) {
+			dataAll.add(str);
+		}
+		/////////읽기///////////////
+
+		List<RANKParam> rank = clubservice.getAllTeamLeague();// 모든 팀 리그
+		// 종로구/중구/용산구/성동구/광진구/동대문구/중랑구/성북구/강북구/도봉구/노원구/은평구/서대문구/마포구
+		// 양천구/강서구/구로구/금천구/영등포구/동작구/관악구/서초구/강남구/송파구/강동구
+
+		int[] guPopulation = new int[25];// 구별로 전체 인구수 저장 할 배열
+		int[] highRankPopulation = new int[25];// 구별로 상위리그 인구수 저장 할 배열
+		int[] midRankPopulation = new int[25];// 구별로 중위리그 인구수 저장 할 배열
+		int[] lowRankPopulation = new int[25];// 구별로 하위리그 인구수 저장 할 배열
+		// 구별로 등수를 저장할 배열
+		int[] rankPopulation = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+				1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+		// System.out.println("rank"+rank.size());
+		List<RANKParam> highRank = rank.subList(0,
+				(int) ((rank.size() - 1) * 0.1));// 상위 10%
+
+		for (RANKParam tmp : highRank) {
+			if (tmp.getTeam_location().equals("종로구")) {
+				highRankPopulation[0]++;
+			}
+			if (tmp.getTeam_location().equals("중구")) {
+				highRankPopulation[1]++;
+			}
+			if (tmp.getTeam_location().equals("용산구")) {
+				highRankPopulation[2]++;
+			}
+			if (tmp.getTeam_location().equals("성동구")) {
+				highRankPopulation[3]++;
+			}
+			if (tmp.getTeam_location().equals("광진구")) {
+				highRankPopulation[4]++;
+			}
+			if (tmp.getTeam_location().equals("동대문구")) {
+				highRankPopulation[5]++;
+			}
+			if (tmp.getTeam_location().equals("중랑구")) {
+				highRankPopulation[6]++;
+			}
+			if (tmp.getTeam_location().equals("성북구")) {
+				highRankPopulation[7]++;
+			}
+			if (tmp.getTeam_location().equals("강북구")) {
+				highRankPopulation[8]++;
+			}
+			if (tmp.getTeam_location().equals("도봉구")) {
+				highRankPopulation[9]++;
+			}
+			if (tmp.getTeam_location().equals("노원구")) {
+				highRankPopulation[10]++;
+			}
+			if (tmp.getTeam_location().equals("은평구")) {
+				highRankPopulation[11]++;
+			}
+			if (tmp.getTeam_location().equals("서대문구")) {
+				highRankPopulation[12]++;
+			}
+			if (tmp.getTeam_location().equals("마포구")) {
+				highRankPopulation[13]++;
+			}
+			if (tmp.getTeam_location().equals("양천구")) {
+				highRankPopulation[14]++;
+			}
+			if (tmp.getTeam_location().equals("강서구")) {
+				highRankPopulation[15]++;
+			}
+			if (tmp.getTeam_location().equals("구로구")) {
+				highRankPopulation[16]++;
+			}
+			if (tmp.getTeam_location().equals("금천구")) {
+				highRankPopulation[17]++;
+			}
+			if (tmp.getTeam_location().equals("영등포구")) {
+				highRankPopulation[18]++;
+			}
+			if (tmp.getTeam_location().equals("동작구")) {
+				highRankPopulation[19]++;
+			}
+			if (tmp.getTeam_location().equals("관악구")) {
+				highRankPopulation[20]++;
+			}
+			if (tmp.getTeam_location().equals("서초구")) {
+				highRankPopulation[21]++;
+			}
+			if (tmp.getTeam_location().equals("강남구")) {
+				highRankPopulation[22]++;
+			}
+			if (tmp.getTeam_location().equals("송파구")) {
+				highRankPopulation[23]++;
+			}
+			if (tmp.getTeam_location().equals("강동구")) {
+				highRankPopulation[24]++;
+			}
+		}
+
+		List<RANKParam> midRank = rank.subList(highRank.size(), highRank.size()
+				+ (int) ((rank.size() - 1) * 0.3));// 10~40%
+
+		for (RANKParam tmp : midRank) {
+			if (tmp.getTeam_location().equals("종로구")) {
+				midRankPopulation[0]++;
+			}
+			if (tmp.getTeam_location().equals("중구")) {
+				midRankPopulation[1]++;
+			}
+			if (tmp.getTeam_location().equals("용산구")) {
+				midRankPopulation[2]++;
+			}
+			if (tmp.getTeam_location().equals("성동구")) {
+				midRankPopulation[3]++;
+			}
+			if (tmp.getTeam_location().equals("광진구")) {
+				midRankPopulation[4]++;
+			}
+			if (tmp.getTeam_location().equals("동대문구")) {
+				midRankPopulation[5]++;
+			}
+			if (tmp.getTeam_location().equals("중랑구")) {
+				midRankPopulation[6]++;
+			}
+			if (tmp.getTeam_location().equals("성북구")) {
+				midRankPopulation[7]++;
+			}
+			if (tmp.getTeam_location().equals("강북구")) {
+				midRankPopulation[8]++;
+			}
+			if (tmp.getTeam_location().equals("도봉구")) {
+				midRankPopulation[9]++;
+			}
+			if (tmp.getTeam_location().equals("노원구")) {
+				midRankPopulation[10]++;
+			}
+			if (tmp.getTeam_location().equals("은평구")) {
+				midRankPopulation[11]++;
+			}
+			if (tmp.getTeam_location().equals("서대문구")) {
+				midRankPopulation[12]++;
+			}
+			if (tmp.getTeam_location().equals("마포구")) {
+				midRankPopulation[13]++;
+			}
+			if (tmp.getTeam_location().equals("양천구")) {
+				midRankPopulation[14]++;
+			}
+			if (tmp.getTeam_location().equals("강서구")) {
+				midRankPopulation[15]++;
+			}
+			if (tmp.getTeam_location().equals("구로구")) {
+				midRankPopulation[16]++;
+			}
+			if (tmp.getTeam_location().equals("금천구")) {
+				midRankPopulation[17]++;
+			}
+			if (tmp.getTeam_location().equals("영등포구")) {
+				midRankPopulation[18]++;
+			}
+			if (tmp.getTeam_location().equals("동작구")) {
+				midRankPopulation[19]++;
+			}
+			if (tmp.getTeam_location().equals("관악구")) {
+				midRankPopulation[20]++;
+			}
+			if (tmp.getTeam_location().equals("서초구")) {
+				midRankPopulation[21]++;
+			}
+			if (tmp.getTeam_location().equals("강남구")) {
+				midRankPopulation[22]++;
+			}
+			if (tmp.getTeam_location().equals("송파구")) {
+				midRankPopulation[23]++;
+			}
+			if (tmp.getTeam_location().equals("강동구")) {
+				midRankPopulation[24]++;
+			}
+		}
+		// System.out.println("midRank"+midRank.size());
+		List<RANKParam> lowRank = rank.subList(highRank.size() + midRank.size()
+				- 1, rank.size() - 1);// 나머지
+
+		for (RANKParam tmp : lowRank) {
+			if (tmp.getTeam_location().equals("종로구")) {
+				lowRankPopulation[0]++;
+			}
+			if (tmp.getTeam_location().equals("중구")) {
+				lowRankPopulation[1]++;
+			}
+			if (tmp.getTeam_location().equals("용산구")) {
+				lowRankPopulation[2]++;
+			}
+			if (tmp.getTeam_location().equals("성동구")) {
+				lowRankPopulation[3]++;
+			}
+			if (tmp.getTeam_location().equals("광진구")) {
+				lowRankPopulation[4]++;
+			}
+			if (tmp.getTeam_location().equals("동대문구")) {
+				lowRankPopulation[5]++;
+			}
+			if (tmp.getTeam_location().equals("중랑구")) {
+				lowRankPopulation[6]++;
+			}
+			if (tmp.getTeam_location().equals("성북구")) {
+				lowRankPopulation[7]++;
+			}
+			if (tmp.getTeam_location().equals("강북구")) {
+				lowRankPopulation[8]++;
+			}
+			if (tmp.getTeam_location().equals("도봉구")) {
+				lowRankPopulation[9]++;
+			}
+			if (tmp.getTeam_location().equals("노원구")) {
+				lowRankPopulation[10]++;
+			}
+			if (tmp.getTeam_location().equals("은평구")) {
+				lowRankPopulation[11]++;
+			}
+			if (tmp.getTeam_location().equals("서대문구")) {
+				lowRankPopulation[12]++;
+			}
+			if (tmp.getTeam_location().equals("마포구")) {
+				lowRankPopulation[13]++;
+			}
+			if (tmp.getTeam_location().equals("양천구")) {
+				lowRankPopulation[14]++;
+			}
+			if (tmp.getTeam_location().equals("강서구")) {
+				lowRankPopulation[15]++;
+			}
+			if (tmp.getTeam_location().equals("구로구")) {
+				lowRankPopulation[16]++;
+			}
+			if (tmp.getTeam_location().equals("금천구")) {
+				lowRankPopulation[17]++;
+			}
+			if (tmp.getTeam_location().equals("영등포구")) {
+				lowRankPopulation[18]++;
+			}
+			if (tmp.getTeam_location().equals("동작구")) {
+				lowRankPopulation[19]++;
+			}
+			if (tmp.getTeam_location().equals("관악구")) {
+				lowRankPopulation[20]++;
+			}
+			if (tmp.getTeam_location().equals("서초구")) {
+				lowRankPopulation[21]++;
+			}
+			if (tmp.getTeam_location().equals("강남구")) {
+				lowRankPopulation[22]++;
+			}
+			if (tmp.getTeam_location().equals("송파구")) {
+				lowRankPopulation[23]++;
+			}
+			if (tmp.getTeam_location().equals("강동구")) {
+				lowRankPopulation[24]++;
+			}
+		}
+		for (int i = 0; i < 25; i++) {// 구별 상위+중위+하위 팀 수
+			guPopulation[i] = highRankPopulation[i] + midRankPopulation[i]
+					+ lowRankPopulation[i];
+		}
+
+		for (int i = 0; i < guPopulation.length; i++) {//랭킹 계산
+			rankPopulation[i] = 1;
+			for (int j = 0; j < guPopulation.length; j++) {
+				//rankPopulation[i]++;
+				if (guPopulation[i] < guPopulation[j]) {
+					rankPopulation[i]++;
+				}
+			}
+		}
+
+//		int[] guPopulation = new int[25];// 구별로 전체 인구수 저장 할 배열
+//		int[] highRankPopulation = new int[25];// 구별로 상위리그 인구수 저장 할 배열
+//		int[] midRankPopulation = new int[25];// 구별로 중위리그 인구수 저장 할 배열
+//		int[] lowRankPopulation = new int[25];// 구별로 하위리그 인구수 저장 할 배열
+//		// 구별로 등수를 저장할 배열
+//		int[] rankPopulation = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		 CSVWrite cw = new CSVWrite();
+		 
+		 cw.insertGuPopulation(dataAll,guPopulation);// 구별로 전체 인구수 저장 할 배열
+		 cw.insertEachData(dataAll,highRankPopulation,midRankPopulation,lowRankPopulation);
+		 cw.insertRank(dataAll,rankPopulation);
+		 
+		 cw.writeCsv(dataAll);
+		
+		
 		
 		model.addAttribute("title", "KickOff");
 
