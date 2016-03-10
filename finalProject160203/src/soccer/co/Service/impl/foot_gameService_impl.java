@@ -101,5 +101,10 @@ public class foot_gameService_impl implements foot_gameService{
 		return fgdao.adminMainList(fgdto);
 	}
 	
+	@Override
+	@Transactional(readOnly=true)
+	public foot_game_record getrecordInsert(foot_game_record fgr) throws Exception {
+		return fgdao.getrecordInsert(fgr);
+	}
 	
 }

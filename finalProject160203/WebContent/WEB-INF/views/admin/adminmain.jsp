@@ -22,7 +22,7 @@ $(function() {
     		
     		 var v = $( "#testDatepicker" ).val();
     		 		 
-    		 location.href="./adminmain.do?day=" + v;
+    		 location.href="./notrecordcallist.do?day=" + v;
     	 }  
     	
     	
@@ -45,7 +45,7 @@ $(function() {
 	<td class="cal">
 		<div class="calendar">
 			<form name="f1" action="">	
-			<div id="testDatepicker" style="margin-top: -10px; margin-left: -20px;">
+			<div id="testDatepicker" style="margin-left: 30px;">
 				<input type="hidden" name="booking_day" id="testDatepicker">
 			</div>
 			</form>
@@ -54,16 +54,33 @@ $(function() {
 	<td>
 		<table class="list_table" >
 			<tr>
-			<th>경기일자</th> <th>홈 팀</th> <th>상대 팀</th> <th>입력 상태</th>
-			<c:forEach items="${adminrecordlist}" var="reclist" varStatus="vs">
-				<tr>
-				<td>${reclist.game_date}</td>
-				<td>${reclist.team_name}</td>
-				<td>${reclist.team_name1}</td>
-				<td>${reclist.game_state}</td>
-				</tr>
-			</c:forEach>
+				<td colspan="5" style="text-align: center; font-weight: bold">최근 경기완료 리스트</td>
 			</tr>
+			<tr>
+			<th>번호</th> <th>경기일자</th> <th>홈 팀</th> <th>상대 팀</th> <th>입력 상태</th>
+			</tr>
+					<c:if test="${not empty adminrecordlist}">
+						<c:forEach items="${adminrecordlist}" var="reclist" varStatus="vs">
+							<tr>
+								<td>${vs.count}</td>
+								<td>${reclist.game_date}</td>
+								<td>${reclist.team_name}</td>
+								<td>${reclist.team_name1}</td>
+								<c:if test="${reclist.game_state == 1}">
+									<td bgcolor="orange">
+									<a href="#" 
+		 							onclick="javascript:window.open('./recordinsert.do?game_no=${reclist.game_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">
+									입력대기중</a></td> 
+								</c:if>
+
+							</tr>
+						</c:forEach>
+					</c:if>
+					<c:if test="${empty adminrecordlist}">
+							<tr>
+								<td colspan="5">입력 대기중인 경기가 없습니다.</td>
+							</tr>
+					</c:if>
 		</table>
 	</td>		
 </tr>

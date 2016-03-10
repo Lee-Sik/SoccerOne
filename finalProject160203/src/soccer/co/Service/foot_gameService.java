@@ -27,5 +27,6 @@ public interface foot_gameService {
 	public boolean statechange(foot_game_DTO fgdto);
 	
 	List<foot_game_DTO> adminMainList(foot_game_DTO fgdto)throws Exception;
+	foot_game_record getrecordInsert(foot_game_record fgr)throws Exception;
 	
 }

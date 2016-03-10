@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import soccer.co.DTO.foot_game_DTO;
+import soccer.co.DTO.foot_game_record;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
 import soccer.co.Service.foot_gameService;
@@ -36,8 +37,22 @@ public class adminController {
 	public String adminMain(foot_game_DTO fgdto, HttpServletRequest request, Model model)throws Exception{
 		
 		String day = request.getParameter("day");
+
+		if(day==null || day.equals(null)){
+			fgdto.setGame_date("");
+			List<foot_game_DTO> adminrecordlist = fgameservice.adminMainList(fgdto);
+			model.addAttribute("adminrecordlist", adminrecordlist);
+			
+			model.addAttribute("title", "기록 입력 페이지");
+		}
+		return "adminmain.tiles";
+}
+	
+	@RequestMapping(value = "notrecordcallist.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String notrecordcallist(foot_game_DTO fgdto, HttpServletRequest request, Model model)throws Exception{
 		
-		System.out.println("day = " + day);
+		String day = request.getParameter("day");
+		
 		if(!(day==null || day.equals(null))){
 			
 			String date = day.substring(6, 10) +'-'+ day.substring(0, 2) +'-'+ day.substring(3, 5);
@@ -45,32 +60,28 @@ public class adminController {
 			System.out.println("date = " + date);
 			fgdto.setGame_date(date);
 			List<foot_game_DTO> adminrecordlist = fgameservice.adminMainList(fgdto);
+			
 			model.addAttribute("adminrecordlist", adminrecordlist);	
 			
-			return "redirect:/adminmain.do?day=" + day;
-			
 		}
-		
-		if(day==null || day.equals(null)){
-			
-			fgdto.setGame_date("");
-			List<foot_game_DTO> adminrecordlist = fgameservice.adminMainList(fgdto);
-			model.addAttribute("adminrecordlist", adminrecordlist);
-			
-		}return "adminmain.tiles";
-
+		model.addAttribute("title", "기록 입력 대기 ");
+	
+		return "adminmain.tiles";
 }
 	
-	
-	
-	
-//	@RequestMapping(value = "recordCallist.do", method = { RequestMethod.GET,RequestMethod.POST })
-//	public String recordcallist(foot_game_DTO fgdto, HttpServletRequest request, Model model) throws Exception{
-//				
-//		
-//		
-//		return  "redirect:/adminMain.do?day=" + day;
-//	}
+	@RequestMapping(value = "recordinsert.do", method = { RequestMethod.GET,RequestMethod.POST })
+	public String recordinsert(foot_game_record fgd, HttpServletRequest request, Model model) throws Exception{
+				
+		String game_no = request.getParameter("game_no");
+		
+		fgd.setGame_no(Integer.parseInt(game_no));
+		
+		foot_game_record fgr = fgameservice.getrecordInsert(fgd);
+		
+		model.addAttribute("record", fgr);
+		
+		return "recordinsert.tiles";
+	}
 	
 	@RequestMapping(value = "adminInsertGame.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String adminInsertGame(foot_team_DTO winTeam,foot_team_DTO loseTeam,HttpServletRequest request, Model model){

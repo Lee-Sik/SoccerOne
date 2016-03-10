@@ -6,15 +6,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="foot_game">
 
 	<select id="adminMainList" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">
-<!-- 		SELECT * FROM  -->
-<!-- 		(SELECT row_number() over (order by GAME_DATE desc) as rnum, -->
-<!-- 		GAME_NO, GAME_DATE, SCORE, WIN_TEAM, LOSE_TEAM, MATCHING_STATE, WIN_GOAL_PLAYER, -->
-<!-- 		LOSE_GOAL_PLAYER, HOME_LOCAL, AWAY_LOCAL, WIN_TEAM_LOGO, LOSE_TEAM_LOGO -->
-<!-- 		FROM FOOT_GAME_RECORD -->
-<!-- 		WHERE MATCHING_STATE = 0 -->
-<!-- 		ORDER BY GAME_DATE DESC) A WHERE -->
-<!-- 		rnum between 1 AND 5 -->
-
 		SELECT * FROM (SELECT row_number() over (order by GAME_DATE DESC) as RNUM,
 		GAME_NO, TEAM_NAME, TEAM_NAME1, GAME_LOCATION, GAME_DATE, GROUND, PAY, GAME_STATE
 		FROM FOOT_PUBLICGAME
@@ -23,123 +14,127 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	     <if test = "game_date != ''">
 	      AND GAME_DATE = #{game_date}  
 	     </if>
+	     
 		ORDER BY GAME_DATE DESC) A WHERE
 		RNUM between 1 AND 5
 	</select>
 	
+	<select id="getrecordInsert" parameterType="soccer.co.DTO.foot_game_record" resultType="soccer.co.DTO.foot_game_record">
+		SELECT *
+		FROM FOOT_GAME_RECORD
+		WHERE GAME_NO = #{game_no} 
+	</select>
 
-   <insert id="freegame" parameterType="soccer.co.DTO.foot_game_DTO">
-      INSERT INTO foot_freegame
-      VALUES(foot_freegame_seq.nextval,#{team_name},#{game_content},#{game_date}
-      ,#{ground},#{pay}, 0)
-   </insert>
-   
-    <select id="getFreegamedetail" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">
+	<insert id="freegame" parameterType="soccer.co.DTO.foot_game_DTO">
+	     INSERT INTO foot_freegame
+	     VALUES(foot_freegame_seq.nextval,#{team_name},#{game_content},#{game_date}
+	     ,#{ground},#{pay}, 0)
+	</insert>
+	
+	<select id="getFreegamedetail" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">
 		SELECT T.TEAM_MANAGERID, F.GAME_NO, F.TEAM_NAME, F.GAME_CONTENT, F.GAME_DATE, F.GROUND, F.PAY, F.GAME_STATE
 		FROM FOOT_FREEGAME F, FOOT_TEAM T
 		WHERE F.GAME_NO=#{game_no}
 		AND F.TEAM_NAME = T.TEAM_NAME
 	</select>
-
-   <insert id="publicgame" parameterType="soccer.co.DTO.foot_game_DTO">
-      INSERT INTO foot_publicgame
-      VALUES(foot_publicgame_seq.nextval,#{team_name},#{game_location},#{game_date}
-      ,#{ground},#{pay},0)
-   </insert>
-   
-   <select id="getPublicgamedetail" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">
+	
+	<insert id="publicgame" parameterType="soccer.co.DTO.foot_game_DTO">
+	     INSERT INTO foot_publicgame
+	     VALUES(foot_publicgame_seq.nextval,#{team_name},#{game_location},#{game_date}
+	     ,#{ground},#{pay},0)
+	</insert>
+	  
+	<select id="getPublicgamedetail" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">
 		SELECT T.TEAM_MANAGERID, F.GAME_NO, F.TEAM_NAME, F.GAME_LOCATION, F.GAME_DATE, F.GROUND, F.PAY, F.GAME_STATE
 		FROM FOOT_PUBLICGAME F, FOOT_TEAM T
 		WHERE F.GAME_NO=#{game_no}
 		AND F.TEAM_NAME = T.TEAM_NAME
 	</select>
-   
-   <select id="getpublicgame" resultType="soccer.co.DTO.foot_game_DTO">
-          SELECT * from foot_publicgame 
-          where game_no = (select MAX(game_no) from FOOT_PUBLICGAME)
-   </select>
-   
-   <insert id="publicgamerecord" parameterType="soccer.co.DTO.foot_game_record">
-      	INSERT INTO foot_game_record
+	  
+	<select id="getpublicgame" resultType="soccer.co.DTO.foot_game_DTO">
+	         SELECT * from foot_publicgame 
+	         where game_no = (select MAX(game_no) from FOOT_PUBLICGAME)
+	</select>
+	  
+	<insert id="publicgamerecord" parameterType="soccer.co.DTO.foot_game_record">
+	     	INSERT INTO foot_game_record
 		VALUES(#{game_no},#{game_date},null, null, null,0,
 		null,null,null,null,null,null)
-   </insert>
-    
-   <select id="getfreegameList" resultType="soccer.co.DTO.foot_game_DTO">
-   <![CDATA[
-         SELECT * from foot_freegame where ROWNUM < 6 order by game_no desc 
-      ]]>
-   </select>
-
-   <select id="getpublicgameList" resultType="soccer.co.DTO.foot_game_DTO">
-   <![CDATA[
-         SELECT * from foot_publicgame where ROWNUM < 6 order by game_no desc
-      ]]>
-   </select>
-
-   <select id="getpmatchingsearchList" parameterType="soccer.co.DTO.MATCHINGParam"
-      resultType="soccer.co.DTO.foot_game_DTO">
-   
-         select * from foot_publicgame 
-         where GAME_LOCATION = #{game_location}
-        
-	     <if test = "game_date != ''">
-	      	and GAME_DATE = #{game_date}  
-	     </if>
-       
-         <if test = "suBground == 'null'">
-            and GROUND = null
-         </if>
-        
-         <if test = "suBground != 'null'">
-            and GROUND is not null
-         </if>
-         
-         and GAME_STATE = 0
-         and PAY BETWEEN #{pay1} and #{pay2}
-   
-   </select>
-   
-   <select id="getfmatchingsearchList" parameterType="soccer.co.DTO.MATCHINGParam"
-      resultType="soccer.co.DTO.foot_game_DTO">
-   
-         SELECT * FROM FOOT_FREEGAME 
-         WHERE GAME_STATE = 0
-         
-         <if test="game_date != ''">
-	      	and GAME_DATE = #{game_date}  
-	     </if>
-         
-         <if test = "suBground == 'null'">
-            and GROUND = null
-         </if>
-         <if test = "suBground != 'null'">
-            and GROUND is not null
-         </if>
-         and PAY BETWEEN #{pay1} and #{pay2}
-   
-   </select>
-   
-   <select id="getrankingList" parameterType="soccer.co.DTO.RANKParam" resultType="soccer.co.DTO.RANKParam">
-   		SELECT RANK() OVER(ORDER BY TEAM_POINT DESC) AS RANKING,
+	</insert>
+	   
+	<select id="getfreegameList" resultType="soccer.co.DTO.foot_game_DTO">
+	  <![CDATA[
+	       SELECT * from foot_freegame where ROWNUM < 6 order by game_no desc 
+	    ]]>
+	</select>
+	
+	<select id="getpublicgameList" resultType="soccer.co.DTO.foot_game_DTO">
+	 <![CDATA[
+	       SELECT * from foot_publicgame where ROWNUM < 6 order by game_no desc
+	    ]]>
+	</select>
+	
+	<select id="getpmatchingsearchList" parameterType="soccer.co.DTO.MATCHINGParam"
+	    resultType="soccer.co.DTO.foot_game_DTO">
+	 
+	       select * from foot_publicgame 
+	       where GAME_LOCATION = #{game_location}
+	      
+	    <if test = "game_date != ''">
+	     	and GAME_DATE = #{game_date}  
+	    </if>
+	     
+	       <if test = "suBground == 'null'">
+	          and GROUND = null
+	       </if>
+	      
+	       <if test = "suBground != 'null'">
+	          and GROUND is not null
+	       </if>
+	       
+	       and GAME_STATE = 0
+	       and PAY BETWEEN #{pay1} and #{pay2}
+	 
+	</select>
+	 
+	<select id="getfmatchingsearchList" parameterType="soccer.co.DTO.MATCHINGParam"
+	    resultType="soccer.co.DTO.foot_game_DTO">
+	 
+	       SELECT * FROM FOOT_FREEGAME 
+	       WHERE GAME_STATE = 0
+	       
+	       <if test="game_date != ''">
+	     	and GAME_DATE = #{game_date}  
+	    </if>
+	       
+	       <if test = "suBground == 'null'">
+	          and GROUND = null
+	       </if>
+	       <if test = "suBground != 'null'">
+	          and GROUND is not null
+	       </if>
+	       and PAY BETWEEN #{pay1} and #{pay2}
+	 
+	</select>
+	 
+	<select id="getrankingList" parameterType="soccer.co.DTO.RANKParam" resultType="soccer.co.DTO.RANKParam">
+	 	SELECT RANK() OVER(ORDER BY TEAM_POINT DESC) AS RANKING,
 		TEAM_LOCATION, TEAM_NAME, TEAM_POINT, TEAM_WIN, TEAM_LOSE
 		FROM FOOT_TEAM_LEAGUE
 		WHERE TEAM_LOCATION = #{team_location}
 		ORDER BY TEAM_POINT DESC
-   </select>
-   
-    <select id="getlocationrankingList" parameterType="soccer.co.DTO.RANKParam" resultType="soccer.co.DTO.RANKParam">
-   		SELECT RANK() OVER(ORDER BY TEAM_POINT DESC) AS RANKING,
+	</select>
+	 
+	<select id="getlocationrankingList" parameterType="soccer.co.DTO.RANKParam" resultType="soccer.co.DTO.RANKParam">
+	 	SELECT RANK() OVER(ORDER BY TEAM_POINT DESC) AS RANKING,
 		TEAM_LOCATION, TEAM_NAME, TEAM_POINT, TEAM_WIN, TEAM_LOSE
 		FROM FOOT_TEAM_LEAGUE
 		WHERE TEAM_LOCATION = #{team_location}
 		ORDER BY TEAM_POINT DESC
-   </select>
-   
-   
-   <update id="statechange" parameterType="soccer.co.DTO.foot_game_DTO">
-   update foot_publicgame set game_state=1, team_name1=#{team_name1} where game_no=#{game_no}
-   </update>
-   
+	</select>
 
+	<update id="statechange" parameterType="soccer.co.DTO.foot_game_DTO">
+	 	update foot_publicgame set game_state=1, team_name1=#{team_name1} where game_no=#{game_no}
+	</update>
+ 
 </mapper>

@@ -106,5 +106,9 @@ public class foot_game_DAO{
 		return list;
 	}
 
-
+	public foot_game_record getrecordInsert(foot_game_record fgdto)throws Exception{
+		foot_game_record fgr=null;
+		fgr=(foot_game_record)sqlse.selectOne(ns+"getrecordInsert",fgdto);
+		return fgr;
+	}
 }

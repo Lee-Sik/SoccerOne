@@ -25,6 +25,9 @@
 	<put-attribute name="main" value="/WEB-INF/views/admin/adminmain.jsp" />
 </definition>
 
+<definition name="recordinsert.tiles" template="/WEB-INF/views/admin/recordinsert.jsp">
+</definition>
+
 <definition name="adminInsertGame.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/admin/insert.jsp" />
 </definition>
