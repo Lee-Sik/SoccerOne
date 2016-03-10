@@ -59,13 +59,9 @@ public class userController {
 			model.addAttribute("messagecheck", list);
 			model.addAttribute("messagecheck1", list1);
 			
-			
-			
 			if(login.getUser_team()!=null){
 				team = fuservice.loginteam(login);
 			}
-			
-			// login.toString();
 			request.getSession().setAttribute("loginfalse", loginfalse);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -88,10 +84,79 @@ public class userController {
 		model.addAttribute("bbslist", bbslist);
 		return "login.tiles";
 	}
+	
+	
+	@RequestMapping(value = "loginjy.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String loginjy(foot_user_DTO fudto,HttpServletRequest request, Model model) throws Exception {
+		String login1 = "loginjyo.tiles";
+		int loginfalse = 0;
+		logger.info("Welcome HelloMemberController login! " + new Date());
+		foot_user_DTO login = null;
+		foot_team_DTO team = null;
+		try {
+			login = fuservice.login(fudto);
+			ArrayList<foot_message_DTO> list = messageservice.messagecheck(login);
+			ArrayList<foot_message_DTO> list1 = messageservice.messagecheck1(login);
+			model.addAttribute("messagecheck", list);
+			model.addAttribute("messagecheck1", list1);
+			
+			if(login.getUser_team()!=null){
+				team = fuservice.loginteam(login);
+			}
+			request.getSession().setAttribute("loginfalse", loginfalse);
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			login1 = "loginjyx.tiles";
+		}
+		List<foot_community_DTO> bbslist=BBSService.getBBSList();
+		
+		model.addAttribute("bbslist", bbslist);
+		
+		request.getSession().setAttribute("team", team);
+		request.getSession().setAttribute("login", login);
+		return login1;
+	}
+	
+	@RequestMapping(value = "loginpopup.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String loginpopup(Model model) throws Exception{
+		logger.info("Welcome HelloMemberController loginpopup! " + new Date());
+		
+		return "loginpopup.tiles";
+	}
+	
+	@RequestMapping(value = "loginpopup1.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String loginpopup1(Model model) throws Exception{
+		logger.info("Welcome HelloMemberController loginpopup! " + new Date());
+		
+		return "loginpopup1.tiles";
+	}
+	@RequestMapping(value = "loginpopup2.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String loginpopup2(Model model) throws Exception{
+		logger.info("Welcome HelloMemberController loginpopup! " + new Date());
+		
+		return "loginpopup2.tiles";
+	}
 
 	@RequestMapping(value = "join.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String join(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {
 		logger.info("Welcome HelloMemberController join! " + new Date());
+		
+		 int a = (int) (Math.random()*10);
+	     int b = (int) (Math.random()*10);
+	     int c = (int) (Math.random()*10);
+	     int d = (int) (Math.random()*10);
+	     int e = (int) (Math.random()*10);
+	     int f = (int) (Math.random()*10);
+		
+	     String result = Integer.toString(a) + Integer.toString(b) + Integer.toString(c) + Integer.toString(d)
+	     + Integer.toString(e)+ Integer.toString(f);
+		
+		List<foot_user_DTO> emaillist = fuservice.emaillist();
+		System.out.println(emaillist.size());
+		model.addAttribute("emaillist", emaillist);
+		 model.addAttribute("result", result);
+		 model.addAttribute("qwe", "123");
 
 		return "join.tiles";
 	}
@@ -136,88 +201,128 @@ public class userController {
 	@RequestMapping(value = "logout.do", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request, Model model) throws Exception {
 		logger.info("Welcome HelloMemberController logout! " + new Date());
-
-		request.getSession().invalidate();
-		return "first.tiles";
+		
+		String jyre="";
+		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
+		if(jyfudto==null){
+			jyre="redirect:loginpopup1.do";
+		}else{
+			request.getSession().invalidate();
+			jyre="first.tiles";
+		}
+		return jyre;
 	}
 
 	@RequestMapping(value = "myinform.do", method = RequestMethod.GET)
 	public String myinform(HttpServletRequest request, Model model) throws Exception {
 		logger.info("Welcome HelloMemberController myinform! " + new Date());
 
-		return "myinform.tiles";
+		String jyre="";
+		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
+		if(jyfudto==null){
+			jyre="redirect:loginpopup1.do";
+		}else{
+			
+			jyre="myinform.tiles";
+		}
+		return jyre;
 	}
 	
 	@RequestMapping(value = "modify.do", method = RequestMethod.GET)
 	public String modify(HttpServletRequest request, Model model) throws Exception {
 		logger.info("Welcome HelloMemberController modify! " + new Date());
-		
-		return "modify.tiles";
+		String jyre="";
+		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
+		if(jyfudto==null){
+			jyre="redirect:loginpopup1.do";
+		}else{
+			
+			jyre="modify.tiles";
+		}
+		return jyre;
 	}
 	@RequestMapping(value = "modify1.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String modify1(foot_user_DTO fudto,HttpServletRequest request, Model model) throws Exception {
 		logger.info("Welcome HelloMemberController modify1! " + new Date());
-		String re=null;
 		
-		foot_user_DTO pw = (foot_user_DTO) request.getSession().getAttribute("login");
-		
-		if(pw.getUser_pw().equals(fudto.getUser_pw())){
-			re = "modify1.tiles";
+		String jyre="";
+		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
+		if(jyfudto==null){
+			jyre="redirect:loginpopup1.do";
 		}else{
-			re = "modifyfail.tiles";
+			foot_user_DTO pw = (foot_user_DTO) request.getSession().getAttribute("login");
+			
+			if(pw.getUser_pw().equals(fudto.getUser_pw())){
+				jyre = "modify1.tiles";
+			}else{
+				jyre = "modifyfail.tiles";
+			}
+			
 		}
-		return re;
+		return jyre;
+		
 	}
 	
 	@RequestMapping(value = "modify2.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String modify2(@RequestParam("file") MultipartFile file, foot_user_DTO fudto,HttpServletRequest request, Model model) throws Exception {
 		logger.info("Welcome HelloMemberController modify2! " + new Date());
 		
-		foot_user_DTO fudto1 = (foot_user_DTO) request.getSession().getAttribute("login");
+		String jyre="";
+		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
+		if(jyfudto==null){
+			jyre="redirect:loginpopup1.do";
 		
-		String fileName = null;
-		File upload = null;
+		}else{
+			
+			foot_user_DTO fudto1 = (foot_user_DTO) request.getSession().getAttribute("login");
+			
+			String fileName = null;
+			File upload = null;
 
-		if (!file.isEmpty()) {
-			try {
+			if (!file.isEmpty()) {
+				try {
 
-				fileName = file.getOriginalFilename();
-				upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
-				//upload = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160203/WebContent/image/" + fileName);
-				byte[] bytes = file.getBytes();
-				BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(upload));
+					fileName = file.getOriginalFilename();
+					upload = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/image/" + fileName);
+					//upload = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160203/WebContent/image/" + fileName);
+					byte[] bytes = file.getBytes();
+					BufferedOutputStream buffStream = new BufferedOutputStream(new FileOutputStream(upload));
 
-				buffStream.write(bytes);
-				buffStream.close();
-				fudto.setUser_profile(fileName);
+					buffStream.write(bytes);
+					buffStream.close();
+					fudto.setUser_profile(fileName);
 
-				System.out.println("You have successfully uploaded " + fileName);
-			} catch (Exception e) {
-				e.printStackTrace();
+					System.out.println("You have successfully uploaded " + fileName);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			} else {
+				fudto.setUser_profile(fudto1.getUser_profile());
 			}
-		} else {
-			fudto.setUser_profile(fudto1.getUser_profile());
-		}
 
-		fudto1.setUser_pw(fudto.getUser_pw());
-		fudto1.setUser_name(fudto.getUser_name());
-		fudto1.setUser_birth(fudto.getUser_birth());
-		fudto1.setUser_age(fudto.getUser_age());
-		fudto1.setUser_phone(fudto.getUser_phone());
-		fudto1.setUser_high(fudto.getUser_high());
-		fudto1.setUser_weight(fudto.getUser_weight());
-		fudto1.setUser_foot(fudto.getUser_foot());
-		fudto1.setUser_position1(fudto.getUser_position1());
-		fudto1.setUser_position2(fudto.getUser_position2());
-		fudto1.setUser_position3(fudto.getUser_position3());
-		fudto1.setUser_address(fudto.getUser_address());
-		fudto1.setUser_profile(fudto.getUser_profile());
-		fudto1.setUser_helper(fudto.getUser_helper());
-		fudto1.setUser_enabled(fudto.getUser_enabled());
+			fudto1.setUser_pw(fudto.getUser_pw());
+			fudto1.setUser_name(fudto.getUser_name());
+			fudto1.setUser_birth(fudto.getUser_birth());
+			fudto1.setUser_age(fudto.getUser_age());
+			fudto1.setUser_phone(fudto.getUser_phone());
+			fudto1.setUser_high(fudto.getUser_high());
+			fudto1.setUser_weight(fudto.getUser_weight());
+			fudto1.setUser_foot(fudto.getUser_foot());
+			fudto1.setUser_position1(fudto.getUser_position1());
+			fudto1.setUser_position2(fudto.getUser_position2());
+			fudto1.setUser_position3(fudto.getUser_position3());
+			fudto1.setUser_address(fudto.getUser_address());
+			fudto1.setUser_profile(fudto.getUser_profile());
+			fudto1.setUser_helper(fudto.getUser_helper());
+			fudto1.setUser_enabled(fudto.getUser_enabled());
+			
+			fuservice.modify(fudto1);
+			model.addAttribute("login", fudto1);
+			
+			
+			jyre="redirect:myinform.do";
+		}
+		return jyre;
 		
-		fuservice.modify(fudto1);
-		model.addAttribute("login", fudto1);
-		
-		return "redirect:myinform.do";
 	}
 }

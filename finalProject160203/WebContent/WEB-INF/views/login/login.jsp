@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 
+
+<c:if test="${ not empty login}">
 <script type="text/javascript">
 var messagecheck;
 var messagecheck1;
@@ -54,6 +56,7 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
 		window.open(popUrl, "", popOption);
 	}
 	
+	
 	function popupMessage() {
 		event.preventDefault();
 		var popUrl = "messagedetail.do?receiver_user_email=${login.user_email}";
@@ -61,22 +64,48 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
 		window.open(popUrl, "", popOption);
 	}
 </script>
-
+</c:if>
+<c:if test="${empty login }">
+<script type="text/javascript">
+function popupOpen1() {
+	var popUrl = "join.do"; //팝업창에 출력될 페이지 URL
+	var popOption = "width=900, height=800,top=70, left=220, resizable=no, scrollbars=no, status=no;"; //팝업창 옵션(optoin)
+	window.open(popUrl, "", popOption);
+}
+</script>
+</c:if>
 <body>
 	<table>
 		<tr>
-			<td class="loginview" colspan="3"><img src="image/loginview.png"
-				width="10%">${login.user_email }님이 접속하셨습니다.</td>
+		
+			<td class="loginview" colspan="3">
+			<img src="image/loginview.png"
+				width="10%">
+				<c:if test="${ not empty login}">
+				${login.user_email }님이 접속하셨습니다.
+				</c:if>
+				</td>
 		</tr>
 		<tr id="loginBasket1">
 			<td id="loginBasket2" style="background-image: url(image/message.png); background-repeat: no-repeat; width: 60px; height: 60px; text-align: left; color: white; font-size: 13pt;">
-
+				
 			</td> 
+			<td>
+			<c:if test="${ empty login}">
+				<font size="10pt">로그인하세요!</font>
+				</c:if>
+			</td>
 		</tr>
 		<tr>
+		<c:if test="${ not empty login}">
 			<td colspan="3"><input type="button" value="내정보"
 				onclick="location.href='javascript:popupOpen()'"> <input
 				type="button" value="로그아웃" onclick="location.href='logout.do'"></td>
+				</c:if>
+				<c:if test="${empty login }">
+				<td colspan="3"><input type="button" value="회원가입"
+				onclick="location.href='javascript:popupOpen1()'"> </td>
+				</c:if>
 		</tr>
 	</table>
 </body>

@@ -43,6 +43,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		set user_team = #{team_name} where user_email =
 		#{team_managerid}
 	</update>
+	
+	<select id="emaillist" resultType="soccer.co.DTO.foot_user_DTO">
+		SELECT user_email FROM foot_user
+	</select>
+	
 
 	<update id="modify" parameterType="soccer.co.DTO.foot_user_DTO">
 		update foot_user set user_pw =

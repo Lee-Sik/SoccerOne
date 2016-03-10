@@ -57,6 +57,22 @@
 <definition name="rankapply.tiles" template="/WEB-INF/views/kickoff/rankapply.jsp">
 </definition>
 
+<definition name="loginpopup.tiles" template="/WEB-INF/views/login/loginpopup.jsp">
+</definition>
+
+<definition name="loginpopup1.tiles" template="/WEB-INF/views/login/loginpopup1.jsp">
+</definition>
+
+<definition name="loginpopup2.tiles" template="/WEB-INF/views/login/loginpopup2.jsp">
+</definition>
+
+<definition name="loginjyo.tiles" template="/WEB-INF/views/login/loginjyo.jsp">
+</definition>
+
+<definition name="loginjyx.tiles" template="/WEB-INF/views/login/loginjyx.jsp">
+</definition>
+
+
 <definition name="messageanswer.tiles" template="/WEB-INF/views/message/messageanswer.jsp">
 </definition>
 

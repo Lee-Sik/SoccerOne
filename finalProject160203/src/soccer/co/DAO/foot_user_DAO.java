@@ -62,4 +62,11 @@ public class foot_user_DAO{
 		return list;
 	}
 
+
+	public List<foot_user_DTO> emaillist() {
+		// TODO Auto-generated method stub
+		List<foot_user_DTO> list = sqlse.selectList(ns+"emaillist");
+		return list;
+	}
+
 }

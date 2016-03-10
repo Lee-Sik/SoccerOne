@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
     
 <!DOCTYPE html>
 <html>
@@ -103,6 +104,7 @@ font-size: 10pt;
 <table width="100%">
 </table>
 <script type="text/javascript">
+var count='0';
 function selectval1(val){
 	var objid = document.getElementById('text3');
 	objid.value = val;
@@ -110,23 +112,44 @@ function selectval1(val){
 
 
 function function1(val){
+	event.preventDefault();
 	var pw = document.getElementsByName('user_pw');
 	var pw1 = document.getElementsByName('user_pw1');
 	var name = document.getElementsByName('user_name');
+	var a = document.f.user_age.value;
+	var b = document.f.user_foot1.value;
+	var c = document.f.user_high.value;
+	var d = document.f.user_weight.value;
 	
-	if(pw[0].value.length<=5||pw[0].value.length>=10){
+	 if(count=='0'){
+		 alert("${qwe}");
+			alert("이메일을 인증해주세요.");
+		}
+	 else if(pw[0].value.length<=5||pw[0].value.length>=10){
 		alert("비밀번호는 6자리부터 9자리까지만 입력하셔야합니다.");
-		pw[0].focus();
+		
 	}
 	else if(pw1[0].value!=pw[0].value){
 		alert("비밀번호와 비밀번호 확인의 값은 같아야합니다.");
-		pw1[0].focus();
+		
 	} 
 	else if(name[0].value.length<=1||name[0].value.length>=6){
 		alert("이름은 2자리부터 5자리까지 입력하셔야합니다.");
-		name[0].focus();
-	} 
+		
+	}else if(a==''){
+		alert("나이를 입력하세요");
+	}
+	else if(b==''){
+		alert("주발을 입력하세요");
+	}
+	else if(c==''){
+		alert("키를 입력하세요");
+	}
+	else if(d==''){
+		alert("몸무게를 입력하세요");
+	}
 	else{
+		alert("!111");
 		var helper = document.f.user_helper.value;
 		var user_helper = document.f.user_helper;
 		if(helper=="on"){
@@ -181,9 +204,67 @@ function function1(val){
 		var c = address1 + "-" + address2 + "-" + address3;
 		address.value = c;
 		
-		document.f.submit(); 
+		document.f.submit();
+	
+	
 	}
+	
+	
 }
+
+
+$(document).ready(function() {
+	 $("#btnPnumber").click(function() {
+	  var email = $("#text1").val()+'@'+ $("#text3").val();
+	 if($("#text1").val() == '' || $("#text3").val() == '' ) {
+	 alert("이메일을 입력해주세요.");
+	 return;
+	 }
+	 
+	
+	<c:forEach var="dto" items="${emaillist}" >
+	if(email == "${dto.user_email}" ){
+	 alert("이메일이 중복됩니다.");
+	 return;
+	 }
+	 </c:forEach> 
+	 
+
+	 $("#emailFrame").fadeIn(350);
+	 $("#btnPnumber").attr("disabled",true);
+	 http = jQuery.ajax({
+	 url	: "./email.do",
+	 type	: "POST",
+	 data : 'receive='+email+'&result=${result}',
+	 dataType: 'html',
+  	 async : true,
+	 success : function(msg) {
+	 alert("인증번호가 메일로 발송되었습니다.");
+
+	 if(!f.emai.value) {
+	 alert("이메일주소를 입력해주세요.");
+	 return;
+	 } 
+
+	 num = msg;
+	 }
+	   }); 
+ 
+	 });
+
+
+	 $("#btnresult").click(function() {
+	 var email_num = "${result}";
+	 alert(email_num);
+	 if($("#eresult").val()==email_num){
+	 alert("인증완료");
+	 count = 1;
+	 }else{
+	 alert("인증이 안됨.");
+	 }
+	 });
+	 }); 
+
 </script>
 </div>
 <div class="center" align="center">
@@ -191,11 +272,11 @@ function function1(val){
 <p class="wow2">저희 홈페이지에 와주셔서 감사합니다. 반갑습니다</p>
 
 
-<form action="join1.do" name="f" method="post" enctype="multipart/form-data">
+<form action="join.do" name="f" method="post" enctype="multipart/form-data">
 <table class="list_table">
 <tr>
 <th>아이디 (E-Mail)</th>
-<td colspan="5" style="text-align: left"><input type="text" name="user_email1" maxlength= "30">@
+<td colspan="5" style="text-align: left"><input type="text" id="text1" name="user_email1" maxlength= "30">@
 <select onchange="selectval1(this.value)">
 <option value="">선택하세요</option>
 <option value="naver.com">naver.com</option>
@@ -206,8 +287,15 @@ function function1(val){
 <option value="">직접입력</option>
 </select>
 <input type="text" id = "text3" name="user_email2">
+<input type="button" name="btnPnumber" value="메일인증요청" id="btnPnumber" style="cursor:pointer;"/>
+<input type="button" name="btnresult" value="확인" id="btnresult" style="cursor:pointer;"/>
 </td>
 </tr>
+
+
+
+
+
 <tr>
 <th>비밀번호</th>
 <td colspan="5" style="text-align: left"><input type="password" name="user_pw" maxlength="8"></td>
@@ -235,7 +323,7 @@ function function1(val){
 </tr>
 <tr>
 <th>나 이</th>
-<td colspan="5" style="text-align: left"><input type="text" name="user_age"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
+<td colspan="5" style="text-align: left"><input type="text" id="user_age" name="user_age"size="2" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;"></td>
 </tr>
 <tr>
 <th>휴대폰</th>
@@ -255,16 +343,16 @@ function function1(val){
 </tr>
 <tr>
 <th>신 장</th>
-<td colspan="5" style="text-align: left"><input type="text" name="user_high" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" size="8px;">cm</td>
+<td colspan="5" style="text-align: left"><input type="text" id="user_high"name="user_high" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" size="8px;">cm</td>
 </tr>
 <tr>
 <th>체 중</th>
-<td colspan="5" style="text-align: left"><input type="text" name="user_weight" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" size="8px;">kg</td>
+<td colspan="5" style="text-align: left"><input type="text" id="user_weight"name="user_weight" onkeyPress="if ((event.keyCode<48) || (event.keyCode>57)) event.returnValue=false;" size="8px;">kg</td>
 </tr>
 <tr>
 <th>주 발</th>
 <td colspan="5" style="text-align: left">
-<select name="user_foot1">
+<select id="user_foot1" name="user_foot1">
 <option value="">선택하세요</option>
 <option value="0">왼발</option>
 <option value="1">오른발</option>
