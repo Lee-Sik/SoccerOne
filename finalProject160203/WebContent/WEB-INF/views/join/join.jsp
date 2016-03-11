@@ -11,7 +11,7 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="CSS/styles.css" rel="stylesheet" >
-<link href="CSS/JOINtable.css" rel="stylesheet" >
+<link href="CSS/jointable.css" rel="stylesheet" >
 
 <style>
 

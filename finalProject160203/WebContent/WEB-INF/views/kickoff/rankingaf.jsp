@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <fmt:requestEncoding value="utf-8"/>
-<link href="CSS/KICKOFF.css" rel="stylesheet" >
+<link href="CSS/kickoff.css" rel="stylesheet" >
 
 <form action="./rankingAf.do" method="post">
 	<input type="hidden" name="team_location" value="강서구">

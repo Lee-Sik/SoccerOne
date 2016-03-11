@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/style.css">
 <!--   <link rel="stylesheet" href="CSS/bootstrap.min.css"> -->
-  <link href="CSS/KICKOFF.css" rel="stylesheet" >
+  <link href="CSS/kickoff.css" rel="stylesheet" >
   <!-- end CSS-->
 
   <script src="js/libs/modernizr-2.0.6.min.js"></script>

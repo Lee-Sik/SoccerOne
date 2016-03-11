@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <fmt:requestEncoding value="utf-8"/>
-<link href="CSS/BBStable.css" rel="stylesheet" >
+<link href="CSS/bbstable.css" rel="stylesheet" >
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 
 <style type="text/css">

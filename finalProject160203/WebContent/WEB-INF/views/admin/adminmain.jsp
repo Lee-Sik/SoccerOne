@@ -7,7 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
 
 <link href="CSS/admincal.css" rel="stylesheet" type="text/css" />
-<link href="CSS/Admintable.css" rel="stylesheet" type="text/css" />
+<link href="CSS/admintable.css" rel="stylesheet" type="text/css" />
 <!-- // jQuery UI CSS파일  -->
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
 <!-- // jQuery 기본 js파일 -->

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
-<link href="CSS/BBStable.css" rel="stylesheet" >
+<link href="CSS/bbstable.css" rel="stylesheet" >
 <head>
 <script type="text/javascript">
 function openNewsWin(openUrl) {

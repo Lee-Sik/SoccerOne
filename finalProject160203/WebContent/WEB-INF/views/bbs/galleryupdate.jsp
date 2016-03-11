@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
-<link href="CSS/BBStable.css" rel="stylesheet" >
+<link href="CSS/bbstable.css" rel="stylesheet" >
 
 <form name="frmForm" id="_frmForm" method="post" action="galleryupdateAf.do">
 <table class="list_table" style="width:85%;">

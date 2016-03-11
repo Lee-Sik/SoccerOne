@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link href="CSS/MSGtable.css" rel="stylesheet" >
+<link href="CSS/msgtable.css" rel="stylesheet" >
 <link href="CSS/main.css" rel="stylesheet" >
 <head>
 <script>

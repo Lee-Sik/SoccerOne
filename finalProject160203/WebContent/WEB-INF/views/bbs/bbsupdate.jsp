@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
 
-<link href="CSS/BBStable.css" rel="stylesheet" >
+<link href="CSS/bbstable.css" rel="stylesheet" >
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script> 
 <script type="text/javascript" src="./editor/js/HuskyEZCreator.js" charset="utf-8"></script>

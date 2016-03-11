@@ -4,7 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <fmt:requestEncoding value="utf-8"/>
 
-<link href="CSS/COMMUNITYtable.css" rel="stylesheet" >
+<link href="CSS/communitytable.css" rel="stylesheet" >
 <style>
 body{
    background-image: url('./image/main_bg.jpg');

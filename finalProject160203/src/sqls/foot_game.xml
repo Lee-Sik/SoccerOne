@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="publicgame" parameterType="soccer.co.DTO.foot_game_DTO">
 	     INSERT INTO foot_publicgame
 	     VALUES(foot_publicgame_seq.nextval,#{team_name},#{game_location},#{game_date}
-	     ,#{ground},#{pay},0)
+	     ,#{ground},#{pay},0,null)
 	</insert>
 	  
 	<select id="getPublicgamedetail" parameterType="soccer.co.DTO.foot_game_DTO" resultType="soccer.co.DTO.foot_game_DTO">

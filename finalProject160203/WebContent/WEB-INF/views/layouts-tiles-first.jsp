@@ -12,7 +12,7 @@
 <link href="CSS/main.css" rel="stylesheet" type="text/css" >
 <link href="CSS/base.css" rel="stylesheet">
 <link href="CSS/styles.css" rel="stylesheet">
-<link href="CSS/BBStable.css" rel="stylesheet" >
+<link href="CSS/bbstable.css" rel="stylesheet" >
 
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="CSS/script.js"></script>

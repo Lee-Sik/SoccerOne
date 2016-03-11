@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:requestEncoding value="utf-8"/>
 
-<link href="CSS/BBStable.css" rel="stylesheet" >
+<link href="CSS/bbstable.css" rel="stylesheet" >
 
 <br><br><br><br><br>
 <form name="frmForm" id="_frmForm" method="post" action="gallerywriteAf.do" enctype="multipart/form-data">
