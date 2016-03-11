@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+table.detail{
+	 width:100%;
+	 border-collapse: 1;
+}
+th.detail{
+	background-color: #dcdcdc;
+	text-align: center;
+}
