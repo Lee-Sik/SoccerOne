@@ -42,9 +42,7 @@
 
 				<li><a href='./ranking.do'>리그 랭킹</a></li>
 			</ul></li>
-
-<
-
+			
 		<li class='active'><a href='#'>구장대관</a>
 			<ul>
 				<li><a href='bookingList.do'>공식대관</a></li>
@@ -76,12 +74,7 @@
 					</c:if>
 				</c:if>
 
-
 			</ul></li>
-<<<<<<< .mine
-
-=======
-
 
 		<li class='active'><a href='./community.do'>커뮤니티</a>
 			<ul>
@@ -105,23 +98,6 @@
 		</c:if>
 
 	</ul>
->>>>>>> .r177
-
-		<li class='active'><a href='./community.do'>커뮤니티</a>
-			<ul>
-				<li><a href='./bbslist.do'>축덕포럼</a></li>
-				<li><a href='./gallerylist.do'>짤방게시판</a></li>
-				<li><a href='./sellbuylist.do'>중고장터</a></li>
-			</ul></li>
-
-		<li class='active'><a href='./introduce.do'>사이트소개</a>
-			<ul>
-				<li><a href='#'>인사말</a></li>
-				<li><a href='#'>개설목적</a></li>
-				<li><a href='./address.do'>연락처</a></li>
-			</ul></li>
-	</ul>
-
 
 </div>
 
