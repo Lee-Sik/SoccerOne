@@ -29,7 +29,7 @@
 	<c:forEach items="${bbslist}" var="bbslist" varStatus="vs">
 		<tr>		
 			<c:if test="${bbslist.topic == '국내축구'}">
-				<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
+				<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'><c:out value="${bbslist.title}"/></a></td>
 				<td>${bbslist.user_email}</td> 
 				<c:set var="rdate" value="${bbslist.wdate}"/>
 				<c:set var="len" value="${fn:length(wdate)}"/>
@@ -67,7 +67,7 @@
 	<c:if test="${bbslist.topic == '해외축구'}">
 	 
 		<tr>		
-				<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
+				<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'><c:out value="${bbslist.title}"/></a></td>
 				<td>${bbslist.user_email}</td> 
 				<c:set var="rdate" value="${bbslist.wdate}"/>
 				<c:set var="len" value="${fn:length(wdate)}"/>

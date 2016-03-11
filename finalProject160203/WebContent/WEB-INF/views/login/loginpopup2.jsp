@@ -4,36 +4,41 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link href="CSS/Logintable.css" rel="stylesheet" >
+<title>로그인</title>
 </head>
 <body>
-로그인을 하셔야 볼 수 있습니다.
+
 <form action="loginjy.do" method="post">
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<table >
-<tr>
-<td style="color: white">
-아이디
-</td>
-<td >
-<input type="text" name="user_email" size="20">
-</td>
-</tr>
-<tr>
-<td style="color: white">
-비밀번호
-</td>
-<td>
-<input type="password" name="user_pw" size="20">
-</td>
-</tr>
-<tr>
-<td colspan="2">
-<input type="submit" value="로그인">
-<input type="button" value="회원가입" onclick="location.href='join.do'">
-</td>
-</tr>
-</table>
+	<table class="list_table" style="width: 80%;">
+	<tr>
+	 <td colspan="2">
+		<font style="font-size: 18px; font-weight: bold;">LOGIN</font>	
+	 </td>
+	</tr>
+	<tr>
+		<th>
+		아이디
+		</th>
+		<td >
+		<input type="text" name="user_email" size="20">
+		</td>
+	</tr>
+	<tr>
+		<th>
+		비밀번호
+		</th>
+		<td>
+		<input type="password" name="user_pw" size="20">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		<input type="submit" value="로그인">
+		<input type="button" value="회원가입" onclick="location.href='join.do'">
+		</td>
+	</tr>
+	</table>
 </form>
 
 </body>

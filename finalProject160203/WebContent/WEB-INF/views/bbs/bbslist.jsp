@@ -65,7 +65,9 @@
 		<c:if test="${bbs.topic == '노닥거리' }">
 		<img src="./image/bbs_free.jpg"/></c:if>
 		${bbs.topic}</td>
-		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'>${bbs.title}</a>
+		<%-- <td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'>${bbs.title}</a> --%>
+		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'><c:out value="${bbs.title}"/></a>
+		
 		 &nbsp;&nbsp;
 		 <a href="#" 
 		 onclick="javascript:window.open('./commentlist.do?bbs_no=${bbs.bbs_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">[${bbs.commentcount}]</a>
