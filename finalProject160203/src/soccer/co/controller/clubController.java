@@ -286,9 +286,9 @@ public class clubController {
 			return "redirect:loginpopup1.do";
 		} else {
 			List<String[]> dataAll = new ArrayList<String[]>();
-
+			String path = request.getRealPath("/");
 			File file = new File(
-					"C:/jsp/spring/finalProject160203/WebContent/data/test2.csv");
+					path + "/finalProject160203/data/test2.csv");
 					//"C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160222/WebContent/data/test2.csv");
 			CSVReader reader = new CSVReader(new FileReader(file));
 			// UTF-8
