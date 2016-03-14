@@ -41,6 +41,7 @@
 </definition>
 
 <definition name="team_club.tiles" extends="login.tiles">
+	<put-attribute name="menu" value="/WEB-INF/views/team/club_menu.jsp" />
 	<put-attribute name="main" value="/WEB-INF/views/team/clubView.jsp" />
 </definition>
 
@@ -142,10 +143,12 @@
 
 <!-- kickoff -->
 <definition name="kickoff.tiles" extends="login.tiles">
+	<put-attribute name="menu" value="/WEB-INF/views/kickoff/kickoff_menu.jsp" />
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/kickoff.jsp" />
 </definition>
 
 <definition name="matching.tiles" extends="login.tiles">
+	
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/matching.jsp" />
 </definition>
 
@@ -192,6 +195,7 @@
 </definition>
 
 <definition name="bookingList.tiles" extends="login.tiles">
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 	<put-attribute name="main" value="/WEB-INF/views/stadium/bookingList.jsp" />
 </definition>
 
@@ -228,6 +232,7 @@
 </definition>
 <!-- freebooking -->
 <definition name="fbookingList.tiles" extends="login.tiles">
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingList.jsp"/>
 </definition>
 
@@ -242,6 +247,7 @@
 
 <!-- faMan -->
 <definition name="faManList.tiles" extends="login.tiles">
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp"/>
 	<put-attribute name="main" value="/WEB-INF/views/faMan/faManList.jsp"/>
 </definition>
 
@@ -257,54 +263,56 @@
 <!-- Community -->
 
 <definition name="community.tiles" extends="login.tiles">
+	<put-attribute name="menu" value="/WEB-INF/views/bbs/community_menu.jsp"/>
 	<put-attribute name="main" value="/WEB-INF/views/bbs/community.jsp" />
 </definition>
 
 <definition name="bbslist.tiles" extends="login.tiles">
+	<put-attribute name="menu" value="/WEB-INF/views/bbs/community_menu.jsp"/>
 	<put-attribute name="main" value="/WEB-INF/views/bbs/bbslist.jsp" />
 </definition>
 
-<definition name="bbswrite.tiles" extends="login.tiles">
+<definition name="bbswrite.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/write.jsp" />
 </definition>
 
-<definition name="bbsdetail.tiles" extends="login.tiles">
+<definition name="bbsdetail.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/bbsdetail.jsp" />
 </definition>
 
-<definition name="bbsupdate.tiles" extends="login.tiles">
+<definition name="bbsupdate.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/bbsupdate.jsp" />
 </definition>
 
-<definition name="gallerylist.tiles" extends="login.tiles">
+<definition name="gallerylist.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerylist.jsp" />
 </definition>
 
-<definition name="gallerywrite.tiles" extends="login.tiles">
+<definition name="gallerywrite.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerywrite.jsp" />
 </definition>
 
-<definition name="gallerydetail.tiles" extends="login.tiles">
+<definition name="gallerydetail.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/gallerydetail.jsp" />
 </definition>
 
-<definition name="galleryupdate.tiles" extends="login.tiles">
+<definition name="galleryupdate.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/galleryupdate.jsp" />
 </definition>
 
-<definition name="sellbuylist.tiles" extends="login.tiles">
+<definition name="sellbuylist.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/sellbuylist.jsp" />
 </definition>
 
-<definition name="sellbuywrite.tiles" extends="login.tiles">
+<definition name="sellbuywrite.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/sbwrite.jsp" />
 </definition>
 
-<definition name="sellbuydetail.tiles" extends="login.tiles">
+<definition name="sellbuydetail.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/sellbuydetail.jsp" />
 </definition>
 
-<definition name="sellbuyupdate.tiles" extends="login.tiles">
+<definition name="sellbuyupdate.tiles" extends="bbslist.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/bbs/sellbuyupdate.jsp" />
 </definition>
 
@@ -325,14 +333,20 @@
 	<put-attribute name="main" value="/WEB-INF/views/team/teamsetting.jsp" />
 </definition>
 
-<definition name="introduce.tiles" extends="login.tiles">
+<!-- SITE  -->
+<definition name="hello.tiles" extends="login.tiles">
+	<put-attribute name="menu" value="/WEB-INF/views/site/site_menu.jsp" />
 	<put-attribute name="main" value="/WEB-INF/views/site/introduce.jsp" />
 </definition>
 
-<definition name="address.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/site/address.jsp" />
+<definition name="introduce.tiles" extends="hello.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/site/introduce.jsp" />
 </definition>
 
+<definition name="contact.tiles" extends="hello.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/site/contact.jsp" />
+</definition>
+<!-- SITE  -->
 
 <definition name="teamdetail.tiles" template="/WEB-INF/views/team/teamdetail.jsp">
 </definition>
