@@ -149,7 +149,6 @@ function function1(val){
 		alert("몸무게를 입력하세요");
 	}
 	else{
-		alert("!111");
 		var helper = document.f.user_helper.value;
 		var user_helper = document.f.user_helper;
 		if(helper=="on"){
@@ -272,7 +271,7 @@ $(document).ready(function() {
 <p class="wow2">저희 홈페이지에 와주셔서 감사합니다. 반갑습니다</p>
 
 
-<form action="join.do" name="f" method="post" enctype="multipart/form-data">
+<form action="join1.do" name="f" method="post" enctype="multipart/form-data">
 <table class="list_table">
 <tr>
 <th>아이디 (E-Mail)</th>
@@ -288,6 +287,7 @@ $(document).ready(function() {
 </select>
 <input type="text" id = "text3" name="user_email2">
 <input type="button" name="btnPnumber" value="메일인증요청" id="btnPnumber" style="cursor:pointer;"/>
+ <input type="text" name="eresult" id="eresult" size="" value="" style="width: 100px;"/>
 <input type="button" name="btnresult" value="확인" id="btnresult" style="cursor:pointer;"/>
 </td>
 </tr>

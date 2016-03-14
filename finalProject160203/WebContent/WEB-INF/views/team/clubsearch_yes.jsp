@@ -18,7 +18,7 @@ function popupOpen(){
 </script>
 <body>
 
-	<form action="clubsearch_no1.do" method="post">
+	<form action="clubsearch_yes1.do" method="post">
 		<p style="text-align: left; border: 1px solid black">
 			팀 명 : <input type="text" name="team_name"><br> 활동 지역 : <select
 				name="team_location1">
@@ -26,8 +26,7 @@ function popupOpen(){
 				<c:forEach items="${list}" var="vo">
 					<option>${vo}</option>
 				</c:forEach>
-			</select> <br> 팀원 모집여부 : <input type="radio" name="team_join" value="0" checked="checked">모집중
-			<input type="radio" name="team_join" value="1">모집거부 <br>
+			</select> 
 			<input type="submit" value="검색">
 		</p>
 	</form>

@@ -287,7 +287,8 @@ public class clubController {
 			List<String[]> dataAll = new ArrayList<String[]>();
 
 			File file = new File(
-					"C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160222/WebContent/data/test2.csv");
+					"/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/data/test2.csv");
+					//"C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160222/WebContent/data/test2.csv");
 			CSVReader reader = new CSVReader(new FileReader(file));
 			// UTF-8
 			// CSVReader reader = new CSVReader(new InputStreamReader(new
@@ -756,6 +757,37 @@ public class clubController {
 		}
 
 	}
+	
+	
+	@RequestMapping(value = "clubsearch_yes1.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String clubsearch_yes1(foot_team_DTO fudto, HttpServletRequest request, Model model) throws Exception {
+		logger.info("clubsearch_yes1 clubsearch_yes!");
+
+		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
+
+		if (jyfudto == null) {
+			return "redirect:loginpopup1.do";
+		} else {
+			
+			if (fudto.getTeam_name() == null || fudto.getTeam_name().equals("")) {
+				fudto.setTeam_name("noname");
+			}
+
+			model.addAttribute("list", clubservice.getGu());
+			List<foot_team_DTO> allteam = clubservice.allteam();
+			List<foot_team_DTO> recruitteam = clubservice.recruitteam();
+			model.addAttribute("allteam", allteam);
+			model.addAttribute("searchteam", fudto);
+			model.addAttribute("recruitteam", recruitteam);
+			model.addAttribute("teamdetail", fudto.getTeam_name());
+			return "clubsearch_yes1.tiles";
+
+		}
+
+	}
+	
+	
+	
 
 	@RequestMapping(value = "teamapply.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String teamapply(foot_team_DTO fudto, HttpServletRequest request, Model model) throws Exception {

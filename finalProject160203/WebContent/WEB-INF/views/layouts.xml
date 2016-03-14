@@ -348,6 +348,11 @@
 	<put-attribute name="main" value="/WEB-INF/views/team/clubsearch_yes.jsp" />
 </definition>
 
+<definition name="clubsearch_yes1.tiles" extends="login.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/clubsearch_yes1.jsp" />
+</definition>
+
+
 
 <definition name="teamapply.tiles" template="/WEB-INF/views/team/teamapply/teamapply.jsp">
 </definition>
