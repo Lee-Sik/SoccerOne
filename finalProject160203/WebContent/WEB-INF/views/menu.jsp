@@ -33,19 +33,24 @@ $(document).ready(function() {
 		          if(data[i].team_logo == null || data[i].team_logo==''){
 		        	  newDiv.innerHTML = //'<tr>'
 					       '<td><img src="image/noimage.jpeg" style="width: 50px; height: 30px;"/></td>'
-					       	+'<td align="center">'+data[i].team_name+'</td>';
-					       	//+'</tr>';
+					       	+'<td align="center">'
+					       	+"<a href='' onclick='javascript:window.open('teamView.do?team_name='"+data[i].team_name+",'','','width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');'>"+data[i].team_name+'</a></td>';
+					       	
 		          }
 		          else{
 		        	  newDiv.innerHTML = //'<tr>'
 					       '<td><img src="image/'+data[i].team_logo+'" style="width: 50px; height: 30px;"/></td>'
 					       	+'<td align="center">'+data[i].team_name+'</td>';
-					       	//+'</tr>';
+					       
 		          }
-			       
+		           
 			       $('#result').append(newDiv);
-		       }
+			       $("#result").hide();
+			       $('#result').slideDown("slow");
+			      
 		       
+		       }
+		       //$('#result').slideDown();
 		   
 		       //아래에 element를 추가 
 		    }
@@ -149,8 +154,10 @@ $(document).ready(function() {
 		</c:if>
 		<div>
 			팀명:<input type="text" id="query" >
+			<div style="background-color: green;  float:right; ">
 			<table id="result">
 			</table>
+			</div>
 		</div>
 	</ul>
 

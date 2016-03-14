@@ -202,18 +202,12 @@ public class clubController {
 	public String teamView(foot_team_DTO team, HttpServletRequest req, Model model) {// 팀정보를
 																						// 가져올
 		logger.info("teamView !!!!");
-
-		foot_user_DTO jyfudto = (foot_user_DTO) req.getSession().getAttribute("login");
-
-		if (jyfudto == null) {
-			return "redirect:loginpopup1.do";
-		} else {
+			System.out.println(team.getTeam_name());
+	
 			foot_team_DTO dto = clubservice.getTeam(team);
 
 			model.addAttribute("teamViewDTO", dto);
 			return "teamView.tiles";
-
-		}
 
 	}
 
