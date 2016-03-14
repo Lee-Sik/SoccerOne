@@ -16,8 +16,8 @@
 	<jsp:include page="../menu.jsp"/>
 	<ul class="menulist">
 		<li><a href="./kickoff.do"><img src="./image/menu/addmatch_off.png" class="image_rollover"></a></li>
-		<li><a href="./kickoff.do"><img src="./image/menu/addmatch_off.png" class="image_rollover"></a></li>
-		<li><a href="./kickoff.do"><img src="./image/menu/addmatch_off.png" class="image_rollover"></a></li>
+		<li><a href="./kickoff.do"><img src="./image/menu/matchingsearch_off.png" class="image_rollover"></a></li>
+		<li><a href="./ranking.do"><img src="./image/menu/rank_off.png" class="image_rollover"></a></li>
 	</ul>
 </div>
 

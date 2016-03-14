@@ -347,8 +347,8 @@ public class gameController {
 
 			cw.writeCsv(dataAll);
 
-			model.addAttribute("title", "KickOff");
-			model.addAttribute("menuNum", 1);
+			model.addAttribute("title", "publicmatch");
+			
 			
 			return "kickoff.tiles";
 
