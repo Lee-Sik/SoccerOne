@@ -53,7 +53,7 @@ public class faManController {
 		model.addAttribute("pageCountPerScreen", 10);
 		model.addAttribute("recordCountPerPage", dto.getRecordCountPerPage());
 		model.addAttribute("totalRecordCount", totalRecordCount);
-		model.addAttribute("title", "자유계약");
+		model.addAttribute("title", "faplayer");
 		model.addAttribute("menuNum", 2);
 
 		return "faManList.tiles";
@@ -88,7 +88,7 @@ public class faManController {
 
 			model.addAttribute("con", context);
 			model.addAttribute("post1", post1);
-			model.addAttribute("title", "자유계약");
+			model.addAttribute("title", "faplayer");
 
 			return "faManWrite.tiles";
 
@@ -146,7 +146,7 @@ public class faManController {
 		model.addAttribute("preDTO", preDTO);
 		model.addAttribute("nextDTO", nextDTO);
 		model.addAttribute("fdto", dto);
-		model.addAttribute("title", "자유계약");
+		model.addAttribute("title", "faplayer");
 
 		return "faManDetail.tiles";
 	}

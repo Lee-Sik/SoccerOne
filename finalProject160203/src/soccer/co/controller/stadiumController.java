@@ -70,15 +70,15 @@ public class stadiumController {
 					foot_stadium_DTO dto = service.stadiumDetail(stadium_seq);
 					model.addAttribute("mode", mode);
 					model.addAttribute("dto", dto);
-					model.addAttribute("title", "구장수정");
+					model.addAttribute("title", "publicbooking");
 				} else {
 					model.addAttribute("mode", "write");
-					model.addAttribute("title", "구장등록");
+					model.addAttribute("title", "publicbooking");
 				}
 
 			} else {
 				model.addAttribute("mode", "write");
-				model.addAttribute("title", "구장등록");
+				model.addAttribute("title", "publicbooking");
 			}
 
 			int a = (int) (Math.random() * 10);
@@ -141,7 +141,7 @@ public class stadiumController {
 		model.addAttribute("totalRecordCount", totalRecordCount);
 		model.addAttribute("blist", blist);
 		model.addAttribute("flist", flist);
-		model.addAttribute("title", "공식대관");
+		model.addAttribute("title", "publicbooking");
 		model.addAttribute("menuNum", 0);
 
 		return "bookingList.tiles";
@@ -392,7 +392,7 @@ public class stadiumController {
 
 			model.addAttribute("user_email", user_email);
 			model.addAttribute("slist", slist);
-			model.addAttribute("title", "구장관리");
+			model.addAttribute("title", "publicbooking");
 
 			return "stadiumList.tiles";
 
@@ -560,7 +560,7 @@ public class stadiumController {
 			model.addAttribute("game7", game7);
 			model.addAttribute("sdto", sdto);
 			model.addAttribute("bdto", bdto);
-			model.addAttribute("title", "구장대관");
+			model.addAttribute("title", "publicbooking");
 
 			return "bookingDetail.tiles";
 

@@ -141,6 +141,9 @@
 
 </definition>
 
+
+
+
 <!-- kickoff -->
 <definition name="kickoff.tiles" extends="login.tiles">
 	<put-attribute name="menu" value="/WEB-INF/views/kickoff/kickoff_menu.jsp" />

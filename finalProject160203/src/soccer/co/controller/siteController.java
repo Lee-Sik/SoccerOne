@@ -18,7 +18,7 @@ public class siteController {
 	public String hello(Model model) throws Exception {
 		logger.info("Welcome siteController hello! " + new Date());
 		
-		model.addAttribute("title", "연락처");
+		model.addAttribute("title", "hello");
 		model.addAttribute("menuNum", 0);
 		
 		return "hello.tiles";
@@ -28,7 +28,7 @@ public class siteController {
 	public String introduce(Model model) throws Exception {
 		logger.info("Welcome siteController introduce! " + new Date());
 		
-		model.addAttribute("title", "사이트");
+		model.addAttribute("title", "introduce");
 		model.addAttribute("menuNum", 1);
 		return "introduce.tiles";
 	}
@@ -37,7 +37,7 @@ public class siteController {
 	public String contact(Model model) throws Exception {
 		logger.info("Welcome siteController contact! " + new Date());
 		
-		model.addAttribute("title", "연락처");
+		model.addAttribute("title", "contact");
 		model.addAttribute("menuNum", 2);
 		return "contact.tiles";
 	}

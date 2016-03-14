@@ -24,8 +24,10 @@
 <div id="menu"><tiles:insertAttribute name="menu"/></div>
 	<div>
 		<div id="main">
-			<div class="main_title" style="background-image: url('./image/main_title_bg.png'); size: 100%;
-			background-repeat: no-repeat; background-position: center;"><br>${title}<br><br></div>
+		<c:if test="${not empty title}">
+		<div class="main_title"><br>
+		<img width="80%;" src="./image/maintitle/title_${title}.png"/></div></c:if>
+		
 			<tiles:insertAttribute name="main"/>
 		</div>
 		<div id="right">

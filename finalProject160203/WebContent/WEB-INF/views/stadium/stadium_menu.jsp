@@ -5,7 +5,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 <style type="text/css">
 #menu{background:#67c4ea;}
-.menulist {padding-top:70px; height:81px;}
+.menulist {margin-left: 62px; padding-top:70px; height:81px;}
 .menulist li {float:left; list-style:none; }
 .menulist li a {padding:0; margin:0;}
 .menulist li img {margin-top: -28px; width: 80px; border-right:1px solid #fff; border-top:1px solid #fff; border-bottom:1px solid #fff; background:#fff;}

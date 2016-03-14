@@ -31,7 +31,7 @@
 	#files_wrap { width:99.5%; margin-left:auto; margin-right:auto; }
 	#files_wrap #_file_list_item { list-style-type:disc; }
 	
-	.box_border { width:98%; border-width:1px; border-style:solid; border-color:#EFEFEF; background-color:#FFFFFF; text-align:right; padding:2px; margin-top:5px; margin-bottom:10px; margin-left:auto; margin-right:auto;}
+	.box_border { width:40%; border-width:1px; border-style:solid; border-color:#EFEFEF; background-color:#FFFFFF; text-align:right; padding:2px; margin-top:5px; margin-bottom:10px; margin-left:auto; margin-right:auto;}
 	.search_box { width:98%; border-width:1px; border-style:solid; border-color:#EFEFEF; background-color:#FFFFFF; padding:2px; padding-top:7px; padding-bottom:7px; margin-top:5px; margin-bottom:10px; margin-left:auto; margin-right:auto; margin-top:5px; margin-bottom:10px; text-align:center; line-height:2.1em;}
 
 	.items_title { text-align:left; margin-left:auto; margin-right:auto; padding-left:28px; padding-top:3px; background-image:url("../image/shape_square.png"); background-repeat:no-repeat; background-position:10px 0px; margin-top:25px; margin-bottom:1px; font-size:12px; font-weight:bold; }

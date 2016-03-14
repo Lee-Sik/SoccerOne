@@ -75,7 +75,7 @@ public class communityController {
 		model.addAttribute("s_category", param.getS_category());
 		model.addAttribute("s_keyword", param.getS_keyword());
 
-		model.addAttribute("title", "축덕포럼");
+		model.addAttribute("title", "bbslist");
 		model.addAttribute("menuNum", 0);
 
 		return "bbslist.tiles";
@@ -92,7 +92,7 @@ public class communityController {
 			return "redirect:loginpopup1.do";
 		} else {
 
-			model.addAttribute("title", "게시판 글쓰기");
+			model.addAttribute("title", "bbslist");
 			return "bbswrite.tiles";
 
 		}
@@ -212,7 +212,7 @@ public class communityController {
 
 			foot_community_DTO rbbs = BBSService.getBBS(bbs);
 			model.addAttribute("bbs", rbbs);
-			model.addAttribute("title", "글 수정");
+			model.addAttribute("title", "bbslist");
 
 			return "bbsupdate.tiles";
 
@@ -284,7 +284,7 @@ public class communityController {
 
 		BBSService.incrementReadCount(bbs);
 		model.addAttribute("bbs", dto);
-		model.addAttribute("title", "글 상세보기");
+		model.addAttribute("title", "bbslist");
 
 		foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
 
@@ -315,7 +315,7 @@ public class communityController {
 		int totalRecordCount = BBSService.getBBSCount(param);
 		List<foot_community_DTO> bbslist = BBSService.getBBSPagingList(param);
 		model.addAttribute("bbslist", bbslist);
-		model.addAttribute("doc_title", "BBS 리스트");
+		model.addAttribute("title", "bbslist");
 
 		model.addAttribute("pageNumber", sn);
 		model.addAttribute("pageCountPerScreen", 10);
@@ -505,7 +505,7 @@ public class communityController {
 		model.addAttribute("s_category", param.getS_category());
 		model.addAttribute("s_keyword", param.getS_keyword());
 
-		model.addAttribute("title", "짤방게시판");
+		model.addAttribute("title", "gallery");
 		model.addAttribute("menuNum", 1);
 
 		return "gallerylist.tiles";
@@ -527,7 +527,7 @@ public class communityController {
 
 		BBSService.incrementGalReadCount(bbs);
 		model.addAttribute("gal", dto);
-		model.addAttribute("title", "글 상세보기");
+		model.addAttribute("title", "gallery");
 
 		foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
 
@@ -721,7 +721,7 @@ public class communityController {
 
 			foot_community_DTO rbbs = BBSService.getGallery(bbs);
 			model.addAttribute("gal", rbbs);
-			model.addAttribute("title", "짤방 수정");
+			model.addAttribute("title", "gallery");
 
 			return "galleryupdate.tiles";
 
@@ -793,7 +793,7 @@ public class communityController {
 		model.addAttribute("s_category", param.getS_category());
 		model.addAttribute("s_keyword", param.getS_keyword());
 
-		model.addAttribute("title", "중고장터");
+		model.addAttribute("title", "sellbuy");
 		model.addAttribute("menuNum", 2);
 
 		return "sellbuylist.tiles";
@@ -811,7 +811,7 @@ public class communityController {
 			return "redirect:loginpopup1.do";
 		} else {
 
-			model.addAttribute("title", "중고장터 글쓰기");
+			model.addAttribute("title", "sellbuy");
 			return "sellbuywrite.tiles";
 
 		}
@@ -933,7 +933,7 @@ public class communityController {
 
 			foot_community_DTO rbbs = BBSService.getSellbuy(bbs);
 			model.addAttribute("sellbuy", rbbs);
-			model.addAttribute("title", "장터 글 수정");
+			model.addAttribute("title", "sellbuy");
 
 			return "sellbuyupdate.tiles";
 
@@ -992,7 +992,7 @@ public class communityController {
 
 		BBSService.incrementSellbuyReadCount(bbs);
 		model.addAttribute("sellbuy", dto);
-		model.addAttribute("title", "장터 글 상세보기");
+		model.addAttribute("title", "sellbuy");
 
 		foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
 

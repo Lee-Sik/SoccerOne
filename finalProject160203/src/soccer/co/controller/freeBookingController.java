@@ -57,7 +57,7 @@ public class freeBookingController {
 		model.addAttribute("pageCountPerScreen", 10);
 		model.addAttribute("recordCountPerPage", dto.getRecordCountPerPage());
 		model.addAttribute("totalRecordCount", totalRecordCount);
-		model.addAttribute("title", "자유대관");
+		model.addAttribute("title", "freebooking");
 		model.addAttribute("menuNum", 1);
 
 		return "fbookingList.tiles";
@@ -91,7 +91,7 @@ public class freeBookingController {
 
 			model.addAttribute("con", context);
 			model.addAttribute("post1", post1);
-			model.addAttribute("title", "자유대관");
+			model.addAttribute("title", "freebooking");
 			return "fbookingWrite.tiles";
 
 		}
@@ -149,7 +149,7 @@ public class freeBookingController {
 		model.addAttribute("preDTO", preDTO);
 		model.addAttribute("nextDTO", nextDTO);
 		model.addAttribute("fdto", dto);
-		model.addAttribute("title", "자유대관");
+		model.addAttribute("title", "freebooking");
 
 		return "fbookingDetail.tiles";
 	}
