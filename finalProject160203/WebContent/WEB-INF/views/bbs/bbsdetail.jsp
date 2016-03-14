@@ -18,6 +18,60 @@ function fnShareFb(sMsg,sUrl) {
     a.focus();
     }
 }
+function editCom(id){
+	
+	 event.preventDefault();
+	 $('#'+id+"-2").children().hide();
+	 
+ 	$('#'+id).removeAttr('readonly');
+ 	 origin =$('#'+id).val();
+ 	// alert(origin);
+ 	newDiv = document.createElement("input");// 1.노드를 생성한다.
+ 	 $(newDiv).attr('type', 'button');
+ 	$(newDiv).attr('value', '수정완료');
+ 	$(newDiv).attr('onclick', 'editCom2('+id+')');
+ 	
+ 	newDiv2 = document.createElement("input");// 1.노드를 생성한다.
+	 $(newDiv2).attr('type', 'button');
+	$(newDiv2).attr('value', '수정취소');
+	$(newDiv2).attr('onclick', 'editCancel('+id+')');
+	  
+ 	$('#'+id+"-2").append(newDiv);
+ 	$('#'+id+"-2").append(newDiv2);
+	
+
+}
+function editCancel(id){
+	alert('수정취소');
+// 	alert(origin);
+// 	alert(id);
+	$('#'+id).attr('readonly','true');
+	$('#'+id).attr('value',origin);
+
+	
+	
+	$('#'+id+"-2 input").remove();
+	$('#'+id+"-2").children().show();
+}
+
+function editCom2(id){
+	alert(id);
+	$('#'+id).attr('readonly','true');
+	
+	
+	
+	
+	//ajax 처리
+	
+	
+	
+	
+	alert('수정');
+	$('#'+id+"-2 input").remove();
+	$('#'+id+"-2").children().show();
+}
+
+
 function fnShareTw(sUrl){
     var sUrl = document.getElementById('url').value;
 	var sTxt = document.getElementById('content').value;
@@ -166,14 +220,14 @@ $("#_btnUpdate").click(function() {
 			<td>
 			<img src="./image/${comlist.user_profile}" style="width: 80px;"><br>
 			${comlist.user_email}</td>
-			<td style="text-align: left;">${comlist.content}</td>
-			<td style="text-align: right;">
+			<td style="text-align: left;"><textarea rows="5" cols="80" id="${comlist.comment_no}" readonly>${comlist.content}</textarea></td>
+			<td style="text-align: right;" id="${comlist.comment_no}-2">
 			${comlist.wdate}<br>
 			<c:if test="${comlist.user_email == login.user_email}">
-			<a href="#" 
-		 	onclick="javascript:window.open('./commentupdate.do?comment_no=${comlist.comment_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">
-			<img src="./image/comment_edit.gif"/></a>&nbsp;
-			<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs.bbs_no}&mode=detail"><img src="./image/comment_del.gif"/></a>
+			<a href="#" onclick="editCom(${comlist.comment_no})" >
+			<img src="./image/comment_edit.gif" /></a>&nbsp;<!-- 댓글수정 -->
+			<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs.bbs_no}&mode=detail">
+			<img src="./image/comment_del.gif"/></a><!-- 댓글삭제 -->
 			</c:if>
 			</td>
 			</tr>
