@@ -1,6 +1,30 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 
+#mainmenu,
+#mainmenu ul,
+#mainmenu ul li,
+#mainmenu ul li a{
+	background-color: #f1f1f1;
+	list-style: none;
+	float: left;
+	padding: 0 6px 0 7px;
+
+}
+#mainmenu{
+		width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
 #cssmenu,
 #cssmenu ul,
 #cssmenu ul li,
@@ -32,7 +56,7 @@
 }
 #cssmenu {
   font-family: Montserrat, sans-serif;
-  background: #333333;
+  background: #dddddd;
 }
 #cssmenu > ul > li {
   float: left;
@@ -56,12 +80,13 @@
   font-size: 12px;
   letter-spacing: 1px;
   text-decoration: none;
-  color: #dddddd;
+  color: #333333;
   font-weight: 700;
   text-transform: uppercase;
 }
 #cssmenu > ul > li:hover > a {
-  color: #ffffff;
+  color: #333333;
+;
 }
 #cssmenu > ul > li.has-sub > a {
   padding-right: 30px;
@@ -134,7 +159,7 @@
   width: 170px;
   font-size: 12px;
   text-decoration: none;
-  color: #dddddd;
+  color: #333333;
   font-weight: 400;
   background: #333333;
 }
@@ -144,7 +169,7 @@
 }
 #cssmenu ul ul li:hover > a,
 #cssmenu ul ul li a:hover {
-  color: #ffffff;
+  color: #333333;
 }
 #cssmenu ul ul li.has-sub > a:after {
   position: absolute;
@@ -330,7 +355,7 @@ input.cmn-toggle-round:checked + label:after {
     padding-left: 35px;
   }
   #cssmenu ul ul li a {
-    color: #dddddd;
+    color: #333333;
     background: none;
   }
   #cssmenu ul ul li:hover > a,
@@ -417,7 +442,7 @@ input.cmn-toggle-round:checked + label:after {
     cursor: pointer;
   }
   #cssmenu .submenu-button.submenu-opened {
-    background: #262626;
+    background: #333333;
   }
   #cssmenu ul ul .submenu-button {
     height: 34px;

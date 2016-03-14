@@ -37,12 +37,12 @@ body{
 #menu{
    text-align: center;
    width:100%;
-   background-color: gray;
 }
 #main{
    width:75%;
    float: left;
    min-height: 700px;
+   clear:both;
 }
 #content{
    width:100%;

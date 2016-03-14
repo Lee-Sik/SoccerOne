@@ -142,6 +142,7 @@ public class stadiumController {
 		model.addAttribute("blist", blist);
 		model.addAttribute("flist", flist);
 		model.addAttribute("title", "공식대관");
+		model.addAttribute("menuNum", 0);
 
 		return "bookingList.tiles";
 	}

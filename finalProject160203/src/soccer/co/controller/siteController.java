@@ -14,22 +14,32 @@ public class siteController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(siteController.class);
 	
+	@RequestMapping(value = "hello.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String hello(Model model) throws Exception {
+		logger.info("Welcome siteController hello! " + new Date());
+		
+		model.addAttribute("title", "연락처");
+		model.addAttribute("menuNum", 0);
+		
+		return "hello.tiles";
+	}
+	
 	@RequestMapping(value = "introduce.do", method = {RequestMethod.GET,RequestMethod.POST})
 	public String introduce(Model model) throws Exception {
-		logger.info("Welcome siteController matching! " + new Date());
+		logger.info("Welcome siteController introduce! " + new Date());
 		
 		model.addAttribute("title", "사이트");
-		
+		model.addAttribute("menuNum", 1);
 		return "introduce.tiles";
 	}
 	
-	@RequestMapping(value = "address.do", method = {RequestMethod.GET,RequestMethod.POST})
-	public String address(Model model) throws Exception {
-		logger.info("Welcome siteController matching! " + new Date());
+	@RequestMapping(value = "contact.do", method = {RequestMethod.GET,RequestMethod.POST})
+	public String contact(Model model) throws Exception {
+		logger.info("Welcome siteController contact! " + new Date());
 		
 		model.addAttribute("title", "연락처");
-		
-		return "address.tiles";
+		model.addAttribute("menuNum", 2);
+		return "contact.tiles";
 	}
 	
 }

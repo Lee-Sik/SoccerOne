@@ -42,6 +42,7 @@ public class communityController {
 		model.addAttribute("bbslist", bbslist);
 
 		model.addAttribute("title", "커뮤니티");
+		
 		return "community.tiles";
 	}
 
@@ -75,6 +76,7 @@ public class communityController {
 		model.addAttribute("s_keyword", param.getS_keyword());
 
 		model.addAttribute("title", "축덕포럼");
+		model.addAttribute("menuNum", 0);
 
 		return "bbslist.tiles";
 
@@ -504,6 +506,7 @@ public class communityController {
 		model.addAttribute("s_keyword", param.getS_keyword());
 
 		model.addAttribute("title", "짤방게시판");
+		model.addAttribute("menuNum", 1);
 
 		return "gallerylist.tiles";
 
@@ -791,6 +794,7 @@ public class communityController {
 		model.addAttribute("s_keyword", param.getS_keyword());
 
 		model.addAttribute("title", "중고장터");
+		model.addAttribute("menuNum", 2);
 
 		return "sellbuylist.tiles";
 

@@ -58,6 +58,7 @@ public class freeBookingController {
 		model.addAttribute("recordCountPerPage", dto.getRecordCountPerPage());
 		model.addAttribute("totalRecordCount", totalRecordCount);
 		model.addAttribute("title", "자유대관");
+		model.addAttribute("menuNum", 1);
 
 		return "fbookingList.tiles";
 	}

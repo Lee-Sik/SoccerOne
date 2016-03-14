@@ -54,6 +54,7 @@ public class faManController {
 		model.addAttribute("recordCountPerPage", dto.getRecordCountPerPage());
 		model.addAttribute("totalRecordCount", totalRecordCount);
 		model.addAttribute("title", "자유계약");
+		model.addAttribute("menuNum", 2);
 
 		return "faManList.tiles";
 	}

@@ -1,6 +1,42 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
 
+<!DOCTYPE div PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<div id='mainmenu'>
+
+	<ul>
+		<li><a href='./first.do'><img src="./image/menu/main_home.jpg"></a></li>
+		<li><a href='./kickoff.do'><img src="./image/menu/main_kickoff.jpg"></a></li>
+		<li><a href='./bookingList.do'><img src="./image/menu/main_booking.jpg"></a></li>
+		<li><a href='club.do?user_address=${login.user_address}&user_team=${login.user_team}'><img src="./image/menu/main_club.jpg"></a></li>
+		<li><a href='./bbslist.do'><img src="./image/menu/main_community.jpg"></a></li>
+		<li><a href='./hello.do'><img src="./image/menu/main_site.jpg"></a></li>
+		<li><a href='./introduce.do'><img src="./image/menu/main_admin.jpg"></a></li>
+	</ul>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	request.setCharacterEncoding("utf-8");
@@ -67,9 +103,20 @@ $(document).ready(function() {
 	
 });
 </script>
-<div id='cssmenu'>
+<!DOCTYPE div PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<div id='mainmenu'>
 
 	<ul>
+<<<<<<< .mine
+		<li><a href='./first.do'><img src="./image/menu/main_home.jpg"></a></li>
+		<li><a href='./kickoff.do'><img src="./image/menu/main_kickoff.jpg"></a></li>
+		<li><a href='./bookingList.do'><img src="./image/menu/main_booking.jpg"></a></li>
+		<li><a href='club.do?user_address=${login.user_address}&user_team=${login.user_team}'><img src="./image/menu/main_club.jpg"></a></li>
+		<li><a href='./bbslist.do'><img src="./image/menu/main_community.jpg"></a></li>
+		<li><a href='./hello.do'><img src="./image/menu/main_site.jpg"></a></li>
+		<li><a href='./introduce.do'><img src="./image/menu/main_admin.jpg"></a></li>
+=======
 		<li><a href='./first.do'>홈으로</a></li>
 
 		<li class='active'><a href='./kickoff.do'>킥오프</a>
@@ -161,7 +208,8 @@ $(document).ready(function() {
 		</div>
 	</ul>
 
+>>>>>>> .r186
 
 </div>
 
-
+ -->
