@@ -51,9 +51,9 @@ $(document).ready(function() {
 		});
 	
 	});
-	$('#search').on('click',function(){
-		alert('d');
-	});
+// 	$('#search').on('click',function(){
+// 		alert('d');
+// 	});
 	
 });
 </script>

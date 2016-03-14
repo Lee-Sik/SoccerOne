@@ -100,10 +100,7 @@ public class adminController {
 			System.out.println(loseTeam.toString());
 		}
 		
-		
-		
 		return "adminInsertGame.tiles";
-		
 	}
 	
 	@RequestMapping(value = "noAdmin.do", method = { RequestMethod.GET,RequestMethod.POST })
