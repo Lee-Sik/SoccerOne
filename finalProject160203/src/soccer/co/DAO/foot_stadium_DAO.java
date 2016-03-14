@@ -28,6 +28,17 @@ public class foot_stadium_DAO {
 	}
 	public boolean stadiumWrite(foot_stadium_DTO dto)throws Exception{
 		
+		System.out.println(dto.getUser_email());
+		System.out.println(dto.getStadium_name());
+		System.out.println(dto.getAddr());
+		System.out.println(dto.getStadium_phone());
+		System.out.println(dto.getS_content());
+		System.out.println(dto.getFindway());
+		System.out.println(dto.getStadium_img1());
+		System.out.println(dto.getStadium_img2());
+		System.out.println(dto.getStadium_img3());
+		System.out.println(dto.getStadium_img4());
+		
 		sqlsession.insert("stadium.stadiumWrite", dto);
 		return true;
 		

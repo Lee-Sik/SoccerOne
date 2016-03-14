@@ -7,15 +7,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
-<!-- <link rel="stylesheet" href="CSS/styles.css"> -->
-<!-- <SCRIPT LANGUAGE="JavaScript" SRC="https://www.ionnuri.org/ks20/js/jquery/jquery.js"></SCRIPT> -->
+<link rel="stylesheet" href="CSS/styles.css">
+<SCRIPT LANGUAGE="JavaScript" SRC="https://www.ionnuri.org/ks20/js/jquery/jquery.js"></SCRIPT>
 <script type="text/javascript">
 	
 var num;
 
 $(document).ready(function() {
 	
-	var count = 0;
+	/* var count = 0; */
 	
 	$("#submitBt").click(function() {
 		
@@ -49,16 +49,16 @@ $(document).ready(function() {
 			$("#stadium_phone").focus();
 			return;
 		}
-		if(count==0){
+	/* 	if(count==0){
 			alert("이메일을 인증해주세요.");
 			return;
-		}
+		} */
 		alert("구장등록을 완료하였습니다.");
 		
 		$("#f1").submit();
 	});
 	
-	$("#btnPnumber").click(function() {
+	/* $("#btnPnumber").click(function() {
 		
 		if($("#email").val() == '') {
 			alert("이메일을 입력해주세요.");
@@ -96,9 +96,9 @@ $(document).ready(function() {
 			}
 	  	});
 
-	});
+	}); */
 	
-	$("#btnresult").click(function() {
+	/* $("#btnresult").click(function() {
 		
 		var email_num = "${result}";
 		alert(email_num);
@@ -108,7 +108,7 @@ $(document).ready(function() {
 		}else{
 			alert("인증이 안됨.");
 		}
-	});
+	}); */
 
 });
 
@@ -205,7 +205,7 @@ td.td2 {
                                         	<input type="hidden" name="stadium_seq" value="${dto.stadium_seq}">
                                         	</c:if>
                                         </li>
-                                         <li>
+                                   <!--       <li>
                                             <span class="title">이메일 인증</span>
                                             <div class="textwr" style="margin-left: -1.2%;">
                                                	<input type="text" size="" name="email" id="email" value="" style="width: 200px; height: 20px;"/>
@@ -218,7 +218,7 @@ td.td2 {
                                               <input type="text" name="eresult" id="eresult" size="" value="" style="width: 200px; height: 20px;"/>
 											  <input type="button" name="btnresult" value="확인" id="btnresult" style="cursor:pointer;"/>
                                             </div>
-                                        </li>
+                                        </li> -->
                                         
                                     </ul>
 
@@ -226,7 +226,7 @@ td.td2 {
                                
 								<div class="btn_group">
 									<div class="right">
-										<a href="#" class="bbtn" id="submitBt" onclick="">구장정보 등록하기</a>${mode}
+										<a href="#" class="bbtn" id="submitBt" onclick="">구장정보 등록하기</a>
 										<a href="/booking/stadium/manage" class="sbbtn">목록보기</a>
 									</div>
 								</div>

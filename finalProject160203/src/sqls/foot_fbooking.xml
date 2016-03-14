@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 insert into foot_free_booking 
 (free_b_seq,user_email,user_name,free_b_addr,free_b_sendrecieve,free_b_location,free_b_title,free_b_content,free_b_date,free_b_hit,free_b_manager)
 values
-(free_booking_seq.nextval,#{user_email},${user_name},#{free_b_addr},#{free_b_sendrecieve},#{free_b_location},#{free_b_title},#{free_b_content},sysdate,0,#{free_b_manager})
+(free_booking_seq.nextval,#{user_email},#{user_name},#{free_b_addr},#{free_b_sendrecieve},#{free_b_location},#{free_b_title},#{free_b_content},sysdate,0,#{free_b_manager})
 </insert>
 
 <select id="fbookingList" resultType="soccer.co.DTO.foot_fbooking_DTO" parameterType="soccer.co.DTO.foot_fbooking_DTO">

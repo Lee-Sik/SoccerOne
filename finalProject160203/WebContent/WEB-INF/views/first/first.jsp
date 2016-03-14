@@ -32,6 +32,11 @@ function popupOpen(){
 	var popOption = "width=900, height=800,top=70, left=220, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
 		window.open(popUrl,"",popOption);
 	}
+function findOpen(){
+	var popUrl = "join.do";	//팝업창에 출력될 페이지 URL
+	var popOption = "width=900, height=800,top=70, left=220, resizable=no, scrollbars=no, status=no;";    //팝업창 옵션(optoin)
+		window.open(popUrl,"",popOption);
+	}	
 </script>
 </head>
 <body>
@@ -123,6 +128,7 @@ location.href="login1.do";
 <td colspan="2">
 <input type="submit" value="로그인">
 <input type="button" value="회원가입" onclick="location.href='javascript:popupOpen()'">
+<input type="button" value="ID/PW 찾기" onclick="location.href='javascript:popupOpen()'">
 </td>
 </tr>
 </table>

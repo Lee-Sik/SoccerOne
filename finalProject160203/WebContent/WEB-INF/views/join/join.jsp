@@ -121,11 +121,11 @@ function function1(val){
 	var c = document.f.user_high.value;
 	var d = document.f.user_weight.value;
 	
-	 if(count=='0'){
+	 /* if(count=='0'){
 		 alert("${qwe}");
 			alert("이메일을 인증해주세요.");
 		}
-	 else if(pw[0].value.length<=5||pw[0].value.length>=10){
+	 else  */if(pw[0].value.length<=5||pw[0].value.length>=10){
 		alert("비밀번호는 6자리부터 9자리까지만 입력하셔야합니다.");
 		
 	}

@@ -99,6 +99,18 @@ $(function(){
 						<a href="./fbookingList.do?location=${dto.gugun}">${dto.gugun}</a>
 						</li>
 						</c:when>
+						
+						<c:when test="${dto.gugun=='중구'}">
+						<li class="" style="width:7.6%;">
+						<a href="./fbookingList.do?free_b_location=${dto.gugun}">${dto.gugun}</a>
+						</li>
+						</c:when>
+						
+						<c:when test="${dto.gugun=='광진구'}">
+						<li class="" style="width:7.6%;">
+						<a href="./fbookingList.do?free_b_location=${dto.gugun}">${dto.gugun}</a>
+						</li>
+						</c:when>
 					
 						<c:otherwise>
 						<li class="" style="width:7.695%">

@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -284,7 +285,9 @@ public class stadiumController {
 			 * "stadiumImg";
 			 */
 
-			String path = "//211.238.142.152/공유/ryu";
+			/*String path = "//211.238.142.152/공유/ryu";*/
+			
+			String path = "C:/poto";
 
 			File dir = new File(path);
 			if (!dir.exists()) {
@@ -458,6 +461,7 @@ public class stadiumController {
 			model.addAttribute("stadium_seq", stadium_seq);
 			model.addAttribute("stadium_name", stadium_name);
 			model.addAttribute("post1", post1);
+			model.addAttribute("title", "부킹등록");
 
 			return "booking_write.tiles";
 
@@ -479,7 +483,7 @@ public class stadiumController {
 			dto.setRentalaccount(rentalaccount);
 			String booking_day = day.substring(6, 10) + day.substring(0, 2) + day.substring(3, 5);
 			dto.setBooking_day(booking_day);
-
+			
 			service.bookingWrtie(dto);
 
 			return "redirect:/bookingList.do";

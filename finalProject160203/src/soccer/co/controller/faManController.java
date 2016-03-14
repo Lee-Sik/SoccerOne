@@ -107,7 +107,7 @@ public class faManController {
 			String mode = request.getParameter("mode");
 			dto.setUser_name(fservice.getUserName(dto.getUser_email()));
 
-			if (dto.getUser_email() == "h" || dto.getUser_email().equals("h")) {
+			if (dto.getUser_email() == "carroll@naver.com" || dto.getUser_email().equals("carroll@naver.com")) {
 				dto.setFa_man_manager(2);
 			} else {
 				dto.setFa_man_manager(1);

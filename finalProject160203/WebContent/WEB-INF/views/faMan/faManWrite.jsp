@@ -87,7 +87,7 @@ $(document).ready(function(){
 					</ul>
 	
 					<div class="editer" style="margin-left: 5.5%;">
-						<textarea id="content" name="fa_man_content" style="width: 50%;">${fdto.fa_man_content}</textarea>
+						<textarea id="content" name="fa_man_content">${fdto.fa_man_content}</textarea>
 					</div>
 					<script type="text/javascript">
  

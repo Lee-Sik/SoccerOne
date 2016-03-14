@@ -40,7 +40,7 @@
 			<td width="458" bgcolor="999999"></td>
 		</tr>
 		<tr>
-			<td height="43" colspan="2" align="left" bgcolor="f4f4f4" class="lp_10 t_9">동(읍/면) 이름을 입력하세요. </td>
+			<td height="43" colspan="2" align="left" bgcolor="f4f4f4" class="lp_10 t_9">원하는 조건에 따라 선택하세요. </td>
 		</tr>
 		<tr>
 			<td height="1" bgcolor="e5e5e5"></td>

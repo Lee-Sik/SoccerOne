@@ -10,7 +10,7 @@
 		<link href="/package/css?key=947a5c8567c6d82f39eabf6676a46337&dummy=1453861733" rel="stylesheet" type="text/css" />
 		<script type="text/javascript">
 				</script>
-		<title>게임원</title>
+		<title>싸커원</title>
 		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 	</head>
 	<body ><form action="zipsearch_result.do" method="post">

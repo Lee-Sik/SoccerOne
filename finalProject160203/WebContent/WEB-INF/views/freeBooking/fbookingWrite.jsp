@@ -100,7 +100,7 @@ $(document).ready(function(){
 					</ul>
 	
 					<div class="editer" style="margin-left: 5.5%;">
-						<textarea id="content" name="free_b_content" style="width: 50%;">${fdto.free_b_content}</textarea>
+						<textarea id="content" name="free_b_content">${fdto.free_b_content}</textarea>
 					</div>
 					<script type="text/javascript">
  

@@ -12,12 +12,19 @@
 .cl_b {clear:both; font-size:0px; height:0px;}
 </style>
 
+
+
 <div id='menu'>
 	<jsp:include page="../menu.jsp"/>
 	<ul class="menulist">
-		<li><a href="./kickoff.do"><img src="./image/menu/addmatch_off.png" class="image_rollover"></a></li>
-		<li><a href="./kickoff.do"><img src="./image/menu/matchingsearch_off.png" class="image_rollover"></a></li>
-		<li><a href="./ranking.do"><img src="./image/menu/rank_off.png" class="image_rollover"></a></li>
+		<li id="m1"><a href="./kickoff.do"><img src="./image/menu/addmatch_off.png" class="image_rollover"></a></li>
+		<li id="m11" style="display: none;"><a href="./freegame.do"><img src="./image/menu/freematch_off.png" class="image_rollover"></a></li>
+		<li id="m12" style="display: none;"><a href="./kickoff.do"><img src="./image/menu/ranking_off.png" class="image_rollover"></a></li>
+		<li id="m2"><a href="./kickoff.do"><img src="./image/menu/matchingsearch_off.png" class="image_rollover"></a></li>
+		<li id="m21" style="display: none;"><a href="./kickoff.do"><img src="./image/menu/freematch_off.png" class="image_rollover"></a></li>
+		<li id="m22" style="display: none;"><a href="./kickoff.do"><img src="./image/menu/ranking_off.png" class="image_rollover"></a></li>
+		<li id="m3"><a href="./ranking.do"><img src="./image/menu/rank_off.png" class="image_rollover"></a></li>
+		
 	</ul>
 </div>
 
@@ -53,6 +60,24 @@ $(".menulist li").mouseover(function(){
 	    var file_type = temp.substring(length-6).substring(3);
 	    if (status == "on") $(this).find("img").attr("src", file_name + "off." + file_type);
 	}
+});
+$("#m1").mouseover(function(){
+	$("#m21").hide(500);
+	$("#m22").hide(500);
+	$("#m11").show(500);
+	$("#m12").show(500);
+});
+$("#m2").mouseover(function(){
+	$("#m11").hide(500);
+	$("#m12").hide(500);
+	$("#m21").show(500);
+	$("#m22").show(500);	
+});
+$("#m3").mouseover(function(){
+	$("#m11").hide(500);
+	$("#m12").hide(500);
+	$("#m21").hide(500);
+	$("#m22").hide(500);		
 });
 
 </script>

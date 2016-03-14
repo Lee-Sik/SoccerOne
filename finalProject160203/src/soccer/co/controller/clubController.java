@@ -287,7 +287,7 @@ public class clubController {
 			List<String[]> dataAll = new ArrayList<String[]>();
 
 			File file = new File(
-					"/Users/chojaeyong/Desktop/eclipse3/finalProject160203/WebContent/data/test2.csv");
+					"C:/jsp/spring/finalProject160203/WebContent/data/test2.csv");
 					//"C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160222/WebContent/data/test2.csv");
 			CSVReader reader = new CSVReader(new FileReader(file));
 			// UTF-8

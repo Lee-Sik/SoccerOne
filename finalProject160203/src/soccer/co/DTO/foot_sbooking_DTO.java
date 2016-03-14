@@ -18,11 +18,11 @@ public class foot_sbooking_DTO {
 	private String game7;
 	private String mode;
 	
-	private int recordCountPerPage=10;	// ����Per������
+	private int recordCountPerPage=5;	// ����Per������
 	private int pageNumber=0;
 	
 	private int start=1;
-	private int end=10;
+	private int end=5;
 	
 	public int getBooking_seq() {
 		return booking_seq;

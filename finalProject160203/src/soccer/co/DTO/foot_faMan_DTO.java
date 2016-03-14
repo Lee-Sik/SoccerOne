@@ -15,11 +15,11 @@ public class foot_faMan_DTO {
 	private String searchKey;
 	private String searchValue;
 	
-	private int recordCountPerPage=10;	// ����Per������
+	private int recordCountPerPage=5;	// ����Per������
 	private int pageNumber=0;
 	
 	private int start=1;
-	private int end=10;
+	private int end=5;
 	
 	public int getFa_man_seq() {
 		return fa_man_seq;
