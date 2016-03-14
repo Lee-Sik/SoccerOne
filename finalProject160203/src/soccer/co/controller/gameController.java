@@ -55,8 +55,9 @@ public class gameController {
 
 			///////// 읽기///////////////
 			List<String[]> dataAll = new ArrayList<String[]>();
-
-			File file = new File("C:/jsp/spring/finalProject160203/WebContent/data/test2.csv");
+						
+			File file = new File("C:/springstudy/finalProject160203/WebContent/data/test2.csv");
+//			File file = new File("C:/jsp/spring/finalProject160203/WebContent/data/test2.csv");
 			CSVReader reader = new CSVReader(new FileReader(file));
 			// UTF-8
 			// CSVReader reader = new CSVReader(new InputStreamReader(new
@@ -530,8 +531,9 @@ public class gameController {
 		if (jyfudto == null) {
 			return "redirect:loginpopup1.do";
 		} else {
-
-			model.addAttribute("title", "친선경기 등록");
+			
+			model.addAttribute("menuNum", "11");
+			model.addAttribute("title", "freegame");
 			return "freegame.tiles";
 
 		}

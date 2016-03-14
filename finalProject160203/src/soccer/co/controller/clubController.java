@@ -187,7 +187,8 @@ public class clubController {
 				// //////////////////////////////////////////////////////////////////////////////////////////////
 				model.addAttribute("teamMemberList", teamMemberList);
 				model.addAttribute("gameRecList", gameRecList);
-				model.addAttribute("title", "마이 클럽");
+				model.addAttribute("title", "club");
+				model.addAttribute("menuNum", 0);
 				return "team_club.tiles";
 			} else {
 				List<foot_team_DTO> notteamlist = clubservice.notteamGu(fudto.getUser_address());

@@ -4,8 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <% request.setCharacterEncoding("utf-8"); %>
 <style type="text/css">
-#menu{background:#d7df21;}
-.menulist {padding-top:68px; height:81px;}
+#menu{background:#fcb040;}
+.menulist {margin-left: 88px; padding-top:68px; height:81px;}
 .menulist li {float:left; list-style:none; }
 .menulist li a {padding:0; margin:0;}
 .menulist li img {margin-top: -28px; width: 80px; border-right:1px solid #fff; border-top:1px solid #fff; border-bottom:1px solid #fff; background:#fff;}
@@ -15,9 +15,9 @@
 <div id='menu'>
 	<jsp:include page="../menu.jsp"/>
 	<ul class="menulist">
-		<li><a href="./kickoff.do"><img src="./image/menu/addmatch_off.png" class="image_rollover"></a></li>
-		<li><a href="./kickoff.do"><img src="./image/menu/addmatch_off.png" class="image_rollover"></a></li>
-		<li><a href="./kickoff.do"><img src="./image/menu/addmatch_off.png" class="image_rollover"></a></li>
+		<li><a href="./kickoff.do"><img src="./image/menu/club_off.png" class="image_rollover"></a></li>
+		<li><a href="./kickoff.do"><img src="./image/menu/clubsearch_off.png" class="image_rollover"></a></li>
+		<li><a href="./ranking.do"><img src="./image/menu/clubinfo_off.png" class="image_rollover"></a></li>
 	</ul>
 </div>
 

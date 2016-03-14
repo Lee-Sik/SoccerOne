@@ -150,44 +150,44 @@
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/kickoff.jsp" />
 </definition>
 
-<definition name="matching.tiles" extends="login.tiles">
+<definition name="matching.tiles" extends="kickoff.tiles">
 	
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/matching.jsp" />
 </definition>
 
-<definition name="pmatchingsearch.tiles" extends="login.tiles">
+<definition name="pmatchingsearch.tiles" extends="kickoff.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/pmatchingsearch.jsp" />
 </definition>
 
-<definition name="fmatchingsearch.tiles" extends="login.tiles">
+<definition name="fmatchingsearch.tiles" extends="kickoff.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/fmatchingsearch.jsp" />
 </definition>
 
-<definition name="pmatchingdetail.tiles" extends="login.tiles">
+<definition name="pmatchingdetail.tiles" extends="kickoff.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/pmatchingdetail.jsp" />
 </definition>
 
-<definition name="fmatchingdetail.tiles" extends="login.tiles">
+<definition name="fmatchingdetail.tiles" extends="kickoff.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/fmatchingdetail.jsp" />
 </definition>
 
-<definition name="fmatchingsearch.tiles" extends="login.tiles">
+<definition name="fmatchingsearch.tiles" extends="kickoff.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/fmatchingsearch.jsp" />
 </definition>
 
-<definition name="publicgame.tiles" extends="login.tiles">
+<definition name="publicgame.tiles" extends="kickoff.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/publicgame.jsp" />
 </definition>
 
-<definition name="freegame.tiles" extends="login.tiles">
+<definition name="freegame.tiles" extends="kickoff.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/freegame.jsp" />
 </definition>
 
-<definition name="ranking.tiles" extends="login.tiles">
+<definition name="ranking.tiles" extends="kickoff.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/ranking.jsp" />
 </definition>
 
-<definition name="rankingaf.tiles" extends="login.tiles">
+<definition name="rankingaf.tiles" extends="kickoff.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/rankingaf.jsp" />
 </definition>
 <!-- kickoff -->
