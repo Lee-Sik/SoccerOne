@@ -78,10 +78,9 @@
 		
 		<p class="popBtn">${bbs.user_email}</p>
 		<div class="popView" style="position:absolute; left:70px; top:33px; width:100px; height:50px; display:none; border:1px solid #333; background:white; z-index:100;">
-		 <a href="#" onclick="location.href='javascript:popupOpen7(${bbs.user_email})'">쪽지보내기</a>
+		 <a href="#" onclick="javascript:popupOpen7('${bbs.user_email}')">쪽지보내기</a>
 		<p class="popClose">닫기</p>	
 		</div>
-		
 		</td>
 		
 		
@@ -138,15 +137,13 @@
 <form name="frmForm2" id="_frmForm" method="get" action="bbswrite.do">
 </form>
 
-
-
 <script type="text/javascript">
-$(document).ready(function() {	// 마우스에 따라서 컬러를 변경
-	$("._hover_tr").mouseover(function() {
-		$(this).children().css("background-color","#efefef");
-	}).mouseout(function() {
-		$(this).children().css("background-color","#FFFFFF");
-	});	
+$(document).ready(function() {   // 마우스에 따라서 컬러를 변경
+   $("._hover_tr").mouseover(function() {
+      $(this).children().css("background-color","#efefef");
+   }).mouseout(function() {
+      $(this).children().css("background-color","#FFFFFF");
+   });    
 
 	$(".popBtn").click(function() {
 		$(this).parents(".popGrp").find(".popView").show();
@@ -157,29 +154,28 @@ $(document).ready(function() {	// 마우스에 따라서 컬러를 변경
 	
 });
 
-$("#_btnAdd").click(function() {	
-// 	alert('글쓰기');	
-	$("#_frmForm").attr({ "target":"_self", "action":"bbswrite.do" }).submit();
+$("#_btnAdd").click(function() {   
+//  alert('글쓰기');   
+ $("#_frmForm").attr({ "target":"_self", "action":"bbswrite.do" }).submit();
 });
 
 $("#_btnSearch").click(function() {
-	//alert('search');						
-	$("#_frmFormSearch").attr({ "target":"_self", "action":"bbslist.do" }).submit();
+ //alert('search');                  
+ $("#_frmFormSearch").attr({ "target":"_self", "action":"bbslist.do" }).submit();
 });
 
-function goPage(pageNumber) {	
-	$("#_pageNumber").val(pageNumber) ;
-	$("#_frmFormSearch").attr("target","_self").attr("action","bbslist.do").submit();
+function goPage(pageNumber) {   
+ $("#_pageNumber").val(pageNumber) ;
+ $("#_frmFormSearch").attr("target","_self").attr("action","bbslist.do").submit();
 }
+
 
 function popupOpen7(a) {
-	var popUrl = "messagesend.do?a=a"; //팝업창에 출력될 페이지 URL
+	var popUrl = "messagesend.do?a="+a; //팝업창에 출력될 페이지 URL
 	var popOption = 'width=800, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;'; //팝업창 옵션(optoin)
-	window.open(popUrl, "", popOption);
+	window.open(popUrl, "", popOption); 
 }
 </script>
-
-
 
 
 
