@@ -384,6 +384,9 @@ public class gameController {
 		} else {
 
 			model.addAttribute("title", "publicmatch");
+			model.addAttribute("menuNum", 4);
+			
+			
 			return "pmatchingsearch.tiles";
 
 		}
@@ -407,7 +410,8 @@ public class gameController {
 
 			model.addAttribute("pmatchingsearchlist", pmatchingsearchlist);
 
-			model.addAttribute("title", "랭킹전 검색 결과");
+			model.addAttribute("title", "publicmatch");
+			model.addAttribute("menuNum", 4);
 			return "pmatchingsearch.tiles";
 
 		}
@@ -424,6 +428,8 @@ public class gameController {
 		} else {
 
 			model.addAttribute("title", "freematch");
+			model.addAttribute("menuNum", 5);
+			
 			return "fmatchingsearch.tiles";
 
 		}
@@ -446,6 +452,7 @@ public class gameController {
 			model.addAttribute("fmatchingsearchlist", fmatchingsearchlist);
 
 			model.addAttribute("title", "freematch");
+			model.addAttribute("menuNum", 5);
 			return "fmatchingsearch.tiles";
 
 		}
