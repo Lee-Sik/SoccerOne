@@ -83,7 +83,7 @@ function write1() {
 	<div class="bbs_view dminhs">
 		<div class="bbs">
 			<div class="bbs-tab-area" style="position: relative;">
-				<ul style="width:100%; margin-top: -10px;">
+				<ul style="width:100%; margin-top: -10px; padding-left: 0px;">
 					<li class="on" style="width:7.695%">
 					<a href="./faManList.do">전체</a>
 					</li>

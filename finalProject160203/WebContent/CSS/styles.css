@@ -8,13 +8,16 @@
 	background-color: #f1f1f1;
 	list-style: none;
 	float: left;
-	padding: 0 6px 0 7px;
 
 }
 #mainmenu{
-		width: 100%;
+	width: 100%;
 }
-
+#mainmenu img{
+	padding-right: 15px;
+    padding-left: 15px;
+}
+   
 
 #cssmenu,
 #cssmenu ul,

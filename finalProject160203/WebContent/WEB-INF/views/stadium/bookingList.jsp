@@ -72,7 +72,7 @@ $(document).ready(function () {
 
 <div class="book_list_top" style="width: 95%; margin-left: 30px;">
 	<div class="tab_area">
-		<ul class="tab">
+		<ul class="tab" style=" padding-left: 0px;">
 					<li class="on"><a href="./bookingList.do">전체</a></li>
 			<li class="" style="padding-left: 5.2px;"><a href="./bookingList.do?mode=area&area=동대문구">동대문구</a></li>
 			<li class=""><a href="./bookingList.do?mode=area&area=도봉구">도봉구</a></li>
