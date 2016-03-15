@@ -6,7 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <link href="CSS/styles.css" rel="stylesheet" >
-<link href="CSS/MYinfo.css" rel="stylesheet" >
+<link href="CSS/myinfo.css" rel="stylesheet" >
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -37,7 +37,7 @@
 	display:inline-block;
 	font-size:13px;
 	vertical-align:middle;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	color:#ffffff;
 	width:68px;
 	height:25px;
@@ -71,19 +71,19 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 body, table{
 	font-size: 10pt;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
 .wow1{
 	text-align: center;
 	color:black;
 	font-size: 25pt;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
 .wow2{
 	text-align: center;
 	color:black;
 	font-size: 13pt;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
 </style>
 

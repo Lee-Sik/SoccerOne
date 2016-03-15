@@ -16,7 +16,7 @@ opener.parent.location.reload();
 <style type="text/css">
 body, table{
     font-size: 12px;
-    font-family: Montserrat, sans-serif;
+    font-family: "Nanum Gothic", sans-serif;
 }
 
 </style>

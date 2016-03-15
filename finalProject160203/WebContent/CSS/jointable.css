@@ -1,4 +1,5 @@
 @CHARSET "UTF-8";
+	@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 		
 	.list_table { width:98%; border-bottom:1px solid #EFEFEF; border-right:1px solid #EFEFEF; border-collapse:collapse; margin-left:auto; margin-right:auto; clear:both; }
 	.list_table td,.list_table th { text-align:center; border-top:1px solid #EFEFEF; border-left:1px solid #EFEFEF; padding:0.3em; }

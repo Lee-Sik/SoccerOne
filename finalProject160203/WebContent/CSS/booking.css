@@ -544,7 +544,7 @@ div.wrap:after {
 
 #Header div.section_trank table.rank_table td.rank {
 	font-weight: 700;
-	font-family: verdana, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	font-size: 11px;
 }
 
@@ -1220,7 +1220,7 @@ div.wrap:after {
 	text-align: center;
 	font-size: 15px;
 	line-height: 15px;
-	font-family: arial, myriad pro, verdana, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
 
 #Header div.date_sel h2 span.date {
@@ -1707,7 +1707,7 @@ div.theme_ptl #Navigation div.nav_depth_sub ul.nav_depth_sub_r a .sub_r_icon02
 #Navigation div.nav_depth_sub .nav_ptl_contents .frame em {
 	font-size: 52px;
 	font-weight: 700;
-	font-family: arial, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	margin: 0 10px;
 } /* Navigation banner */
 #Navigation a.supervision_banner {
@@ -10451,7 +10451,7 @@ div.booking_wrap div.calendar div.c_top h4 {
 	text-align: center;
 	font-weight: bold;
 	font-size: 13px;
-	font-family: verdana, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	color: #444;
 	line-height: 20px;
 }
@@ -10459,7 +10459,7 @@ div.booking_wrap div.calendar div.c_top h4 {
 div.booking_wrap div.calendar div.c_body {
 	color: #3c3c3c;
 	text-align: center;
-	font-family: verdana, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	font-size: 10px;
 }
 
@@ -10717,7 +10717,7 @@ div.booking_wrap div.book_search div.select_day span.date {
 	vertical-align: middle;
 	font-weight: bold;
 	font-size: 25px;
-	font-family: verdana, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	padding-left: 32px;
 }
 
@@ -13316,7 +13316,7 @@ input.ui-button::-moz-focus-inner, button.ui-button::-moz-focus-inner {
 	text-transform: uppercase;
 	font-size: 10px;
 	background: #f1f1f1;
-	font-family: verdana, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	height: 27px;
 	text-align: center;
 	font-weight: normal;
@@ -13328,7 +13328,7 @@ input.ui-button::-moz-focus-inner, button.ui-button::-moz-focus-inner {
 	padding: 1px;
 	text-align: center;
 	height: 20px;
-	font-family: verdana, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	font-size: 9px;
 }
 
@@ -13992,7 +13992,7 @@ body .ui-tooltip {
 }
 
 .ui-widget-header { /*border:1px solid #aaa;background:#ccc;*/
-	font-family: verdana, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	color: #222;
 	font-weight: bold
 }
