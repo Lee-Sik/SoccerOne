@@ -69,8 +69,14 @@ $(function() {
 								<c:if test="${reclist.game_state == 1}">
 									<td bgcolor="orange">
 									<a href="#" 
-		 							onclick="javascript:window.open('./recordinsert.do?game_no=${reclist.game_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">
+		 							onclick="javascript:window.open('./recordinsert.do?game_no=${reclist.game_no}&teamName1=${reclist.team_name}&teamName2=${reclist.team_name1}','','location=0,status=0,scrollbars=1,width=750,height=300');">
 									입력대기중</a></td> 
+<%-- 									${reclist} --%>
+<%-- 홈팀 지역 : ${record.home_local}<br> --%>
+<%-- 승리팀  : ${record.win_team}<br> --%>
+<%-- 패배팀 : ${record.lose_team}<br> --%>
+<%-- 어웨이팀 지역: ${record.away_local}<br> --%>
+									
 								</c:if>
 
 							</tr>

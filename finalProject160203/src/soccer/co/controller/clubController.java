@@ -1,5 +1,6 @@
 package soccer.co.controller;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -8,8 +9,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,7 +101,23 @@ public class clubController {
 		HttpSession session = req.getSession();
 		foot_team_DTO team = (foot_team_DTO) session.getAttribute("team");
 		List<foot_user_DTO> teamMemberList = clubservice.getTeamMember(team.getTeam_name());
+		
 		return teamMemberList;
+	}
+	
+	@RequestMapping(value = "getTeamMember2.do", method = { RequestMethod.GET, RequestMethod.POST })
+	@ResponseBody
+	public HashMap<Integer,List<foot_user_DTO>> getTeamMember2(@RequestParam("team1")String team1,
+			@RequestParam("team2")String team2,HttpServletRequest req, Model model) {
+		logger.info("getTeamMember do!");
+		
+		List<foot_user_DTO> teamMemberList1 = clubservice.getTeamMember(team1);
+		List<foot_user_DTO> teamMemberList2 = clubservice.getTeamMember(team2);
+		HashMap<Integer,List<foot_user_DTO>> map = new HashMap<Integer,List<foot_user_DTO>>();
+		map.put(0, teamMemberList1);
+		map.put(1, teamMemberList2);
+		
+		return map;
 	}
 
 	@RequestMapping(value = "getMyRecord.do", method = { RequestMethod.GET, RequestMethod.POST })

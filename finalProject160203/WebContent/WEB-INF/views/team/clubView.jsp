@@ -23,7 +23,6 @@
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=b96f6f78cb32a760eab6750a6cdc3266&libraries=services"></script>
 
-
 <script>
 
 $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오는 ajax
@@ -36,7 +35,6 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
        kk=[];
        for(var i=0;i<data.length;i++){
           kk.push(data[i]);// kk에 json 객체 담기 
-        
        }
        
        for(var i=0; i<kk.length; i++){
