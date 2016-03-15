@@ -93,6 +93,7 @@ public class communityController {
 		} else {
 
 			model.addAttribute("title", "bbslist");
+			model.addAttribute("menuNum", 0);
 			return "bbswrite.tiles";
 
 		}
@@ -213,6 +214,7 @@ public class communityController {
 			foot_community_DTO rbbs = BBSService.getBBS(bbs);
 			model.addAttribute("bbs", rbbs);
 			model.addAttribute("title", "bbslist");
+			model.addAttribute("menuNum", 0);
 
 			return "bbsupdate.tiles";
 
@@ -285,13 +287,11 @@ public class communityController {
 		BBSService.incrementReadCount(bbs);
 		model.addAttribute("bbs", dto);
 		model.addAttribute("title", "bbslist");
+		model.addAttribute("menuNum", 0);
 
 		foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
 
 		String user_email = fudto.getUser_email();
-
-		System.out.println("bbs_no = " + bbs_no);
-		System.out.println("user_email = " + user_email);
 
 		foot_like_DTO flike = new foot_like_DTO();
 
@@ -528,6 +528,7 @@ public class communityController {
 		BBSService.incrementGalReadCount(bbs);
 		model.addAttribute("gal", dto);
 		model.addAttribute("title", "gallery");
+		model.addAttribute("menuNum", 1);
 
 		foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
 
@@ -555,7 +556,6 @@ public class communityController {
 		int totalRecordCount = BBSService.getGalleryCount(param);
 		List<foot_community_DTO> gallerylist = BBSService.getGalleryPagingList(param);
 		model.addAttribute("gallerylist", gallerylist);
-		model.addAttribute("doc_title", "BBS 리스트");
 
 		model.addAttribute("pageNumber", sn);
 		model.addAttribute("pageCountPerScreen", 10);
@@ -580,7 +580,8 @@ public class communityController {
 			return "redirect:loginpopup1.do";
 		} else {
 
-			model.addAttribute("title", "짤방 글쓰기");
+			model.addAttribute("title", "gallery");
+			model.addAttribute("menuNum", 1);
 			return "gallerywrite.tiles";
 
 		}
@@ -722,6 +723,7 @@ public class communityController {
 			foot_community_DTO rbbs = BBSService.getGallery(bbs);
 			model.addAttribute("gal", rbbs);
 			model.addAttribute("title", "gallery");
+			model.addAttribute("menuNum", 1);
 
 			return "galleryupdate.tiles";
 
@@ -812,6 +814,7 @@ public class communityController {
 		} else {
 
 			model.addAttribute("title", "sellbuy");
+			model.addAttribute("menuNum", 2);
 			return "sellbuywrite.tiles";
 
 		}
@@ -934,6 +937,7 @@ public class communityController {
 			foot_community_DTO rbbs = BBSService.getSellbuy(bbs);
 			model.addAttribute("sellbuy", rbbs);
 			model.addAttribute("title", "sellbuy");
+			model.addAttribute("menuNum", 2);
 
 			return "sellbuyupdate.tiles";
 
@@ -993,6 +997,7 @@ public class communityController {
 		BBSService.incrementSellbuyReadCount(bbs);
 		model.addAttribute("sellbuy", dto);
 		model.addAttribute("title", "sellbuy");
+		model.addAttribute("menuNum", 2);
 
 		foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
 
