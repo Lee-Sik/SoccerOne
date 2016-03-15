@@ -35,4 +35,6 @@ public interface foot_teamService {
 	public List<RANKParam> getAllTeamLeague();
 
 	public List<foot_team_DTO> searchTeam(String query);
+
+	public foot_team_DTO getTeam2(foot_team_DTO team);
 }

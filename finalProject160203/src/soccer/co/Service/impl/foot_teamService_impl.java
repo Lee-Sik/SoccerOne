@@ -50,6 +50,12 @@ public class foot_teamService_impl implements foot_teamService{
 		return teamdao.getTeam(team);
 		
 	}
+	
+	@Override
+	public foot_team_DTO getTeam2(foot_team_DTO team) {
+		return teamdao.getTeam2(team);
+		
+	}
 
 	@Override
 	public boolean modifyteam(foot_team_DTO team, foot_user_DTO fudto, String originteamname) {

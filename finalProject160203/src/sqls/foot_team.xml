@@ -58,6 +58,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   
    </select>
    
+   <select id="getTeam2" parameterType="java.lang.String" resultType="soccer.co.DTO.foot_team_DTO">
+
+  	 SELECT * FROM foot_team where team_name = #{team_name}
+  
+   </select>
+   
    <update id="modifyteam" parameterType="hashmap">
    update foot_team set team_managerid=#{team.team_managerid},team_name=#{team.team_name},team_intro=#{team.team_intro},
    team_location1=#{team.team_location1},team_location2=#{team.team_location2},team_location3=#{team.team_location3},

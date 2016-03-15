@@ -124,5 +124,9 @@ public class foot_team_DAO {
 	public List<foot_team_DTO> searchTeam(String query) {
 		return sql.selectList(ns+"searchTeam",query);
 	}
+
+	public foot_team_DTO getTeam2(foot_team_DTO team) {
+		return (foot_team_DTO) sql.selectOne(ns+"getTeam2",team.getTeam_name());
+	}
 	
 }

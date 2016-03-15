@@ -73,11 +73,30 @@ public class adminController {
 	public String recordinsert(foot_game_record fgd, HttpServletRequest request, Model model) throws Exception{
 				
 		String game_no = request.getParameter("game_no");
+		String teamName1 = request.getParameter("teamName1");
+		String teamName2 = request.getParameter("teamName2");
+		System.out.println(teamName1);
+		System.out.println(teamName2);
 		
 		fgd.setGame_no(Integer.parseInt(game_no));
 		
 		foot_game_record fgr = fgameservice.getrecordInsert(fgd);
+		//getTeamMember.do
+		foot_team_DTO team1 = new foot_team_DTO();
+		foot_team_DTO team2 = new foot_team_DTO();
+		foot_team_DTO team3 = new foot_team_DTO();
+		foot_team_DTO team4 = new foot_team_DTO();
+		team1.setTeam_name(teamName1);
+		team2.setTeam_name(teamName2);
+
+		 team3 = clubservice.getTeam2(team1);
+		 team4 = clubservice.getTeam2(team2);
 		
+		//System.out.println(team3.toString());
+		//System.out.println(team4.toString());
+		
+		model.addAttribute("team1", team3);
+		model.addAttribute("team2", team4);
 		model.addAttribute("record", fgr);
 		
 		return "recordinsert.tiles";

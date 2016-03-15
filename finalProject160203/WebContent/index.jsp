@@ -6,10 +6,8 @@
 	<title>Soccer One</title>
 </head>
 <body>
-
 <% 
 	response.sendRedirect("first.do");
 %>
-
 </body>
 </html>

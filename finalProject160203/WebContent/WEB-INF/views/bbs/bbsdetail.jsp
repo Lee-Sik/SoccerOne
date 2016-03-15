@@ -15,7 +15,7 @@ function fnShareFb(sMsg,sUrl) {
     var href = "http://www.facebook.com/sharer.php?u=" + sUrl + "&t=" + encodeURIComponent(sMsg);
     var a = window.open(href, 'facebook', 'width=400, height=350');
     if ( a ) {
-    a.focus();
+    	a.focus();
     }
 }
 function editCom(id){
@@ -46,23 +46,29 @@ function editCancel(id){
 // 	alert(origin);
 // 	alert(id);
 	$('#'+id).attr('readonly','true');
-	$('#'+id).attr('value',origin);
-
-	
+	//$('#'+id).attr('value',origin);
+	$('#'+id).val(origin);
 	
 	$('#'+id+"-2 input").remove();
 	$('#'+id+"-2").children().show();
 }
 
 function editCom2(id){
-	alert(id);
+	
 	$('#'+id).attr('readonly','true');
-	
-	
-	
-	
+
 	//ajax 처리
-	
+	$.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오는 ajax
+    url: "commentupdateAf.do",
+    dataType: 'text',
+    data:{'no':id,'contents':$('#'+id).val()},
+    jsonpCallback: 'callback',
+    type: 'get',
+    success: function (data) {
+    	if(data== 'true')
+    		alert('수정성공');
+    }
+});
 	
 	
 	

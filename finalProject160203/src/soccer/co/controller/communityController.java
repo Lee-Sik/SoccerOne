@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import soccer.co.DTO.BBSParam;
@@ -376,7 +377,7 @@ public class communityController {
 	}
 
 	// BBS Comment Update
-	@RequestMapping(value = "commentupdate.do", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "commentupdate.do", method ={ RequestMethod.GET, RequestMethod.POST })
 	public String commentupdate(foot_comment_DTO comdto, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController commentupdate! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
@@ -399,30 +400,23 @@ public class communityController {
 	}
 
 	// BBS Comment UpdateAf
-	@RequestMapping(value = "commentupdateAf.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String commentupdateAf(foot_comment_DTO comdto, Model model, HttpServletRequest request) throws Exception {
+	@RequestMapping(value = "commentupdateAf.do", method = RequestMethod.GET)
+	@ResponseBody
+	public boolean commentupdateAf(@RequestParam("no") String no, @RequestParam("contents") String contents
+			, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController commentupdateAf! " + new Date());
+		System.out.println(no);
+		System.out.println(contents);
 
-		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
+			int comment_no = Integer.parseInt(no);
 
-		if (jyfudto == null) {
-			return "redirect:loginpopup1.do";
-		} else {
-
-			int comment_no = Integer.parseInt(request.getParameter("comment_no"));
-			String content = request.getParameter("content");
-
-			System.out.println("comment_no = " + comment_no);
-			System.out.println("content = " + content);
-
+			foot_comment_DTO comdto = new foot_comment_DTO();
 			comdto.setComment_no(comment_no);
-			comdto.setContent(content);
+			comdto.setContent(contents);
 
-			BBSService.updateComment(comdto);
+			boolean a=BBSService.updateComment(comdto);
 
-			return "bbsupdate.tiles";
-
-		}
+			return a;
 
 	}
 
