@@ -549,7 +549,7 @@ public class gameController {
 			return "redirect:loginpopup1.do";
 		} else {
 			
-			model.addAttribute("title", "freegame");
+			model.addAttribute("title", "	");
 			model.addAttribute("menuNum", 2);
 			model.addAttribute("mode", mode);
 			return "freegame.tiles";
@@ -601,6 +601,7 @@ public class gameController {
 		logger.info("Welcome gameController ranking! " + new Date());
 
 		model.addAttribute("title", "rank");
+		model.addAttribute("menuNum", 6);
 
 		return "ranking.tiles";
 	}
@@ -618,7 +619,8 @@ public class gameController {
 		model.addAttribute("rankinglist", rankinglist);
 
 		model.addAttribute("location", team_location);
-		model.addAttribute("title", "순위표");
+		model.addAttribute("title", "rank");
+		model.addAttribute("menuNum", 6);
 
 		return "rankingaf.tiles";
 	}
@@ -636,6 +638,7 @@ public class gameController {
 
 			model.addAttribute("pmd", fgd);
 			model.addAttribute("title", "rank");
+			model.addAttribute("menuNum", 6);
 
 			return "rankapply.tiles";
 
