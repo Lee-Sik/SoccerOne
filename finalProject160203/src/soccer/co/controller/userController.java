@@ -6,8 +6,16 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -325,4 +333,49 @@ public class userController {
 		return jyre;
 		
 	}
+	
+	@RequestMapping(value = "search.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String search(HttpServletRequest request, Model model) throws Exception {
+		
+		List<foot_user_DTO> ulist = fuservice.userList();
+		
+		model.addAttribute("ulist", ulist);
+		
+		return "search.tiles";
+	}
+	
+	@RequestMapping(value = "infoFind.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public void infoFind(Model model, HttpServletRequest request, HttpServletResponse response) throws MessagingException {
+
+		String val = "gmail";
+
+		String host = "smtp.gmail.com";
+		String username = "bonum12@gmail.com";
+		String password = "qkrdmswjd3!";
+
+		// 메일 내용
+		String recipient = request.getParameter("receive");
+		String subject = "안녕하세요. 싸커원입니다. 찾으신 비밀번호를 보내드립니다.";
+		String result = request.getParameter("result");
+		System.out.println("result" + result);
+		String body = "비밀번호 : " + result; // properties 설정
+
+		Properties props = new Properties();
+		props.put("mail.smtps.auth", "true"); // 메일 세션
+		Session session = Session.getDefaultInstance(props);
+		MimeMessage msg = new MimeMessage(session); // 메일 관련
+		msg.setSubject(subject);
+		msg.setText(body);
+		msg.setFrom(new InternetAddress(username));
+		msg.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient)); // 발송
+																					// 처리
+		Transport transport = session.getTransport("smtps");
+		transport.connect(host, username, password);
+		transport.sendMessage(msg, msg.getAllRecipients());
+		transport.close();
+
+		model.addAttribute("val", val);
+
+	}
+	
 }
