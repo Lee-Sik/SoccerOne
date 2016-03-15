@@ -339,21 +339,6 @@
 	<put-attribute name="main" value="/WEB-INF/views/team/teamsetting.jsp" />
 </definition>
 
-<!-- SITE  -->
-<definition name="hello.tiles" extends="login.tiles">
-	<put-attribute name="menu" value="/WEB-INF/views/site/site_menu.jsp" />
-	<put-attribute name="main" value="/WEB-INF/views/site/introduce.jsp" />
-</definition>
-
-<definition name="introduce.tiles" extends="hello.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/site/introduce.jsp" />
-</definition>
-
-<definition name="contact.tiles" extends="hello.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/site/contact.jsp" />
-</definition>
-<!-- SITE  -->
-
 <definition name="teamdetail.tiles" template="/WEB-INF/views/team/teamdetail.jsp">
 </definition>
 <definition name="clubsearch_no.tiles" extends="login.tiles">
@@ -380,7 +365,20 @@
 <definition name="teamapplyno.tiles" template="/WEB-INF/views/team/teamapply/teamapplyno.jsp">
 </definition>
 
+<!-- SITE  -->
+<definition name="hello.tiles" extends="login.tiles">
+	<put-attribute name="menu" value="/WEB-INF/views/site/site_menu.jsp" />
+	<put-attribute name="main" value="/WEB-INF/views/site/hello.jsp" />
+</definition>
 
+<definition name="introduce.tiles" extends="hello.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/site/introduce.jsp" />
+</definition>
+
+<definition name="contact.tiles" extends="hello.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/site/contact.jsp" />
+</definition>
+<!-- SITE  -->
 
 
 </tiles-definitions>
