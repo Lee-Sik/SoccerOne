@@ -67,24 +67,17 @@
 		${bbs.topic}</td>
 		<%-- <td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'>${bbs.title}</a> --%>
 		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'><c:out value="${bbs.title}"/></a>
-		
 		 &nbsp;&nbsp;
 		 <a href="#" 
 		 onclick="javascript:window.open('./commentlist.do?bbs_no=${bbs.bbs_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">[${bbs.commentcount}]</a>
-		</td>
-		
-		
+		</td>	
 		<td style="position:relative;" class="popGrp">
-		
-		<p class="popBtn">${bbs.user_email}</p>
+			<p class="popBtn">${bbs.user_email}</p>
 		<div class="popView" style="position:absolute; left:70px; top:33px; width:100px; height:50px; display:none; border:1px solid #333; background:white; z-index:100;">
 		 <a href="#" onclick="javascript:popupOpen7('${bbs.user_email}')">쪽지보내기</a>
-		<p class="popClose">닫기</p>	
+			<p class="popClose">닫기</p>	
 		</div>
 		</td>
-		
-		
-		
 			<c:set var="rdate" value="${bbs.wdate}"/>
 			<c:set var="len" value="${fn:length(wdate)}"/>
 		<td>${fn:substring(bbs.wdate, 0, 10)}</td>  
