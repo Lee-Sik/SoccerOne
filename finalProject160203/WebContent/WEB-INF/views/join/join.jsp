@@ -98,10 +98,7 @@ table{
 </style>
 </head>
 <body>
-<div>
-<div>
-<table width="100%">
-</table>
+
 <script type="text/javascript">
 var count='0';
 function selectval1(val){

@@ -6,7 +6,7 @@
 <link href="CSS/bbstable.css" rel="stylesheet" >
 
 <br><br><br><br><br>
-<form name="frmForm" id="_frmForm" method="post" action="gallerywriteAf.do" enctype="multipart/form-data">
+<form name="frmForm" id="_frmForm" method="post" enctype="multipart/form-data">
 <table class="list_table" style="width:85%;">
 
 <colgroup>
@@ -33,13 +33,12 @@
 <tr>
 	<th>이미지경로</th>
 	<td style="text-align: left">
-	<input type="file" name="file"></td>
+	<input type="file" name="file" id="file1"></td>
 </tr>
 
 <tr>
 	<td colspan="2" style="height:50px; text-align:center;">
-		<span><a href="#none" id="_btnLogin" title="글쓰기"><img src="image/bwrite.png" alt="로그인" /></a>
-		</span>
+	<button id="_btnLogin" >글쓰기</button>
 	</td>
 </tr>
 
@@ -48,8 +47,13 @@
 </form>
 
 <script type="text/javascript">
-$("#_btnLogin").click(function() {	
+$("#_btnLogin").click(function() {
+	if($("#file1").val() == ""){
+		alert('파일 넣어주세요');
+		return;
+	}else{
 	alert('글쓰기');	
 	$("#_frmForm").attr({ "target":"_self", "action":"gallerywriteAf.do" }).submit();
+	}
 });
 </script>
