@@ -7,12 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<img src="./image/mainimg/contactmain.jpg"/>
 
-<img src="./image/site_pic1.jpg" alt="pic1" style="width:200px;height:150px;">
-<br>
-<img src="./image/site_pic2.jpg" alt="pic2" style="width:200px;height:150px;">
-<br>
-<img src="./image/site_pic3.jpg" alt="pic3" style="width:200px;height:150px;">
+<!-- <img src="./image/site_pic1.jpg" alt="pic1" style="width:200px;height:150px;"> -->
+<!-- <br> -->
+<!-- <img src="./image/site_pic2.jpg" alt="pic2" style="width:200px;height:150px;"> -->
+<!-- <br> -->
+<!-- <img src="./image/site_pic3.jpg" alt="pic3" style="width:200px;height:150px;"> -->
 
 </body>
 </html>
