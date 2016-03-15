@@ -337,6 +337,9 @@ function function1(val){
 	
 %>
 
+
+
+
 <th><img alt="" src="image/join2.png" width="15%">활동지역</th>
 <td colspan="5" style="text-align: left">
 <select name="user_address1">

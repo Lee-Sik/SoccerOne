@@ -72,7 +72,20 @@
 		 <a href="#" 
 		 onclick="javascript:window.open('./commentlist.do?bbs_no=${bbs.bbs_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">[${bbs.commentcount}]</a>
 		</td>
-		<td>${bbs.user_email}</td>
+		
+		
+		<td style="position:relative;" class="popGrp">
+		
+		<p class="popBtn">${bbs.user_email}</p>
+		<div class="popView" style="position:absolute; left:70px; top:33px; width:100px; height:50px; display:none; border:1px solid #333; background:white; z-index:100;">
+		 <a href="#" onclick="location.href='javascript:popupOpen7(${bbs.user_email})'">쪽지보내기</a>
+		<p class="popClose">닫기</p>	
+		</div>
+		
+		</td>
+		
+		
+		
 			<c:set var="rdate" value="${bbs.wdate}"/>
 			<c:set var="len" value="${fn:length(wdate)}"/>
 		<td>${fn:substring(bbs.wdate, 0, 10)}</td>  
@@ -133,7 +146,15 @@ $(document).ready(function() {	// 마우스에 따라서 컬러를 변경
 		$(this).children().css("background-color","#efefef");
 	}).mouseout(function() {
 		$(this).children().css("background-color","#FFFFFF");
-	});				
+	});	
+
+	$(".popBtn").click(function() {
+		$(this).parents(".popGrp").find(".popView").show();
+	});
+	$(".popClose").click(function() {
+		$(this).parents(".popGrp").find(".popView").hide();
+	});
+	
 });
 
 $("#_btnAdd").click(function() {	
@@ -149,6 +170,12 @@ $("#_btnSearch").click(function() {
 function goPage(pageNumber) {	
 	$("#_pageNumber").val(pageNumber) ;
 	$("#_frmFormSearch").attr("target","_self").attr("action","bbslist.do").submit();
+}
+
+function popupOpen7(a) {
+	var popUrl = "messagesend.do?a=a"; //팝업창에 출력될 페이지 URL
+	var popOption = 'width=800, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;'; //팝업창 옵션(optoin)
+	window.open(popUrl, "", popOption);
 }
 </script>
 
