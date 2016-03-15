@@ -18,11 +18,13 @@
 	<jsp:include page="../menu.jsp"/>
 	<ul class="menulist">
 		<li id="m1"><a href="./kickoff.do"><img src="./image/menu/addmatch_off.png" class="image_rollover"></a></li>
-		<li id="m11"><a href="./freegame.do"><img src="./image/menu/freematchadd_off.png" class="image_rollover"></a></li>
-		<li id="m12" style="display: none;"><a href="./kickoff.do"><img src="./image/menu/rankingadd_off.png" class="image_rollover"></a></li>
+		<li id="m11" style="display: none;"><a href="./publicgame.do"><img src="./image/menu/rankingadd_off.png" class="image_rollover"></a></li>
+		<li id="m12" style="display: none;"><a href="./freegame.do"><img src="./image/menu/freematchadd_off.png" class="image_rollover"></a></li>
+	
 		<li id="m2"><a href="./kickoff.do"><img src="./image/menu/matchingsearch_off.png" class="image_rollover"></a></li>
-		<li id="m21" style="display: none;"><a href="./kickoff.do"><img src="./image/menu/freematchsearch_off.png" class="image_rollover"></a></li>
-		<li id="m22" style="display: none;"><a href="./kickoff.do"><img src="./image/menu/rankingsearch_off.png" class="image_rollover"></a></li>
+		<li id="m21" style="display: none;"><a href="./freems.do"><img src="./image/menu/rankingsearch_off.png" class="image_rollover"></a></li>
+		<li id="m22" style="display: none;"><a href="./publicms.do"><img src="./image/menu/freematchsearch_off.png" class="image_rollover"></a></li>
+		
 		<li id="m3"><a href="./ranking.do"><img src="./image/menu/rank_off.png" class="image_rollover"></a></li>
 		
 	</ul>

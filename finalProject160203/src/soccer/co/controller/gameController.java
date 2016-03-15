@@ -383,7 +383,7 @@ public class gameController {
 			return "redirect:loginpopup1.do";
 		} else {
 
-			model.addAttribute("title", "랭킹전 검색");
+			model.addAttribute("title", "publicmatch");
 			return "pmatchingsearch.tiles";
 
 		}
@@ -423,7 +423,7 @@ public class gameController {
 			return "redirect:loginpopup1.do";
 		} else {
 
-			model.addAttribute("title", "친선경기 검색");
+			model.addAttribute("title", "freematch");
 			return "fmatchingsearch.tiles";
 
 		}
@@ -445,7 +445,7 @@ public class gameController {
 			}
 			model.addAttribute("fmatchingsearchlist", fmatchingsearchlist);
 
-			model.addAttribute("title", "친선경기 검색 결과");
+			model.addAttribute("title", "freematch");
 			return "fmatchingsearch.tiles";
 
 		}
@@ -461,7 +461,8 @@ public class gameController {
 			return "redirect:loginpopup1.do";
 		} else {
 
-			model.addAttribute("title", "랭킹전 등록");
+			model.addAttribute("title", "publicmatch");
+			model.addAttribute("menuNum", 1);
 			return "publicgame.tiles";
 
 		}
@@ -505,7 +506,7 @@ public class gameController {
 			foot_game_DTO fgd = fgameservice.getPublicgamedetail(fgdto);
 
 			model.addAttribute("pmd", fgd);
-			model.addAttribute("title", "랭킹전 상세보기");
+			model.addAttribute("title", "publicmatch");
 
 			return "pmatchingdetail.tiles";
 
@@ -533,8 +534,8 @@ public class gameController {
 			return "redirect:loginpopup1.do";
 		} else {
 			
-			model.addAttribute("menuNum", "11");
 			model.addAttribute("title", "freegame");
+			model.addAttribute("menuNum", 2);
 			return "freegame.tiles";
 
 		}
@@ -570,7 +571,7 @@ public class gameController {
 			foot_game_DTO fgd = fgameservice.getFreegamedetail(fgdto);
 
 			model.addAttribute("fmd", fgd);
-			model.addAttribute("title", "친선경기 상세보기");
+			model.addAttribute("title", "freematch");
 
 			return "fmatchingdetail.tiles";
 
@@ -583,7 +584,7 @@ public class gameController {
 	public String ranking(Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome gameController ranking! " + new Date());
 
-		model.addAttribute("title", "랭킹");
+		model.addAttribute("title", "rank");
 
 		return "ranking.tiles";
 	}
@@ -618,7 +619,7 @@ public class gameController {
 			foot_game_DTO fgd = fgameservice.getPublicgamedetail(fgdto);
 
 			model.addAttribute("pmd", fgd);
-			model.addAttribute("title", "랭킹전 상세보기");
+			model.addAttribute("title", "rank");
 
 			return "rankapply.tiles";
 
