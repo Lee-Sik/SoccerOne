@@ -37,7 +37,13 @@ function func1(){
 	</tr>
 	<tr>
 		<th>받는 사람</th>
+		<c:if test="${empty a }">
 		<td><input type="text" name="receiver_user_email" size="70"></td>
+		</c:if>
+		<c:if test="${not empty a }">
+		<td><input type="text" name="receiver_user_email" value="${a }"size="70" readonly="readonly"></td>
+		</c:if>
+		
 	</tr>
 	<tr>
 		<th>내용</th>

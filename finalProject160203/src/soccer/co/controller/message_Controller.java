@@ -196,14 +196,17 @@ public class message_Controller {
 	}
 
 	@RequestMapping(value = "messagesend.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String messagesend(HttpServletRequest request, Model model) throws Exception {
+	public String messagesend(String a,HttpServletRequest request, Model model) throws Exception {
 		logger.info("Welcome message_Controller messagesend! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
 
 		if (jyfudto == null) {
 			return "redirect:loginpopup1.do";
 		} else {
-
+			
+			model.addAttribute("a", a);
+			
+			
 			return "messagesend.tiles";
 
 		}
