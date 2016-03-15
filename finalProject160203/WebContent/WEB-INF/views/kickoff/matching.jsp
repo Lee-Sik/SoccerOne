@@ -30,7 +30,7 @@
 	vertical-align:middle;
 	display:inline-block;
 	font-size:20px;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	color:#ffffff;
 	width:105px;
 	height:50px;

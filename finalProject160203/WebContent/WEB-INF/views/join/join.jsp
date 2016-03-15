@@ -39,7 +39,7 @@
 	display:inline-block;
 	font-size:13px;
 	vertical-align:middle;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 	color:#ffffff;
 	width:68px;
 	height:25px;
@@ -70,26 +70,25 @@
 	background:linear-gradient(#5e5e5e, #4f4f4f);
 }
 
-
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 body{
 	background-color: white;
+	font-family: "Nanum Gothic", sans-serif;
 }
 .wow1{
 	text-align: center;
 	color:black;
 	font-size: 25pt;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
 .wow2{
 	text-align: center;
 	color:black;
 	font-size: 13pt;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
 table{
-font-size: 10pt;
-	font-family: Montserrat, sans-serif;
+	font-size: 10pt;
+	font-family: "Nanum Gothic", sans-serif;
 }
 
 .center{

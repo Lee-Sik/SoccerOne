@@ -11,19 +11,19 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 body, table{
 	font-size: 10pt;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
 .wow1{
 	text-align: center;
 	color:black;
 	font-size: 25pt;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
 .wow2{
 	text-align: center;
 	color:black;
 	font-size: 13pt;
-	font-family: Montserrat, sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
 </style>
 
