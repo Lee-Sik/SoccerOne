@@ -18,8 +18,8 @@
 		<li><a href='./adminmain.do'><img src="./image/menu/main_admin.jpg"></a></li>
 		</c:if>
 	</ul>
-		팀명:<input type="text" id="query" >
-			<div style="background-color: green;  position: absolute; right: 284px;">
+		팀 검색 : <input type="text" id="query" style="margin-top: 10px;">
+			<div style="background-color: #f1f1f1;  position: absolute; right: 284px;">
 			<table id="result">
 			</table>
 			</div>
