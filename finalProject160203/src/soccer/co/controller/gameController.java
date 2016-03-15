@@ -549,7 +549,7 @@ public class gameController {
 			return "redirect:loginpopup1.do";
 		} else {
 			
-			model.addAttribute("title", "	");
+			model.addAttribute("title", "freematch");
 			model.addAttribute("menuNum", 2);
 			model.addAttribute("mode", mode);
 			return "freegame.tiles";
