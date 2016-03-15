@@ -18,7 +18,7 @@
   <meta name="author" content="링크잇, http://linkit.kr">
 
   <!-- CSS concatenated and minified via ant build script-->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+<!--   <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css"> -->
   <link rel="stylesheet" href="CSS/reset.css">
   <link rel="stylesheet" href="CSS/style.css">
 <!--   <link rel="stylesheet" href="CSS/bootstrap.min.css"> -->
@@ -29,35 +29,39 @@
 </head>
 
 <body>
+<table class="list_table">
+	<tr>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="강서구">
+			<input type="submit" value="강서구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="마포구">
+			<input type="submit" value="마포구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="강남구">
+			<input type="submit" value="강남구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="영등포구">
+			<input type="submit" value="영등포구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="광진구">
+			<input type="submit" value="광진구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="송파구">
+			<input type="submit" value="송파구">
+		</form></td>
+	</tr>
+</table>
+<br><br>
 
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="강서구">
-	<input type="submit" value="강서구">
-</form>
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="마포구">
-	<input type="submit" value="마포구">
-</form>
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="강남구">
-	<input type="submit" value="강남구">
-</form>
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="영등포구">
-	<input type="submit" value="영등포구">
-</form>
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="광진구">
-	<input type="submit" value="광진구">
-</form>
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="송파구">
-	<input type="submit" value="송파구">
-</form>
   <div id="container" class="container">
     <header>
     	<h1>서울시 구별 리그 데이터 분석</h1>
-    	</br></br>
 
     </header>
     <div id="main" role="main">

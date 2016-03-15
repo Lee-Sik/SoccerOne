@@ -5,33 +5,38 @@
 <fmt:requestEncoding value="utf-8"/>
 <link href="CSS/kickoff.css" rel="stylesheet" >
 
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="강서구">
-	<input type="submit" value="강서구">
-</form>
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="마포구">
-	<input type="submit" value="마포구">
-</form>
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="강남구">
-	<input type="submit" value="강남구">
-</form>
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="영등포구">
-	<input type="submit" value="영등포구">
-</form>
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="광진구">
-	<input type="submit" value="광진구">
-</form>
-<form action="./rankingAf.do" method="post">
-	<input type="hidden" name="team_location" value="송파구">
-	<input type="submit" value="송파구">
-</form>
+<table class="list_table">
+	<tr>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="강서구">
+			<input type="submit" value="강서구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="마포구">
+			<input type="submit" value="마포구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="강남구">
+			<input type="submit" value="강남구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="영등포구">
+			<input type="submit" value="영등포구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="광진구">
+			<input type="submit" value="광진구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="송파구">
+			<input type="submit" value="송파구">
+		</form></td>
+	</tr>
+</table>
+<br><br>
+
 
 <table class="list_table" style="width:40%;">
-
 
 <tr>
 	<td colspan="5">${location} 리그 순위표</td>
