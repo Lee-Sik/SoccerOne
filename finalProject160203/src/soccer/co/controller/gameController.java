@@ -378,14 +378,15 @@ public class gameController {
 	public String pmatchingsearch(Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome gameController pmatchingsearch! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
-
+		String mode = request.getParameter("mode");
+		
 		if (jyfudto == null) {
 			return "redirect:loginpopup1.do";
 		} else {
 
 			model.addAttribute("title", "publicmatch");
 			model.addAttribute("menuNum", 4);
-			
+			model.addAttribute("mode", mode);
 			
 			return "pmatchingsearch.tiles";
 
@@ -422,14 +423,16 @@ public class gameController {
 	public String fmatchingsearch(Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome gameController fmatchingsearch! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
-
+		String mode = request.getParameter("mode");
+				
+		
 		if (jyfudto == null) {
 			return "redirect:loginpopup1.do";
 		} else {
 
 			model.addAttribute("title", "freematch");
 			model.addAttribute("menuNum", 5);
-			
+			model.addAttribute("mode", mode);
 			return "fmatchingsearch.tiles";
 
 		}
@@ -463,13 +466,16 @@ public class gameController {
 	public String publicgame(Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome gameController publicgame! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
-
+		
+		String mode = request.getParameter("mode");
+		
 		if (jyfudto == null) {
 			return "redirect:loginpopup1.do";
 		} else {
 
 			model.addAttribute("title", "publicmatch");
 			model.addAttribute("menuNum", 1);
+			model.addAttribute("mode", mode);
 			return "publicgame.tiles";
 
 		}
@@ -536,13 +542,16 @@ public class gameController {
 	public String freegame(Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome gameController freegame! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
-
+		
+		String mode = request.getParameter("mode");
+		
 		if (jyfudto == null) {
 			return "redirect:loginpopup1.do";
 		} else {
 			
 			model.addAttribute("title", "freegame");
 			model.addAttribute("menuNum", 2);
+			model.addAttribute("mode", mode);
 			return "freegame.tiles";
 
 		}
