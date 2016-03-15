@@ -1,0 +1,1096 @@
+@CHARSET "UTF-8"; 
+
+.display_none {
+	display: none !important;
+}
+
+.display_hide {
+	display: none;
+}
+
+.list_center_img {
+	position: absolute;
+	left: -100%;
+	right: -100%;
+	margin: auto
+}
+
+ @charset "utf-8"; 
+
+body, div, p, a, ul, ol, li, dl, dt, h1, h2, h3, h4, h5, h6, table, td,
+	tr, img, dl, dd, dt, strong, span, form {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-size: 12px;
+	color: #444;
+	font-family: 'êµ´ë¦¼', 'gulim';
+}
+
+img {
+	border: 0;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+a {
+	color: #444;
+	text-decoration: none;
+}
+
+select {
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+
+input {
+	vertical-align: middle;
+	margin: 0;
+}
+
+body {
+	background: #f2f2f2;
+} /*ë²„íŠ¼ì •ì˜*/
+a.wbbtn {
+	width: 127px;
+	height: 35px;
+	display: inline-block;
+	background: url('http://img.gameone.kr/member/bg_wbbtn.gif') left top
+		no-repeat;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	line-height: 34px;
+	text-indent: 3px;
+}
+
+a.rbtn {
+	width: 140px;
+	height: 34px;
+	display: inline-block;
+	background: url('http://img.gameone.kr/member/btn_ipin.gif') left top
+		no-repeat;
+	text-indent: -1000px;
+	overflow: hidden;
+}
+
+.JoinWr .btn_gr {
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 5px;
+}
+
+.JoinWr .btn_gr a {
+	display: inline-block;
+	width: 97px;
+	height: 46px;
+	overflow: hidden;
+	background: left top no-repeat;
+}
+
+.JoinWr .btn_gr a span {
+	text-indent: -1000px;
+	display: inline-block;
+}
+
+.JoinWr .btn_gr a.btn_prev {
+	background-image: url('http://img.gameone.kr/member/btn_prev.gif');
+}
+
+.JoinWr .btn_gr a.btn_next {
+	background-image: url('http://img.gameone.kr/member/btn_next.gif');
+}
+
+.JoinWr .btn_gr a.btn_confirm {
+	background-image: url('http://img.gameone.kr/member/btn_confirm.gif');
+}
+
+.JoinWr .btn_gr a.btn_end {
+	background-image: url('http://img.gameone.kr/member/btn_end.gif');
+}
+
+.JoinWr .btn_gr a.btn_login {
+	background-image: url('http://img.gameone.kr/member/btn_login.gif');
+}
+
+.JoinWr .btn_gr a.btn_home {
+	width: 177px;
+	background-image: url('http://img.gameone.kr/member/btn_home.gif');
+}
+
+h2.hide {
+	text-indent: -1000px;
+	overflow: hidden;
+	height: 1px;
+} /*rayout*/
+.Wrap {
+	width: 574px;
+	margin: 0 auto;
+}
+
+#Header {
+	height: 110px;
+	padding-top: 80px;
+	border-bottom: 5px solid #64a0d7;
+}
+
+.JoinWr {
+	min-height: 625px;
+	border: 1px solid #d8d8d8;
+	background: #fff;
+	position: relative;
+}
+
+#Footer {
+	padding-top: 25px;
+	clear: both;
+	padding-bottom: 10px;
+} /*.JoinWr input[type=checkbox],.JoinWr input[type=radio]{opacity:0;}*/
+.JoinWr input[type=checkbox] {
+	opacity: 0;
+}
+
+#Header h1 {
+	height: 60px;
+}
+
+#Header h1 a {
+	display: block;
+	width: 274px;
+	margin: 0 auto;
+	height: 60px;
+	text-indent: -1000px;
+	overflow: hidden;
+	background: url('http://img.gameone.kr/member/logo.png') center center
+		no-repeat;
+}
+
+#Footer ul.fnav {
+	text-align: center;
+}
+
+#Footer ul.fnav li {
+	display: inline;
+	padding: 0 7px;
+	background: url('http://img.gameone.kr/member/bar.gif') left center
+		no-repeat;
+}
+
+#Footer ul.fnav li:first-child {
+	background: none;
+}
+
+#Footer ul.fnav li a {
+	color: #666;
+	letter-spacing: -1px;
+}
+
+#Footer ul.fnav li a:hover {
+	text-decoration: underline;
+}
+
+#Footer ul.fnav li span {
+	font-weight: bold;
+}
+
+#Footer p.copy {
+	padding: 7px 0;
+	text-align: center;
+	color: #999;
+	font-size: 11px;
+	font-family: 'tahoma', sans-serif;
+} /*join process*/
+.JoinWr div.joinProcess {
+	margin-bottom: 50px;
+}
+
+.JoinWr div.joinProcess ul.pro_list {
+	height: 48px;
+	background: #fbfbfb url('http://img.gameone.kr/member/bg_jointab.gif')
+		left top no-repeat;
+	border-bottom: 1px solid #d8d8d8;
+}
+
+.JoinWr div.joinProcess ul.pro_list li {
+	width: 145px;
+	float: left;
+}
+
+.JoinWr div.joinProcess ul.pro_list li:first-child {
+	width: 136px;
+}
+
+.JoinWr div.joinProcess ul.pro_list li span {
+	display: block;
+	text-indent: -1000px;
+	overflow: hidden;
+	height: 48px;
+}
+
+.JoinWr div.joinProcess ul.pro_list li.on span {
+	background: 32px 10px no-repeat;
+}
+
+.JoinWr div.joinProcess ul.pro_list li.on span.agree {
+	background-image: url('http://img.gameone.kr/member/bg_jointab1.gif');
+}
+
+.JoinWr div.joinProcess ul.pro_list li.on span.info {
+	background-image: url('http://img.gameone.kr/member/bg_jointab2.gif');
+}
+
+.JoinWr div.joinProcess ul.pro_list li.on span.check {
+	background-image: url('http://img.gameone.kr/member/bg_jointab3.gif');
+}
+
+.JoinWr div.joinProcess ul.pro_list li.on span.success {
+	background-image: url('http://img.gameone.kr/member/bg_jointab4.gif');
+} /*join agree*/
+.JoinWr .agreeForm {
+	width: 454px;
+	min-height: 405px;
+	margin: 0 auto;
+}
+
+.JoinWr .agreeForm label {
+	font-size: 13px;
+	color: #444;
+	font-weight: bold;
+	padding: 3px 0;
+	display: inline-block;
+	position: relative;
+}
+
+.JoinWr .agreeForm div.article label {
+	font-family: 'ë‹ì›€', 'dotum';
+	font-size: 14px;
+}
+
+.JoinWr .agreeForm div.article {
+	padding-top: 50px;
+}
+
+.JoinWr .agreeForm div.article .mtype {
+	text-align: center;
+}
+
+.JoinWr .agreeForm div.mtype {
+	padding: 20px 0px;
+	text-align: center;
+}
+
+.JoinWr .agreeForm .typewd {
+	padding-left: 80px;
+}
+
+.JoinWr .agreeForm .line {
+	padding-bottom: 3px;
+	border-bottom: 2px solid #e2e2e2;
+} /*join enter info*/
+.JoinWr .infoForm {
+	width: 504px;
+	margin: 0 auto;
+	min-height: 405px;
+}
+
+.JoinWr .infoForm label {
+	position: relative;
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.JoinWr dl.input_list {
+	
+}
+
+.JoinWr dl.input_list>dt {
+	height: 32px;
+	line-height: 32px;
+	width: 90px;
+	color: #666;
+	text-align: right;
+	letter-spacing: -1px;
+	font-weight: bold;
+	position: relative;
+}
+
+.JoinWr dl.input_list>dt.bg {
+	line-height: 52px;
+}
+
+.JoinWr dl.input_list>dd {
+	padding-left: 100px;
+	margin-top: -32px;
+	height: 32px;
+	line-height: 32px;
+	padding-bottom: 12px;
+}
+
+.JoinWr dl.input_list dd.bg {
+	background: #fafafa;
+	border: solid #d8d8d8;
+	border-width: 1px 0;
+	height: 55px;
+	padding: 9px 0;
+	padding-left: 130px;
+}
+
+.JoinWr dl.input_list dd.birth span {
+	float: left;
+	padding: 0 3px;
+	font-weight: bold;
+}
+
+.JoinWr dl.input_list dd div.email_wr {
+	width: 267px;
+	float: left;
+}
+
+.JoinWr dl.input_list dd.ch_pass2 {
+	position: relative;
+}
+
+.JoinWr .birth .combobox {
+	float: left;
+}
+
+.JoinWr dl.input_list dd.ch_pass2 span.ch_pass {
+	color: #49ba7c;
+	position: absolute;
+	right: 35px;
+	top: 1px;
+	cursor: default;
+} /*ë¹„ë°€ë²ˆí˜¸ ì¼ì¹˜*/
+.JoinWr dl.input_list dd.ch_pass2 span.ch_pass.differ {
+	color: red;
+} /*join check*/
+.JoinWr .checkForm {
+	width: 454px;
+	min-height: 405px;
+	margin: 0 auto;
+}
+
+.JoinWr .checkForm dl.check_list {
+	padding-top: 35px;
+}
+
+.JoinWr .checkForm dl.check_list>dt {
+	height: 32px;
+	line-height: 32px;
+	width: 65px;
+	color: #666;
+	text-align: right;
+	letter-spacing: -1px;
+	font-weight: bold;
+	position: relative;
+}
+
+.JoinWr .checkForm dl.check_list>dt.bg {
+	line-height: 41px;
+}
+
+.JoinWr .checkForm dl.check_list>dd {
+	padding-left: 80px;
+	margin-top: -32px;
+	height: 32px;
+	line-height: 32px;
+	padding-bottom: 12px;
+	font-size: 13px;
+	font-weight: bold;
+	font-weight: bold;
+}
+
+.JoinWr .checkForm dl.check_list>dd.check_phone {
+	height: 64px;
+}
+
+.JoinWr .checkForm div.check {
+	display: none;
+}
+
+.JoinWr .checkForm div.check.on {
+	display: block;
+} /*join congress*/
+.JoinWr .Congress {
+	width: 454px;
+	min-height: 305px;
+	margin: 0 auto;
+}
+
+.JoinWr .Congress em {
+	display: block;
+	padding: 52px 0;
+	height: 50px;
+	text-indent: -1000px;
+	overflow: hidden;
+	background: url('http://img.gameone.kr/member/txt_welcome.gif') center
+		center no-repeat;
+} /*member msg*/
+.JoinWr p.member_result_msg {
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #444;
+	line-height: 1.5;
+}
+
+.JoinWr p.member_result_msg strong {
+	color: #008cd6;
+	padding: 0 5px;
+}
+
+.JoinWr p.member_result_ps {
+	color: #999;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.JoinWr p.member_result_ps a {
+	color: #008cd6;
+	text-decoration: underline;
+} /*tab*/
+.JoinWr ul.tab-nav {
+	height: 49px;
+	border: 1px solid #dbdbdb;
+	margin-bottom: 17px;
+}
+
+.JoinWr ul.tab-nav li {
+	float: left;
+	width: 226px;
+	float: left;
+	height: 49px;
+	background: #fafafa;
+	color: #999;
+	border-left: 1px solid #dbdbdb;
+	margin-left: -1px;
+	border-bottom: 1px solid #dbdbdb;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+	line-height: 49px;
+}
+
+.JoinWr ul.tab-nav li.on {
+	height: 50px;
+	background: #fff;
+	color: #444;
+	border-bottom: 0;
+}
+
+.JoinWr ul.tab-nav li span {
+	line-height: 49px;
+	display: inline-block;
+	padding-left: 32px;
+	background: left center no-repeat;
+}
+
+.JoinWr ul.tab-nav li span.hp {
+	background-image: url('http://img.gameone.kr/member/ico_auth_cell.gif');
+}
+
+.JoinWr ul.tab-nav li span.ipin {
+	background-image: url('http://img.gameone.kr/member/ico_auth_ipin.gif');
+}
+
+.JoinWr ul.tab-nav li span.foreign {
+	background-image:
+		url('http://img.gameone.kr/member/ico_auth_foreigner.png');
+}
+
+.JoinWr ul.tab-nav li a {
+	color: #999;
+}
+
+.JoinWr ul.tab-nav li.on a {
+	color: #444;
+} /*ipin info*/
+.JoinWr p.ip_noti {
+	padding: 8px 20px;
+	line-height: 1.7;
+	border: 1px solid #d8d8d8;
+	color: #666;
+}
+
+.JoinWr p.ip_btn {
+	padding-top: 20px;
+	text-align: center;
+}
+
+.JoinWr p.ip_btn strong {
+	display: block;
+	padding-bottom: 40px;
+} /*ipin foreign*/
+.JoinWr p.ip_foreign {
+	padding: 40px 20px;
+	line-height: 1.7;
+	border: 1px solid #d8d8d8;
+	color: #666;
+} /*textarea*/
+.JoinWr .textwr {
+	height: 70px;
+	border: 1px solid #d8d8d8;
+	background: #fff;
+	padding: 3px 4px 3px 5px;
+}
+
+.JoinWr .textwr textarea {
+	width: 100%;
+	height: 70px;
+	border: 0;
+	background: none;
+	color: #999;
+	font-size: 12px;
+	line-height: 150%;
+} /*checkbox*/
+.JoinWr span.checkbox {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	overflow: hidden;
+	background: url('http://img.gameone.kr/member/input_checkbox.gif') left
+		top no-repeat;
+	position: relative;
+	margin-right: 3px;
+}
+
+.JoinWr span.checkbox.on {
+	background-position: left -20px;
+}
+
+.JoinWr input[type='checkbox'].hide {
+	display: none;
+} /*radio*/
+.JoinWr p.radio_wrap {
+	display: inline;
+	font-weight: bold;
+}
+
+.JoinWr span.radio {
+	display: inline-block;
+	width: 23px;
+	height: 23px;
+	margin-right: 3px;
+	vertical-align: middle;
+	overflow: hidden;
+	background: url('http://img.gameone.kr/member/input_radio.gif') left top
+		no-repeat;
+}
+
+.JoinWr span.radio.on {
+	background-position: left -23px;
+}
+
+.JoinWr input[type='radio'].hide {
+	display: none;
+} /*combo*/
+.JoinWr div.combobox {
+	border: 1px solid;
+	border-color: #a3a4a5 #dbdbdb #dbdbdb #919293;
+	height: 30px;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: default;
+}
+
+.JoinWr div.combobox select {
+	display: none;
+}
+
+.JoinWr div.combobox.year {
+	width: 75px;
+}
+
+.JoinWr div.combobox.month, .JoinWr div.combobox.day {
+	width: 65px;
+}
+
+.JoinWr div.combobox.email {
+	width: 105px;
+	float: left;
+	font-size: 12px;
+}
+
+.JoinWr div.combobox.area {
+	width: 114px;
+	float: left;
+	font-size: 12px;
+}
+
+.JoinWr div.combobox.aread {
+	width: 237px;
+	float: left;
+	font-size: 12px;
+	margin-left: 8px;
+}
+
+.JoinWr div.combobox.on {
+	border-color: #689fca;
+}
+
+.JoinWr div.combobox strong.selected {
+	display: block;
+	margin: 5px 5px 4px 5px;
+	padding-right: 21px;
+	background: url('http://img.gameone.kr/member/combo_arr.gif') right top
+		no-repeat;
+	line-height: 21px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: clip;
+}
+
+.JoinWr div.combobox strong.selected span.normal {
+	font-weight: normal;
+}
+
+.JoinWr div.combobox ul.combo {
+	position: relative;
+	z-index: 10;
+	background: #fff;
+	border: 1px solid #689fca;
+	margin-top: -1px;
+	min-width: 100%;
+	margin-left: -1px;
+	display: none;
+}
+
+.JoinWr div.combobox.on ul.combo {
+	display: block;
+	max-height: 200px;
+	overflow: auto;
+	overflow-x: hidden;
+}
+
+.JoinWr div.combobox ul.combo li {
+	padding-left: 5px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.JoinWr div.combobox ul.combo li:hover, .JoinWr div.combobox ul.combo li.on
+	{
+	background: #f1f1f1;
+}
+
+.JoinWr input[type='text'], .JoinWr input[type='password'] {
+	border: 1px solid;
+	border-color: #a3a4a5 #dbdbdb #dbdbdb #919293;
+	height: 20px;
+	line-height: 20px;
+	padding: 5px 5px;
+	font-size: 14px;
+	color: #666;
+	margin-top: -1px;
+	vertical-align: middle;
+	width: 362px;
+	font-weight: bold;
+}
+
+.JoinWr input.ch_input {
+	padding-right: 30px;
+	width: 187px;
+	margin-right: 10px;
+}
+
+.JoinWr input.ch_input.checked {
+	background: url('http://img.gameone.kr/member/ico_check.gif') 193px
+		center no-repeat;
+}
+
+.JoinWr input.name {
+	width: 173px;
+}
+
+.JoinWr input.email {
+	width: 110px;
+	margin-right: 7px;
+}
+
+.JoinWr input.emailat {
+	width: 100px;
+	margin-left: 7px;
+}
+
+.JoinWr input.emailat[readonly] {
+	background: #f1f1f1;
+}
+
+.JoinWr input.check_phone {
+	width: 225px;
+	margin-right: 9px;
+}
+
+.JoinWr input.check_phone.checked {
+	background: url('http://img.gameone.kr/member/ico_check.gif') 208px
+		center no-repeat;
+}
+
+.JoinWr .noti {
+	clear: both;
+	color: #49ba7c;
+} /*find*/
+.JoinWr h2.find {
+	height: 50px;
+	background: #ececec url('../image/find.jpg')
+		center center no-repeat;
+	text-indent: -1000px;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+
+.JoinWr .findForm {
+	width: 454px;
+	min-height: 405px;
+	margin: 0 auto;
+}
+
+.JoinWr .findForm div.find {
+	padding-top: 30px;
+	display: none;
+}
+
+.JoinWr .findForm div.find.on {
+	display: block;
+}
+
+.JoinWr .findForm div.find .nav_rv {
+	border: solid #d8d8d8;
+	background: #fafafa;
+	height: 22px;
+	padding: 15px 0;
+	line-height: 22px;
+	border-width: 1px 0;
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 13px;
+}
+
+.JoinWr .findForm div.find .nav_rv li {
+	display: inline;
+	margin: 0 24px;
+}
+
+.JoinWr .findForm div.find .nav_rv li input[type=radio] {
+	margin-right: 5px;
+}
+
+.JoinWr .findForm div.find .nav_rv li span.hp {
+	padding-left: 22px;
+	background: url('http://img.gameone.kr/member/ico_phone.png') left
+		center no-repeat;
+	display: inline-block;
+}
+
+.JoinWr .findForm div.find .nav_rv li span.email {
+	padding-left: 28px;
+	background: url('http://img.gameone.kr/member/ico_email.png') left
+		center no-repeat;
+	display: inline-block;
+}
+
+.JoinWr .findForm div.find .nav_rv li span.ipin {
+	padding-left: 22px;
+	background: url('http://img.gameone.kr/member/ico_ipin.png') left center
+		no-repeat;
+	display: inline-block;
+}
+
+.JoinWr .findForm div.find div.recieve {
+	padding-top: 6px;
+	min-height: 185px;
+	border-bottom: 1px solid #d8d8d8;
+	display: none;
+}
+
+.JoinWr .findForm div.find div.recieve.on {
+	display: block;
+}
+
+.JoinWr .findForm input[type=text] {
+	width: 195px;
+}
+
+.JoinWr .findForm dl.input_list {
+	margin-left: 65px;
+}
+
+.JoinWr .findForm div.idwr {
+	padding-top: 15px;
+}
+
+.JoinWr .findForm p.ip_btn2 {
+	text-align: center;
+}
+
+.JoinWr .find_result {
+	min-height: 235px;
+}
+
+.JoinWr .find_result p:first-child {
+	padding-top: 85px;
+} /*id list*/
+.JoinWr .table_id_list {
+	border-collapse: collapse;
+	width: 100%;
+	padding-bottom: 10px;
+}
+
+.JoinWr .table_id_list th {
+	height: 50px;
+	font-size: 12px;
+	border-bottom: 1px solid #d8d8d8;
+	background: #fafafa;
+}
+
+.JoinWr .table_id_list td {
+	color: #999;
+	text-align: center;
+	height: 35px;
+}
+
+.JoinWr .table_id_list tbody tr:first-child td {
+	padding-top: 10px;
+}
+
+.JoinWr .table_id_list td strong {
+	color: #444;
+}
+
+.JoinWr .result_table {
+	border-bottom: 1px solid #d8d8d8;
+	padding-bottom: 15px;
+	border-top: 1px solid #d8d8d8;
+	margin-top: 45px;
+}
+
+@media screen and (max-width : 625px ) {
+	#Header {
+		padding-top: 1em;
+		height: 65px;
+	}
+	#Header h1 a {
+		height: 50px;
+		padding-bottom: 10px;
+		background-size: contain;
+		background-origin: content-box;
+	}
+	.Wrap {
+		width: inherit;
+		padding: 0 1em;
+	}
+	.JoinWr div.joinProcess {
+		margin-bottom: 1em;
+	}
+	.JoinWr {
+		min-height: initial;
+		padding-bottom: 1em;
+	}
+	.JoinWr div.joinProcess ul.pro_list {
+		background: #fbfbfb;
+	}
+	.JoinWr div.joinProcess ul.pro_list li {
+		width: 25%;
+		background: url('http://img.gameone.kr/member/division.gif') left center
+			no-repeat;
+		text-align: center;
+	}
+	.JoinWr div.joinProcess ul.pro_list li:first-child {
+		background-image: none;
+		width: 25%;
+	}
+	.JoinWr div.joinProcess ul.pro_list li span {
+		margin-left: 10px;
+		text-align: center;
+		display: inline-block;
+		padding-left: 30px;
+		line-height: 48px;
+		text-indent: 0;
+		background: left center no-repeat;
+		color: #666;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 11px;
+	}
+	.JoinWr div.joinProcess ul.pro_list li.on span {
+		background-position: left center;
+		color: #008edd;
+	}
+	.JoinWr div.joinProcess ul.pro_list li span.agree {
+		background-image: url('http://img.gameone.kr/member/grade1.png');
+	}
+	.JoinWr div.joinProcess ul.pro_list li span.info {
+		background-image: url('http://img.gameone.kr/member/grade2.png');
+	}
+	.JoinWr div.joinProcess ul.pro_list li span.check {
+		background-image: url('http://img.gameone.kr/member/grade3.png');
+	}
+	.JoinWr div.joinProcess ul.pro_list li span.success {
+		background-image: url('http://img.gameone.kr/member/grade4.png');
+	}
+	.JoinWr div.joinProcess ul.pro_list li.on span.agree {
+		background-image: url('http://img.gameone.kr/member/grade1_on.png');
+	}
+	.JoinWr div.joinProcess ul.pro_list li.on span.info {
+		background-image: url('http://img.gameone.kr/member/grade2_on.png');
+	}
+	.JoinWr div.joinProcess ul.pro_list li.on span.check {
+		background-image: url('http://img.gameone.kr/member/grade3_on.png');
+	}
+	.JoinWr div.joinProcess ul.pro_list li.on span.success {
+		background-image: url('http://img.gameone.kr/member/grade4_on.png');
+	}
+	.JoinWr .agreeForm {
+		width: inherit;
+		padding: 0 1em;
+		padding-bottom: 2em;
+		min-height: initial;
+	}
+	.JoinWr .agreeForm label {
+		padding-left: 25px;
+	}
+	.JoinWr span.checkbox {
+		margin-left: -25px;
+	}
+	.JoinWr .agreeForm div.article {
+		padding-top: 2em;
+	}
+	.JoinWr .infoForm {
+		width: inherit;
+		padding: 0 1em;
+		padding-bottom: 2em;
+		min-height: initial;
+	}
+	.JoinWr dl.input_list {
+		
+	}
+	.JoinWr dl.input_list>dt {
+		text-align: left;
+	}
+	.JoinWr dl.input_list>dd {
+		margin-top: 0;
+		padding-left: 0;
+	}
+	.JoinWr input[type='text'], .JoinWr input[type='password'] {
+		width: 100%;
+		padding: 5px 0;
+		text-indent: 5px;
+	}
+	.JoinWr dl.input_list dd div.email_wr {
+		width: inherit;
+		white-space: nowrap;
+		text-align: right;
+		float: inherit;
+		clear: both;
+	}
+	.JoinWr input.email, .JoinWr input.emailat {
+		width: 46%;
+	}
+	.JoinWr div.combobox.email {
+		display: none;
+		width: 45%;
+		float: right;
+		margin-top: -32px;
+	}
+	.JoinWr input.name {
+		width: 60%;
+		float: left;
+	}
+	.JoinWr div.combobox.year {
+		width: 97px;
+	}
+	.JoinWr dl.input_list dd.bg {
+		padding-left: 0;
+	}
+	.JoinWr p.radio_wrap {
+		float: left;
+		width: 18%;
+		white-space: nowrap;
+	}
+	.JoinWr .noti {
+		display: block;
+	}
+	.JoinWr .btn_gr {
+		padding-bottom: 5px;
+	}
+	.JoinWr input.ch_input {
+		width: 140px;
+		padding-right: 30px;
+	}
+	.JoinWr input.ch_input.checked {
+		background: url('http://img.gameone.kr/member/ico_check.gif') 144px
+			center no-repeat;
+	}
+	.JoinWr div.combobox.area {
+		float: left;
+		width: 35%
+	}
+	.JoinWr div.combobox.aread {
+		float: left;
+		width: 60%;
+		margin-left: 5px;
+	}
+	.JoinWr .checkForm {
+		width: inherit;
+		padding: 0 1em;
+		min-height: initial;
+		padding-bottom: 1em;
+	}
+	.JoinWr ul.tab-nav li {
+		width: 50%;
+	}
+	.JoinWr .checkForm dl.check_list {
+		padding-top: 1em;
+	}
+	.JoinWr .checkForm dl.check_list>dd.check_phone {
+		height: inherit;
+		position: relative;
+	}
+	.JoinWr .checkForm dl.check_list>dd.check_phone input[type=text] {
+		margin-bottom: 2px;
+	}
+	.JoinWr .checkForm dl.check_list>dd.check_phone a.wbbtn {
+		width: inherit;
+		display: block;
+		background: #5c5f73;
+		border: 1px solid #3d3f4d;
+		border-radius: 3px;
+		margin-bottom: 5px;
+		margin-top: 2px;
+	}
+	.JoinWr input.check_phone.checked {
+		background: url('http://img.gameone.kr/member/ico_check.gif') right
+			center no-repeat;
+	}
+	.JoinWr .Congress {
+		width: inherit;
+	}
+	.JoinWr h2.find {
+		padding-bottom: 1em;
+	}
+	.JoinWr .findForm {
+		width: inherit;
+		padding: 0 1em;
+		min-height: initial;
+		padding-bottom: 1em;
+	}
+	.JoinWr .findForm div.find .nav_rv li {
+		margin: 0 5px;
+	}
+	.JoinWr .findForm dl.input_list {
+		margin-left: 1em;
+		margin-right: 1em;
+	}
+	.JoinWr .findForm input[type=text] {
+		width: 100%;
+		padding: 5px 0;
+		text-indent: 5px;
+	}
+}
