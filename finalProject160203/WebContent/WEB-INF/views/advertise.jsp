@@ -12,7 +12,11 @@
     <img src="image/daily2.png" alt="Slide 2" style="width: 100%;"/>
     <img src="image/daily3.png" alt="Slide 3" style="width: 100%;"/>    
     <img src="image/daily4.png" alt="Slide 4" style="width: 100%;"/>
-  </div>  
+  </div> 
+  
+ <div>
+ 	<img alt="이미지없음" src="./image/ad.png"/>
+ </div> 
   <script>
 window.addEventListener('load', slideShow, true);
 
