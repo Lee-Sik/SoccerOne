@@ -97,6 +97,10 @@
 <form name="frmForm2" id="_frmForm" method="get" action="bbswrite.do">
 </form>
 
+<br>
+<a href="http://sports.news.naver.com/videoCenter/index.nhn?uCategory=wfootball&category=champs&id=178017">
+<img src="./image/bbs_video3.png"/></a>
+<br>
 
 <script type="text/javascript">
 $(document).ready(function() {	// 마우스에 따라서 컬러를 변경
