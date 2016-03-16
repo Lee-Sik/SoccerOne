@@ -65,10 +65,10 @@ $(function() {
 								<td>${reclist.team_name}</td>
 								<td>${reclist.team_name1}</td>
 								<c:if test="${reclist.game_state == 1}">
-									<td bgcolor="orange">
+									<td bgcolor="orange" style="font-weight: bold;">
 									<a href="#" 
-		 							onclick="javascript:window.open('./recordinsert.do?game_no=${reclist.game_no}&teamName1=${reclist.team_name}&teamName2=${reclist.team_name1}','','location=0,status=0,scrollbars=1,width=750,height=300');">
-									입력대기중</a></td> 
+		 							onclick="javascript:window.open('./recordinsert.do?game_no=${reclist.game_no}&teamName1=${reclist.team_name}&teamName2=${reclist.team_name1}','','location=0,status=0,scrollbars=1,width=600,height=450');">
+									입력 대기중</a></td> 
 <%-- 									${reclist} --%>
 <%-- 홈팀 지역 : ${record.home_local}<br> --%>
 <%-- 승리팀  : ${record.win_team}<br> --%>

@@ -38,7 +38,6 @@ function editCom(id){
 	  
  	$('#'+id+"-2").append(newDiv);
  	$('#'+id+"-2").append(newDiv2);
-	
 
 }
 function editCancel(id){
@@ -69,14 +68,10 @@ function editCom2(id){
     		alert('수정성공');
     }
 });
-	
-	
-	
 	alert('수정');
 	$('#'+id+"-2 input").remove();
 	$('#'+id+"-2").children().show();
 }
-
 
 function fnShareTw(sUrl){
     var sUrl = document.getElementById('url').value;
@@ -88,9 +83,9 @@ function fnShareTw(sUrl){
     a.focus();
     }
 }
-
 </script>
 </head>
+
 <form name="frmForm" id="_frmForm" method="post" action="bbsupdate.do">
 <table class="list_table" style="width:85%;">
 
@@ -100,17 +95,14 @@ function fnShareTw(sUrl){
 </colgroup>
 
 <tbody>	
-
 <tr>
 	<td style="text-align: left;">작성일</td>
 	<td style="text-align: left;">${bbs.wdate}</td>
 </tr>
-
 <tr>
 	<td style="text-align: left;">제 목</td>
 	<td style="text-align: left;">${bbs.title}</td>
 </tr>
-
 <tr>
 	<td style="text-align: left;">작성자</td>
 	<td style="text-align: left;">
@@ -126,14 +118,15 @@ function fnShareTw(sUrl){
 	${bbs.content}
 	<br><br><br><br>	
 	<div align="center">
-
+	
+	<c:if test="${login.user_email != null}">
 		<c:if test="${flike.user_email == null}">
 			<a href="bbslike.do?bbs_no=${bbs.bbs_no}&user_email=${login.user_email}"><img src="./image/like_btnd.gif"></a><br>
 		</c:if>
 		<c:if test="${flike.user_email != null}">
 			<a href="bbslikedel.do?bbs_no=${bbs.bbs_no}&user_email=${login.user_email}"><img src="./image/like_btn.gif"></a><br>
 		</c:if>
-	 
+	 </c:if>
 	  	<input type = "hidden" id = "title" value ='${bbs.title}'>
     	<input type = "hidden" id = "content" value ='${bbs.content}'>
     	<input type = "hidden" id = "url" value ='http://211.238.142.129:8090/finalProject160203/bbsdetail.do?bbs_no=${bbs.bbs_no}'>
@@ -150,17 +143,8 @@ function fnShareTw(sUrl){
 <br>
 
 <c:if test="${login.user_email eq bbs.user_email}">
-		<!-- <form action="bbsupdate.do" method="post">
-		</form> -->
-		<%-- <input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" /> --%>
-		<input type="submit"  value="수정" onclick="update1('${bbs.bbs_no}')"/>
-		
-			
-		<!-- <form action="bbsdel.do" method="post">
-		</form> -->
-		<%-- <input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" /> --%>
-		<input type="submit" value="삭제" onclick="delete1('${bbs.bbs_no}')"/>
-		
+	<input type="submit"  value="수정" onclick="update1('${bbs.bbs_no}')"/>
+	<input type="submit" value="삭제" onclick="delete1('${bbs.bbs_no}')"/>
 </c:if>
 
 <script type="text/javascript">
@@ -201,11 +185,13 @@ $("#_btnUpdate").click(function() {
 			<td style="text-align: left;"><textarea rows="5" cols="70" id="${comlist.comment_no}" readonly>${comlist.content}</textarea></td>
 			<td style="text-align: right;" id="${comlist.comment_no}-2">
 			${comlist.wdate}<br>
-			<c:if test="${comlist.user_email == login.user_email}">
-			<a href="#" onclick="editCom(${comlist.comment_no})" >
-			<img src="./image/comment_edit.gif" /></a>&nbsp;<!-- 댓글수정 -->
-			<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs.bbs_no}&mode=detail">
-			<img src="./image/comment_del.gif"/></a><!-- 댓글삭제 -->
+			<c:if test="${login.user_email != null}">
+				<c:if test="${comlist.user_email == login.user_email}">
+				<a href="#" onclick="editCom(${comlist.comment_no})" >
+				<img src="./image/comment_edit.gif" /></a>&nbsp;<!-- 댓글수정 -->
+				<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs.bbs_no}&mode=detail">
+				<img src="./image/comment_del.gif"/></a><!-- 댓글삭제 -->
+				</c:if>
 			</c:if>
 			</td>
 			</tr>

@@ -5,17 +5,14 @@
 	request.setCharacterEncoding("utf-8");
 %>
 <style>
-tr:visited {
-    color: black;
-}
 
 /* mouse over link */
-tr:hover {
+tr.ryu:hover {
     background-color: red;
 }
 
 /* selected link */
-tr:active {
+tr.ryu:active {
     background-color: yellow;
 } 
 </style>
@@ -42,9 +39,8 @@ tr:active {
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>
-function move(name) {
-	
-	window.open('teamView.do?team_name='+name.value,'','','width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');
+function move(this1) {
+	window.open('teamView.do?team_name='+this1.innerHTML,'','','width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');
 }
 
 $(document).ready(function() {
@@ -70,6 +66,7 @@ $(document).ready(function() {
 		          kk.push(data[i]);// kk에 json 객체 담기
 		          
 		          var newDiv = document.createElement("tr");// 1.노드를 생성한다.
+		          $(newDiv).attr('class','ryu');
 		          if(data[i].team_logo == null || data[i].team_logo==''){
 		        	  newDiv.innerHTML = //'<tr>'
 					       '<td><img src="image/noimage.jpeg" style="width: 40px; height: 30px;"/></td>'

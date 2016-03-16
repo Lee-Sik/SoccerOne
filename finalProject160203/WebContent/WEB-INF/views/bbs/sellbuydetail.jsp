@@ -70,14 +70,14 @@ function fnShareTw(sUrl){
 	${sellbuy.content}
 	<br><br><br><br>	
 	<div align="center">
-
+	<c:if test="${login.user_email != null}">
 		<c:if test="${flike.user_email == null}">
 			<a href="sellbuylike.do?sellbuy_no=${sellbuy.sellbuy_no}&user_email=${login.user_email}"><img src="./image/like_btnd.gif"></a><br>
 		</c:if>
 		<c:if test="${flike.user_email != null}">
 			<a href="sellbuylikedel.do?sellbuy_no=${sellbuy.sellbuy_no}&user_email=${login.user_email}"><img src="./image/like_btn.gif"></a><br>
 		</c:if>
-	 
+	 </c:if>
 	  	<input type = "hidden" id = "title" value ='${sellbuy.title}'>
     	<input type = "hidden" id = "content" value ='${sellbuy.content}'>
     	<input type = "hidden" id = "url" value ='http://211.238.142.129:8090/finalProject160203/sellbuydetail.do?sellbuy_no=${sellbuy.sellbuy_no}'>
@@ -89,33 +89,14 @@ function fnShareTw(sUrl){
 	
 	</td>
 </tr>
-
-<%-- 
-<tr>
-	<td colspan="2" style="height:50px; text-align:center;">
-		<span><a href="#none" id="_btnUpdate" title="글수정하기"><img src="image/bupdate.png" alt="수정하기" /></a>
-		</span>
-	</td>
-</tr>
---%>
 		
 </tbody>		
 </table>
 </form>
 
-
 <c:if test="${login.user_email eq sellbuy.user_email}">
-<form action="sellbuyupdate.do" method="post">
-<input type="hidden" name="sellbuy_no"   value="${sellbuy.sellbuy_no}" />
-<input type="submit"  value="수정하기" />
-</form>
-</c:if>
-
-<c:if test="${login.user_email eq sellbuy.user_email}">
-<form action="sellbuydel.do" method="post">
-<input type="hidden" name="sellbuy_no" value="${sellbuy.sellbuy_no}" />
-<input type="submit"  value="삭제하기" />
-</form>
+	<input type="submit"  value="수정" onclick="update1('${sellbuy.sellbuy_no}')"/>
+	<input type="submit" value="삭제" onclick="delete1('${sellbuy.sellbuy_no}')"/>
 </c:if>
 
 <script type="text/javascript">
@@ -155,11 +136,13 @@ $("#_btnUpdate").click(function() {
 			<td style="text-align: left;">${comlist.content}</td>
 			<td style="text-align: right;">
 			${comlist.wdate}<br>
-			<c:if test="${comlist.user_email == login.user_email}">
-			<a href="#" 
-		 	onclick="javascript:window.open('./sellbuycommentupdate.do?comment_no=${comlist.comment_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">
-			<img src="./image/comment_edit.gif"/></a>&nbsp;
-			<a href="sellbuycommentdel.do?comment_no=${comlist.comment_no}&sellbuy_no=${sellbuy.sellbuy_no}&mode=detail"><img src="./image/comment_del.gif"/></a>
+			<c:if test="${login.user_email != null}">
+				<c:if test="${comlist.user_email == login.user_email}">
+				<a href="#" 
+			 	onclick="javascript:window.open('./sellbuycommentupdate.do?comment_no=${comlist.comment_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">
+				<img src="./image/comment_edit.gif"/></a>&nbsp;
+				<a href="sellbuycommentdel.do?comment_no=${comlist.comment_no}&sellbuy_no=${sellbuy.sellbuy_no}&mode=detail"><img src="./image/comment_del.gif"/></a>
+				</c:if>
 			</c:if>
 			</td>
 			</tr>
@@ -260,12 +243,12 @@ $("#_btnUpdate").click(function() {
 </c:if>	
 </c:forEach>
 </table>
+<br>
 
 <div id="buttons_wrap">
-	<span class="button blue">
-	<button type="button" id="_btnAdd">글쓰기</button></span>
+	<button type="button" id="_btnAdd">글쓰기</button>
 </div>
-
+<br>
 
 <div id="paging_wrap">
 <jsp:include page="/WEB-INF/views/common/paging.jsp" flush="false">
@@ -301,6 +284,14 @@ $("#_btnSearch").click(function() {
 function goPage(pageNumber) {	
 	$("#_pageNumber").val(pageNumber) ;
 	$("#_frmFormSearch").attr("target","_self").attr("action","sellbuylist.do").submit();
+}
+
+function update1(no) {
+	location.href = "sellbuyupdate.do?sellbuy_no=" + no;
+	
+}
+function delete1(no) {
+	location.href = "sellbuydel.do?sellbuy_no=" + no;
 }
 </script>
 

@@ -64,16 +64,17 @@ function fnShareTw(sUrl){
 	<a href="javascript:window.open('file://211.238.142.152/공유/ryu/${bbs.imageurl}', 'resizable=no, scrollbars=yes, status=no;')"><img src="file://211.238.142.152/공유/ryu/${gal.imageurl}" width="50%;" alt="이미지없음"/></a>
 	<br><br><br><br>	
 	<div align="center">
-
-		<c:if test="${flike.user_email == null}">
-			<a href="gallike.do?gallery_no=${gal.gallery_no}&user_email=${login.user_email}"><img src="./image/like_btnd.gif"></a><br>
-		</c:if>
-		<c:if test="${flike.user_email != null}">
-			<a href="gallikedel.do?gallery_no=${gal.gallery_no}&user_email=${login.user_email}"><img src="./image/like_btn.gif"></a><br>
+		<c:if test="${login.user_email != null}">
+			<c:if test="${flike.user_email == null}">
+				<a href="gallike.do?gallery_no=${gal.gallery_no}&user_email=${login.user_email}"><img src="./image/like_btnd.gif"></a><br>
+			</c:if>
+			<c:if test="${flike.user_email != null}">
+				<a href="gallikedel.do?gallery_no=${gal.gallery_no}&user_email=${login.user_email}"><img src="./image/like_btn.gif"></a><br>
+			</c:if>
 		</c:if>
 		
-		<input type = "hidden" id = "title" value ='${bbs.title}'>
-    	<input type = "hidden" id = "content" value ='${bbs.content}'>
+		<input type = "hidden" id = "title" value ='${gal.title}'>
+    	<input type = "hidden" id = "content" value ='${gal.content}'>
     	<input type = "hidden" id = "url" value ='http://211.238.142.129:8090/finalProject160203/bbsdetail.do?bbs_no=${bbs.bbs_no}'>
 		
 	 <a href="#"><img onClick="fnShareFb();" src="./image/facebook_top.gif" width="16" height="16" alt="페이스북" border="0"></a>
@@ -83,45 +84,15 @@ function fnShareTw(sUrl){
 	
 	</td>
 </tr>
-
-<%-- 
-<tr>
-	<td colspan="2" style="height:50px; text-align:center;">
-		<span><a href="#none" id="_btnUpdate" title="글수정하기"><img src="image/bupdate.png" alt="수정하기" /></a>
-		</span>
-	</td>
-</tr>
---%>
-		
 </tbody>		
 </table>
 
-<%-- 답글달기 --%>
-<%-- 
-<c:if test="${login.id ne bbs.id}">
-
-<form action="bbsreply.do" method="post">
-<input type="hidden" name="seq"   value="${bbs.seq}" />
-<input type="submit"  value="답글달기" />
-</form>
-
-</c:if>
---%>
 </form>
 
 
 <c:if test="${login.user_email eq gal.user_email}">
-<form action="galleryupdate.do" method="post">
-<input type="hidden" name="gallery_no"   value="${gal.gallery_no}" />
-<input type="submit"  value="수정하기" />
-</form>
-</c:if>
-
-<c:if test="${login.user_email eq gal.user_email}">
-<form action="gallerydel.do" method="post">
-<input type="hidden" name="gallery_no"   value="${gal.gallery_no}" />
-<input type="submit"  value="삭제하기" />
-</form>
+	<input type="submit"  value="수정" onclick="update1('${sellbuy.sellbuy_no}')"/>
+	<input type="submit" value="삭제" onclick="delete1('${sellbuy.sellbuy_no}')"/>
 </c:if>
 
 <script type="text/javascript">
@@ -165,11 +136,13 @@ $("#_btnUpdate").click(function() {
 			<td style="text-align: left;">${comlist.content}</td>
 			<td style="text-align: right;">
 			${comlist.wdate}<br>
-			<c:if test="${comlist.user_email == login.user_email}">
-			<a href="#" 
-		 	onclick="javascript:window.open('./commentupdate.do?comment_no=${comlist.comment_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">
-			<img src="./image/comment_edit.gif"/></a>&nbsp;
-			<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs.bbs_no}&mode=detail"><img src="./image/comment_del.gif"/></a>
+			<c:if test="${login.user_email != null}">
+				<c:if test="${comlist.user_email == login.user_email}">
+				<a href="#" 
+			 	onclick="javascript:window.open('./commentupdate.do?comment_no=${comlist.comment_no}','','location=0,status=0,scrollbars=1,width=750,height=300');">
+				<img src="./image/comment_edit.gif"/></a>&nbsp;
+				<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs.bbs_no}&mode=detail"><img src="./image/comment_del.gif"/></a>
+				</c:if>
 			</c:if>
 			</td>
 			</tr>
@@ -189,21 +162,6 @@ $("#_btnUpdate").click(function() {
 <a href="http://sports.news.naver.com/videoCenter/index.nhn?uCategory=wfootball&category=champs&id=176972">
 <img src="./image/bbs_video.png"/></a>
 <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- 게시판 이어지기 -->
@@ -286,16 +244,12 @@ $("#_btnUpdate").click(function() {
 		
 
 </table>
-
-
-
-<!-- 페이징 처리 부분 -->
+<br>
 
 <div id="buttons_wrap">
-	<span class="button blue">
-	<button type="button" id="_btnAdd">글쓰기</button></span>
+	<button type="button" id="_btnAdd">글쓰기</button>
 </div>
-<!-- <a href='bbswrite.do'>글쓰기</a> -->
+<br>
 
 <div id="paging_wrap">
 <jsp:include page="/WEB-INF/views/common/paging.jsp" flush="false">
@@ -331,5 +285,13 @@ $("#_btnSearch").click(function() {
 function goPage(pageNumber) {	
 	$("#_pageNumber").val(pageNumber) ;
 	$("#_frmFormSearch").attr("target","_self").attr("action","gallerylist.do").submit();
+}
+
+function update1(no) {
+	location.href = "galleryupdate.do?gallery_no=" + no;
+	
+}
+function delete1(no) {
+	location.href = "gallerydel.do?gallery_no=" + no;
 }
 </script>
