@@ -27,10 +27,7 @@
 	</form>
 </div>
 
-
-
 <table class="list_table" style="width:85%;">
-
 <c:if test="${empty gallerylist}">
 	<tr>
 		<td colspan="5">작성된 글이 없습니다.</td>
@@ -56,9 +53,7 @@
 		</td>
 	</c:if>
 
-
 	<c:if test="${gal.del == 1}">
-	
 			<td style="text-align: center; width: 170px; height: 170px;" >
 			<div class="gallery_list">
 			<ul style="padding-left: 0px;">
@@ -83,19 +78,13 @@
 		</tr>
 	</c:if>
 </c:forEach>	
-		
-
 </table>
-
-
-
-<!-- 페이징 처리 부분 -->
+<br>
 
 <div id="buttons_wrap">
-	<span class="button blue">
-	<button type="button" id="_btnAdd">글쓰기</button></span>
+	<button type="button" id="_btnAdd">글쓰기</button>
 </div>
-<!-- <a href='bbswrite.do'>글쓰기</a> -->
+<br>
 
 <div id="paging_wrap">
 <jsp:include page="/WEB-INF/views/common/paging.jsp" flush="false">

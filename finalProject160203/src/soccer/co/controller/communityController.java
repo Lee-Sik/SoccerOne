@@ -202,7 +202,7 @@ public class communityController {
 	}
 
 	// BBS Update
-	@RequestMapping(value = "bbsupdate.do", method = RequestMethod.POST)
+	@RequestMapping(value = "bbsupdate.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String bbsupdate(foot_community_DTO bbs, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController bbsupdate! " + new Date());
 
@@ -246,7 +246,7 @@ public class communityController {
 	}
 
 	// BBS Delete
-	@RequestMapping(value = "bbsdel.do", method = RequestMethod.POST)
+	@RequestMapping(value = "bbsdel.do", method = {RequestMethod.GET, RequestMethod.POST})
 	public String bbsdel(foot_community_DTO bbs, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController bbsdel! " + new Date());
 

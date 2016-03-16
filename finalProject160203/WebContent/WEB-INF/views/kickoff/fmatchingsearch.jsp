@@ -61,11 +61,11 @@ $(function() {
 	</td>
 </tr>
 <colgroup>
-<col style="width:60px;" />
-<col style="width:70px;" />
-<col style="width:80px;" />
-<col style="width:60px;" />
-<col style="width:35px;" />
+<col style="width:20%;" />
+<col style="width:15%;" />
+<col style="width:auto;" />
+<col style="width:18%;" />
+<col style="width:15%;" />
 </colgroup>
 <tr>
 
@@ -78,14 +78,14 @@ $(function() {
 		<td>${fglist.game_date}</td> 
 		<td>${fglist.ground}</td> 
 		<td><fmt:formatNumber value="${fglist.pay}" pattern="#,###.##' 원'"/></td> 
-			<c:if test="${fglist.game_state == 0}">
-				<td bgcolor="orange">대기중
-			</td> 
+				<c:if test="${fglist.game_state == 0}">
+				<td bgcolor="orange" style="font-weight: bold;"><a href='fmatchingdetail.do?game_no=${fglist.game_no}'>대기중</a></td> 
 			</c:if>
-			
 			<c:if test="${fglist.game_state == 1}">
-				<td bgcolor="lightgray">완료
-			</td> 
+				<td bgcolor="#d7df21" style="font-weight: bold;">경기중</td> 
+			</c:if>
+			<c:if test="${fglist.game_state == 2}">
+				<td bgcolor="lightgray" style="font-weight: bold;">경기완료</td> 
 			</c:if>
 		
 	</tr>

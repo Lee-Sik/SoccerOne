@@ -31,7 +31,6 @@ function fnShareTw(sUrl){
 </head>
 <form name="frmForm" id="_frmForm" method="post" action="galupdate.do">
 <table class="list_table" style="width:85%;">
-<%-- <input type="hidden" name="seq" value="${bbs.bbs_no}"/> --%>
 
 <colgroup>
 <col style="width:100px;" />
@@ -139,6 +138,7 @@ $("#_btnUpdate").click(function() {
 <input type="hidden" name="user_email" value="${login.user_email}"/>
 
 <table class="list_table" style="width:85%;">
+
 <col width="8%"/>
 <col width="auto"/>
 <col width="10%"/>
@@ -228,8 +228,6 @@ $("#_btnUpdate").click(function() {
 	<input type="hidden" name="recordCountPerPage" id="_recordCountPerPage" value="${(empty recordCountPerPage)?10:recordCountPerPage}"/>						
 	</form>
 </div>
-
-
 
 <table class="list_table" style="width:85%;">
 

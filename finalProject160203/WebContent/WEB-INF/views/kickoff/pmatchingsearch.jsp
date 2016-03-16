@@ -88,12 +88,12 @@ $(function() {
 	</td>
 </tr>
 <colgroup>
-<col style="width:40px;" />
-<col style="width:60px;" />
-<col style="width:70px;" />
-<col style="width:80px;" />
-<col style="width:60px;" />
-<col style="width:35px;" />
+<col style="width:9%;" />
+<col style="width:19%;" />
+<col style="width:12%;" />
+<col style="width:auto;" />
+<col style="width:10%;" />
+<col style="width:10%;" />
 </colgroup>
 <tr>
 
@@ -108,15 +108,13 @@ $(function() {
 		<td>${pglist.ground}</td> 
 		<td><fmt:formatNumber value="${pglist.pay}" pattern="#,###.##' 원'"/></td> 
 			<c:if test="${pglist.game_state == 0}">
-				<td bgcolor="orange"><a href='pmatchingdetail.do?game_no=${pglist.game_no}'>대기중</a></td> 
+				<td bgcolor="orange" style="font-weight: bold;"><a href='pmatchingdetail.do?game_no=${pglist.game_no}'>대기중</a></td> 
 			</c:if>
-		
 			<c:if test="${pglist.game_state == 1}">
-				<td bgcolor="green">경기중</td> 
+				<td bgcolor="#d7df21" style="font-weight: bold;">경기중</td> 
 			</c:if>
-			
 			<c:if test="${pglist.game_state == 2}">
-				<td bgcolor="lightgray">경기완료</td> 
+				<td bgcolor="lightgray" style="font-weight: bold;">경기완료</td> 
 			</c:if>
 		
 	</tr>

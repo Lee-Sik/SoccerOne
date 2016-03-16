@@ -142,54 +142,25 @@ function fnShareTw(sUrl){
      <a href="#"><img onclick="fnShareTw();" src="./image/twitter_top.gif" width="16" height="16" alt="트위터" border="0"></a>
      	
 	</div>
-	
 	</td>
 </tr>
-
-<%-- 
-<tr>
-	<td colspan="2" style="height:50px; text-align:center;">
-		<span><a href="#none" id="_btnUpdate" title="글수정하기"><img src="image/bupdate.png" alt="수정하기" /></a>
-		</span>
-	</td>
-</tr>
---%>
-		
 </tbody>		
 </table>
-
-<%-- 답글달기 --%>
-<%-- 
-<c:if test="${login.id ne bbs.id}">
-
-<form action="bbsreply.do" method="post">
-<input type="hidden" name="seq"   value="${bbs.seq}" />
-<input type="submit"  value="답글달기" />
 </form>
-
-</c:if>
---%>
-</form>
-
-<%-- <c:if test="${login.user_email ne bbs.user_email}"> --%>
-<!-- <form action="bbsreply.do" method="post"> -->
-<%-- <input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" /> --%>
-<!-- <input type="submit"  value="답글달기" /> -->
-<!-- </form> -->
-<%-- </c:if> --%>
+<br>
 
 <c:if test="${login.user_email eq bbs.user_email}">
-<form action="bbsupdate.do" method="post">
-<input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" />
-<input type="submit"  value="수정하기" />
-</form>
-</c:if>
-
-<c:if test="${login.user_email eq bbs.user_email}">
-<form action="bbsdel.do" method="post">
-<input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" />
-<input type="submit"  value="삭제하기" />
-</form>
+		<!-- <form action="bbsupdate.do" method="post">
+		</form> -->
+		<%-- <input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" /> --%>
+		<input type="submit"  value="수정" onclick="update1('${bbs.bbs_no}')"/>
+		
+			
+		<!-- <form action="bbsdel.do" method="post">
+		</form> -->
+		<%-- <input type="hidden" name="bbs_no"   value="${bbs.bbs_no}" /> --%>
+		<input type="submit" value="삭제" onclick="delete1('${bbs.bbs_no}')"/>
+		
 </c:if>
 
 <script type="text/javascript">
@@ -199,6 +170,7 @@ $("#_btnUpdate").click(function() {
 //	$("#_frmForm").attr({ "target":"_self", "action":"bbswriteAf.do" }).submit();
 });
 </script>
+
 <form action="commentAf.do">
 <input type="hidden" name="parent_no" value="${bbs.bbs_no}"/>
 <input type="hidden" name="user_email" value="${login.user_email}"/>
@@ -207,7 +179,7 @@ $("#_btnUpdate").click(function() {
 <table class="list_table" style="width:85%;">
 <col width="8%"/>
 <col width="auto"/>
-<col width="10%"/>
+<col width="15%"/>
 
 <tr>
 	<td> 작성자 </td>
@@ -226,7 +198,7 @@ $("#_btnUpdate").click(function() {
 			<td>
 			<img src="./image/${comlist.user_profile}" style="width: 80px;"><br>
 			${comlist.user_email}</td>
-			<td style="text-align: left;"><textarea rows="5" cols="80" id="${comlist.comment_no}" readonly>${comlist.content}</textarea></td>
+			<td style="text-align: left;"><textarea rows="5" cols="70" id="${comlist.comment_no}" readonly>${comlist.content}</textarea></td>
 			<td style="text-align: right;" id="${comlist.comment_no}-2">
 			${comlist.wdate}<br>
 			<c:if test="${comlist.user_email == login.user_email}">
@@ -283,7 +255,7 @@ $("#_btnUpdate").click(function() {
 
 <colgroup>
 	<col style="width:5%;"/>
-	<col style="width:10%;"/>
+	<col style="width:15%;"/>
 	<col style="width:auto;"/>
 	<col style="width:20%;"/>
 	<col style="width:13%;"/>
@@ -307,7 +279,12 @@ $("#_btnUpdate").click(function() {
 <c:if test="${bbs.del == 0}">
 	<tr class="_hover_tr">
 		<td>${vs.count}</td> 
-		<td>${bbs.topic}</td>
+		<td><c:if test="${bbs.topic == '국내축구' }">
+		<img src="./image/bbs_korea.jpg"/></c:if>
+		<c:if test="${bbs.topic == '해외축구' }">
+		<img src="./image/bbs_europe.jpg"/></c:if>
+		<c:if test="${bbs.topic == '노닥거리' }">
+		<img src="./image/bbs_free.jpg"/></c:if>${bbs.topic}</td>
 		<td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbs.bbs_no}'>${bbs.title}</a>
 		&nbsp;&nbsp;
 		 <a href="#" 
@@ -333,27 +310,13 @@ $("#_btnUpdate").click(function() {
 	</tr>
 </c:if>	
 </c:forEach>
-
-<%-- 
-<c:forEach items="${bbslist}" var="bbs" varStatus="vs">
-	<tr class="_hover_tr">
-		<td>${vs.count}</td> 
-		<td style="text-align: left">
-			<a href='bbsdetail.do?seq=${bbs.seq}'>${bbs.title}</a>
-		</td>
-		<td>${bbs.id}</td> 
-	</tr>
-</c:forEach>
---%>
-
 </table>
 
+<br>
 <div id="buttons_wrap">
-	<span class="button blue">
-	<button type="button" id="_btnAdd">글쓰기</button></span>
+	<button type="button" id="_btnAdd">글쓰기</button>
 </div>
-<!-- <a href='bbswrite.do'>글쓰기</a> -->
-
+<br>
 
 <div id="paging_wrap">
 <jsp:include page="/WEB-INF/views/common/paging.jsp" flush="false">
@@ -390,6 +353,19 @@ function goPage(pageNumber) {
 	$("#_pageNumber").val(pageNumber) ;
 	$("#_frmFormSearch").attr("target","_self").attr("action","bbslist.do").submit();
 }
+
+function update1(no) {
+	location.href = "bbsupdate.do?bbs_no=" + no;
+	
+}
+function delete1(no) {
+	location.href = "bbsdel.do?bbs_no=" + no;
+}
+
+
+
+
+
 </script>
 
 
