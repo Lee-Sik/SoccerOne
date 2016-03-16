@@ -11,10 +11,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="CSS/main.css" rel="stylesheet" type="text/css" >
 <link href="CSS/styles.css" rel="stylesheet">
+<link rel="shortcut icon" href="./image/bbs_europe.jpg" />
 
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="CSS/script.js"></script>
-<title>사커원에 오신걸 환영합니다.!!!</title>
+<title>사커원</title>
 
 </head>
 <body>
