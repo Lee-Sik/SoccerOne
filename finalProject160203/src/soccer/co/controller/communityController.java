@@ -264,9 +264,7 @@ public class communityController {
 			System.out.println("BBSDTO.del = " + bbs.getDel());
 
 			return "redirect:/bbslist.do";
-
 		}
-
 	}
 
 	// BBS Detail
@@ -275,48 +273,51 @@ public class communityController {
 			throws Exception {
 
 		int bbs_no = Integer.parseInt(request.getParameter("bbs_no"));
-
-		// int parent_no =
-		// Integer.parseInt(request.getParameter("parent_no"));
-
-		List<foot_comment_DTO> comdto = BBSService.getCommentList(bbs_no);
-
-		model.addAttribute("comlist", comdto);
-
-		foot_community_DTO dto = BBSService.getBBS(bbs);
-
-		BBSService.incrementReadCount(bbs);
-		model.addAttribute("bbs", dto);
-		model.addAttribute("title", "bbslist");
-		model.addAttribute("menuNum", 0);
-
+		
 		foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
-
-		String user_email = fudto.getUser_email();
-
-		foot_like_DTO flike = new foot_like_DTO();
-
-		flike.setParent_bbs_no(bbs_no);
-		flike.setUser_email(user_email);
-
-		foot_like_DTO fdto = BBSService.getLike(flike);
-
-		model.addAttribute("flike", fdto);
-
+	
+		if(fudto != null){
+			String user_email = fudto.getUser_email();
+			
+			foot_community_DTO dto = BBSService.getBBS(bbs);
+			BBSService.incrementReadCount(bbs);
+			model.addAttribute("bbs", dto);
+			
+			List<foot_comment_DTO> comdto = BBSService.getCommentList(bbs_no);
+			model.addAttribute("comlist", comdto);
+			
+			foot_like_DTO flike = new foot_like_DTO();
+			flike.setParent_bbs_no(bbs_no);
+			flike.setUser_email(user_email);
+	
+			foot_like_DTO fdto = BBSService.getLike(flike);
+			model.addAttribute("flike", fdto);
+			
+			model.addAttribute("title", "bbslist");
+			model.addAttribute("menuNum", 0);
+		}
+		else{
+			foot_community_DTO dto = BBSService.getBBS(bbs);
+			BBSService.incrementReadCount(bbs);
+			model.addAttribute("bbs", dto);
+			
+			List<foot_comment_DTO> comdto = BBSService.getCommentList(bbs_no);
+			model.addAttribute("comlist", comdto);
+			
+			model.addAttribute("title", "bbslist");
+			model.addAttribute("menuNum", 0);
+		}
+		
 		int sn = param.getPageNumber();
 		int start = (sn) * param.getRecordCountPerPage() + 1;
 		int end = (sn + 1) * param.getRecordCountPerPage();
 
 		param.setStart(start);
 		param.setEnd(end);
-		// logger.info("start number : "+sn);
-		// logger.info("start : "+start);
-		// logger.info("end : "+end);
 
 		int totalRecordCount = BBSService.getBBSCount(param);
 		List<foot_community_DTO> bbslist = BBSService.getBBSPagingList(param);
 		model.addAttribute("bbslist", bbslist);
-		model.addAttribute("title", "bbslist");
 
 		model.addAttribute("pageNumber", sn);
 		model.addAttribute("pageCountPerScreen", 10);
@@ -510,36 +511,42 @@ public class communityController {
 	@RequestMapping(value = "gallerydetail.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String gallerydetail(BBSParam param, foot_community_DTO bbs, Model model, HttpServletRequest request)
 			throws Exception {
-
+		
 		int gallery_no = Integer.parseInt(request.getParameter("gallery_no"));
-
-		List<foot_comment_DTO> comdto = BBSService.getGalCommentList(gallery_no);
-
-		model.addAttribute("comlist", comdto);
-
-		foot_community_DTO dto = BBSService.getGallery(bbs);
-
-		BBSService.incrementGalReadCount(bbs);
-		model.addAttribute("gal", dto);
-		model.addAttribute("title", "gallery");
-		model.addAttribute("menuNum", 1);
-
+		
 		foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
 
-		String user_email = fudto.getUser_email();
-
-		System.out.println("gallery_no = " + gallery_no);
-		System.out.println("user_email = " + user_email);
-
-		foot_like_DTO flike = new foot_like_DTO();
-
-		flike.setParent_gallery_no(gallery_no);
-		flike.setUser_email(user_email);
-
-		foot_like_DTO fdto = BBSService.getGalLike(flike);
-
-		model.addAttribute("flike", fdto);
-
+		if(fudto != null){
+			String user_email = fudto.getUser_email();
+			
+			foot_community_DTO dto = BBSService.getGallery(bbs);
+			BBSService.incrementGalReadCount(bbs);
+			model.addAttribute("gal", dto);
+			
+			List<foot_comment_DTO> comdto = BBSService.getGalCommentList(gallery_no);
+			model.addAttribute("comlist", comdto);
+			
+			foot_like_DTO flike = new foot_like_DTO();
+			flike.setParent_gallery_no(gallery_no);
+			flike.setUser_email(user_email);
+			
+			foot_like_DTO fdto = BBSService.getGalLike(flike);
+			model.addAttribute("flike", fdto);
+			
+			model.addAttribute("title", "gallery");
+			model.addAttribute("menuNum", 1);
+		}else{
+			foot_community_DTO dto = BBSService.getGallery(bbs);
+			BBSService.incrementGalReadCount(bbs);
+			model.addAttribute("gal", dto);
+			
+			List<foot_comment_DTO> comdto = BBSService.getGalCommentList(gallery_no);
+			model.addAttribute("comlist", comdto);
+			
+			model.addAttribute("title", "gallery");
+			model.addAttribute("menuNum", 1);
+		}
+		
 		int sn = param.getPageNumber();
 		int start = (sn) * param.getRecordCountPerPage() + 1;
 		int end = (sn + 1) * param.getRecordCountPerPage();
@@ -704,7 +711,7 @@ public class communityController {
 	}
 
 	// Gallery Update
-	@RequestMapping(value = "galleryupdate.do", method = RequestMethod.POST)
+	@RequestMapping(value = "galleryupdate.do", method =  { RequestMethod.GET, RequestMethod.POST })
 	public String galleryupdate(foot_community_DTO bbs, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController galleryupdate! " + new Date());
 
@@ -726,7 +733,7 @@ public class communityController {
 	}
 
 	// Gallery UpdateAf
-	@RequestMapping(value = "galleryupdateAf.do", method = RequestMethod.POST)
+	@RequestMapping(value = "galleryupdateAf.do", method =  { RequestMethod.GET, RequestMethod.POST })
 	public String galleryupdateAf(foot_community_DTO bbs, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController galleryupdateAf! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
@@ -743,7 +750,7 @@ public class communityController {
 	}
 
 	// Gallery Delete
-	@RequestMapping(value = "gallerydel.do", method = RequestMethod.POST)
+	@RequestMapping(value = "gallerydel.do", method =  { RequestMethod.GET, RequestMethod.POST })
 	public String gallerydel(foot_community_DTO bbs, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController gallerydel! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
@@ -919,7 +926,7 @@ public class communityController {
 	}
 
 	// SELLBUY Update
-	@RequestMapping(value = "sellbuyupdate.do", method = RequestMethod.POST)
+	@RequestMapping(value = "sellbuyupdate.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String sellbuyupdate(foot_community_DTO bbs, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController sellbuyupdate! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
@@ -940,7 +947,7 @@ public class communityController {
 	}
 
 	// SELLBUY UpdateAf
-	@RequestMapping(value = "sellbuyupdateAf.do", method = RequestMethod.POST)
+	@RequestMapping(value = "sellbuyupdateAf.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String sellbuyupdateAf(foot_community_DTO bbs, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController sellbuyupdateAf! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
@@ -957,7 +964,7 @@ public class communityController {
 	}
 
 	// SELLBUY Delete
-	@RequestMapping(value = "sellbuydel.do", method = RequestMethod.POST)
+	@RequestMapping(value = "sellbuydel.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String sellbuydel(foot_community_DTO bbs, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController sellbuydel! " + new Date());
 
@@ -982,30 +989,39 @@ public class communityController {
 
 		int sellbuy_no = Integer.parseInt(request.getParameter("sellbuy_no"));
 
-		List<foot_comment_DTO> comdto = BBSService.getSellbuyCommentList(sellbuy_no);
-
-		model.addAttribute("comlist", comdto);
-
-		foot_community_DTO dto = BBSService.getSellbuy(bbs);
-
-		BBSService.incrementSellbuyReadCount(bbs);
-		model.addAttribute("sellbuy", dto);
-		model.addAttribute("title", "sellbuy");
-		model.addAttribute("menuNum", 2);
-
 		foot_user_DTO fudto = (foot_user_DTO) request.getSession().getAttribute("login");
-
-		String user_email = fudto.getUser_email();
-
-		foot_like_DTO flike = new foot_like_DTO();
-
-		flike.setParent_sellbuy_no(sellbuy_no);
-		flike.setUser_email(user_email);
-
-		foot_like_DTO fdto = BBSService.getSellbuyLike(flike);
-
-		model.addAttribute("flike", fdto);
-
+		
+		if(fudto != null){
+			String user_email = fudto.getUser_email();
+			
+			foot_community_DTO dto = BBSService.getSellbuy(bbs);
+			BBSService.incrementSellbuyReadCount(bbs);
+			model.addAttribute("sellbuy", dto);
+			
+			List<foot_comment_DTO> comdto = BBSService.getSellbuyCommentList(sellbuy_no);
+			model.addAttribute("comlist", comdto);
+			
+			foot_like_DTO flike = new foot_like_DTO();
+			flike.setParent_sellbuy_no(sellbuy_no);
+			flike.setUser_email(user_email);
+			
+			foot_like_DTO fdto = BBSService.getSellbuyLike(flike);
+			model.addAttribute("flike", fdto);
+			
+			model.addAttribute("title", "sellbuy");
+			model.addAttribute("menuNum", 2);
+		}else{
+			foot_community_DTO dto = BBSService.getSellbuy(bbs);
+			BBSService.incrementSellbuyReadCount(bbs);
+			model.addAttribute("sellbuy", dto);
+			
+			List<foot_comment_DTO> comdto = BBSService.getSellbuyCommentList(sellbuy_no);
+			model.addAttribute("comlist", comdto);
+			
+			model.addAttribute("title", "sellbuy");
+			model.addAttribute("menuNum", 2);
+		}
+	
 		int sn = param.getPageNumber();
 		int start = (sn) * param.getRecordCountPerPage() + 1;
 		int end = (sn + 1) * param.getRecordCountPerPage();
@@ -1145,7 +1161,7 @@ public class communityController {
 
 	}//
 
-	@RequestMapping(value = "bbsreplyAf.do", method = RequestMethod.POST)
+	@RequestMapping(value = "bbsreplyAf.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String bbsreplyAf(foot_community_DTO bbs, Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome BBSController bbsreplyAf! " + new Date());
 		// model.addAttribute("head", "BBS");

@@ -433,13 +433,35 @@ function function1(val){
 </tr>
 <tr>
          <th>용병 유무</th>
-         <td style="text-align: left" colspan="5" ><input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" name="user_helper" type="checkbox">
-         <label for="cmn-toggle-1"></label></td>
+         <td style="text-align: left" colspan="5" >
+			<c:if test="${login.user_helper == 0}">
+			<input id="cmn-toggle-1"
+			   class="cmn-toggle cmn-toggle-round" name="team_join"
+			   type="checkbox"><label for="cmn-toggle-1"></label>
+			</c:if>
+			
+			<c:if test="${login.user_helper == 1}">
+				<input id="cmn-toggle-1"
+				class="cmn-toggle cmn-toggle-round" name="team_join"
+				type="checkbox" checked="checked"><label for="cmn-toggle-1"></label>   
+			</c:if>
+		</td>
 </tr>
 <tr>
          <th>정보 공개 유무</th>
-         <td style="text-align: left" colspan="5"><input id="cmn-toggle-2" class="cmn-toggle cmn-toggle-round" name="user_enabled" type="checkbox">
-         <label for="cmn-toggle-2"></label></td>
+         <td style="text-align: left" colspan="5">
+         	<c:if test="${login.user_enabled == 0}">
+			<input id="cmn-toggle-2"
+			   class="cmn-toggle cmn-toggle-round" name="team_join"
+			   type="checkbox"><label for="cmn-toggle-2"></label>
+			</c:if>
+			
+			<c:if test="${login.user_enabled == 1}">
+				<input id="cmn-toggle-2"
+				class="cmn-toggle cmn-toggle-round" name="team_join"
+				type="checkbox" checked="checked"><label for="cmn-toggle-2"></label>   
+			</c:if>
+         </td>
 </tr>
 <tr>
             <th>프로필사진</th> 

@@ -67,61 +67,63 @@ function save(){
 
 function a(this1){
 
-    var basket=document.getElementById("basket");
-    var home=document.getElementById("home");
-    var away=document.getElementById("away");
-    if(this1.value ==''){
-       if(this1.id =='h'){
-          $('#home div').empty();
-       }else{
-          $('#away div').empty();
-       }
-       
-    }else if(isNaN(this1.value) == true){
-   
-      alert("숫자만 입력 할 수 있습니다.");
-      this1.focus();
-      this1.value='';
-      return;
-   }else if(this1.value>= 10){
-      alert("10골 이상 넣을 수 없을 겁니다!!!");
-      this1.focus();
-      this1.value='';
-      if(this1.id =='h'){
-          $('#home div').empty();
-       }else{
-          $('#away div').empty();
-       }
-      return;
-   }else if(this1.value<0){
-      alert("음수는 입력 할 수 없습니다.");
-      this1.focus();
-      this1.value='';
-      return;
-   }else{//숫자성공 0~30
-      $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오는 ajax
-          url: "getTeamMember2.do",
-          dataType: 'JSON',
-          data: {team1:'${team1.team_name}',team2:'${team2.team_name}'},
-          jsonpCallback: 'callback',
-          type: 'get',
-          success: function (data) {
-             console.log(data);
-             aa=[];
-             bb=[];
-             for(var i=0;i<data[0].length;i++){
-                aa.push(data[0][i]);
-             }
-             for(var i=0;i<data[1].length;i++){
-                 bb.push(data[1][i]);
-                
-              }
-             
-             for(var i=0;i<this1.value;i++){
-               //alert(i);
-                newDiv = document.createElement("div");
-                $(newDiv).attr('class','item');
-                newDiv.style.display='none';
+	 var basket=document.getElementById("basket");
+	 var home=document.getElementById("home");
+	 var away=document.getElementById("away");
+	 if(this1.value ==''){
+		 if(this1.id =='h'){
+			 $('#home div').empty();
+		 }else{
+			 $('#away div').empty();
+		 }
+		 
+	 }else if(isNaN(this1.value) == true){
+	
+		alert("숫자만 입력 할 수 있습니다.");
+		this1.focus();
+		this1.value='';
+		return;
+	}else if(this1.value>= 10){
+		alert("10골 이상 넣을 수 없을 겁니다!!!");
+		this1.focus();
+		this1.value='';
+		
+		if(this1.id =='h'){
+	          $('#home div').empty();
+	       }else{
+	          $('#away div').empty();
+	       }
+		return;
+	}else if(this1.value<0){
+		alert("음수는 입력 할 수 없습니다.");
+		this1.focus();
+		this1.value='';
+		return;
+	}else{//숫자성공 0~30
+		$.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오는 ajax
+		    url: "getTeamMember2.do",
+		    dataType: 'JSON',
+		    data: {team1:'${team1.team_name}',team2:'${team2.team_name}'},
+		    jsonpCallback: 'callback',
+		    type: 'get',
+		    success: function (data) {
+		    	console.log(data);
+		       aa=[];
+		       bb=[];
+		       for(var i=0;i<data[0].length;i++){
+		          aa.push(data[0][i]);
+		       }
+		       for(var i=0;i<data[1].length;i++){
+		           bb.push(data[1][i]);
+		          
+		        }
+		       
+		       for(var i=0;i<this1.value;i++){
+					//alert(i);
+					 newDiv = document.createElement("div");
+					 $(newDiv).attr('class','item');
+					 newDiv.style.display='none';
+
 //user_profile
                 if(this1.id=='h'){
                    
@@ -175,7 +177,11 @@ function a(this1){
 
 <style type="text/css">
 body, table{
+<<<<<<< .mine
+	text-align:center;
+=======
    text-align:center;
+>>>>>>> .r220
     font-size: 12px;
     font-family: "Nanum Gothic", sans-serif;
 }
@@ -185,6 +191,37 @@ body, table{
 
 <h2>경기 기록 입력</h2>
 <div id="basket">
+<<<<<<< .mine
+<table class="list_table" style="width: 70%;">
+<colgroup>
+	<col width="50%;"/>
+	<col width="50%;"/>
+</colgroup>
+	<tr>
+		<th>[${team1.team_location1}]<br><b>${team1.team_name}</b></th> 
+		<th>[${team2.team_location1}]<br><b>${team2.team_name}</b></th> 
+	</tr>
+	<tr>
+		<td>
+			<img src="image/${team1.team_logo}" style="width: 100px;"><br>
+			
+		</td>
+		<td>
+			<img src="image/${team2.team_logo}" style="width: 100px;"><br>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div id="home" style="float:left">HOME</div>
+			<input type="text" size="3" oninput="a(this)" id="h">
+		</td>
+		<td>
+			<div id="away" style="float:left;">AWAY</div>
+			<input type="text" size="3" oninput="a(this)" id="a">
+		</td>
+	
+	</tr>
+=======
 <table class="list_table" style="width: 70%;">
 <colgroup>
    <col width="50%;"/>
@@ -219,7 +256,18 @@ body, table{
 <br>
 <button style="text-align: center;" id="btn" onclick="save()">기록 저장</button>
 
+>>>>>>> .r220
+</div>
+<br>
+<button style="text-align: center;" id="btn" onclick="save()">기록 저장</button>
+
+
+<<<<<<< .mine
 
 
 
 
+=======
+
+
+>>>>>>> .r220
