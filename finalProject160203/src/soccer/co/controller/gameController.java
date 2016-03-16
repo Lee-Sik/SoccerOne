@@ -520,6 +520,7 @@ public class gameController {
 
 			model.addAttribute("pmd", fgd);
 			model.addAttribute("title", "publicmatch");
+			model.addAttribute("menuNum", 4);
 
 			return "pmatchingdetail.tiles";
 
@@ -588,6 +589,7 @@ public class gameController {
 
 			model.addAttribute("fmd", fgd);
 			model.addAttribute("title", "freematch");
+			model.addAttribute("menuNum", 5);
 
 			return "fmatchingdetail.tiles";
 

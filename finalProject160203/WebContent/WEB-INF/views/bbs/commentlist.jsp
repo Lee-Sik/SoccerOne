@@ -8,7 +8,7 @@
 <head>
 <script type="text/javascript">
 function del(){
-alert("댓글 완료!");
+alert("삭제완료 완료!");
 opener.parent.location.reload();
 }
 </script>
@@ -54,21 +54,16 @@ body, table{
 			<td style="text-align: left;">${comlist.content}</td>
 			<td style="text-align: right;">
 			${comlist.wdate}<br>
-			<a href="commentupdate.do?comment_no=${comlist.comment_no}"><img src="./image/comment_edit.gif"/></a>&nbsp;
+			<c:if test="${comlist.user_email == login.user_email}">
+			<a href="commentupdate.do?comment_no=${comlist.comment_no}"><img src="./image/comment_edit.gif"/></a>
+			&nbsp;
 			<a href="commentdel.do?comment_no=${comlist.comment_no}&bbs_no=${bbs_no}&mode=popuplist"><img src="./image/comment_del.gif" 
-			onclick="del()"/></a>
+			onclick="del()"/></a></c:if>
 			</td>
 			</tr>
 		</c:forEach>
 	</c:if>		
 </table>
-<!-- <table class="list_table" style="width:85%;"> -->
-
-<!-- <tr> -->
-<!-- 	<td style="text-align: left;"><textarea rows="5" cols="80" name="content"></textarea></td> -->
-<!-- 	<td><input type="submit" value="댓글달기"></td> -->
-<!-- </tr> -->
-<!-- </table> -->
 </form>
 </body>
 

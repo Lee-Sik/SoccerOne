@@ -7,9 +7,9 @@
 
 <table class="list_table" style="width:85%;">
 <colgroup>
-<col style="width:10%;" />
-<col style="width:15%;" />
-<col style="width:15%;" />
+<col style="width:9%;" />
+<col style="width:19%;" />
+<col style="width:12%;" />
 <col style="width:auto;" />
 <col style="width:10%;" />
 <col style="width:10%;" />
@@ -29,14 +29,13 @@
 		<td>${pglist.ground}</td> 
 		<td><fmt:formatNumber value="${pglist.pay}" pattern="#,###.##' 원'"/></td> 
 			<c:if test="${pglist.game_state == 0}">
-				<td bgcolor="orange"><a href='pmatchingdetail.do?game_no=${pglist.game_no}'>대기중</a></td> 
+				<td bgcolor="orange" style="font-weight: bold;"><a href='pmatchingdetail.do?game_no=${pglist.game_no}'>대기중</a></td> 
 			</c:if>
-			
 			<c:if test="${pglist.game_state == 1}">
-				<td bgcolor="green">경기중</td> 
+				<td bgcolor="#d7df21" style="font-weight: bold;">경기중</td> 
 			</c:if>
 			<c:if test="${pglist.game_state == 2}">
-				<td bgcolor="lightgray">경기완료</td> 
+				<td bgcolor="lightgray" style="font-weight: bold;">경기완료</td> 
 			</c:if>
 	</tr>
 </c:forEach>
@@ -46,8 +45,8 @@
 
 <table class="list_table" style="width:85%;">
 <colgroup>
-<col style="width:15%;" />
-<col style="width:25%;" />
+<col style="width:19%;" />
+<col style="width:21%;" />
 <col style="width:10%;" />
 <col style="width:auto;" />
 <col style="width:10%;" />
@@ -66,22 +65,19 @@
 		<c:set var="game_content" value="${fglist.game_content}"/>
 			<c:set var="len" value="${fn:length(game_content)}"/>
 		<td>${fn:substring(fglist.game_content, 0, 15)}...</td>  
-		
-		
-<%-- 		<td>${fglist.game_content}</td>  --%>
 		<td>${fglist.game_date}</td> 
 		<td>${fglist.ground}</td> 
 		<td><fmt:formatNumber value="${fglist.pay}" pattern="#,###.##' 원'"/></td> 
-		<c:if test="${fglist.game_state == 0}">
-				<td bgcolor="orange"><a href='fmatchingdetail.do?game_no=${fglist.game_no}'>대기중</a></td> 
+			<c:if test="${fglist.game_state == 0}">
+				<td bgcolor="orange" style="font-weight: bold;"><a href='fmatchingdetail.do?game_no=${fglist.game_no}'>대기중</a></td> 
 			</c:if>
-			
 			<c:if test="${fglist.game_state == 1}">
-				<td bgcolor="green">경기중</td> 
+				<td bgcolor="#d7df21" style="font-weight: bold;">경기중</td> 
 			</c:if>
 			<c:if test="${fglist.game_state == 2}">
-				<td bgcolor="lightgray">경기완료</td> 
+				<td bgcolor="lightgray" style="font-weight: bold;">경기완료</td> 
 			</c:if>
+			
 	</tr>
 </c:forEach>
 </table>

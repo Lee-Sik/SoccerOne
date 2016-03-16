@@ -73,7 +73,7 @@
 		</td>	
 		<td style="position:relative;" class="popGrp">
 			<p class="popBtn">${bbs.user_email}</p>
-		<div class="popView" style="position:absolute; left:70px; top:33px; width:100px; height:50px; display:none; border:1px solid #333; background:white; z-index:100;">
+		<div class="popView" style="position:absolute; left:70px; top:33px; width:100px; height:40px; display:none; border:1px solid #333; background:white; z-index:100;">
 		 <a href="#" onclick="javascript:popupOpen7('${bbs.user_email}')">쪽지보내기</a>
 			<p class="popClose">닫기</p>	
 		</div>
@@ -97,27 +97,13 @@
 	</tr>
 </c:if>	
 </c:forEach>
-
-<%-- 
-<c:forEach items="${bbslist}" var="bbs" varStatus="vs">
-	<tr class="_hover_tr">
-		<td>${vs.count}</td> 
-		<td style="text-align: left">
-			<a href='bbsdetail.do?seq=${bbs.seq}'>${bbs.title}</a>
-		</td>
-		<td>${bbs.id}</td> 
-	</tr>
-</c:forEach>
---%>
-
 </table>
 
+<br>
 <div id="buttons_wrap">
-	<span class="button blue">
-	<button type="button" id="_btnAdd">글쓰기</button></span>
+	<button type="button" id="_btnAdd">글쓰기</button>
 </div>
-<!-- <a href='bbswrite.do'>글쓰기</a> -->
-
+<br>
 
 <div id="paging_wrap">
 <jsp:include page="/WEB-INF/views/common/paging.jsp" flush="false">
@@ -161,7 +147,6 @@ function goPage(pageNumber) {
  $("#_pageNumber").val(pageNumber) ;
  $("#_frmFormSearch").attr("target","_self").attr("action","bbslist.do").submit();
 }
-
 
 function popupOpen7(a) {
 	var popUrl = "messagesend.do?a="+a; //팝업창에 출력될 페이지 URL

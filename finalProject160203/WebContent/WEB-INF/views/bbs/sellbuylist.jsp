@@ -82,27 +82,13 @@
 	</tr>
 </c:if>	
 </c:forEach>
-
-<%-- 
-<c:forEach items="${bbslist}" var="bbs" varStatus="vs">
-	<tr class="_hover_tr">
-		<td>${vs.count}</td> 
-		<td style="text-align: left">
-			<a href='bbsdetail.do?seq=${bbs.seq}'>${bbs.title}</a>
-		</td>
-		<td>${bbs.id}</td> 
-	</tr>
-</c:forEach>
---%>
-
 </table>
+<br>
 
 <div id="buttons_wrap">
-	<span class="button blue">
-	<button type="button" id="_btnAdd">글쓰기</button></span>
+	<button type="button" id="_btnAdd">글쓰기</button>
 </div>
-<!-- <a href='bbswrite.do'>글쓰기</a> -->
-
+<br>
 
 <div id="paging_wrap">
 <jsp:include page="/WEB-INF/views/common/paging.jsp" flush="false">
@@ -114,8 +100,6 @@
 </div>
 <form name="frmForm2" id="_frmForm" method="get" action="sellbuywrite.do">
 </form>
-
-
 
 <script type="text/javascript">
 $(document).ready(function() {	// 마우스에 따라서 컬러를 변경

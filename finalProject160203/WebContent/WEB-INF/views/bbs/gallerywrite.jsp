@@ -35,19 +35,16 @@
 	<td style="text-align: left">
 	<input type="file" name="file" id="file1"></td>
 </tr>
-
-<tr>
-	<td colspan="2" style="height:50px; text-align:center;">
-	<button id="_btnLogin" >글쓰기</button>
-	</td>
-</tr>
-
 </tbody>
 </table>
 </form>
+<br>
+	<div id="buttons_wrap">
+		<button type="button" id="_btnAdd">저장</button>
+	</div>
 
 <script type="text/javascript">
-$("#_btnLogin").click(function() {
+$("#_btnAdd").click(function() {
 	if($("#file1").val() == ""){
 		alert('파일 넣어주세요');
 		return;
