@@ -48,7 +48,6 @@ public class foot_user_DTO {
 	private int user_helper;
 	private int user_enabled;
 	
-	
 	private int user_speed;
 	private String user_attendrate;
 	private String user_attendtime;
@@ -62,10 +61,8 @@ public class foot_user_DTO {
 	int physic;
 	int mind;
 	int stamina;
-
 	
 	public foot_user_DTO(){}
-	
 	
 	public foot_user_DTO(String user_email, String user_pw, String user_name, String user_birth, Integer user_age,
 			String user_phone, Integer user_high, Integer user_weight, Integer user_foot, String user_position1,

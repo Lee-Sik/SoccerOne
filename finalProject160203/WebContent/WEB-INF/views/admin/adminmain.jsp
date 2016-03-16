@@ -24,8 +24,6 @@ $(function() {
     		 		 
     		 location.href="./notrecordcallist.do?day=" + v;
     	 }  
-    	
-    	
     }); 
 	/* $("#testDatepicker").click(function(){
 		var v = $("#testDatepicker").val();

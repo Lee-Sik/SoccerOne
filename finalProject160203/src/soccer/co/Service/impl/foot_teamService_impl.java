@@ -94,4 +94,27 @@ public class foot_teamService_impl implements foot_teamService{
 		return teamdao.searchTeam(query);
 	}
 
+	@Override
+	public int updateGameRecord(foot_game_record rec) {
+		return teamdao.updateGameRecord(rec);
+	}
+
+	@Override
+	public int updatePublicRecord(foot_game_record rec) {
+		return teamdao.updatePublicRecord(rec);
+	}
+
+
+	@Override
+	public foot_user_DTO getUserByName(foot_user_DTO a) {
+		return teamdao.getUserByName(a);
+	}
+
+	@Override
+	public void insertUserRecord(FOOT_USER_RECORD ur) {
+		teamdao.insertUserRecord(ur);
+		return; 
+		
+	}
+
 }

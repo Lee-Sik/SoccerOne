@@ -9,14 +9,14 @@ public class FOOT_USER_RECORD {
 	int goal;
 	int play_time;
 	
-	Date game_record_day;
+	String game_record_day;
 	
 	public FOOT_USER_RECORD() {
 		super();
 	}
 
 	public FOOT_USER_RECORD(String user_email, int longpass, int shotpass,
-			int goal, int play_time, Date game_record_day) {
+			int goal, int play_time, String game_record_day) {
 		super();
 		this.user_email = user_email;
 		this.longpass = longpass;
@@ -68,11 +68,11 @@ public class FOOT_USER_RECORD {
 		this.play_time = play_time;
 	}
 
-	public Date getGame_record_day() {
+	public String getGame_record_day() {
 		return game_record_day;
 	}
 
-	public void setGame_record_day(Date game_record_day) {
+	public void setGame_record_day(String game_record_day) {
 		this.game_record_day = game_record_day;
 	}
 
