@@ -4,7 +4,21 @@
 <%
 	request.setCharacterEncoding("utf-8");
 %>
+<style>
+tr:visited {
+    color: black;
+}
 
+/* mouse over link */
+tr:hover {
+    background-color: red;
+}
+
+/* selected link */
+tr:active {
+    background-color: yellow;
+} 
+</style>
 <div id='mainmenu'>
 
 	<ul>
@@ -28,6 +42,11 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>
+function move(name) {
+	
+	window.open('teamView.do?team_name='+name.value,'','','width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');
+}
+
 $(document).ready(function() {
 	
 	 
@@ -55,14 +74,15 @@ $(document).ready(function() {
 		        	  newDiv.innerHTML = //'<tr>'
 					       '<td><img src="image/noimage.jpeg" style="width: 40px; height: 30px;"/></td>'
 					       	+'<td align="center">'
-					       	+"<a href='' onclick='javascript:window.open('teamView.do?team_name='"+data[i].team_name+",'','','width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');'>"+data[i].team_name+'</a></td>';
+					       	+"<div onclick='move(this)'>"+data[i].team_name+'</div></td>';
 					       	
 		          }
 		          else{
 		        	  newDiv.innerHTML = //'<tr>'
-					       '<td><img src="image/'+data[i].team_logo+'" style="width: 40px; height: 30px;"/></td>'
-					       	+'<td align="center">'+data[i].team_name+'</td>';
-					       
+					       '<td>'
+					       +'<img src="image/'+data[i].team_logo+'" style="width: 40px; height: 30px;"/></td>'
+					       	+'<td align="center">'	
+					       +"<div onclick='move(this)'>"+data[i].team_name+'</div></td>';
 		          }
 		           
 			       $('#result').append(newDiv);
