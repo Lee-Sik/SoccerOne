@@ -37,4 +37,12 @@ public interface foot_teamService {
 	public List<foot_team_DTO> searchTeam(String query);
 
 	public foot_team_DTO getTeam2(foot_team_DTO team);
+
+	public int updateGameRecord(foot_game_record rec);
+
+	public int updatePublicRecord(foot_game_record rec);
+
+	public foot_user_DTO getUserByName(foot_user_DTO a);
+
+	public void insertUserRecord(FOOT_USER_RECORD ur);
 }

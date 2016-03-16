@@ -128,5 +128,25 @@ public class foot_team_DAO {
 	public foot_team_DTO getTeam2(foot_team_DTO team) {
 		return (foot_team_DTO) sql.selectOne(ns+"getTeam2",team.getTeam_name());
 	}
+
+	public int updateGameRecord(foot_game_record rec) {
+		return sql.update(ns+"updateGameRecord", rec);
+	}
+
+	public int updatePublicRecord(foot_game_record rec){
+		
+		 return sql.update(ns+"updatePublicRecord", rec);
+	}
+
+	public foot_user_DTO getUserByName(foot_user_DTO a) {
+		return (foot_user_DTO) sql.selectOne(ns+"getUserByName", a);
+	}
+
+
+	public void insertUserRecord(FOOT_USER_RECORD ur) {
+		
+		sql.insert(ns+"insertUserRecord", ur);
+		
+	}
 	
 }

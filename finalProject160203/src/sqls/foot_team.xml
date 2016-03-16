@@ -12,6 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    							#{team_open},#{team_home},#{team_logo})
    </insert>
    
+   <insert id="insertUserRecord"
+   parameterType="soccer.co.DTO.FOOT_USER_RECORD">
+   INSERT INTO FOOT_USER_RECORD VALUES(#{user_email},#{longpass},#{shotpass},#{goal},#{play_time},#{game_record_day})
+   </insert>
+   
+   
+   
    <select id="getMyRecord" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.FOOT_USER_RECORD">
    	<![CDATA[
  		select * from 
@@ -70,6 +77,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    team_join=#{team.team_join},team_open=#{team.team_open},team_home=#{team.team_home},
    team_logo=#{team.team_logo} where team_name=#{originteamname}
    </update>
+   
+    <update id="updateGameRecord" parameterType="soccer.co.DTO.foot_game_record">
+   update FOOT_GAME_RECORD set SCORE=#{score},
+WIN_TEAM=#{win_team},
+LOSE_TEAM=#{lose_team},
+MATCHING_STATE=#{matching_state},
+WIN_GOAL_PLAYER=#{win_goal_player},
+LOSE_GOAL_PLAYER=#{lose_goal_player},
+HOME_LOCAL=#{home_local},
+AWAY_LOCAL=#{away_local},
+WIN_TEAM_LOGO=#{win_team_logo},
+LOSE_TEAM_LOGO=#{lose_team_logo} where GAME_NO=#{game_no}
+   </update>
+   
+    <update id="updatePublicRecord" parameterType="soccer.co.DTO.foot_game_record">
+   update FOOT_PUBLICGAME set GAME_STATE=2 where GAME_NO=#{game_no}
+   </update>
+   
+   
+    <select id="getUserByName" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.foot_user_DTO">
+  	 SELECT * FROM foot_user where USER_NAME=#{user_name} and USER_TEAM=#{user_team}
+   </select>
+   
    
    <select id="allteam" resultType="soccer.co.DTO.foot_team_DTO">
   	 SELECT * FROM foot_team
