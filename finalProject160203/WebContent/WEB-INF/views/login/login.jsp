@@ -91,8 +91,8 @@ function popupOpen1() {
 				
 			</td> 
 			<td>
-			<c:if test="${ empty login}">
-				<font size="10pt">로그인하세요!</font>
+				<c:if test="${ empty login}">
+					로그인하세요!
 				</c:if>
 			</td>
 		</tr>

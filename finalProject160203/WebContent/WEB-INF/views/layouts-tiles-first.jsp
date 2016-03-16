@@ -13,10 +13,11 @@
 <link href="CSS/base.css" rel="stylesheet">
 <link href="CSS/styles.css" rel="stylesheet">
 <link href="CSS/bbstable.css" rel="stylesheet" >
+<link rel="shortcut icon" href="./image/bbs_europe.jpg" />
 
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script src="CSS/script.js"></script>
-<title>Insert title here</title>
+<title>사커원</title>
 </head>
 <body>
 <div id="header"><tiles:insertAttribute name="header"/></div>

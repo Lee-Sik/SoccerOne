@@ -8,12 +8,14 @@
 
 /* mouse over link */
 tr.ryu:hover {
-    background-color: red;
+    background-color: #333333;
+    color: white;
 }
 
 /* selected link */
 tr.ryu:active {
-    background-color: yellow;
+    background-color: white;
+    color: #333333;
 } 
 </style>
 <div id='mainmenu'>

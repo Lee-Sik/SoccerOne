@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <style type="text/css">
 
 .intro-wrap {position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; z-index:-100;}
