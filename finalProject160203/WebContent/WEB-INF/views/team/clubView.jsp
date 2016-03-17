@@ -439,77 +439,77 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 
 	</c:if>
 </table>
+<br>
 
-				
-
-			</td>
+<table class="list_table" style="width: 70%;">
+	<colgroup>
+	<col width="45%">
+	<col width="10%">
+	<col width="45%">
+</colgroup>
+	<c:forEach items="${gameRecList}" var="gameRecVO">
+		<tr>
+			<th colspan="3">최근 경기 결과</th>
 		</tr>
-
 		<tr>
 			<td>
-				<table>
-					<c:forEach items="${gameRecList}" var="gameRecVO">
-						<tr>
-							<td>
-								<div style="background-color: blue;">
-									<img src="image/${gameRecVO.win_team_logo}"
-										style="width: 200px; height: 100px;"
-										onclick="javascript:window.open('teamView.do?team_name=${gameRecVO.win_team}','',
-                                             'width=550, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
-
-									<div>${gameRecVO.win_team}</div>
-								</div>
-							</td>
-							<td>VS</td>
-							<td>
-								<div style="background-color: red;">
-									<img src="image/${gameRecVO.lose_team_logo}"
-										style="width: 200px; height: 100px;"
-										onclick="javascript:window.open('teamView.do?team_name=${gameRecVO.lose_team}','',
-                                             'width=550, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
-									<div>${gameRecVO.lose_team}</div>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>win</td>
-							<td>${gameRecVO.score}</td>
-							<td>lose</td>
-						</tr>
-					</c:forEach>
-				</table>
+				<div>
+					<img src="image/${gameRecVO.win_team_logo}"
+						style="height: 200px;"
+						onclick="javascript:window.open('teamView.do?team_name=${gameRecVO.win_team}','',
+                                         'width=550, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+					<div>${gameRecVO.win_team}</div>
+				</div>
 			</td>
-			<td>팀 게시판</td>
-		</tr>
-		<!----------------------------------포지션 ------------------------------------------>
-
-	</table>
-
-	<table class="1" style="width: 100%; height: 851px;">
-		<tr>
-			<td id="gujang"
-				style="background-image: url('image/gujang.png'); width: 500px; height: 851px; background-repeat: no-repeat;"
-				ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-			<td style="height: 681px;">
-				<div style="overflow: scroll; height: 851px" id="basket"
-					ondrop="drop2(event)" ondragover="allowDrop2(event)"></div> <input
-				type="button" onclick="savePosition()" value="위치 저장"> <!-- 			ajax로 kk의 json 객체를 전송 해야 한다. -->
+			<td>VS</td>
+			<td>
+				<div>
+					<img src="image/${gameRecVO.lose_team_logo}"
+						style="height: 200px;"
+						onclick="javascript:window.open('teamView.do?team_name=${gameRecVO.lose_team}','',
+                                         'width=550, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+					<div>${gameRecVO.lose_team}</div>
+				</div>
 			</td>
 		</tr>
-
+		<tr>
+			<td>win</td>
+			<td>${gameRecVO.score}</td>
+			<td>lose</td>
+		</tr>
+	</c:forEach>
+</table>
+<br>	
 		<!----------------------------------포지션 ------------------------------------------>
 
-		<tr style="width: 100px;">
+<table class="list_table" style="width: 100%; height: 851px;">
+	<tr>
+		<th colspan="2">베스트 11 명단</th>
+	</tr>
+	<tr>
+		<td id="gujang"
+			style="background-image: url('image/gujang.png'); width: 500px; height: 851px; background-repeat: no-repeat;"
+			ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+		<td style="height: 681px;">
+			<div style="overflow: scroll; height: 851px" id="basket"
+				ondrop="drop2(event)" ondragover="allowDrop2(event)"></div> <input
+			type="button" onclick="savePosition()" value="위치 저장"> <!-- 			ajax로 kk의 json 객체를 전송 해야 한다. -->
+		</td>
+	</tr>
 
+	<!----------------------------------포지션 ------------------------------------------>
+	<tr>
+		<th colspan="2">홈 경기장</th>
+	</tr>
+	<tr style="width: 100px;">
+		<td colspan="2">주소 : ${team.team_home}</td>
+	</tr>
+	<tr>
+		<td colspan="2" id="map" style="width: 400px; height: 300px"></td>
+	</tr>
+</table>
 
-			<td colspan="2">주소 : ${team.team_home}</td>
-
-		</tr>
-		<tr>
-			<td colspan="2" id="map" style="width: 400px; height: 300px"></td>
-		</tr>
-	</table>
-	<script>
+<script>
 // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 var infowindow = new daum.maps.InfoWindow({zIndex:1});
 

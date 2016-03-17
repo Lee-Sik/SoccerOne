@@ -7,23 +7,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="./CSS/table.css">
-<style type="text/css">
-
-</style>
+<title>구단 정보</title>
+<link href="./CSS/clubview.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 
-<table>
+<table class="list_table" style="width: 85%">
 <c:forEach var="j" items="${allteam }">
 
 <c:if test="${j.team_name eq teamdetail && j.team_open == 1}">
 <tr>
 <th class="detail">팀로고</th>
 <td>
-<img src="image/${j.team_logo }" style="width: 300px;">
+<img src="image/${j.team_logo }" style="width: 200px;">
 </td>
 </tr>
 <tr>
