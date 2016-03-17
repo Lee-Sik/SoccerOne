@@ -4,8 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <% request.setCharacterEncoding("utf-8"); %>
 <style type="text/css">
-#menu{background:#55c58f	;}
-.menulist {padding-top:70px; height:81px; margin-left: 240px;}
+#menu{background:#DD736A;}
+.menulist {padding-top:70px; height:81px; margin-left: 400px;}
 .menulist li {float:left; list-style:none; }
 .menulist li a {padding:0; margin:0;}
 .menulist li img {margin-top: -28px; width: 80px; border-right:1px solid #fff; border-top:1px solid #fff; border-bottom:1px solid #fff; background:#fff;}

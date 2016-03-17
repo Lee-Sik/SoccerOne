@@ -177,11 +177,7 @@ function a(this1){
 
 <style type="text/css">
 body, table{
-<<<<<<< .mine
-	text-align:center;
-=======
-   text-align:center;
->>>>>>> .r220
+   	text-align:center;
     font-size: 12px;
     font-family: "Nanum Gothic", sans-serif;
 }
@@ -191,37 +187,6 @@ body, table{
 
 <h2>경기 기록 입력</h2>
 <div id="basket">
-<<<<<<< .mine
-<table class="list_table" style="width: 70%;">
-<colgroup>
-	<col width="50%;"/>
-	<col width="50%;"/>
-</colgroup>
-	<tr>
-		<th>[${team1.team_location1}]<br><b>${team1.team_name}</b></th> 
-		<th>[${team2.team_location1}]<br><b>${team2.team_name}</b></th> 
-	</tr>
-	<tr>
-		<td>
-			<img src="image/${team1.team_logo}" style="width: 100px;"><br>
-			
-		</td>
-		<td>
-			<img src="image/${team2.team_logo}" style="width: 100px;"><br>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<div id="home" style="float:left">HOME</div>
-			<input type="text" size="3" oninput="a(this)" id="h">
-		</td>
-		<td>
-			<div id="away" style="float:left;">AWAY</div>
-			<input type="text" size="3" oninput="a(this)" id="a">
-		</td>
-	
-	</tr>
-=======
 <table class="list_table" style="width: 70%;">
 <colgroup>
    <col width="50%;"/>
@@ -256,18 +221,3 @@ body, table{
 <br>
 <button style="text-align: center;" id="btn" onclick="save()">기록 저장</button>
 
->>>>>>> .r220
-</div>
-<br>
-<button style="text-align: center;" id="btn" onclick="save()">기록 저장</button>
-
-
-<<<<<<< .mine
-
-
-
-
-=======
-
-
->>>>>>> .r220
