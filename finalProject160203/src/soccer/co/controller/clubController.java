@@ -65,7 +65,7 @@ public class clubController {
 
 			request.getSession().setAttribute("login", userservice.login1(fudto));
 
-			model.addAttribute("title", "클럽 생성");
+			model.addAttribute("title", "clubmake");
 			return "team_create.tiles";
 		}
 	}

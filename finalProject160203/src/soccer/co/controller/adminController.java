@@ -52,7 +52,8 @@ public class adminController {
 			List<foot_game_DTO> adminrecordlist = fgameservice.adminMainList(fgdto);
 			model.addAttribute("adminrecordlist", adminrecordlist);
 			
-			model.addAttribute("title", "기록 입력 페이지");
+			model.addAttribute("title", "admin");
+			model.addAttribute("menuNum", 0);
 		}
 		return "adminmain.tiles";
 }
@@ -73,7 +74,8 @@ public class adminController {
 			model.addAttribute("adminrecordlist", adminrecordlist);	
 			
 		}
-		model.addAttribute("title", "기록 입력 대기 ");
+		model.addAttribute("title", "admin");
+		model.addAttribute("menuNum", 0);
 	
 		return "adminmain.tiles";
 }
