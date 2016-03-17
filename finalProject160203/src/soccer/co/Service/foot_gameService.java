@@ -30,5 +30,6 @@ public interface foot_gameService {
 	foot_game_record getrecordInsert(foot_game_record fgr)throws Exception;
 	
 	public boolean publicgameDelete(foot_game_DTO fgdto)throws Exception;
+	public boolean freegameDelete(foot_game_DTO fgdto)throws Exception;
 	
 }

@@ -29,10 +29,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_message_DTO;
+import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
 import soccer.co.Service.foot_communityService;
 import soccer.co.Service.foot_messageService;
+import soccer.co.Service.foot_stadiumService;
 import soccer.co.Service.foot_userService;
 
 @Controller
@@ -43,6 +45,8 @@ public class userController {
 	foot_messageService messageservice;
 	@Autowired
 	private foot_communityService BBSService;//IoC
+	@Autowired
+	private foot_stadiumService service;
 
 	private static final Logger logger = LoggerFactory.getLogger(userController.class);
 
@@ -54,7 +58,7 @@ public class userController {
 	}
 
 	@RequestMapping(value = "login.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String login(foot_user_DTO fudto,HttpServletRequest request, Model model) throws Exception {
+	public String login(foot_user_DTO fudto,HttpServletRequest request, Model model,foot_sbooking_DTO dto) throws Exception {
 		String login1 = "login.tiles";
 		int loginfalse = 0;
 		logger.info("Welcome HelloMemberController login! " + new Date());
@@ -77,10 +81,11 @@ public class userController {
 			login1 = "notlogin.tiles";
 		}
 		List<foot_community_DTO> bbslist=BBSService.getBBSList();
-		
+		List<foot_sbooking_DTO> blist = service.bookingList(dto);
 		model.addAttribute("bbslist", bbslist);
 		List<foot_user_DTO> fulist=fuservice.userList1();
 		model.addAttribute("fulist", fulist);
+		model.addAttribute("blist", blist);
 		request.getSession().setAttribute("team", team);
 		request.getSession().setAttribute("login", login);
 		return login1;
@@ -93,6 +98,7 @@ public class userController {
 		model.addAttribute("bbslist", bbslist);
 		List<foot_user_DTO> fulist=fuservice.userList1();
 		model.addAttribute("fulist", fulist);
+		
 		return "login.tiles";
 	}
 	

@@ -14,6 +14,14 @@
 <!-- // jQuery UI 라이브러리 js파일 -->
 <script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
+<!-- <style type="text/css">
+body, div, p, a, ul, ol, li, dl, dt, h1, h2, h3, h4, h5, h6, table, td,
+	tr, img, dl, dd, dt, strong, span, form {
+	padding: 0;
+
+}
+</style> -->
+
 <script type="text/javascript">
 
 $(function() {
@@ -79,7 +87,7 @@ td.td2 {
                                     <input type="hidden" name="mode" value="do">
                                     <input type="hidden" name="ground_seq" value="">
 
-                                    <ul class="input_list">
+                                    <ul class="input_list" style="padding: 0;">
                                     	<li>
                                             <span class="title">구장명</span>
                                             <input type="text" class="title" id="stadium_name" name="stadium_name" value="${stadium_name}" vname="구장명" required="required" readonly="readonly" style="margin-left: -70%;"/>

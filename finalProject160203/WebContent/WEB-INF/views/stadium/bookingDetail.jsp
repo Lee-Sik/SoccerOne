@@ -129,7 +129,7 @@ $(function(){
 	
 	 
 	$(".btn-example").click(function(){
-		alert("ddd");
+		
         var $href = $(this).attr('href');
         layer_popup($href); 
     });
@@ -143,7 +143,7 @@ $(function(){
 	
 
     function layer_popup(el){
-		alert("ddd");
+		
     	
         var $el = $(el);        //레이어의 id를 $el 변수에 저장
         var isDim = $el.prev().hasClass('dimBg');   //dimmed 레이어를 감지하기 위한 boolean 변수

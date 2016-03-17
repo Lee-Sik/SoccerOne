@@ -94,7 +94,8 @@
 										<!-- <a href="#" class="bbs-gbtn sh-mv">이동</a> -->
 										<a href="./fbookingList.do" class="bbs-gbtn">목록</a>
 				</div>
-				<ul class="bbs-prnx">
+				<br><br><Br><Br>
+				<ul class="bbs-prnx" style="padding: 0;">
 					<li>
 						<span class="prev">이전글</span>		
 						<c:choose>

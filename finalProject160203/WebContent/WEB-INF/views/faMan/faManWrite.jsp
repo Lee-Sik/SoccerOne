@@ -46,6 +46,8 @@ $(document).ready(function(){
 })
 </script>
 
+
+
 </head>
 <body>
 
@@ -58,14 +60,14 @@ $(document).ready(function(){
 			<form id="frm" action="faManWrite_ok.do" method="post" >
 				
 				<div class="writeList">
-					<ul class="bbs-wtinfo">
+					<ul class="bbs-wtinfo" style="padding: 0;"> 
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">글제목</span>
 							<input type="text" class="title" id="fa_man_title" name="fa_man_title" value="${fdto.fa_man_title}" maxlength="100" style="margin-left: -100px;"/>
 						</li>
 					</ul>
 							
-					<ul class="bbs-wtinfo">
+					<ul class="bbs-wtinfo" style="padding: 0;">
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">카테고리</span>
 							<div style="margin-left: -440px;">
@@ -87,7 +89,8 @@ $(document).ready(function(){
 					</ul>
 	
 					<div class="editer" style="margin-left: 5.5%;">
-						<textarea id="content" name="fa_man_content">${fdto.fa_man_content}</textarea>
+						
+						<textarea rows="10" cols="30" id="content" name="fa_man_content" style="width:825px; height:412px; ">${fdto.fa_man_content}</textarea>
 					</div>
 					<script type="text/javascript">
  

@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select zipcode,sido,gugun,dong,ri,bldg,bunji,seq from zipcode where dong like '%' || #{dong} || '%'
 </select>
 <select id="post_gugun" resultType="soccer.co.DTO.postDTO">
-	select distinct gugun from foot_post where sido = '서울'
+	select DISTINCT gugun from foot_post where sido = '서울'
 </select>
 <select id="post_result" parameterType="hashmap" resultType="soccer.co.DTO.postDTO">
 	select addrname from foot_post where gugun=#{gugun} and addrtype=#{addrtype} 

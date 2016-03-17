@@ -9,7 +9,6 @@
 
 <script type="text/javascript">
 	function delete1(del,id) {
-		alert(id);
 		if (confirm("정말 삭제하시겠습니까??") == true){    //확인
 			location.href="./stadiumDelete.do?stadium_seq=" + del + "&user_email=" + id;
 		}else{   //취소
@@ -26,9 +25,9 @@
 
 				<div class="hb_wrap booking_wrap">
 							
-							<div class="book_list_top" style="width: 82.8%; margin-left: 30px;">
-								<div class="manage_list">
-									<ul>
+							<div class="book_list_top" style="width: 90.8%; margin-left: 30px;">
+								<div class="manage_list" style="width: 99.9%; padding-right: 30px;">
+									<ul style="padding: 0;">
                                            <c:forEach var="dto" items="${slist}" varStatus="vs">                                                                                     
                                             <li>
                                                 <span class="num">${vs.count}</span>
@@ -42,7 +41,7 @@
 								</div>
 								<div class="btn_group">
 									<div class="right">
-										<a href="./stadium_write.do" class="bbtn">구장등록</a>
+										<a href="./stadium_write.do?mode=write" class="bbtn">구장등록</a>
 									</div>
 								</div>
 							</div>

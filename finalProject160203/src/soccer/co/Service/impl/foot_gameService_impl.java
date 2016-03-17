@@ -112,5 +112,11 @@ public class foot_gameService_impl implements foot_gameService{
 		
 		return fgdao.publicgameDelete(fgdto);
 	}
+
+	@Override
+	public boolean freegameDelete(foot_game_DTO fgdto) throws Exception {
+		
+		return fgdao.freegameDelete(fgdto);
+	}
 	
 }

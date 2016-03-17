@@ -143,5 +143,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="publicgameDelete" parameterType="soccer.co.DTO.foot_game_DTO">
 		delete from foot_publicgame where game_no = #{game_no}
 	</delete>
+	<delete id="freegameDelete" parameterType="soccer.co.DTO.foot_game_DTO">
+		delete from foot_freegame where game_no = #{game_no}
+	</delete>
  
 </mapper>

@@ -66,7 +66,9 @@
 		
 </tbody>		
 </table>
-
+<c:if test="${login.user_email == fmd.team_managerid}">
+<input type="button" name="delete1" id="delete1" value="삭 제">
+</c:if>
 <%-- 답글달기 --%>
 <%-- 
 <c:if test="${login.id ne bbs.id}">
@@ -107,6 +109,14 @@ $("#_btnUpdate").click(function() {
 	submitContents($("#_frmForm"));
 //	$("#_frmForm").attr({ "target":"_self", "action":"bbswriteAf.do" }).submit();
 });
+$("#delete1").click(function() {	
+	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+		var no = "${fmd.game_no}";
+		location.href="./freegameDelete.do?game_no=" + no;
+	}else{   //취소
+	    return;
+	} 
+	});
 
 
 </script>
