@@ -23,6 +23,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update foot_user set
 		x=#{x},y=#{y} where user_email = #{user_email}
 	</update>
+	
+	<update id="teamAddOne" parameterType="soccer.co.DTO.foot_user_DTO">
+		update foot_team set
+		TEAM_MENBERNUM=TEAM_MENBERNUM+1 where TEAM_NAME = #{user_team}
+	</update>
+	
 
 	<select id="login1" parameterType="soccer.co.DTO.foot_user_DTO"
 		resultType="soccer.co.DTO.foot_user_DTO">

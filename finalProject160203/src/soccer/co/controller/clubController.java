@@ -61,10 +61,9 @@ public class clubController {
 		if (jyfudto == null) {
 			return "redirect:loginpopup1.do";
 		} else {
+	
 			model.addAttribute("list", clubservice.getGu());
-
 			request.getSession().setAttribute("login", userservice.login1(fudto));
-
 			model.addAttribute("title", "clubmake");
 			model.addAttribute("menuNum", 2);
 			return "team_create.tiles";
@@ -299,7 +298,7 @@ public class clubController {
 
 	@RequestMapping(value = "clubmyinform.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String clubmyinform(foot_user_DTO fudto, HttpServletRequest request, Model model) throws Exception {
-		logger.info("clubmyinform join!");
+		logger.info("clubmyinform ");
 		
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
 

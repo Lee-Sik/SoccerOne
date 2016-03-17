@@ -39,6 +39,8 @@ public class foot_message_DAO {
 	public boolean join(foot_user_DTO fudto) {
 		// TODO Auto-generated method stub
 		sql.update(ns1+"teamjoin", fudto);
+		sql.update(ns1+"teamAddOne", fudto);
+		
 		return false;
 	}
 

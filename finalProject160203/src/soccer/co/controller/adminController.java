@@ -196,8 +196,8 @@ public class adminController {
 		rec.setAway_local(team2_location1);
 		rec.setMatching_state(1);
 		
-		//clubservice.updateGameRecord(rec);
-		//clubservice.updatePublicRecord(rec);
+		clubservice.updateGameRecord(rec);
+		clubservice.updatePublicRecord(rec);
 		
 		//clubservice.updateMemberRecord(rec);필요 없음
 		
