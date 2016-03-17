@@ -17,14 +17,16 @@ body{
 <html>
 <body>
 
-
+<br><br>
 <div align="center">
-<p style="width: 100%;background-color: black; font-size: 20pt; color: white;"><b>이달의선수</b></p>
-<table>
+<table class="list_table" style="width: 85%;">
 <c:if test="${not empty fulist}">
  <tr> 
+ 	<th colspan="4" style="font-size: 20px; font-weight: bold;">이달의 선수 </th>
+ </tr>
+ <tr>
    <c:forEach items="${fulist}" var="a" begin="1" end="4">
-     
+    		
             <td style="background-color: lightblue">
             <img alt="${a.user_profile}" src="image/${a.user_profile}" style="width: 150px;">
             <p style="text-align: center; color:white"><b>${a.user_name}</b></p>
@@ -44,10 +46,8 @@ body{
    </tr>
 </c:if>
 </table>
-
 </div>
-
-
+<br>
 
 <div>
 <table class="list_table">
@@ -117,7 +117,7 @@ body{
 	<c:forEach var="dto" items="${blist}">
 	<tr>
 		<th>${dto.booking_day.substring(0,8)}</th>
-		<th><strong style="color: white;">${dto.stadium_name}</a></strong></th>
+		<th><strong style="color: white;">${dto.stadium_name}</strong></th>
 	
 	 	<c:choose>
 				<c:when test="${empty dto.game1}">
@@ -250,8 +250,8 @@ body{
 	<td><strong>${dto.booking_area}</strong></td>
 	</tr>
 	</c:forEach>
-
 </table>
+<br><br>
 </div>
 
 

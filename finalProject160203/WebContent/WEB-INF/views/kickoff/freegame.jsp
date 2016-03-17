@@ -47,12 +47,13 @@ $(function() {
 	<th>경기요약</th>
 	<td style="text-align: left"><textarea rows="10" cols="50" name='game_content'>
 
+경기시간 : 
 
-게임일시 : 
+클럽 수준 : 
 
-구장위치 : 
- 
-대관료 : 
+경기유형 : (예) 11 vs 11, 풋살
+
+구장위치 :  
 
 담당자 연락처 : 
 	
