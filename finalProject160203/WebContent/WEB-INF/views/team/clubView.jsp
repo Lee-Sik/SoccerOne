@@ -455,7 +455,7 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 									<img src="image/${gameRecVO.win_team_logo}"
 										style="width: 200px; height: 100px;"
 										onclick="javascript:window.open('teamView.do?team_name=${gameRecVO.win_team}','',
-                                             'width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+                                             'width=550, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 
 									<div>${gameRecVO.win_team}</div>
 								</div>
@@ -466,7 +466,7 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 									<img src="image/${gameRecVO.lose_team_logo}"
 										style="width: 200px; height: 100px;"
 										onclick="javascript:window.open('teamView.do?team_name=${gameRecVO.lose_team}','',
-                                             'width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+                                             'width=550, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
 									<div>${gameRecVO.lose_team}</div>
 								</div>
 							</td>
