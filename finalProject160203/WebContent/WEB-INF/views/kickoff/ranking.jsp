@@ -55,6 +55,22 @@
 			<input type="hidden" name="team_location" value="송파구">
 			<input type="submit" value="송파구">
 		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="노원구">
+			<input type="submit" value="노원구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="은평구">
+			<input type="submit" value="은평구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="관악구">
+			<input type="submit" value="관악구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="양천">
+			<input type="submit" value="양천구">
+		</form></td>
 	</tr>
 </table>
 <br><br>
