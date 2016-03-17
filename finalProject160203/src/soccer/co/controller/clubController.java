@@ -66,6 +66,7 @@ public class clubController {
 			request.getSession().setAttribute("login", userservice.login1(fudto));
 
 			model.addAttribute("title", "clubmake");
+			model.addAttribute("menuNum", 2);
 			return "team_create.tiles";
 		}
 	}
@@ -212,6 +213,8 @@ public class clubController {
 			} else {
 				List<foot_team_DTO> notteamlist = clubservice.notteamGu(fudto.getUser_address());
 				model.addAttribute("notteamlist", notteamlist);
+				model.addAttribute("title", "club");
+				model.addAttribute("menuNum", 0);
 				return "no_team_club.tiles";
 			}
 		}
@@ -433,7 +436,8 @@ public class clubController {
 		List<foot_team_DTO> recruitteam = clubservice.recruitteam();
 		model.addAttribute("allteam", allteam);
 		model.addAttribute("recruitteam", recruitteam);
-
+		model.addAttribute("title", "club");
+		model.addAttribute("menuNum", 1);
 		return "clubsearch_no.tiles";
 	}
 

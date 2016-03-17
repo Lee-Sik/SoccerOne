@@ -95,31 +95,9 @@
 <definition name="modifyfail.tiles" template="/WEB-INF/views/login/modifyfail.jsp">
 </definition>
 
-<definition name="teamView.tiles" template="/WEB-INF/views/team/teamView.jsp">
-</definition>
-
 <definition name="exit.tiles" template="/WEB-INF/views/join/exit.jsp">
 </definition>
 
-<definition name="exit1.tiles" template="/WEB-INF/views/team/cal/exit1.jsp">
-</definition>
-
-<definition name="writecal.tiles" template="/WEB-INF/views/team/cal/writecal.jsp">
-</definition>
-
-<definition name="caldetail.tiles" template="/WEB-INF/views/team/cal/caldetail.jsp">
-</definition>
-
-<definition name="caldetail1.tiles" template="/WEB-INF/views/team/cal/caldetail1.jsp">
-</definition>
-
-<definition name="team_create.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/team/createTeam.jsp" />
-</definition>
-
-<definition name="team_createAf.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/team/createTeamAf.jsp" />
-</definition>
 
 <definition name="login.tiles" template="/WEB-INF/views/layouts-tiles.jsp">
 	<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
@@ -365,6 +343,29 @@
 
 <definition name="clubsearch_yes1.tiles" extends="team_club.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/clubsearch_yes1.jsp" />
+</definition>
+
+<definition name="teamView.tiles" template="/WEB-INF/views/team/teamView.jsp">
+</definition>
+
+<definition name="exit1.tiles" template="/WEB-INF/views/team/cal/exit1.jsp">
+</definition>
+
+<definition name="writecal.tiles" template="/WEB-INF/views/team/cal/writecal.jsp">
+</definition>
+
+<definition name="caldetail.tiles" template="/WEB-INF/views/team/cal/caldetail.jsp">
+</definition>
+
+<definition name="caldetail1.tiles" template="/WEB-INF/views/team/cal/caldetail1.jsp">
+</definition>
+
+<definition name="team_create.tiles" extends="team_club.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/createTeam.jsp" />
+</definition>
+
+<definition name="team_createAf.tiles" extends="team_club.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/createTeamAf.jsp" />
 </definition>
 <!-- Club -->
 
