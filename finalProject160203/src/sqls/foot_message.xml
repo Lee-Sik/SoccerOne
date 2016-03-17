@@ -9,15 +9,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 									#{receiver_user_email},0,sysdate,#{message},#{teamapplymegre},#{mercenaryre},#{matchingre})
 	</insert>
 	<select id="messagecheck" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.foot_message_DTO">
-	select * from foot_message where receiver_user_email=#{user_email}
+	select * from foot_message where receiver_user_email=#{user_email} order by no desc
 	</select>
 	
 	<select id="messagecheck1" parameterType="soccer.co.DTO.foot_user_DTO" resultType="soccer.co.DTO.foot_message_DTO">
-	select * from foot_message where receiver_user_email=#{user_email} and message_read=0
+	select * from foot_message where receiver_user_email=#{user_email} and message_read=0 order by no desc
 	</select>
 	
 	<select id="messagedetail" parameterType="soccer.co.DTO.foot_message_DTO" resultType="soccer.co.DTO.foot_message_DTO">
-	select * from foot_message where no=#{no}
+	select * from foot_message where no=#{no} 
 	</select>
 	
 	<update id="messageread" parameterType="soccer.co.DTO.foot_message_DTO">

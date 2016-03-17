@@ -18,6 +18,37 @@ body{
 <body>
 
 
+<div align="center">
+<p style="width: 100%;background-color: black; font-size: 20pt; color: white;"><b>이달의선수</b></p>
+<table>
+<c:if test="${not empty fulist}">
+ <tr> 
+   <c:forEach items="${fulist}" var="a" begin="1" end="4">
+     
+            <td style="background-color: lightblue">
+            <img alt="${a.user_profile}" src="image/${a.user_profile}" style="width: 150px;">
+            <p style="text-align: center; color:white"><b>${a.user_name}</b></p>
+            
+            </td> 
+           
+      
+   </c:forEach>
+   </tr>
+    <tr> 
+   <c:forEach items="${fulist}" var="b" begin="4" end="7">
+            <td>
+            <img alt="${b.user_profile}" src="image/${b.user_profile}" style="width: 150px;"><br>
+            ${b.user_name}
+            </td> 
+   </c:forEach>
+   </tr>
+</c:if>
+</table>
+
+</div>
+
+
+
 <div>
 <table class="list_table">
 <colgroup>
@@ -230,35 +261,6 @@ body{
 
 
 
-
-<div>
-회원목록
-<table>
-<c:if test="${not empty fulist}">
- <tr> 
-   <c:forEach items="${fulist}" var="a" begin="1" end="4">
-     
-            <td>
-            <img alt="${a.user_profile}" src="image/${a.user_profile}" style="width: 150px;"><br>
-            ${a.user_name}
-            
-            </td> 
-           
-      
-   </c:forEach>
-   </tr>
-    <tr> 
-   <c:forEach items="${fulist}" var="b" begin="4" end="7">
-            <td>
-            <img alt="${b.user_profile}" src="image/${b.user_profile}" style="width: 150px;"><br>
-            ${b.user_name}
-            </td> 
-   </c:forEach>
-   </tr>
-</c:if>
-</table>
-
-</div>
 
 
 
