@@ -14,5 +14,6 @@ public interface foot_userService {
 	public boolean modify(foot_user_DTO fudto1) throws Exception;
 	public List<foot_user_DTO> userList()throws Exception;
 	public List<foot_user_DTO> emaillist();
+	public List<foot_user_DTO> userList1();
 	
 }
