@@ -187,6 +187,7 @@
 <!-- booking -->
 <definition name="stadium_write.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/stadium_write.jsp" />
+	<put-attribute name="menu" value="/WEB-INF/views/bbs/community_menu.jsp"/>
 </definition>
 
 <definition name="bookingList.tiles" extends="login.tiles">
@@ -211,19 +212,23 @@
 
 <definition name="stadiumList.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/stadiumList.jsp"/>
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 
 <definition name="booking_write.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/booking_write.jsp"/>
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 
 <definition name="bookingDetail.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/bookingDetail.jsp"/>
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 <!-- booking -->
 
 <definition name="stadiumUpdate.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/stadiumUpdate.jsp" />
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 
 <!-- Free booking -->
@@ -234,10 +239,12 @@
 
 <definition name="fbookingWrite.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingWrite.jsp"/>
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 
 <definition name="fbookingDetail.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingDetail.jsp"/>
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 <!-- Free booking -->
 
@@ -249,10 +256,12 @@
 
 <definition name="faManWrite.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/faMan/faManWrite.jsp"/>
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 
 <definition name="faManDetail.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/faMan/faManDetail.jsp"/>
+	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 <!-- faMan -->
 

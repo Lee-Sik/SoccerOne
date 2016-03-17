@@ -89,6 +89,7 @@ public class faManController {
 			model.addAttribute("con", context);
 			model.addAttribute("post1", post1);
 			model.addAttribute("title", "faplayer");
+			model.addAttribute("menuNum", 2);
 
 			return "faManWrite.tiles";
 
@@ -147,6 +148,7 @@ public class faManController {
 		model.addAttribute("nextDTO", nextDTO);
 		model.addAttribute("fdto", dto);
 		model.addAttribute("title", "faplayer");
+		model.addAttribute("menuNum", 2);
 
 		return "faManDetail.tiles";
 	}

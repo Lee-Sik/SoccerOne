@@ -160,6 +160,8 @@ public class userController {
 	     String result = Integer.toString(a) + Integer.toString(b) + Integer.toString(c) + Integer.toString(d)
 	     + Integer.toString(e)+ Integer.toString(f);
 		
+	     
+	     
 		List<foot_user_DTO> emaillist = fuservice.emaillist();
 		System.out.println(emaillist.size());
 		model.addAttribute("emaillist", emaillist);
@@ -200,6 +202,28 @@ public class userController {
 		} else {
 			fudto.setUser_profile("noimage.jpeg");
 		}
+		
+		System.out.println("1 : " + fudto.getUser_birth());
+		System.out.println("2 : " + fudto.getUser_pw());
+		System.out.println("3 : " + fudto.getUser_name());
+		System.out.println("4 : " + fudto.getUser_birth());
+		System.out.println("5 : " + fudto.getUser_age());
+		System.out.println("6 : " + fudto.getUser_phone());
+		System.out.println("7 : " + fudto.getUser_high());
+		System.out.println("8 : " + fudto.getUser_weight());
+		System.out.println("9 : " + fudto.getUser_foot());
+		System.out.println("10 : " + fudto.getUser_position1());
+		System.out.println("11 : " + fudto.getUser_position2());
+		System.out.println("12 : " + fudto.getUser_position3());
+		System.out.println("13 : " + fudto.getUser_address());
+		System.out.println("14 : " + fudto.getUser_profile());
+		System.out.println("15 : " + fudto.getUser_helper());
+		System.out.println("16 : " + fudto.getUser_enabled());
+		
+		
+		
+		
+		
 		
 		
 		boolean join = fuservice.join(fudto);

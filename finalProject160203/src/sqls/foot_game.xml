@@ -136,5 +136,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="statechange" parameterType="soccer.co.DTO.foot_game_DTO">
 	 	update foot_publicgame set game_state=1, team_name1=#{team_name1} where game_no=#{game_no}
 	</update>
+	
+	<delete id="gameRecordDelete" parameterType="soccer.co.DTO.foot_game_DTO">
+		delete from FOOT_GAME_RECORD where game_no = #{game_no}
+	</delete>
+	<delete id="publicgameDelete" parameterType="soccer.co.DTO.foot_game_DTO">
+		delete from foot_publicgame where game_no = #{game_no}
+	</delete>
  
 </mapper>
