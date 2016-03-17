@@ -79,7 +79,8 @@ public class userController {
 		List<foot_community_DTO> bbslist=BBSService.getBBSList();
 		
 		model.addAttribute("bbslist", bbslist);
-		
+		List<foot_user_DTO> fulist=fuservice.userList1();
+		model.addAttribute("fulist", fulist);
 		request.getSession().setAttribute("team", team);
 		request.getSession().setAttribute("login", login);
 		return login1;
@@ -90,6 +91,8 @@ public class userController {
 		logger.info("Welcome HelloMemberController login1! " + new Date());
 		List<foot_community_DTO> bbslist=BBSService.getBBSList();
 		model.addAttribute("bbslist", bbslist);
+		List<foot_user_DTO> fulist=fuservice.userList1();
+		model.addAttribute("fulist", fulist);
 		return "login.tiles";
 	}
 	

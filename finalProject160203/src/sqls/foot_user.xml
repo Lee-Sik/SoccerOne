@@ -81,6 +81,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	SELECT * FROM foot_user
 	</select>
 	
+	<select id="userList1" resultType="soccer.co.DTO.foot_user_DTO">
+	 
+	<![CDATA[
+  	   SELECT * FROM foot_user where ROWNUM <= 15
+  	   ]]>
+	</select>
+	
 
 
 </mapper>

@@ -69,4 +69,11 @@ public class foot_user_DAO{
 		return list;
 	}
 
+
+	public List<foot_user_DTO> userList1() {
+		// TODO Auto-generated method stub
+		List<foot_user_DTO> list = sqlse.selectList(ns+"userList1");
+		return list;
+	}
+
 }

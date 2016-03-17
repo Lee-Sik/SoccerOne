@@ -56,5 +56,11 @@ public class foot_userService_impl implements foot_userService{
 		// TODO Auto-generated method stub
 		return fudao.emaillist();
 	}
+
+	@Override
+	public List<foot_user_DTO> userList1() {
+		// TODO Auto-generated method stub
+		return fudao.userList1();
+	}
 	
 }
