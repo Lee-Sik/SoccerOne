@@ -117,86 +117,115 @@ function function1(val){
 	var c = document.f.user_high.value;
 	var d = document.f.user_weight.value;
 	
-	 /* if(count=='0'){
-		 alert("${qwe}");
-			alert("이메일을 인증해주세요.");
-		}
-	 else  */if(pw[0].value.length<=5||pw[0].value.length>=10){
+	var address1 = document.f.user_address1.value;
+	var address2 = document.f.user_address2.value;
+	var address3 = document.f.user_address3.value;
+	var address = document.f.user_address;
+	
+	var foot1 = document.f.user_foot1.value;
+	var foot = document.f.user_foot;
+	
+	var c = address1 + "-" + address2 + "-" + address3;
+	
+	var helper = document.f.user_helper.value;
+	var user_helper = document.f.user_helper;
+	
+	var enabled = document.f.user_enabled.value;
+	var user_enabled = document.f.user_enabled;
+	
+	var position11 = document.f.user_position11.value;
+	var position12 = document.f.user_position12.value;
+	var position13 = document.f.user_position13.value;
+	var position1 = document.f.user_position1;
+	var position2 = document.f.user_position2;
+	var position3 = document.f.user_position3;
+	
+	var phone1 = document.f.user_phone1.value;
+	var phone1 = document.f.user_phone1.value;
+
+	var phone1 = document.f.user_phone1.value;
+	var phone2 = document.f.user_phone2.value;
+	var phone3 = document.f.user_phone3.value;
+	var phone = document.f.user_phone;
+	var a = phone3 + "-" + phone1 + "-" + phone2;
+	
+	var birth1 = document.f.user_birth1.value;
+	var birth2 = document.f.user_birth2.value;
+	var birth3 = document.f.user_birth3.value;
+	var birth = document.f.user_birth;
+	var b = birth1 + "-" + birth2 + "-" + birth3;
+	
+	if(pw[0].value.length<=5||pw[0].value.length>=10){
 		alert("비밀번호는 6자리부터 9자리까지만 입력하셔야합니다.");
-		
+		return;
 	}
 	else if(pw1[0].value!=pw[0].value){
 		alert("비밀번호와 비밀번호 확인의 값은 같아야합니다.");
-		
+		return;
 	} 
 	else if(name[0].value.length<=1||name[0].value.length>=6){
 		alert("이름은 2자리부터 5자리까지 입력하셔야합니다.");
-		
+		return;
 	}else if(a==''){
 		alert("나이를 입력하세요");
+		return;
 	}
 	else if(b==''){
 		alert("주발을 입력하세요");
+		return;
 	}
 	else if(c==''){
 		alert("키를 입력하세요");
+		return;
 	}
 	else if(d==''){
 		alert("몸무게를 입력하세요");
+		return;
 	}
 	else{
-		var helper = document.f.user_helper.value;
-		var user_helper = document.f.user_helper;
+		
+		if(phone1 =='' || phone2==''|| phone3==''){
+			alert("폰번호를 모두 입력하세요");
+			return;
+		}
+		if(birth1 =='' || birth2==''|| birth3==''){
+			alert("생일을 모두 입력하세요");
+			return;
+		}
+		if(position1 =='' || position2 ==''|| position3==''){
+			alert("포지션을 모두 입력하세요");
+			return;
+		}
+		
+		if(address1 ==''){
+			alert("주소1은 반듯이 입력하세요");
+			return;
+		}
+		
+		
+		
 		if(helper=="on"){
 			user_helper.value=1;
 		}else if(helper=="off"){
 			user_helper.value=0;
 		}
 		
-		var enabled = document.f.user_enabled.value;
-		var user_enabled = document.f.user_enabled;
 		if(enabled=="on"){
 			user_enabled.value=1;
 		}else if(enabled=="off"){
 			user_enabled.value=0;
 		}
 		
-		var foot1 = document.f.user_foot1.value;
-		var foot = document.f.user_foot;
 		foot.value = foot1;
-		var position11 = document.f.user_position11.value;
-		var position12 = document.f.user_position12.value;
-		var position13 = document.f.user_position13.value;
-		var position1 = document.f.user_position1;
-		var position2 = document.f.user_position2;
-		var position3 = document.f.user_position3;
+	
 		position1.value = position11;
 		position2.value = position12;
 		position3.value = position13;
-
-		var phone1 = document.f.user_phone1.value;
-		var phone1 = document.f.user_phone1.value;
-
-		var phone1 = document.f.user_phone1.value;
-		var phone2 = document.f.user_phone2.value;
-		var phone3 = document.f.user_phone3.value;
-		var phone = document.f.user_phone;
-		var a = phone3 + "-" + phone1 + "-" + phone2;
+	
 		phone.value = a;
 
-		var birth1 = document.f.user_birth1.value;
-		var birth2 = document.f.user_birth2.value;
-		var birth3 = document.f.user_birth3.value;
-		var birth = document.f.user_birth;
-		var b = birth1 + "-" + birth2 + "-" + birth3;
 		birth.value = b;
 
-		
-		var address1 = document.f.user_address1.value;
-		var address2 = document.f.user_address2.value;
-		var address3 = document.f.user_address3.value;
-		var address = document.f.user_address;
-		var c = address1 + "-" + address2 + "-" + address3;
 		address.value = c;
 		
 		document.f.submit();
