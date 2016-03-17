@@ -9,6 +9,8 @@
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="CSS/styles.css">
 <SCRIPT LANGUAGE="JavaScript" SRC="https://www.ionnuri.org/ks20/js/jquery/jquery.js"></SCRIPT>
+
+
 <script type="text/javascript">
 	
 var num;
@@ -140,7 +142,7 @@ td.td2 {
 							<div class="book_write" style="width: 95%; margin-top: -3%;">
 					
 
-                                    <ul class="input_list">
+                                    <ul class="input_list" style="padding: 0;">
                                     	<li>
                                             <span class="title">등록자</span>
                                             <input type="text" class="title" id="user_email" name="user_email" value="${login.user_email}" vname="등록자" required="required" readonly="readonly" style="margin-left: -70%;"/>

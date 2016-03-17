@@ -112,9 +112,16 @@ public class foot_game_DAO{
 		return fgr;
 	}
 	public boolean publicgameDelete(foot_game_DTO fgdto)throws Exception{
-		System.out.println("dao : " + fgdto.getGame_no());
+	
 		sqlse.delete(ns+"gameRecordDelete", fgdto);
 		sqlse.delete(ns+"publicgameDelete", fgdto);
+		return true;
+		
+	}
+	public boolean freegameDelete(foot_game_DTO fgdto)throws Exception{
+	
+		sqlse.delete(ns+"freegameDelete", fgdto);
+		
 		return true;
 		
 	}

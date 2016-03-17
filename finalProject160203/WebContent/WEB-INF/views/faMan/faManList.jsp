@@ -91,14 +91,9 @@ function write1() {
 					<c:forEach var="dto" items="${post1}">
 					
 					<c:choose>
-						<c:when test="${dto.gugun=='강남구'}">
-						<li class="" style="width:7.1399%; display: none;">
-						<a href="./fbookingList.do?location=${dto.gugun}">${dto.gugun}</a>
-						</li>
-						</c:when>
-						
+								
 						<c:when test="${dto.gugun=='중구'}">
-						<li class="" style="width:7.6%;">
+						<li class="" style="width:7.6%; display: none;">
 						<a href="./fbookingList.do?fa_man_location=${dto.gugun}">${dto.gugun}</a>
 						</li>
 						</c:when>

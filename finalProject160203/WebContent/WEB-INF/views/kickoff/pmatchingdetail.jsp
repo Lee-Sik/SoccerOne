@@ -130,29 +130,13 @@ $("#_btnUpdate").click(function() {
 });
 
 
-	function delete1() {
-		 alert("Dd");
-		 /*	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-			location.href="./publicgameDelete.do?game_no=" + no;
-		}else{   //취소
-		    return;
-		} */
-	}
-
 	$("#delete1").click(function() {	
 	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
 		var no = "${pmd.game_no}";
-		alert(no);
 		location.href="./publicgameDelete.do?game_no=" + no;
 	}else{   //취소
 	    return;
 	} 
 	});
-
-
-
-
-
-
 
 </script>

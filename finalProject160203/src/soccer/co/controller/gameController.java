@@ -655,10 +655,16 @@ public class gameController {
 	}
 	@RequestMapping(value = "publicgameDelete.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String publicgameDelete(foot_game_DTO fgdto, Model model, HttpServletRequest request) throws Exception {
-		
-		System.out.println("dddd : " + fgdto.getGame_no());
-		
+
 		fgameservice.publicgameDelete(fgdto);
+		
+		return "redirect:/kickoff.do";
+	}
+	
+	@RequestMapping(value = "freegameDelete.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String freegameDelete(foot_game_DTO fgdto, Model model, HttpServletRequest request) throws Exception {
+
+		fgameservice.freegameDelete(fgdto);
 		
 		return "redirect:/kickoff.do";
 	}

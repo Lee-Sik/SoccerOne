@@ -10,6 +10,7 @@
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="./editor/js/HuskyEZCreator.js" charset="utf-8"></script>
+
  
 <!-- Smart Editor -->
 <!-- Smart Editor -->
@@ -63,14 +64,14 @@ $(document).ready(function(){
 			<form id="frm" action="fbookingWrite_ok.do" method="post" >
 				
 				<div class="writeList">
-					<ul class="bbs-wtinfo">
+					<ul class="bbs-wtinfo" style="padding: 0;">
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">글제목</span>
 							<input type="text" class="title" name="free_b_title" id="free_b_title" value="${fdto.free_b_title}" maxlength="100" style="margin-left: -100px;"/>
 						</li>
 					</ul>
 					
-					<ul class="bbs-wtinfo">
+					<ul class="bbs-wtinfo" style="padding: 0;">
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">주소</span>
 							<input type="text" class="title" id="addr1" name="free_b_addr" value="${fdto.free_b_addr}" maxlength="100" style="margin-left: -100px;"
@@ -78,7 +79,7 @@ $(document).ready(function(){
 						</li>
 					</ul>
 					
-					<ul class="bbs-wtinfo">
+					<ul class="bbs-wtinfo" style="padding: 0;">
 						<li class="title">
 							<span class="title" style="margin-left: 50px;">카테고리</span>
 							<div style="margin-left: -440px;">
@@ -100,7 +101,8 @@ $(document).ready(function(){
 					</ul>
 	
 					<div class="editer" style="margin-left: 5.5%;">
-						<textarea id="content" name="free_b_content">${fdto.free_b_content}</textarea>
+						<%-- <textarea id="content" name="free_b_content">${fdto.free_b_content}</textarea> --%>
+						<textarea rows="10" cols="30" id="content" name="free_b_content" style="width:825px; height:412px; ">${fdto.free_b_content}</textarea>
 					</div>
 					<script type="text/javascript">
  
