@@ -225,6 +225,7 @@
 <!-- faMan -->
 <definition name="faManList.tiles" extends="bookingList.tiles">
 	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp"/>
+	<put-attribute name="main" value="/WEB-INF/views/faMan/faManList.jsp"/>
 </definition>
 
 <definition name="faManWrite.tiles" extends="bookingList.tiles">
