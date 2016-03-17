@@ -167,14 +167,13 @@
 <!-- kickoff -->
 
 <!-- booking -->
-<definition name="stadium_write.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/stadium/stadium_write.jsp" />
-	<put-attribute name="menu" value="/WEB-INF/views/bbs/community_menu.jsp"/>
-</definition>
-
 <definition name="bookingList.tiles" extends="login.tiles">
 	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 	<put-attribute name="main" value="/WEB-INF/views/stadium/bookingList.jsp" />
+</definition>
+
+<definition name="stadium_write.tiles" extends="bookingList.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/stadium/stadium_write.jsp" />
 </definition>
 
 <definition name="zipsearch.tiles" template="/WEB-INF/views/stadium/zipsearch.jsp">
@@ -192,58 +191,48 @@
 <definition name="post_result.tiles" template="/WEB-INF/views/stadium/post_result.jsp">
 </definition>
 
-<definition name="stadiumList.tiles" extends="login.tiles">
+<definition name="stadiumList.tiles" extends="bookingList.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/stadiumList.jsp"/>
-	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 
-<definition name="booking_write.tiles" extends="login.tiles">
+<definition name="booking_write.tiles" extends="bookingList.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/booking_write.jsp"/>
-	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 
-<definition name="bookingDetail.tiles" extends="login.tiles">
+<definition name="bookingDetail.tiles" extends="bookingList.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/bookingDetail.jsp"/>
-	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 <!-- booking -->
 
-<definition name="stadiumUpdate.tiles" extends="login.tiles">
+<definition name="stadiumUpdate.tiles" extends="bookingList.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/stadiumUpdate.jsp" />
-	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 
 <!-- Free booking -->
-<definition name="fbookingList.tiles" extends="login.tiles">
-	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
+<definition name="fbookingList.tiles" extends="bookingList.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingList.jsp"/>
 </definition>
 
-<definition name="fbookingWrite.tiles" extends="login.tiles">
+<definition name="fbookingWrite.tiles" extends="bookingList.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingWrite.jsp"/>
-	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 
-<definition name="fbookingDetail.tiles" extends="login.tiles">
+<definition name="fbookingDetail.tiles" extends="bookingList.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingDetail.jsp"/>
-	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 <!-- Free booking -->
 
 <!-- faMan -->
-<definition name="faManList.tiles" extends="login.tiles">
+<definition name="faManList.tiles" extends="bookingList.tiles">
 	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp"/>
-	<put-attribute name="main" value="/WEB-INF/views/faMan/faManList.jsp"/>
 </definition>
 
-<definition name="faManWrite.tiles" extends="login.tiles">
+<definition name="faManWrite.tiles" extends="bookingList.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/faMan/faManWrite.jsp"/>
-	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 
-<definition name="faManDetail.tiles" extends="login.tiles">
+<definition name="faManDetail.tiles" extends="bookingList.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/faMan/faManDetail.jsp"/>
-	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 </definition>
 <!-- faMan -->
 
