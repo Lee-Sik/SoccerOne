@@ -1,18 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<link href="CSS/clubview.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<form action="clubsearch_yes1.do" method="post">
-		<p style="text-align: left; border: 1px solid black">
-			팀 명 : <input type="text" name="team_name"><br> 활동 지역 : <select
+
+	<table class="list_table" width="100%">
+		<tr>
+			<td colspan="3">
+				<form action="clubsearch_yes1.do" method="post">
+				팀 명 : <input type="text" name="team_name"> 활동 지역 : <select
 				name="team_location1">
 				<option>전 지역</option>
 				<c:forEach items="${list}" var="vo">
@@ -20,14 +23,13 @@
 				</c:forEach>
 			</select> 
 			<input type="submit" value="검색">
-		</p>
-	</form>
-
-	<table width="100%">
+			</form>
+			</td>
+		</tr>
 		<tr>
-			<td>클럽명</td>
-			<td>팀로고</td>
-			<td>팀활동지역</td>
+			<th>클럽명</th>
+			<th>팀로고</th>
+			<th>팀 활동 지역</th>
 		</tr>
 
 
