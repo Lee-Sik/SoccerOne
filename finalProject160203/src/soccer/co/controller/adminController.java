@@ -39,7 +39,12 @@ public class adminController {
 	
 	@RequestMapping(value = "adminmain.do", method = { RequestMethod.GET,RequestMethod.POST })
 	public String adminMain(foot_game_DTO fgdto, HttpServletRequest request, Model model)throws Exception{
-		
+		HttpSession hs=request.getSession();
+		foot_user_DTO user = (foot_user_DTO) hs.getAttribute("login");
+		if(user==null || !user.getUser_email().equals("admin")){
+			System.out.println("no Admin");
+			 return "redirect:/noAdmin.do";
+		}
 		String day = request.getParameter("day");
 
 		if(day==null || day.equals(null)){
