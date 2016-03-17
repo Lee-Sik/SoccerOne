@@ -72,6 +72,70 @@
 			<input type="submit" value="양천구">
 		</form></td>
 	</tr>
+	<tr>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="강북구">
+			<input type="submit" value="강북구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="중랑구">
+			<input type="submit" value="중랑구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="동작구">
+			<input type="submit" value="동작구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="서대문구">
+			<input type="submit" value="서대문구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="강동구">
+			<input type="submit" value="강동구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="구로구">
+			<input type="submit" value="구로구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="성동구">
+			<input type="submit" value="성동구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="용산구">
+			<input type="submit" value="성북구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="성북구">
+			<input type="submit" value="성북구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="서초구">
+			<input type="submit" value="서초구">
+		</form></td>
+	</tr>
+	<tr>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="도봉구">
+			<input type="submit" value="도봉구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="종로구">
+			<input type="submit" value="종로구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="동대문구">
+			<input type="submit" value="동대문구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="중구">
+			<input type="submit" value="중구">
+		</form></td>
+		<td><form action="./rankingAf.do" method="post">
+			<input type="hidden" name="team_location" value="금천구">
+			<input type="submit" value="금천구">
+		</form></td>
+	</tr>
 </table>
 <br><br>
 
