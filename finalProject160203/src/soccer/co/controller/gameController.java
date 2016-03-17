@@ -349,7 +349,7 @@ public class gameController {
 
 			cw.writeCsv(dataAll);
 
-			model.addAttribute("title", "publicmatch");
+			model.addAttribute("title", "kickoff");
 			model.addAttribute("menuNum", 0);
 			
 			return "kickoff.tiles";
@@ -384,8 +384,8 @@ public class gameController {
 			return "redirect:loginpopup1.do";
 		} else {
 
-			model.addAttribute("title", "publicmatch");
-			model.addAttribute("menuNum", 4);
+			model.addAttribute("title", "publicmatchsearch");
+			model.addAttribute("menuNum", 5);
 			model.addAttribute("mode", mode);
 			
 			return "pmatchingsearch.tiles";
@@ -411,8 +411,8 @@ public class gameController {
 
 			model.addAttribute("pmatchingsearchlist", pmatchingsearchlist);
 
-			model.addAttribute("title", "publicmatch");
-			model.addAttribute("menuNum", 4);
+			model.addAttribute("title", "publicmatchsearch");
+			model.addAttribute("menuNum", 5);
 			return "pmatchingsearch.tiles";
 
 		}
@@ -430,8 +430,8 @@ public class gameController {
 			return "redirect:loginpopup1.do";
 		} else {
 
-			model.addAttribute("title", "freematch");
-			model.addAttribute("menuNum", 5);
+			model.addAttribute("title", "freematchsearch");
+			model.addAttribute("menuNum", 6);
 			model.addAttribute("mode", mode);
 			return "fmatchingsearch.tiles";
 
@@ -454,8 +454,8 @@ public class gameController {
 			}
 			model.addAttribute("fmatchingsearchlist", fmatchingsearchlist);
 
-			model.addAttribute("title", "freematch");
-			model.addAttribute("menuNum", 5);
+			model.addAttribute("title", "freematchsearch");
+			model.addAttribute("menuNum", 6);
 			return "fmatchingsearch.tiles";
 
 		}
@@ -473,8 +473,8 @@ public class gameController {
 			return "redirect:loginpopup1.do";
 		} else {
 
-			model.addAttribute("title", "publicmatch");
-			model.addAttribute("menuNum", 1);
+			model.addAttribute("title", "publicmatchadd");
+			model.addAttribute("menuNum", 2);
 			model.addAttribute("mode", mode);
 			return "publicgame.tiles";
 
@@ -520,7 +520,7 @@ public class gameController {
 
 			model.addAttribute("pmd", fgd);
 			model.addAttribute("title", "publicmatch");
-			model.addAttribute("menuNum", 4);
+			model.addAttribute("menuNum", 5);
 
 			return "pmatchingdetail.tiles";
 
@@ -550,8 +550,8 @@ public class gameController {
 			return "redirect:loginpopup1.do";
 		} else {
 			
-			model.addAttribute("title", "freematch");
-			model.addAttribute("menuNum", 2);
+			model.addAttribute("title", "freematchadd");
+			model.addAttribute("menuNum", 3);
 			model.addAttribute("mode", mode);
 			return "freegame.tiles";
 
@@ -589,7 +589,7 @@ public class gameController {
 
 			model.addAttribute("fmd", fgd);
 			model.addAttribute("title", "freematch");
-			model.addAttribute("menuNum", 5);
+			model.addAttribute("menuNum", 6);
 
 			return "fmatchingdetail.tiles";
 
@@ -603,7 +603,7 @@ public class gameController {
 		logger.info("Welcome gameController ranking! " + new Date());
 
 		model.addAttribute("title", "rank");
-		model.addAttribute("menuNum", 6);
+		model.addAttribute("menuNum", 7);
 
 		return "ranking.tiles";
 	}
@@ -622,7 +622,7 @@ public class gameController {
 
 		model.addAttribute("location", team_location);
 		model.addAttribute("title", "rank");
-		model.addAttribute("menuNum", 6);
+		model.addAttribute("menuNum", 7);
 
 		return "rankingaf.tiles";
 	}
@@ -640,7 +640,7 @@ public class gameController {
 
 			model.addAttribute("pmd", fgd);
 			model.addAttribute("title", "rank");
-			model.addAttribute("menuNum", 6);
+			model.addAttribute("menuNum", 7);
 
 			return "rankapply.tiles";
 
