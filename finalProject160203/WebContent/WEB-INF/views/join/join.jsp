@@ -108,6 +108,7 @@ function selectval1(val){
 
 
 function function1(val){
+	
 	event.preventDefault();
 	var pw = document.getElementsByName('user_pw');
 	var pw1 = document.getElementsByName('user_pw1');
@@ -139,9 +140,6 @@ function function1(val){
 	var position1 = document.f.user_position1;
 	var position2 = document.f.user_position2;
 	var position3 = document.f.user_position3;
-	
-	var phone1 = document.f.user_phone1.value;
-	var phone1 = document.f.user_phone1.value;
 
 	var phone1 = document.f.user_phone1.value;
 	var phone2 = document.f.user_phone2.value;
@@ -202,8 +200,6 @@ function function1(val){
 			return;
 		}
 		
-		
-		
 		if(helper=="on"){
 			user_helper.value=1;
 		}else if(helper=="off"){
@@ -229,8 +225,6 @@ function function1(val){
 		address.value = c;
 		
 		document.f.submit();
-	
-	
 	}
 	
 	
