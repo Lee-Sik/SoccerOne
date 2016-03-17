@@ -96,7 +96,7 @@ public class stadiumController {
 
 			model.addAttribute("result", result);
 			model.addAttribute("ulist", ulist);
-
+			model.addAttribute("menuNum", 0);
 			return "stadium_write.tiles";
 
 		}
@@ -285,9 +285,9 @@ public class stadiumController {
 			 * "stadiumImg";
 			 */
 
-			/*String path = "//211.238.142.152/공유/ryu";*/
+			String path = "//211.238.142.152/공유/ryu";
 			
-			String path = "C:/poto";
+			/*String path = "C:/poto";*/
 
 			File dir = new File(path);
 			if (!dir.exists()) {
@@ -354,6 +354,7 @@ public class stadiumController {
 			} else {
 				System.out.println("empty!!!!!!!!");
 				dto.setStadium_img1("");
+				
 			}
 
 			try {
@@ -396,7 +397,7 @@ public class stadiumController {
 			model.addAttribute("user_email", user_email);
 			model.addAttribute("slist", slist);
 			model.addAttribute("title", "publicbooking");
-
+			model.addAttribute("menuNum", 0);
 			return "stadiumList.tiles";
 
 		}
@@ -462,7 +463,7 @@ public class stadiumController {
 			model.addAttribute("stadium_name", stadium_name);
 			model.addAttribute("post1", post1);
 			model.addAttribute("title", "부킹등록");
-
+			model.addAttribute("menuNum", 0);
 			return "booking_write.tiles";
 
 		}
@@ -565,7 +566,7 @@ public class stadiumController {
 			model.addAttribute("sdto", sdto);
 			model.addAttribute("bdto", bdto);
 			model.addAttribute("title", "publicbooking");
-
+			model.addAttribute("menuNum", 0);
 			return "bookingDetail.tiles";
 
 		}

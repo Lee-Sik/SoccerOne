@@ -106,5 +106,11 @@ public class foot_gameService_impl implements foot_gameService{
 	public foot_game_record getrecordInsert(foot_game_record fgr) throws Exception {
 		return fgdao.getrecordInsert(fgr);
 	}
+
+	@Override
+	public boolean publicgameDelete(foot_game_DTO fgdto) throws Exception {
+		
+		return fgdao.publicgameDelete(fgdto);
+	}
 	
 }

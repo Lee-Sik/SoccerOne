@@ -92,6 +92,7 @@ public class freeBookingController {
 			model.addAttribute("con", context);
 			model.addAttribute("post1", post1);
 			model.addAttribute("title", "freebooking");
+			model.addAttribute("menuNum", 1);
 			return "fbookingWrite.tiles";
 
 		}
@@ -150,6 +151,7 @@ public class freeBookingController {
 		model.addAttribute("nextDTO", nextDTO);
 		model.addAttribute("fdto", dto);
 		model.addAttribute("title", "freebooking");
+		model.addAttribute("menuNum", 1);
 
 		return "fbookingDetail.tiles";
 	}

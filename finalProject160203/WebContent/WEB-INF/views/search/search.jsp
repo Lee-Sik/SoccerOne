@@ -16,11 +16,14 @@
 $(document).ready(function(){
 	
 	$("#ids").click(function(){
-		
+		$("#ids").attr('class','on searchKind');
+		$("#pws").attr('class','searchKind');
 		$("#idsearch").css("display", "block");
 		$("#pwsearch").css("display", "none");
 	});
 	$("#pws").click(function(){
+		$("#ids").attr('class','searchKind');
+		$("#pws").attr('class','on searchKind');
 		$("#pwsearch").css("display", "block");
 		$("#idsearch").css("display", "none");
 		
@@ -129,8 +132,8 @@ $(document).ready(function(){
 			<h2 class="find">싸커원 회원정보 찾기</h2>
 			<div class="findForm">
 				<div class="tab_id-or-pass">
-					<ul class="tab-nav nav_ip">
-						<li class="on searchKind" go="find_id" searchKind="id" id="ids">아이디d찾기</li>
+					<ul class="tab-nav nav_ip">				
+						<li class="on searchKind" go="find_id" searchKind="id" id="ids"> 이메일찾기 </li>
 						<li class="searchKind" go="find_pass" searchKind="pw" id="pws">비밀번호찾기</li>
 					</ul>
 					<div class="find on find_id" to="find_id" id="idsearch">

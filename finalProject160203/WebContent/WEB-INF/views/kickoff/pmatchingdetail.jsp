@@ -5,6 +5,7 @@
 <link href="CSS/bbstable.css" rel="stylesheet" >
 
 
+
 <form name="frmForm" id="_frmForm" method="post" action="bbsupdate.do">
 <table class="list_table" style="width:50%;">
 <%-- <input type="hidden" name="seq" value="${bbs.bbs_no}"/> --%>
@@ -82,6 +83,9 @@
 </tbody>		
 </table>
 
+<c:if test="${login.user_email == pmd.team_managerid}">
+<input type="button" name="delete1" id="delete1" value="삭 제">
+</c:if>
 <%-- 답글달기 --%>
 <%-- 
 <c:if test="${login.id ne bbs.id}">
@@ -94,6 +98,8 @@
 </c:if>
 --%>
 </form>
+
+
 
 <%-- <c:if test="${login.user_email ne bbs.user_email}"> --%>
 <!-- <form action="bbsreply.do" method="post"> -->
@@ -122,6 +128,31 @@ $("#_btnUpdate").click(function() {
 	submitContents($("#_frmForm"));
 //	$("#_frmForm").attr({ "target":"_self", "action":"bbswriteAf.do" }).submit();
 });
+
+
+	function delete1() {
+		 alert("Dd");
+		 /*	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+			location.href="./publicgameDelete.do?game_no=" + no;
+		}else{   //취소
+		    return;
+		} */
+	}
+
+	$("#delete1").click(function() {	
+	if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+		var no = "${pmd.game_no}";
+		alert(no);
+		location.href="./publicgameDelete.do?game_no=" + no;
+	}else{   //취소
+	    return;
+	} 
+	});
+
+
+
+
+
 
 
 </script>

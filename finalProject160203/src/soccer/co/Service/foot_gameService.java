@@ -29,4 +29,6 @@ public interface foot_gameService {
 	List<foot_game_DTO> adminMainList(foot_game_DTO fgdto)throws Exception;
 	foot_game_record getrecordInsert(foot_game_record fgr)throws Exception;
 	
+	public boolean publicgameDelete(foot_game_DTO fgdto)throws Exception;
+	
 }
