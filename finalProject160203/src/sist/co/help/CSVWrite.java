@@ -10,14 +10,14 @@ import au.com.bytecode.opencsv.CSVWriter;
 
 public class CSVWrite {
 
-	private String filename = "C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160222/WebContent/data/test3.csv";
+	private String filename = "D:/Spring/finalProject160203/WebContent/data/test3.csv";
 
 	public CSVWrite() {
 	}
 
 	public void writeCsv(List<String[]> data) {
 		try {
-			CSVWriter cw = new CSVWriter(new FileWriter(filename), ',', '"');
+			CSVWriter cw = new CSVWriter(new FileWriter(new File("D:/Spring/finalProject160203/WebContent/data/test3.csv")), ',', '"');
 			Iterator<String[]> it = data.iterator();
 			try {
 //				while (it.hasNext()) {
