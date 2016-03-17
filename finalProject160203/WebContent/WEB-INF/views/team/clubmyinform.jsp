@@ -29,7 +29,8 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     type: 'get',
     success: function (data) {
       // console.log(data);
-       for(var i=0;i<data.length;i++){
+      
+       for(var i=data.length-1;i>=0;i--){
     	  
            longpass.push(data[i].longpass);              // 긴 패스 성공률 
            shotpass.push(data[i].shotpass);              // 짧은 패스 성공률 
@@ -95,7 +96,7 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     	        },
     	        yAxis: {
     	            title: {
-    	                text: '패스 성공률(100%)'
+    	                text: '득점률(100%)'
     	            },
     	            plotLines: [{
     	                value: 0,

@@ -2,42 +2,37 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <link href="CSS/clubview.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 <head>
-<!-- <style type="text/css"> -->
-<!-- table.bbslistta { -->
-<!--    border: 1px solid #E6E6E6; -->
-<!--    border-collapse: collapse; -->
-<!-- } -->
-
-<!-- th { -->
-<!--    border-bottom: 1px solid #E6E6E6; -->
-<!--    border-collapse: collapse; -->
-<!--    padding-top: 10px; -->
-<!--    padding-bottom: 10px; -->
-<!--    font-family: -윤고딕330; -->
-<!--    font-size: 10pt; -->
-<!-- } -->
-
-<!-- td { -->
-<!--    border-bottom: 1px solid #E6E6E6; -->
-<!--    border-collapse: collapse; -->
-<!--    font-family: -윤고딕320; -->
-<!--    font-size: 10pt; -->
-<!--    padding-top: 5px; -->
-<!--    padding-bottom: 5px; -->
-<!--    text-align: center; -->
-<!-- } -->
-<!-- </style> -->
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- <link href="CSS/styles.css" rel="stylesheet"> -->
 </head>
+<script>
+function a(){
+	
+	var join = document.f.team_join.value;
+	var team_join = document.f.team_join;
+	if (join == "on") {
+	   team_join.value = 1;
+	} else if (join == "off") {
+	   team_join.value = 0;
+	}
 
+	var open = document.f.team_open.value;
+	var team_open = document.f.team_open;
+	if (open == "on") {
+	   team_open.value = 1;
+	} else if (open == "off") {
+	   team_open.value = 0;
+	}
+	
+	document.f.submit();
+}
+
+</script>
 <body>
 
       <form action="teamsetting1.do" method="post" name="f"
@@ -168,9 +163,9 @@
                <th>팀 구장</th>
                <c:if test="${not empty team.team_home}">
                   <td style="text-align: left;"><input type="text" name="team_home"
-                     value="${team.team_home }" id="addr1" size="70"><a href="#"
-                     onclick="javascript:window.open('./post.do','','location=0,status=0,scrollbars=1,width=530,height=330');">
-                        <img src="image/wofun.png">
+                     value="${team.team_home }" id="addr1" size="70">
+                     <a href="#" onclick="javascript:window.open('./post.do','','width=900, height=600,top=70, left=220, resizable=no, scrollbars=no, status=no;');">
+                         <img src="image/wofun.png"> 
                   </a> </td>
                </c:if>
                <c:if test="${empty team.team_home}">
@@ -218,24 +213,8 @@
             </tr>
 
          </table>
-         <script type="text/javascript">
-            var join = document.f.team_join.value;
-            var team_join = document.f.team_join;
-            if (join == "on") {
-               team_join.value = 1;
-            } else if (join == "off") {
-               team_join.value = 0;
-            }
-
-            var open = document.f.team_open.value;
-            var team_open = document.f.team_open;
-            if (open == "on") {
-               team_open.value = 1;
-            } else if (open == "off") {
-               team_open.value = 0;
-            }
-         </script>
-         <input type="submit" value="수정">
+         
+         <input type="button" onclick='a()' value="수정">
          <br><br><br>
          
       </form>

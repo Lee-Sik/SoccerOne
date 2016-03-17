@@ -236,11 +236,11 @@ body{
 <table>
 <c:if test="${not empty fulist}">
  <tr> 
-   <c:forEach items="${fulist}" var="fulist" begin="1" end="4">
+   <c:forEach items="${fulist}" var="a" begin="1" end="4">
      
             <td>
-            <img alt="" src="image/${fulist.user_profile }" style="width: 150px;"><br>
-            ${fulist.user_name}
+            <img alt="${a.user_profile}" src="image/${a.user_profile}" style="width: 150px;"><br>
+            ${a.user_name}
             
             </td> 
            
@@ -248,15 +248,11 @@ body{
    </c:forEach>
    </tr>
     <tr> 
-   <c:forEach items="${fulist}" var="fulist" begin="4" end="7">
-     
+   <c:forEach items="${fulist}" var="b" begin="4" end="7">
             <td>
-            <img alt="" src="image/${fulist.user_profile }" style="width: 150px;"><br>
-            ${fulist.user_name}
-            
+            <img alt="${b.user_profile}" src="image/${b.user_profile}" style="width: 150px;"><br>
+            ${b.user_name}
             </td> 
-           
-      
    </c:forEach>
    </tr>
 </c:if>

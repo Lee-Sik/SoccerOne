@@ -80,6 +80,7 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
 
 </script>
 <script> //--------------------포지션 드레그 엔 드롭-------------------------//
+
 try {
 	tmp= false;
 var userPosition = []; //나중에 el 태그로 넣어 준다.
@@ -103,8 +104,6 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 		    	console.log(err);
 		    }
 		});
-
-
 	}
    
    function allowDrop(ev) {
@@ -136,13 +135,16 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
    }
    
    function drop2(ev) {
+   
 	   ev.preventDefault();
+	   
 	   var data = ev.dataTransfer.getData("text");
 	   
 	   if(tmp){
 		   //alert('a');
 			var target = document.getElementById(data3);
 	 		var source = document.getElementById(data);
+	 		//alert(source.offsetLeft+','+source.offsetTop);
 	 		
 			if(source.parentNode.id == 'gujang'){//외부에서 들어 올때
 				
@@ -184,7 +186,6 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
 							 
 					  document.getElementById('basket').replaceChild(targetClone,source);
 					  document.getElementById('basket').replaceChild(sourceClone,target);
-		
 			}
 			
 		   tmp= false;
@@ -291,6 +292,7 @@ var userPosition = []; //나중에 el 태그로 넣어 준다.
     	 	  "top" : y_pos +'px',
     		   "left" : x_pos +'px'
     		});
+     	 	
      	 	tmp= false;
  		}else if(source.parentNode.id == 'gujang'){
  			  kk[data].x =ev.pageX-45;//json 객체의 포지션을 변경 ->나중에 저장 할 때 필요
