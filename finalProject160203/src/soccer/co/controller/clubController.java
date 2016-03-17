@@ -304,7 +304,7 @@ public class clubController {
 			return "redirect:loginpopup1.do";
 		} else {
 			
-			model.addAttribute("title", "club");
+			model.addAttribute("title", "clubmyinfo");
 			model.addAttribute("menuNum", 2);
 			return "clubmyinform.tiles";
 
@@ -326,7 +326,8 @@ public class clubController {
 			foot_team_DTO team = (foot_team_DTO) session.getAttribute("team");
 			List<foot_user_DTO> teamMemberList = clubservice.getTeamMember(team.getTeam_name());
 			model.addAttribute("getteammember", teamMemberList);
-			model.addAttribute("title", "club");
+			model.addAttribute("title", "clubsetting");
+			model.addAttribute("menuNum", 3);
 			return "teamsetting.tiles";
 
 		}
@@ -417,6 +418,8 @@ public class clubController {
 			model.addAttribute("list", clubservice.getGu());
 			List<foot_team_DTO> allteam = clubservice.allteam();
 			model.addAttribute("allteam", allteam);
+			model.addAttribute("title", "club");
+			model.addAttribute("menuNum", 1);
 			return "clubsearch_yes.tiles";
 		}
 
