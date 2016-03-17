@@ -126,7 +126,8 @@ public class message_Controller {
 			fudto.setUser_email(fmdto.getSender_user_email());
 
 			messageservice.join(fudto);
-
+			
+			
 			return "redirect:messagedetail.do";
 		}
 
@@ -228,7 +229,6 @@ public class message_Controller {
 			return "redirect:messagedetail.do";
 
 		}
-
 	}
 
 	@RequestMapping(value = "messagesendlist.do", method = { RequestMethod.GET, RequestMethod.POST })
@@ -259,7 +259,6 @@ public class message_Controller {
 			foot_message_DTO fmdto1 = messageservice.messagedetail(fmdto);
 			model.addAttribute("messagesendlist1", fmdto1);
 			return "messagesendlist1.tiles";
-
 		}
 
 	}
