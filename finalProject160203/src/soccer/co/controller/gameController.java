@@ -38,7 +38,7 @@ public class gameController {
 
 	private static final Logger logger = LoggerFactory.getLogger(gameController.class);
 
-	@RequestMapping(value = "kickoff.do", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "kickoff.do", method = {RequestMethod.GET,RequestMethod.POST })
 	public String kickoff(Model model, HttpServletRequest request) throws Exception {
 		logger.info("Welcome gameController kickoff! " + new Date());
 		foot_user_DTO jyfudto = (foot_user_DTO) request.getSession().getAttribute("login");
@@ -58,7 +58,7 @@ public class gameController {
 			
 			String path = request.getRealPath("/");
 
-			File file = new File("D:/Spring/finalProject160203/WebContent/data/test3.csv");
+			File file = new File("C:/jsp/spring/finalProject160203/WebContent/data/test3.csv");
 		
 //			File file = new File("C:/jsp/spring/finalProject160203/WebContent/data/test2.csv");
 
