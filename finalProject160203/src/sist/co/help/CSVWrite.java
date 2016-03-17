@@ -17,7 +17,7 @@ public class CSVWrite {
 
 	public void writeCsv(List<String[]> data) {
 		try {
-			CSVWriter cw = new CSVWriter(new FileWriter(new File("C:/jsp/spring/finalProject160203/WebContent/data/test3.csv")), ',', '"');
+			CSVWriter cw = new CSVWriter(new FileWriter(new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160222/WebContent/data/test3.csv")), ',', '"');
 			Iterator<String[]> it = data.iterator();
 			try {
 //				while (it.hasNext()) {

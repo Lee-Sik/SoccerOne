@@ -58,7 +58,7 @@ public class gameController {
 			
 			String path = request.getRealPath("/");
 
-			File file = new File("C:/jsp/spring/finalProject160203/WebContent/data/test3.csv");
+			File file = new File("C:/Users/RyuDung/Desktop/study_jsp/eclipse/finalProject160222/WebContent/data/test3.csv");
 		
 //			File file = new File("C:/jsp/spring/finalProject160203/WebContent/data/test2.csv");
 

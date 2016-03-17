@@ -103,9 +103,6 @@ public class adminController {
 		 team3 = clubservice.getTeam2(team1);
 		 team4 = clubservice.getTeam2(team2);
 		
-		//System.out.println(team3.toString());
-		//System.out.println(team4.toString());
-		
 		model.addAttribute("team1", team3);
 		model.addAttribute("team2", team4);
 		model.addAttribute("record", fgr);
@@ -168,8 +165,11 @@ public class adminController {
 			String team1_goal,String team2_goal,String score, HttpServletRequest req, Model model) {
 		
 		logger.info("AdminGameRecord do!");
-		System.out.println(game_date);
+	//	System.out.println(game_date);
 	//	System.out.println(team2_goal);
+		List<foot_user_DTO> team1MemberList = clubservice.getTeamMember(team1_name);
+		System.out.println(team1MemberList.size());
+		List<foot_user_DTO> team2MemberList = clubservice.getTeamMember(team2_name);
 		
 		foot_game_record rec = new foot_game_record();
 		rec.setGame_no(Integer.parseInt(game_no));
@@ -196,8 +196,8 @@ public class adminController {
 		rec.setAway_local(team2_location1);
 		rec.setMatching_state(1);
 		
-		clubservice.updateGameRecord(rec);
-		clubservice.updatePublicRecord(rec);
+		//clubservice.updateGameRecord(rec);
+		//clubservice.updatePublicRecord(rec);
 		
 		//clubservice.updateMemberRecord(rec);필요 없음
 		
@@ -226,7 +226,7 @@ public class adminController {
 		
 		//System.out.println(tmp3[0]+" "+tmp3[1]+" "+tmp3[2]);
 		//System.out.println(tmp4[0]+" "+tmp4[1]+" "+tmp4[2]);
-		
+	
 		for(int j=0;j<tmp3.length;j++){
 			if(tmp3[j]!=0){
 				foot_user_DTO a = new foot_user_DTO();
@@ -239,14 +239,19 @@ public class adminController {
 				
 				foot_user_DTO b=clubservice.getUserByName(a);//이름과 팀명으로 찾는다. 같은 팀에 같은 이름 가지는 사람 안됨.
 				FOOT_USER_RECORD ur = new FOOT_USER_RECORD(b.getUser_email(),longpass,shot,tmp3[j],playTime,game_date);
-				System.out.println(ur.toString());
+				//System.out.println(ur.toString());
 				clubservice.insertUserRecord(ur);//유저 정보 삽입
+				for(int i=0;i<team1MemberList.size();i++){
+					if(team1MemberList.get(i).getUser_name().equals(tmp1[j])){
+						team1MemberList.remove(i);
+					}
+				}
 			}
 		}
 		for(int j=0;j<tmp4.length;j++){
 			if(tmp4[j]!=0){
 				foot_user_DTO a = new foot_user_DTO();
-				System.out.println(tmp2[j]+""+team2_name);
+				//System.out.println(tmp2[j]+""+team2_name);
 				a.setUser_name(tmp2[j]);
 				a.setUser_team(team2_name);
 				
@@ -255,14 +260,48 @@ public class adminController {
 				int playTime = (int)(Math.random()*120)+1;
 				
 				foot_user_DTO b=clubservice.getUserByName(a);//이름과 팀명으로 찾는다. 같은 팀에 같은 이름 가지는 사람 안됨.
-				System.out.println(b.toString());
+				
 				FOOT_USER_RECORD ur = new FOOT_USER_RECORD(b.getUser_email(),longpass,shot,tmp4[j],playTime,game_date);
-				System.out.println(ur.toString());
+				//System.out.println(ur.toString());
 				clubservice.insertUserRecord(ur);//유저 정보 삽입
+				
+				for(int i=0;i<team2MemberList.size();i++){
+					if(team2MemberList.get(i).getUser_name().equals(tmp2[j])){
+						team2MemberList.remove(i);
+					}
+				}
 			}
 		}
+		////////////골 안넣은 팀원////////////////
+		for(int i=0;i<team1MemberList.size();i++){
+	
+				foot_user_DTO a = new foot_user_DTO();
+				a.setUser_name(team1MemberList.get(i).getUser_name());
+				a.setUser_team(team1_name);
+				
+				int longpass = (int)(Math.random()*100)+1;
+				int shot = (int)(Math.random()*100)+1;
+				int playTime = (int)(Math.random()*120)+1;
+				
+				FOOT_USER_RECORD ur = new FOOT_USER_RECORD(team1MemberList.get(i).getUser_email(),longpass,shot,0,playTime,game_date);
+				clubservice.insertUserRecord(ur);//유저 정보 삽입
+			
+		}
+		for(int i=0;i<team2MemberList.size();i++){
+			
+			foot_user_DTO a = new foot_user_DTO();
+			a.setUser_name(team2MemberList.get(i).getUser_name());
+			a.setUser_team(team2_name);
+			
+			int longpass = (int)(Math.random()*100)+1;
+			int shot = (int)(Math.random()*100)+1;
+			int playTime = (int)(Math.random()*120)+1;
+			
+			FOOT_USER_RECORD ur = new FOOT_USER_RECORD(team2MemberList.get(i).getUser_email(),longpass,shot,0,playTime,game_date);
+			clubservice.insertUserRecord(ur);//유저 정보 삽입
 		
-		List<foot_team_DTO> teamList = null;
-		return teamList;
+	}
+		
+		return null;
 	}
 }
