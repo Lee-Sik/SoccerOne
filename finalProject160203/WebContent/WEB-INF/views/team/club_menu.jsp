@@ -15,23 +15,26 @@
 <div id='menu'>
 	<jsp:include page="../menu.jsp"/>
 	<ul class="menulist">
+	
 		<li><a href="club.do?user_address=${login.user_address}&user_team=${login.user_team}"><img src="./image/menu/club_off.png" class="image_rollover"></a></li>
-		<li><a href="./clubsearch_no.do"><img src="./image/menu/clubsearch_off.png" class="image_rollover"></a></li>
-		<li><a href="./ranking.do"><img src="./image/menu/clubinfo_off.png" class="image_rollover"></a></li>
-		<c:if test="${not empty team }"> <!-- 팀 있을때 -->
-			<li><a href='./clubsearch_yes.do'>클럽검색/모집</a></li>
+		
+		<c:if test="${empty team}"><!-- 팀X -->
+				<li><a href="./clubsearch_no.do"><img src="./image/menu/clubsearch_off.png" class="image_rollover"></a></li>
+				<c:if test="${not empty login }">
+					<li><a href='team_create.do?user_email=${login.user_email }'><img src="./image/menu/clubmake_off.png" class="image_rollover"></a></li>
+				</c:if>
+		</c:if><!-- 팀X -->
+		
+		<c:if test="${not empty team}"> <!-- 팀 있을때 -->
+			
+			<li><a href='./clubsearch_yes.do'><img src="./image/menu/clubsearch_off.png" class="image_rollover"></a></li>
 			<li><a href='./clubmyinform.do'><img src="./image/menu/clubmyinfo_off.png" class="image_rollover"></a></li>
-					<c:if test="${login.user_email eq team.team_managerid }">
-						<li><a href='./teamsetting.do'><img src="./image/menu/clubsetting_off.png" class="image_rollover"></a></li>
-					</c:if>
+				<c:if test="${login.user_email eq team.team_managerid }">
+					<li><a href='./teamsetting.do'><img src="./image/menu/clubsetting_off.png" class="image_rollover"></a></li>
+				</c:if>
 		</c:if><!-- 팀 있을때 -->
 		
-		<c:if test="${empty team }"><!-- 팀X -->
-					<li><a href='./clubsearch_no.do'>클럽검색/입단</a></li>
-					<c:if test="${not empty login }">
-						<li><a href='team_create.do?user_email=${login.user_email }'><img src="./image/menu/clubmake_off.png" class="image_rollover"></a></li>
-					</c:if>
-		</c:if><!-- 팀X -->
+		
 		
 	</ul>
 </div>

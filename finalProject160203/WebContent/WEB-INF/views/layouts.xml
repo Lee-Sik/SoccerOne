@@ -39,14 +39,7 @@
 	<put-attribute name="first" value="/WEB-INF/views/bbslist/refirst.jsp" />
 </definition>
 
-<definition name="no_team_club.tiles" extends="login.tiles">
-	<put-attribute name="main" value="/WEB-INF/views/team/no_clubView.jsp" />
-</definition>
 
-<definition name="team_club.tiles" extends="login.tiles">
-	<put-attribute name="menu" value="/WEB-INF/views/team/club_menu.jsp" />
-	<put-attribute name="main" value="/WEB-INF/views/team/clubView.jsp" />
-</definition>
 
 
 <definition name="join.tiles" template="/WEB-INF/views/join/join.jsp">
@@ -56,9 +49,6 @@
 </definition>
 
 <definition name="messagedetail1.tiles" template="/WEB-INF/views/message/messagedetail1.jsp">
-</definition>
-
-<definition name="rankapply.tiles" template="/WEB-INF/views/kickoff/rankapply.jsp">
 </definition>
 
 <definition name="loginpopup.tiles" template="/WEB-INF/views/login/loginpopup.jsp">
@@ -101,10 +91,8 @@
 <definition name="modifyfail.tiles" template="/WEB-INF/views/login/modifyfail.jsp">
 </definition>
 
-
 <definition name="teamView.tiles" template="/WEB-INF/views/team/teamView.jsp">
 </definition>
-
 
 <definition name="exit.tiles" template="/WEB-INF/views/join/exit.jsp">
 </definition>
@@ -145,8 +133,6 @@
 </definition>
 
 
-
-
 <!-- kickoff -->
 <definition name="kickoff.tiles" extends="login.tiles">
 	<put-attribute name="menu" value="/WEB-INF/views/kickoff/kickoff_menu.jsp" />
@@ -184,6 +170,9 @@
 
 <definition name="freegame.tiles" extends="kickoff.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/kickoff/freegame.jsp" />
+</definition>
+
+<definition name="rankapply.tiles" template="/WEB-INF/views/kickoff/rankapply.jsp">
 </definition>
 
 <definition name="ranking.tiles" extends="kickoff.tiles">
@@ -236,7 +225,8 @@
 <definition name="stadiumUpdate.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/stadium/stadiumUpdate.jsp" />
 </definition>
-<!-- freebooking -->
+
+<!-- Free booking -->
 <definition name="fbookingList.tiles" extends="login.tiles">
 	<put-attribute name="menu" value="/WEB-INF/views/stadium/stadium_menu.jsp" />
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingList.jsp"/>
@@ -249,7 +239,7 @@
 <definition name="fbookingDetail.tiles" extends="login.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/freeBooking/fbookingDetail.jsp"/>
 </definition>
-<!-- freebooking -->
+<!-- Free booking -->
 
 <!-- faMan -->
 <definition name="faManList.tiles" extends="login.tiles">
@@ -267,7 +257,6 @@
 <!-- faMan -->
 
 <!-- Community -->
-
 <definition name="community.tiles" extends="login.tiles">
 	<put-attribute name="menu" value="/WEB-INF/views/bbs/community_menu.jsp"/>
 	<put-attribute name="main" value="/WEB-INF/views/bbs/community.jsp" />
@@ -329,34 +318,42 @@
 </definition>
 <!-- Community -->
 
+<!-- Club -->
+<definition name="team_club.tiles" extends="login.tiles">
+	<put-attribute name="menu" value="/WEB-INF/views/team/club_menu.jsp" />
+	<put-attribute name="main" value="/WEB-INF/views/team/clubView.jsp" />
+</definition>
 
+<definition name="no_team_club.tiles" extends="team_club.tiles">
+	<put-attribute name="main" value="/WEB-INF/views/team/no_clubView.jsp" />
+</definition>
 
-<definition name="clubmyinform.tiles" extends="login.tiles">
+<definition name="clubmyinform.tiles" extends="team_club.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/clubmyinform.jsp" />
 </definition>
 
-<definition name="teamsetting.tiles" extends="login.tiles">
+<definition name="teamsetting.tiles" extends="team_club.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/teamsetting.jsp" />
 </definition>
 
 <definition name="teamdetail.tiles" template="/WEB-INF/views/team/teamdetail.jsp">
 </definition>
-<definition name="clubsearch_no.tiles" extends="login.tiles">
+<definition name="clubsearch_no.tiles" extends="team_club.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/clubsearch_no.jsp" />
 </definition>
 
-<definition name="clubsearch_no1.tiles" extends="login.tiles">
+<definition name="clubsearch_no1.tiles" extends="team_club.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/clubsearch_no1.jsp" />
 </definition>
 
-<definition name="clubsearch_yes.tiles" extends="login.tiles">
+<definition name="clubsearch_yes.tiles" extends="team_club.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/clubsearch_yes.jsp" />
 </definition>
 
-<definition name="clubsearch_yes1.tiles" extends="login.tiles">
+<definition name="clubsearch_yes1.tiles" extends="team_club.tiles">
 	<put-attribute name="main" value="/WEB-INF/views/team/clubsearch_yes1.jsp" />
 </definition>
-
+<!-- Club -->
 
 
 <definition name="teamapply.tiles" template="/WEB-INF/views/team/teamapply/teamapply.jsp">

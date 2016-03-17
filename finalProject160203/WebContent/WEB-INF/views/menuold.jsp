@@ -59,6 +59,7 @@
 						<li><a href='team_create.do?user_email=${login.user_email }'>팀생성</a></li>
 					</c:if>
 				</c:if>
+				
 				<c:if test="${not empty team }">
 					<li><a href='clubsearch_yes.do'>클럽검색/모집</a></li>
 					<li><a href='clubmyinform.do'>내정보</a></li>

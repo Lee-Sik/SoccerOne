@@ -24,7 +24,14 @@ tr.ryu:active {
 		<li><a href='./first.do'><img src="./image/menu/main_home.jpg"></a></li>
 		<li><a href='./kickoff.do'><img src="./image/menu/main_kickoff.jpg"></a></li>
 		<li><a href='./bookingList.do'><img src="./image/menu/main_booking.jpg"></a></li>
+		
+		<c:if test="${not empty login }">
 		<li><a href='club.do?user_address=${login.user_address}&user_team=${login.user_team}'><img src="./image/menu/main_club.jpg"></a></li>
+		</c:if>
+		<c:if test="${ empty login }">
+		<li><a href='loginpopup.do'><img src="./image/menu/main_club.jpg"></a></li>
+		</c:if>
+	
 		<li><a href='./bbslist.do'><img src="./image/menu/main_community.jpg"></a></li>
 		<li><a href='./hello.do'><img src="./image/menu/main_site.jpg"></a></li>
 		<c:if test="${login.user_email eq 'admin'}">
