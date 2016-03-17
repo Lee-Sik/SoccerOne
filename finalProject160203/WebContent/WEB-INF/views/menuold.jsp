@@ -45,14 +45,12 @@
 			
 		<li class='active'><a href='bookingList.do'>구장대관</a></li>
 		<li class='active'>
+		
 		<c:if test="${not empty login }">
-		<a
-
-			href='club.do?user_address=${login.user_address}&user_team=${login.user_team}'>클럽</a>
+		<a href='club.do?user_address=${login.user_address}&user_team=${login.user_team}'>클럽</a>
 		</c:if>
 		<c:if test="${ empty login }">
-		<a
-			href='loginpopup.do'>클럽</a>
+		<a href='loginpopup.do'>클럽</a>
 		</c:if>
 			<ul>
 				<c:if test="${empty team }">
