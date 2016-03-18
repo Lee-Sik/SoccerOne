@@ -12,6 +12,7 @@ function popupOpen1() {
 	var popUrl = "loginpopup2.do"; //팝업창에 출력될 페이지 URL
 	var popOption = "width=500, height=400,top=150, left=220, resizable=no, scrollbars=no, status=no;"; //팝업창 옵션(optoin)
 	window.open(popUrl, "", popOption);
+	history.back();
 }
 
 </script>
