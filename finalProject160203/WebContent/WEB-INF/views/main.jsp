@@ -7,11 +7,11 @@
 <link href="CSS/communitytable.css" rel="stylesheet" >
 
 <style>
-body{
-   background-image: url('./image/main_bg.jpg');
-   background-repeat: no-repeat;
-   background-position: left;
-}
+	/* body{ */
+	/*    background-image: url('./image/main_bg.jpg'); */
+	/*    background-repeat: no-repeat; */
+	/*    background-position: left; */
+	/* } */
 </style>
 
 <html>
@@ -50,31 +50,96 @@ body{
 <br>
 
 <div>
-<table class="list_table">
-<colgroup>
-<col style="width:280px;" />
-<col style="width:50px;" />
-<col style="width:90px;" />
-</colgroup>
-<tr>
-   <td colspan="3" style="text-align: left; font-weight: bold">축덕 포럼 게시글</td>
-</tr>
-<tr>
-      <th>제목</th> <th>작성자</th>  <th>작성일</th>
-</tr>
-<c:if test="${not empty bbslist}">
-   <c:forEach items="${bbslist}" var="bbslist" varStatus="vs" begin="1" end="5">
-      <tr>      
-            <td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
-            <td>${bbslist.user_email}</td> 
-            <c:set var="rdate" value="${bbslist.wdate}"/>
-            <c:set var="len" value="${fn:length(wdate)}"/>    
-            <td>${fn:substring(bbslist.wdate, 0, 10)}</td>   
-      </tr>
-   </c:forEach>
-</c:if>
-</table>
+	<table class="bbs" style="width: 100%;">
+	<colgroup>
+	<col style="width:60%;" />
+	<col style="width:40%;" />
+	</colgroup>
+		<tr>
+		<td>
+			<table class="list_table" style="width: 80%;">
+			<colgroup>
+			<col style="width:280px;" />
+			<col style="width:50px;" />
+			<col style="width:90px;" />
+			</colgroup>
+			<tr>
+			   <td colspan="3" style="text-align: left; font-weight: bold">축덕 포럼 게시글</td>
+			</tr>
+			<tr>
+			      <th>제목</th> <th>작성자</th>  <th>작성일</th>
+			</tr>
+			<c:if test="${not empty bbslist}">
+			   <c:forEach items="${bbslist}" var="bbslist" varStatus="vs" begin="1" end="5">
+			      <tr>      
+			            <td style="text-align: left"><a href='bbsdetail.do?bbs_no=${bbslist.bbs_no}'>${bbslist.title}</a></td>
+			            <td>${bbslist.user_email}</td> 
+			            <c:set var="rdate" value="${bbslist.wdate}"/>
+			            <c:set var="len" value="${fn:length(wdate)}"/>    
+			            <td>${fn:substring(bbslist.wdate, 0, 10)}</td>   
+			      </tr>
+			   </c:forEach>
+			</c:if>
+			</table>
+		</td>
+		
+		<td>
+			<c:if test="${not empty rankinglist}">
+			<table class="list_table" style="width: 100%;">
+			<colgroup>
+			<col style="width:100px;" />
+			<col style="width:100px;" />
+			<col style="width:100px;" />
+			<col style="width:100px;" />
+			<col style="width:100px;" />
+			</colgroup>
+			<tr>
+				<td colspan="5">${location} 리그 순위표</td>
+			</tr>
+			
+			<tr>
+				<th>순위</th> <th>클럽명</th> <th>승</th> <th>패</th> <th>승점</th>
+			</tr>
+			
+			<c:forEach items="${rankinglist}" var="rank" varStatus="vs">	
+			<tr>
+				<td>${rank.ranking}</td>
+				<td>${rank.team_name}</td>
+				<td>${rank.team_win}</td>
+				<td>${rank.team_lose}</td>
+				<td>${rank.team_point}</td>
+			</tr>
+			
+			</c:forEach>
+			</table>
+			</c:if>
+			
+			<c:if test="${empty rankinglist}">
+				<table class="list_table" style="width: 100%;">
+					<colgroup>
+					<col style="width:15%;" />
+					<col style="width:35%;" />
+					<col style="width:15%;" />
+					<col style="width:15%;" />
+					<col style="width:20%;" />
+					</colgroup>
+				<tr>
+					<td colspan="5">${location} 리그 순위표</td>
+				</tr>
+				
+				<tr>
+					<th>순위</th> <th>클럽명</th> <th>승</th> <th>패</th> <th>승점</th>
+				</tr>
+				<tr>
+					<td colspan="5">소속 된 팀 또는 지역구가 없습니다</td>
+				</tr>
+				</table>
+			</c:if>
+		</td>	
+		</tr>
+	</table>
 </div>
+
 <br>
 <h4 class="booking">부킹 정보</h4>
 <div class="book_list stadium_list" style="width: 95%; margin-left: 2%;" >

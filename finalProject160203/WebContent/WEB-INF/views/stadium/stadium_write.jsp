@@ -8,8 +8,7 @@
 <title>Insert title here</title>
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="CSS/styles.css">
-<!-- <SCRIPT LANGUAGE="JavaScript" SRC="https://www.ionnuri.org/ks20/js/jquery/jquery.js"></SCRIPT>
- -->
+
 
 <script type="text/javascript">
 	
@@ -51,66 +50,12 @@ $(document).ready(function() {
 			$("#stadium_phone").focus();
 			return;
 		}
-	/* 	if(count==0){
-			alert("이메일을 인증해주세요.");
-			return;
-		} */
+
 		alert("구장등록을 완료하였습니다.");
 		
 		$("#f1").submit();
 	});
-	
-	/* $("#btnPnumber").click(function() {
-		
-		if($("#email").val() == '') {
-			alert("이메일을 입력해주세요.");
-			return;
-		}
-		<c:forEach var="dto" items="${ulist}" >
-		if($("#email").val() == "${dto.user_email}" ){
-			alert("중복된 이메일 입니다.");
-			$("#email").val().focus();
-			return;
-		}
-		</c:forEach>
-		
-		
 
-		$("#emailFrame").fadeIn(350);
-		$("#btnPnumber").attr("disabled",true);
-					
-		http = jQuery.ajax({
-			url		: "./email.do",
-	   		type	: "POST",
-			data 	: 'receive='+$("#email").val()+'&result=${result}',
-			dataType: 'html',
-	   		async	: true,
-			success : function(msg) {
-
-				alert("인증번호가 메일로 발송되었습니다.");
-				
-				if(!f.emai.value) {
-					alert("이메일주소를 입력해주세요.");
-					return;
-				} 
-
-				num = msg;	
-			}
-	  	});
-
-	}); */
-	
-	/* $("#btnresult").click(function() {
-		
-		var email_num = "${result}";
-		alert(email_num);
-		if($("#eresult").val()==email_num){
-			alert("인증완료");
-			count = 1;
-		}else{
-			alert("인증이 안됨.");
-		}
-	}); */
 
 });
 
