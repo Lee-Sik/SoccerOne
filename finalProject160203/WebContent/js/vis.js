@@ -440,13 +440,13 @@
       });
       bar_chart_text_position = ['0, 5', '-25, 20', '15, 20'];
       bar_chart.selectAll('text').data(bar_chart_data).enter().append('text').text(function(d) {
-        return addCommas(d) + '명';
+        return addCommas(d) + '팀';
       }).attr('y', function(d) {
         return bar_chart_height - d / 1000 - bottom_padding - 10;
       }).style('font-size', '10px').attr("text-anchor", "start").attr('transform', function(d, i) {
         return 'translate(' + bar_chart_text_position[i] + ') rotate(-30)';
       });
-      return bar_chart.append("text").attr('x', 0).attr('y', bar_chart_height).attr("class", "all_stat").attr("text-anchor", "start").text('전체: ' + addCommas(this.total) + '명');
+      return bar_chart.append("text").attr('x', 0).attr('y', bar_chart_height).attr("class", "all_stat").attr("text-anchor", "start").text('전체: ' + addCommas(this.total) + '팀');
       /*
       @vis
           .append("text")
@@ -454,7 +454,7 @@
           .attr('y', 80)
           .attr("class", "all_stat")
           .attr("text-anchor", "start")
-          .text('일반: ' + addCommas(@total1) + '명 (' + (@total1 * 100 / @total).toFixed(2) + '%)')
+          .text('일반: ' + addCommas(@total1) + '팀 (' + (@total1 * 100 / @total).toFixed(2) + '%)')
           
       @vis
           .append("text")
@@ -462,7 +462,7 @@
           .attr('y', 100)
           .attr("class", "all_stat")
           .attr("text-anchor", "start")
-          .text('저소득: ' + addCommas(@total2) + '명 (' + (@total2 * 100 / @total).toFixed(2) + '%)')
+          .text('저소득: ' + addCommas(@total2) + '팀 (' + (@total2 * 100 / @total).toFixed(2) + '%)')
           
       @vis
           .append("text")
@@ -470,7 +470,7 @@
           .attr('y', 120)
           .attr("class", "all_stat")
           .attr("text-anchor", "start")
-          .text('기초생활수급권자: ' + addCommas(@total3) + '명 (' + (@total3 * 100 / @total).toFixed(2) + '%)')
+          .text('기초생활수급권자: ' + addCommas(@total3) + '팀 (' + (@total3 * 100 / @total).toFixed(2) + '%)')
       */
 
     };
@@ -490,7 +490,7 @@
       var target;
       if (d.id < 26) {
         target = this.district_centers[d.order - 1];
-        return this.vis.append("text").attr('x', target.x).attr('y', target.y).attr("class", "districts").attr("text-anchor", "middle").text(d.district + ': ' + addCommas(d.population) + '명');
+        return this.vis.append("text").attr('x', target.x).attr('y', target.y).attr("class", "districts").attr("text-anchor", "middle").text(d.district + ': ' + addCommas(d.population) + '팀');
       }
     };
 
@@ -506,8 +506,8 @@
       var content, id, item, rate1, rate2, rate3, values;
       if (element.className.baseVal === 'all') {
         content = "<span class=\"value\"> <strong>" + data.district + "</strong></span><br/>";
-        content += "<span class=\"value\"> <strong>" + data.group + ": " + (addCommas(data.value)) + "명</strong></span><br/>";
-        content += ("<span class=\"value\" style=\"font-size:10px;\"> 전체: " + (addCommas(data.population)) + "명 (") + data.order + " / " + this.district_count + "위)</span>";
+        content += "<span class=\"value\"> <strong>" + data.group + ": " + (addCommas(data.value)) + "팀</strong></span><br/>";
+        content += ("<span class=\"value\" style=\"font-size:10px;\"> 전체: " + (addCommas(data.population)) + "팀 (") + data.order + " / " + this.district_count + "위)</span>";
       } else if (element.className.baseVal === 'district') {
         values = (function() {
           var _ref, _results;
@@ -526,9 +526,9 @@
         rate1 = (values[2] * 100 / data.population).toFixed(2);
         rate2 = (values[1] * 100 / data.population).toFixed(2);
         rate3 = (values[0] * 100 / data.population).toFixed(2);
-        content = ("<span class=\"name\">상위:</span><span class=\"value\">" + (addCommas(values[2])) + "명 (") + rate1 + "%)</span><br/>";
-        content += ("<span class=\"name\">중위:</span><span class=\"value\">" + (addCommas(values[1])) + "명 (") + rate2 + "%)</span><br/>";
-        content += ("<span class=\"name\">하위:</span><span class=\"value\">" + (addCommas(values[0])) + "명 (") + rate3 + "%)</span>";
+        content = ("<span class=\"name\">상위:</span><span class=\"value\">" + (addCommas(values[2])) + "팀 (") + rate1 + "%)</span><br/>";
+        content += ("<span class=\"name\">중위:</span><span class=\"value\">" + (addCommas(values[1])) + "팀 (") + rate2 + "%)</span><br/>";
+        content += ("<span class=\"name\">하위:</span><span class=\"value\">" + (addCommas(values[0])) + "팀 (") + rate3 + "%)</span>";
       }
       d3.select(element).attr("stroke", "black");
       return this.tooltip.showTooltip(content, d3.event);
