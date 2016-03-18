@@ -20,7 +20,7 @@
 
 <br><br>
 <div align="center">
-
+<table>
 <tr>
 	<td><img src="./image/mainimg/best11.jpg"/></td>
 </tr>
@@ -91,7 +91,7 @@
 			</table>
 		</td>
 		
-		<td>
+		<td style="vertical-align:top;">
 			<c:if test="${not empty rankinglist}">
 			<table class="list_table" style="width: 100%;">
 			<colgroup>
