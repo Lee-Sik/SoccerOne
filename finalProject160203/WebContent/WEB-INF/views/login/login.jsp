@@ -20,7 +20,7 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     jsonpCallback: 'callback',
     type: 'get',
     success: function (data) {
-    	
+    	alert(data);
     	 var pattern = /[\[\]]/g;   // 특수문자 제거
     		
     	data = data.replace(pattern, "");
@@ -33,8 +33,8 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     	var table = document.createElement("div");// 1.노드를 생성한다.
     	
     	var td = document.createElement("td");
-		if(messagecheck==0){
-			table.innerHTML ='<div style="text-align: center"><span style="text-align: center">'+messagecheck+'</span></div>';
+		if(messagecheck1==0){
+			table.innerHTML ='<div style="text-align: center"><span style="text-align: center">'+messagecheck1+'</span></div>';
 		
 		td.innerHTML='<a href="" onclick="popupMessage()"> 도착한 쪽지가 없습니다.</a>';
 		
@@ -42,7 +42,7 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
 			table.innerHTML ='<div style="text-align: center"><span style="text-align: center">'+messagecheck1+'</span></div>';
 			
 		td.innerHTML='<a href="" onclick="popupMessage()"> 새로운 쪽지가'
-		+		'<span class="messagecheck1" ></span>개 있습니다.'
+		+		'<span class="messagecheck1" >'+messagecheck1+'</span>개 있습니다.'
 		+'</a>';
 		
 		}
