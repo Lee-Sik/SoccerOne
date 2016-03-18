@@ -513,7 +513,7 @@ public class stadiumController {
 	}
 
 	@RequestMapping(value = "bookingDetail.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String bookingDetail(Model model, HttpServletRequest request, HttpSession session) throws Exception {
+	public String bookingDetail(Model model, HttpServletRequest request, HttpSession sessionm,foot_user_DTO fudto) throws Exception {
 
 		/*
 		 * String root = request.getServletContext().getRealPath("/"); //여기까지가
@@ -539,6 +539,8 @@ public class stadiumController {
 			System.out.println("booking_seq : " + booking_seq);
 
 			foot_stadium_DTO sdto = service.stadiumDetail(stadium_seq);
+			fudto.setUser_email(sdto.getUser_email());
+			foot_user_DTO udto = uservice.login1(fudto);
 			foot_sbooking_DTO bdto = service.bookingDetail(booking_seq);
 
 			int game1 = service.getRentalSwitch(request.getParameter("booking_seq"), "game1");
@@ -566,6 +568,7 @@ public class stadiumController {
 			model.addAttribute("game7", game7);
 			model.addAttribute("sdto", sdto);
 			model.addAttribute("bdto", bdto);
+			model.addAttribute("udto", udto);
 			model.addAttribute("title", "publicbooking");
 			model.addAttribute("menuNum", 0);
 			return "bookingDetail.tiles";
