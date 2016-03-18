@@ -91,7 +91,7 @@ public class userController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			
-			return "notlogin.tiles";
+			return "login.tiles";
 		}
 		
 		List<foot_community_DTO> bbslist=BBSService.getBBSList();

@@ -168,8 +168,8 @@ public class message_Controller {
 		} else {
 
 			foot_message_DTO fmdto1 = new foot_message_DTO();
-			fmdto1.setSender_user_email(fmdto.getSender_user_email());
-			fmdto1.setReceiver_user_email(fmdto.getReceiver_user_email());
+			fmdto1.setSender_user_email(fmdto.getReceiver_user_email());
+			fmdto1.setReceiver_user_email(fmdto.getSender_user_email());
 			model.addAttribute("message", fmdto1);
 			return "messageanswer.tiles";
 

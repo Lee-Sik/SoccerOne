@@ -7,6 +7,7 @@
 <link href="CSS/communitytable.css" rel="stylesheet" >
 
 <style>
+
 	/* body{ */
 	/*    background-image: url('./image/main_bg.jpg'); */
 	/*    background-repeat: no-repeat; */
@@ -19,10 +20,7 @@
 
 <br><br>
 <div align="center">
-<table class="list_table" style="width: 85%;">
-<tr>
-<th>이달의 베스트 11</th>
-</tr>
+
 <tr>
 	<td><img src="./image/mainimg/best11.jpg"/></td>
 </tr>
@@ -56,6 +54,7 @@
 <!-- </table> -->
 </div>
 <br>
+
 
 <div align="center">
 	<table>
@@ -151,6 +150,7 @@
 
 <br>
 <h4 class="booking">부킹 정보</h4>
+
 <div class="book_list stadium_list" style="width: 95%; margin-left: 2%;" >
 		<table class="list_table" summary="부킹정보" style="width: 80%;">
 			<colgroup>
