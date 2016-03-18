@@ -23,6 +23,7 @@ tr.ryu:active {
 
    <ul>
       <li><a href='./first.do'><img src="./image/menu/main_home.jpg"></a></li>
+      
       <li><a href='./kickoff.do'><img src="./image/menu/main_kickoff.jpg"></a></li>
       <li><a href='./bookingList.do'><img src="./image/menu/main_booking.jpg"></a></li>
       

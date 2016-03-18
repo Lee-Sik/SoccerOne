@@ -20,6 +20,7 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     jsonpCallback: 'callback',
     type: 'get',
     success: function (data) {
+
     	 var pattern = /[\[\]]/g;   // 특수문자 제거
     		
     	data = data.replace(pattern, "");
