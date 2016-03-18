@@ -208,8 +208,8 @@ $("#_btnUpdate").click(function() {
 </form>
 
 <br>
-<a href="http://sports.news.naver.com/videoCenter/index.nhn?uCategory=wfootball&category=champs&id=178017">
-<img src="./image/bbs_video3.png"/></a>
+<a href="http://sports.news.naver.com/videoCenter/index.nhn?uCategory=wfootball&category=europa&id=181913">
+<img src="./image/bbs_video4.png"/></a>
 <br>
 
 
