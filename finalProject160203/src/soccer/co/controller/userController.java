@@ -86,22 +86,25 @@ public class userController {
 				model.addAttribute("rankinglist", rankinglist);
 				model.addAttribute("location", team.getTeam_location1());
 				
+				
 			}
 			request.getSession().setAttribute("loginfalse", loginfalse);
 		} catch (Exception e) {
 			e.printStackTrace();
+			List<foot_community_DTO> bbslist=BBSService.getBBSList();
+			model.addAttribute("bbslist", bbslist);
+			List<foot_sbooking_DTO> blist = service.bookingList(dto);
+			model.addAttribute("blist", blist);
 			
 			return "login.tiles";
 		}
 		
 		List<foot_community_DTO> bbslist=BBSService.getBBSList();
 		List<foot_sbooking_DTO> blist = service.bookingList(dto);
-
 		model.addAttribute("blist", blist);
 
 		List<foot_user_DTO> fulist=fuservice.userList1();
-		
-
+	
 		model.addAttribute("bbslist", bbslist);
 		model.addAttribute("fulist", fulist);
 		
