@@ -60,7 +60,6 @@ function move(this1) {
 
 $(document).ready(function() {
    
-    
    //$("#query").on('keydown',function(){
       $('#query').on('input',function(){
           if($('#query').val() != ''){

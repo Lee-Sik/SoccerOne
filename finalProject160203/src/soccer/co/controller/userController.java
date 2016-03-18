@@ -111,7 +111,7 @@ public class userController {
 	}
 
 	@RequestMapping(value = "login1.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String login1(Model model,foot_sbooking_DTO dto) throws Exception{
+	public String login1(Model model,HttpServletRequest request,foot_sbooking_DTO dto) throws Exception{
 		logger.info("Welcome HelloMemberController login1! " + new Date());
 		List<foot_community_DTO> bbslist=BBSService.getBBSList();
 		model.addAttribute("bbslist", bbslist);
@@ -119,6 +119,13 @@ public class userController {
 		List<foot_sbooking_DTO> blist = service.bookingList(dto);
 		model.addAttribute("blist", blist);
 		model.addAttribute("fulist", fulist);
+		foot_team_DTO team=(foot_team_DTO) request.getSession().getAttribute("team");
+		RANKParam rank= new RANKParam();
+		rank.setTeam_location(team.getTeam_location1());//이걸 
+
+		List<RANKParam> rankinglist = fgameservice.getrankingList(rank);
+		model.addAttribute("rankinglist", rankinglist);
+		model.addAttribute("location", team.getTeam_location1());
 		
 		return "login.tiles";
 	}
