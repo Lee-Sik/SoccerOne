@@ -6,7 +6,7 @@
 
 
 <a href="first.do">
-<img src="image/title.png" style="size: 100%">
+<img src="image/soccerone1.png" style="width: 150%">
 </a>
 <a href="#" onclick="window.external.AddFavorite('http://' + location.hostname,'사커원');">
 <img src="image/favorite.png" style="size: 100%"></a>
