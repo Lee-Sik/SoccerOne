@@ -56,14 +56,10 @@ public class gameController {
 			///////// 읽기///////////////
 			List<String[]> dataAll = new ArrayList<String[]>();
 			
-			String path = request.getRealPath("/");
-
-			
-			File file = new File("/Users/chojaeyong/Desktop/eclipse3/finalProject[real]/WebContent/data/test3.csv");
-			//File file = new File("D:/Spring/finalProject160203/WebContent/data/test3.csv");
-
-		
-//			File file = new File("C:/jsp/spring/finalProject160203/WebContent/data/test2.csv");
+			//String path = request.getRealPath("/");
+			//File file = new File(path + "data/test3.csv");
+			//System.out.println("req path == "+path);
+			File file = new File("C:/springstudy/finalProject160203/WebContent/data/test3.csv");
 
 			CSVReader reader = new CSVReader(new FileReader(file));
 			// UTF-8
@@ -72,6 +68,7 @@ public class gameController {
 			String[] str;
 			while ((str = reader.readNext()) != null) {
 				dataAll.add(str);
+				//System.out.println(str[3]);
 			}
 			///////// 읽기///////////////
 
