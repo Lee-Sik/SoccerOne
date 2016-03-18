@@ -27,12 +27,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import soccer.co.DTO.RANKParam;
 import soccer.co.DTO.foot_community_DTO;
 import soccer.co.DTO.foot_message_DTO;
 import soccer.co.DTO.foot_sbooking_DTO;
 import soccer.co.DTO.foot_team_DTO;
 import soccer.co.DTO.foot_user_DTO;
 import soccer.co.Service.foot_communityService;
+import soccer.co.Service.foot_gameService;
 import soccer.co.Service.foot_messageService;
 import soccer.co.Service.foot_stadiumService;
 import soccer.co.Service.foot_userService;
@@ -47,7 +49,9 @@ public class userController {
 	private foot_communityService BBSService;//IoC
 	@Autowired
 	private foot_stadiumService service;
-
+	@Autowired
+	foot_gameService fgameservice;
+	
 	private static final Logger logger = LoggerFactory.getLogger(userController.class);
 
 	@RequestMapping(value = "first.do", method = { RequestMethod.GET, RequestMethod.POST })
@@ -64,6 +68,7 @@ public class userController {
 		logger.info("Welcome HelloMemberController login! " + new Date());
 		foot_user_DTO login = null;
 		foot_team_DTO team = null;
+		
 		try {
 			login = fuservice.login(fudto);
 			ArrayList<foot_message_DTO> list = messageservice.messagecheck(login);
@@ -73,17 +78,27 @@ public class userController {
 			
 			if(login.getUser_team()!=null){
 				team = fuservice.loginteam(login);
+				
+				RANKParam rank= new RANKParam();
+				rank.setTeam_location(team.getTeam_location1());//이걸 
+		
+				List<RANKParam> rankinglist = fgameservice.getrankingList(rank);
+				model.addAttribute("rankinglist", rankinglist);
+				model.addAttribute("location", team.getTeam_location1());
+				
 			}
 			request.getSession().setAttribute("loginfalse", loginfalse);
 		} catch (Exception e) {
 			e.printStackTrace();
 			
-			login1 = "notlogin.tiles";
+			return "notlogin.tiles";
 		}
+		
 		List<foot_community_DTO> bbslist=BBSService.getBBSList();
 		List<foot_sbooking_DTO> blist = service.bookingList(dto);
-		model.addAttribute("bbslist", bbslist);
 		List<foot_user_DTO> fulist=fuservice.userList1();
+		
+		model.addAttribute("bbslist", bbslist);
 		model.addAttribute("fulist", fulist);
 		model.addAttribute("blist", blist);
 		request.getSession().setAttribute("team", team);
@@ -132,6 +147,7 @@ public class userController {
 		
 		request.getSession().setAttribute("team", team);
 		request.getSession().setAttribute("login", login);
+		
 		return login1;
 	}
 	

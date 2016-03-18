@@ -403,14 +403,12 @@ $(function(){
 				    <td class="status">				
 					<span id="game4" title="14시 00분 부터" class="booking">부킹</span></td><td><strong>예약가능</strong></td>
 				    </c:when>
-	
 				    <c:otherwise>			        
 				        <c:choose>				        
 						    <c:when test="${game4==1}">
 						    <td class="status">				
 							<span id="game4" title="14시 00분 부터" class="occupied">확정</span></td><td><strong>예약확정</strong></td>
 						    </c:when>				        
-						    
 						    <c:otherwise>
 						   	<td class="status">				
 							<span id="game4" title="14시 00분 부터" class="reserved">예약</span></td><td><strong>예약중</strong></td>

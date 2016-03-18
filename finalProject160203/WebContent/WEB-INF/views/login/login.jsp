@@ -21,8 +21,14 @@ $.ajax({//내 서버에서 필요한 객체를 자바스크립트로 가져오�
     type: 'get',
     success: function (data) {
     	
-    	messagecheck  =data[1];
-		messagecheck1 =data[3];
+    	 var pattern = /[\[\]]/g;   // 특수문자 제거
+    		
+    	data = data.replace(pattern, "");
+    	var check=data.split(",");
+    	alert(check);
+    	
+    	messagecheck  =check[0];
+		messagecheck1 =check[1];
 		
     	var table = document.createElement("div");// 1.노드를 생성한다.
     	
