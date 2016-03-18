@@ -42,6 +42,7 @@
 								<div class="btn_group">
 									<div class="right">
 										<a href="./stadium_write.do?mode=write" class="bbtn">구장등록</a>
+										<a href="./bookingList.do" class="sbbtn">목록보기</a>
 									</div>
 								</div>
 							</div>
