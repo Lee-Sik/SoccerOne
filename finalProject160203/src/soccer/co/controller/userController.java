@@ -96,22 +96,28 @@ public class userController {
 		
 		List<foot_community_DTO> bbslist=BBSService.getBBSList();
 		List<foot_sbooking_DTO> blist = service.bookingList(dto);
+
+		model.addAttribute("blist", blist);
+
 		List<foot_user_DTO> fulist=fuservice.userList1();
 		
+
 		model.addAttribute("bbslist", bbslist);
 		model.addAttribute("fulist", fulist);
-		model.addAttribute("blist", blist);
+		
 		request.getSession().setAttribute("team", team);
 		request.getSession().setAttribute("login", login);
 		return login1;
 	}
 
 	@RequestMapping(value = "login1.do", method = { RequestMethod.GET, RequestMethod.POST })
-	public String login1(Model model) throws Exception{
+	public String login1(Model model,foot_sbooking_DTO dto) throws Exception{
 		logger.info("Welcome HelloMemberController login1! " + new Date());
 		List<foot_community_DTO> bbslist=BBSService.getBBSList();
 		model.addAttribute("bbslist", bbslist);
 		List<foot_user_DTO> fulist=fuservice.userList1();
+		List<foot_sbooking_DTO> blist = service.bookingList(dto);
+		model.addAttribute("blist", blist);
 		model.addAttribute("fulist", fulist);
 		
 		return "login.tiles";
