@@ -18,6 +18,7 @@ tr.ryu:active {
     color: #333333;
 } 
 </style>
+
 <div id='mainmenu'>
 
    <ul>
@@ -47,8 +48,14 @@ tr.ryu:active {
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>
+// function move(this1) {
+//    window.open('teamView.do?team_name='+this1.innerHTML,'','','width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');
+// }
+
 function move(this1) {
-   window.open('teamView.do?team_name='+this1.innerHTML,'','','width=600, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;');
+	var popUrl = 'teamView.do?team_name='+this1.innerHTML; //팝업창에 출력될 페이지 URL
+	var popOption = "width=500, height=400,top=70, left=220, resizable=no, scrollbars=no, status=no;"; //팝업창 옵션(optoin)
+	window.open(popUrl, "", popOption);
 }
 
 $(document).ready(function() {
