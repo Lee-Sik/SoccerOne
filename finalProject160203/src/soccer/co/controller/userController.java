@@ -96,6 +96,59 @@ public class userController {
 			List<foot_sbooking_DTO> blist = service.bookingList(dto);
 			model.addAttribute("blist", blist);
 			
+			return "notlogin.tiles";
+		}
+		
+		List<foot_community_DTO> bbslist=BBSService.getBBSList();
+		List<foot_sbooking_DTO> blist = service.bookingList(dto);
+		model.addAttribute("blist", blist);
+
+		List<foot_user_DTO> fulist=fuservice.userList1();
+	
+		model.addAttribute("bbslist", bbslist);
+		model.addAttribute("fulist", fulist);
+		
+		request.getSession().setAttribute("team", team);
+		request.getSession().setAttribute("login", login);
+		return login1;
+	}
+	
+	
+	@RequestMapping(value = "login3.do", method = { RequestMethod.GET, RequestMethod.POST })
+	public String login3(foot_user_DTO fudto,HttpServletRequest request, Model model,foot_sbooking_DTO dto) throws Exception {
+		String login1 = "login.tiles";
+		int loginfalse = 0;
+		logger.info("Welcome HelloMemberController login! " + new Date());
+		foot_user_DTO login = null;
+		foot_team_DTO team = null;
+		
+		try {
+			login = fuservice.login(fudto);
+			ArrayList<foot_message_DTO> list = messageservice.messagecheck(login);
+			ArrayList<foot_message_DTO> list1 = messageservice.messagecheck1(login);
+			model.addAttribute("messagecheck", list);
+			model.addAttribute("messagecheck1", list1);
+			
+			if(login.getUser_team()!=null){
+				team = fuservice.loginteam(login);
+				
+				RANKParam rank= new RANKParam();
+				rank.setTeam_location(team.getTeam_location1());//이걸 
+		
+				List<RANKParam> rankinglist = fgameservice.getrankingList(rank);
+				model.addAttribute("rankinglist", rankinglist);
+				model.addAttribute("location", team.getTeam_location1());
+				
+				
+			}
+			request.getSession().setAttribute("loginfalse", loginfalse);
+		} catch (Exception e) {
+			e.printStackTrace();
+			List<foot_community_DTO> bbslist=BBSService.getBBSList();
+			model.addAttribute("bbslist", bbslist);
+			List<foot_sbooking_DTO> blist = service.bookingList(dto);
+			model.addAttribute("blist", blist);
+			
 			return "login.tiles";
 		}
 		
@@ -112,6 +165,8 @@ public class userController {
 		request.getSession().setAttribute("login", login);
 		return login1;
 	}
+	
+	
 
 	@RequestMapping(value = "login1.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login1(Model model,HttpServletRequest request,foot_sbooking_DTO dto) throws Exception{

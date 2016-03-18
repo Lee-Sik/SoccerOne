@@ -110,7 +110,10 @@ function popupOpen1() {
 				type="button" value="로그아웃" onclick="location.href='logout.do'"></td>
 				</c:if>
 				<c:if test="${empty login }">
-				<td colspan="3"><input type="button" value="회원가입"
+				<td colspan="3">
+				<input type="button" value="로그인"
+				onclick="location.href='first.do'">
+				<input type="button" value="회원가입"
 				onclick="location.href='javascript:popupOpen1()'"> </td>
 				</c:if>
 		</tr>
