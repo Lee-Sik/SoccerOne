@@ -65,7 +65,7 @@
 	</colgroup>
 		<tr>
 		<td>
-			<table class="list_table" style="width: 85%;">
+			<table class="list_table" style="width: 100%;">
 			<colgroup>
 			<col style="width:280px;" />
 			<col style="width:50px;" />
@@ -96,11 +96,11 @@
 			<c:if test="${not empty rankinglist}">
 			<table class="list_table" style="width: 100%;">
 			<colgroup>
-			<col style="width:100px;" />
-			<col style="width:100px;" />
-			<col style="width:100px;" />
-			<col style="width:100px;" />
-			<col style="width:100px;" />
+			<col style="width:15%;" />
+			<col style="width:auto;" />
+			<col style="width:15%;" />
+			<col style="width:15%;" />
+			<col style="width:15%;" />
 			</colgroup>
 			<tr>
 				<td colspan="5">${location} 리그 순위표</td>	
