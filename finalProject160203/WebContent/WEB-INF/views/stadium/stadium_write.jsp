@@ -8,8 +8,8 @@
 <title>Insert title here</title>
 <link href="CSS/booking.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="CSS/styles.css">
-<SCRIPT LANGUAGE="JavaScript" SRC="https://www.ionnuri.org/ks20/js/jquery/jquery.js"></SCRIPT>
-
+<!-- <SCRIPT LANGUAGE="JavaScript" SRC="https://www.ionnuri.org/ks20/js/jquery/jquery.js"></SCRIPT>
+ -->
 
 <script type="text/javascript">
 	
@@ -171,7 +171,7 @@ td.td2 {
                                         </li>
                                         <li>
                                             <span class="title">구장사진</span>
-                                            <ul class="inner_list">
+                                            <ul class="inner_list" style="padding: 0;">
                                                 <li>
                                                     <span class="title" style="margin-left: -1.2%;">축구장 사진 1</span> 
                                                     <div class="file_wr"><input type="text" id="simg1" name="simg1" readonly value="${dto.stadium_img1}"/> 

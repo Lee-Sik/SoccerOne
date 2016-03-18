@@ -188,7 +188,7 @@ $(function(){
 <div class="hb_wrap booking_wrap" style="margin-top: -20px;">
 
 <div class="book_view" style="width: 95%; margin-left: 30px;">
-	<h4>축구장 부킹신청</h4>
+	
 	<div class="share_box">
 		<ul class="share_nav">
 			<!--
@@ -207,7 +207,7 @@ $(function(){
 	<ul class="input_list view_list">
 		<li><span class="title">등록자 정보</span>
 			<ul class="inner_list bar">
-				<li><strong>[일반등록]</strong> ${sdto.user_email} </li>
+				<li><strong>[일반등록]</strong>${udto.user_name}(${sdto.user_email}) </li>
 				<li>연락처 : ${sdto.stadium_phone}</li>
 			</ul>
 		</li>

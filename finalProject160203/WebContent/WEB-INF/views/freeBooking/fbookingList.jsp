@@ -86,7 +86,7 @@ $(function(){
 	<div class="bbs_view dminhs">
 		<div class="bbs">
 			<div class="bbs-tab-area" style="position: relative;">
-				<ul style="width:100%; margin-top: -10px;  padding-left: 0px;">
+				<ul style="width:100%; margin-top: -10px;padding-left: 0px;">
 					<li class="on" style="width:7.695%">
 					<a href="./fbookingList.do">전체</a>
 					</li>
@@ -94,8 +94,16 @@ $(function(){
 					<c:forEach var="dto" items="${post1}">
 					
 					<c:choose>
-						
-						
+						<c:when test="${dto.gugun=='구로구'}">
+						<li class="" style="width:8.7%;">
+						<a href="./fbookingList.do?free_b_location=${dto.gugun}">${dto.gugun}</a>
+						</li>
+						</c:when>
+						<c:when test="${dto.gugun=='강서구'}">
+						<li class="" style="width:7.6%; margin-left: -1%;">
+						<a href="./fbookingList.do?free_b_location=${dto.gugun}">${dto.gugun}</a>
+						</li>
+						</c:when>
 						<c:when test="${dto.gugun=='중구'}">
 						<li class="" style="width:7.6%; display: none;">
 						<a href="./fbookingList.do?free_b_location=${dto.gugun}">${dto.gugun}</a>
