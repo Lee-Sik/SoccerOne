@@ -67,6 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getBBSList" resultType="soccer.co.DTO.foot_community_DTO">
 	<![CDATA[
   			SELECT * FROM FOOT_BBS
+  			WHERE DEL = 0
  			ORDER BY BBS_NO DESC
   		]]>
 	</select>
