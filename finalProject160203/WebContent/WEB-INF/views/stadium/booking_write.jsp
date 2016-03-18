@@ -132,7 +132,7 @@ td.td2 {
 								<div class="btn_group">
 									<div class="right">
 										<a href="#" class="bbtn" id="submitBt" onclick="">부킹 등록하기</a>
-										<a href="/booking/stadium/manage" class="sbbtn">목록보기</a>
+										<a href="./stadiumList.do?user_email=${login.user_email}" class="sbbtn">목록보기</a>
 									</div>
 								</div>
 							</div>
