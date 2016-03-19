@@ -31,7 +31,7 @@ $(function() {
 <form name="ms" id="_frmFormSearch" method="post" action="">
 <table class="list_table" style="width:85%;">
 <tr>
-	<td colspan="7">
+	<td colspan="6">
 		지역구 : <select name="game_location">
 			<option value="강남구" selected="selected">강남구</option>
 			<option value="강동구">강동구</option>
